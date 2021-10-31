@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/client.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/client.h">
+			<Option target="tsp"/>
+		</Unit>
 		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/main.c">
 			<Option target="tsp"/>
 		</Unit>

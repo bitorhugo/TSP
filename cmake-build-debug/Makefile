@@ -143,6 +143,33 @@ tsp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/build
 .PHONY : tsp/fast
 
+client.o: client.c.o
+
+.PHONY : client.o
+
+# target to build an object file
+client.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/client.c.o
+.PHONY : client.c.o
+
+client.i: client.c.i
+
+.PHONY : client.i
+
+# target to preprocess a source file
+client.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/client.c.i
+.PHONY : client.c.i
+
+client.s: client.c.s
+
+.PHONY : client.s
+
+# target to generate assembly for a file
+client.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/client.c.s
+.PHONY : client.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -179,6 +206,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... tsp"
+	@echo "... client.o"
+	@echo "... client.i"
+	@echo "... client.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

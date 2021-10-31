@@ -3,4 +3,4 @@ project(tsp C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(tsp main.c)
+add_executable(tsp main.c client.c client.h)
