@@ -39,18 +39,14 @@ typedef struct City{
 
 //-------------------------------------------//
 
-/**
- * creates new client
- * @param id id of client to be created
- * @return pointer to new client
- */
-Client *create_new_client(uint32_t id);
+
+Client *create_new_client(Client **head, uint32_t id);
 
 /**
  * prints client
  * @param client
  */
-void print_client(Client *client);
+void print_client(Client **head, Client *client);
 
 //-------------------------------------------//
 
