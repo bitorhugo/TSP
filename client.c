@@ -4,10 +4,13 @@
 
 #include "client.h"
 
+/*
+ * A -> B -> C -> NULL
+ */
 
 Client *post_new_client(Client **head, uint32_t id) {
     Client *new_client = allocate_memory_Client();
-    new_client->next_in_line = NULL;
+    new_client->next_client = NULL;
     new_client->user_id = id;
     if (new_client->user_id == 0) { // if first client is inserted point head at him
         *head = new_client;
@@ -20,14 +23,14 @@ Client *post_new_client(Client **head, uint32_t id) {
 
 void insert_new_client_head(Client **head) {
     Client *new_client = allocate_memory_Client();
-    new_client->next_in_line = *head;
-    *head = new_client;
-    printf("New client head at %p\tnext_in_line: %p\n", new_client, new_client->next_in_line);
+    new_client->next_client = *head; // D -> A
+    *head = new_client; // head -> D
+    printf("New client head at %p\tnext_client: %p\n", new_client, new_client->next_client);
 }
 
 void insert_new_client_tail(Client **head) {
     Client *new_client = allocate_memory_Client();
-    new_client->next_in_line = NULL;
+    new_client->next_client = NULL;
 
     //Check if head is NULL --> if is first client
     if (*head == NULL) {
@@ -36,31 +39,30 @@ void insert_new_client_tail(Client **head) {
     }
 
     Client *temp = *head;
-    while (temp->next_in_line != NULL) {
-        temp = temp->next_in_line; // copies next Client to temp
+    while (temp->next_client != NULL) {
+        temp = temp->next_client; // copies next Client to temp
     }
-    temp->next_in_line = new_client; // restores linkage
+    temp->next_client = new_client; // restores linkage
 
-    printf("New client tail at %p\tnext_in_line: %p\n", new_client, new_client->next_in_line);
+    printf("New client tail at %p\tnext_client: %p\n", new_client, new_client->next_client);
 }
 
-void print_client(Client **head, Client *client) {
+void print_clients(Client *client) {
     if (client == NULL) {
-        printf("client is NULL\n");
+        printf("No clients available\n");
+        return;
     }
-    else {
-        printf("Client_ID: %d\tClient address: %p\tnext_in_line address: %p\tHead: %p\n",
-               client->user_id,
-               client,
-               client->next_in_line,
-               *head);
+    while(client != NULL) {
+        printf("Client at %p\tnext client at %p\n", client, client->next_client);
+        client = client->next_client;
     }
 }
 
 Client* allocate_memory_Client() {
     Client *new_client = malloc(sizeof(Client));
     if (new_client == NULL) {
-        printf("Not able to allocate memory\n");
+        fprintf(stderr, "Not able to allocate memory\n");
+        exit(1);
     }
     return new_client;
 }

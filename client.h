@@ -29,7 +29,7 @@ typedef struct Client{
   uint16_t contact_number;
   uint32_t billing;
   Date registration;
-  struct Client *next_in_line; // pointer for the next client
+  struct Client *next_client; // pointer for the next client
 }Client;
 
 typedef struct City{
@@ -58,7 +58,11 @@ void insert_new_client_head(Client **head);
  */
 void insert_new_client_tail(Client **head);
 
-void print_client(Client **head, Client *client);
+/**
+ * prints all clients (linked list)
+ * @param client start of linked list
+ */
+void print_clients(Client *client);
 
 //-------------------------------------------//
 
