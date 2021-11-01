@@ -39,15 +39,33 @@ typedef struct City{
 
 //-------------------------------------------//
 
-
-Client *create_new_client(Client **head, uint32_t id);
+Client *post_new_client(Client **head, uint32_t id);
 
 /**
  * prints client
  * @param client
  */
+
+/**
+ * insert new client at the head of linked list
+ * @param head head of linked list
+ */
+void insert_new_client_head(Client **head);
+
+/**
+ * inserts new client at tail
+ * @param tail tail of linked list
+ */
+void insert_new_client_tail(Client **head);
+
 void print_client(Client **head, Client *client);
 
 //-------------------------------------------//
+
+/**
+ * Allocates memory for Client
+ * @return pointer to newly allocated memory
+ */
+Client* allocate_memory_Client();
 
 #endif //TSP_CLIENT_H
