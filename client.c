@@ -58,6 +58,23 @@ void print_clients(Client *client) {
     }
 }
 
+void read_clients_from_file(Client *head) {
+
+    FILE *file;
+    file = fopen("readme.txt", "r");
+    char line_of_file[100];
+    char* delim = (char *) ';';
+
+    if (file == NULL) exit(1);
+
+
+    while (fgets(line_of_file, sizeof(line_of_file), (FILE*) file) != NULL) {
+        
+
+    }
+
+}
+
 Client* allocate_memory_Client() {
     Client *new_client = malloc(sizeof(Client));
     if (new_client == NULL) {

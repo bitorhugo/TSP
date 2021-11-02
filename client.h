@@ -10,6 +10,8 @@
 #ifndef TSP_CLIENT_H
 #define TSP_CLIENT_H
 
+#define FILE_LINE_SIZE 100
+
 //-------------------------------------------//
 
 typedef struct Date{
@@ -39,7 +41,7 @@ typedef struct City{
 
 //-------------------------------------------//
 
-Client *post_new_client(Client **head, uint32_t id);
+Client *post_clients(FILE *file_clients);
 
 /**
  * prints client
@@ -63,6 +65,12 @@ void insert_new_client_tail(Client **head);
  * @param client start of linked list
  */
 void print_clients(Client *client);
+
+/**
+ * reads from csv file all clients
+ * @param head head of linked list
+ */
+void read_clients_from_file(Client *head);
 
 //-------------------------------------------//
 

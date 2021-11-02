@@ -6,6 +6,9 @@
 int main() {
 
     Client *head = NULL;
+    FILE * client_file = fopen("readme.txt", "r");
+
+
 
     insert_new_client_head(&head);
     insert_new_client_head(&head);
