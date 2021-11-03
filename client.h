@@ -32,6 +32,7 @@ typedef struct Client{
   uint32_t billing;
   Date registration;
   struct Client *next_client; // pointer for the next client
+  struct Client *last_client; // pointer for last client
 }Client;
 
 typedef struct City{
@@ -40,13 +41,6 @@ typedef struct City{
 }City; // Possible rename to gene
 
 //-------------------------------------------//
-
-Client *post_clients(FILE *file_clients);
-
-/**
- * prints client
- * @param client
- */
 
 /**
  * insert new client at the head of linked list
@@ -64,7 +58,16 @@ void insert_new_client_tail(Client **head);
  * prints all clients (linked list)
  * @param client start of linked list
  */
-void print_clients(Client *client);
+
+/**
+ * Removes client by user id
+ * @param head head of linked list
+ */
+void remove_client (Client **head, uint32_t userid);
+
+void search_client_by_id (Client **head, uint32_t userid);
+
+void print_clients(Client **head);
 
 /**
  * reads from csv file all clients
@@ -79,5 +82,12 @@ void read_clients_from_file(Client *head);
  * @return pointer to newly allocated memory
  */
 Client* allocate_memory_Client();
+
+/**
+ * checks if linked list is empty
+ * @param head head of list
+ * @return 1 if true | 0 if false
+ */
+int is_list_empty (Client **head);
 
 #endif //TSP_CLIENT_H
