@@ -56,7 +56,6 @@ void insert_new_client_tail(Client **head) {
  * 2 - Searches list until current client next_client->userid == userid_to_delete
  * 3 - if found points current client next_client to next_client->next_client
  * 4 - frees memory from wanted client
- * TODO: BEFORE DELETING CHECK IF CLIENT TO BE DELETED IS HEAD OR TAIL OF LINK
  */
 void remove_client (Client **head, uint32_t userid_to_delete) {
     if (is_list_empty(head)) {
@@ -67,12 +66,17 @@ void remove_client (Client **head, uint32_t userid_to_delete) {
     Client *temp = *head; // temp = memory addr of head
 
     while (temp != NULL) { // goes through linked list until the end
-        if (temp->user_id == userid_to_delete) { // checks if next client is equals id being searched
-                temp->next_client = temp->next_client->next_client; // removes wanted client from link
-                free(temp->next_client); // frees memory alloc from wanted client
-                return;
+        if (temp->user_id == userid_to_delete && temp == *head) { // checks if head is client to be deleted
+            *head = temp->next_client;
+            free (temp);
+            return;
         }
-        temp = temp->next_client;
+        else if (temp->next_client->user_id == userid_to_delete) {
+            temp->next_client = temp->next_client->next_client;
+            free (temp->next_client);
+            return;
+        }
+        else temp = temp->next_client;
     }
 
     printf("Client %d not found.\n", userid_to_delete);
