@@ -107,7 +107,7 @@ void print_clients(Client **head) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
         return;
     }
-
+    int *i;
     Client *temp = *head;
     while (temp->next_client != NULL) {
         printf("Client %d at %p\n", temp->user_id, temp);
