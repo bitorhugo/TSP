@@ -31,6 +31,8 @@ typedef struct Client{
   uint16_t contact_number;
   uint32_t billing;
   Date registration;
+  char* trips_finished;
+  char* trips_to_be_made;
   struct Client *next_client; // pointer for the next client
   struct Client *last_client; // pointer for last client
 }Client;
@@ -73,7 +75,22 @@ void print_clients(Client **head);
  * reads from csv file all clients
  * @param head head of linked list
  */
-void read_clients_from_file(Client *head);
+void read_clients_from_file(Client **head);
+
+/**
+ * Sorts list by VAT
+ * @param head head of linked list
+ */
+void sort_clients_VAT(Client **head);
+
+/**
+ * adds trip to clients trips array
+ * @param head head of linked list
+ * @param client_id wanted client
+ * @param country_name name of the country
+ */
+void create_trip_for_client (Client **head, uint32_t client_id, char* country_name);
+
 
 //-------------------------------------------//
 
@@ -84,10 +101,23 @@ void read_clients_from_file(Client *head);
 Client* allocate_memory_Client();
 
 /**
+ * Allocates memory for clients trips
+ * @return pointer to arrays first position
+ */
+char* allocate_memory_trips();
+
+/**
  * checks if linked list is empty
  * @param head head of list
  * @return 1 if true | 0 if false
  */
 int is_list_empty (Client **head);
+
+/**
+ * Frees memory used
+ * Safely ends program
+ * @param head head of liked list
+ */
+void free_clients_list (Client **head);
 
 #endif //TSP_CLIENT_H
