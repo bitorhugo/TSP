@@ -171,13 +171,15 @@ void create_trip_for_client (Client **head, uint32_t client_id, char* country_na
             }
             // TODO: ASK TEACHER ABOUT MEMORY USAGE, MAY NEED TO USE REALLOC
             else {
-                temp->trips_to_be_made = realloc(temp->trips_to_be_made,
-                                                 strlen(temp->trips_to_be_made)
-                                                 + strlen(country_name));
+                temp->trips_to_be_made = realloc(
+                        temp->trips_to_be_made,
+                        strlen(temp->trips_to_be_made) + strlen(country_name));
 
                 strcat(temp->trips_to_be_made, country_name);
                 strcat(temp->trips_to_be_made, " ");
-            }return;
+            }
+
+            return;
         }
     }
 

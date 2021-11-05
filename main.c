@@ -19,7 +19,7 @@ int main() {
     //print_clients(&head);
     //search_client_by_id(&head, 0);
 
-    free_clients_list(&head);
+    //free_clients_list(&head);
 
     return 0;
 }
