@@ -98,20 +98,20 @@ void create_trip_for_client (Client **head, uint32_t client_id, char* country_na
  * Allocates memory for Client
  * @return pointer to newly allocated memory
  */
-Client* allocate_memory_Client();
+static Client* allocate_memory_Client();
 
 /**
  * Allocates memory for clients trips
  * @return pointer to arrays first position
  */
-char* allocate_memory_trips();
+static char* allocate_memory_trips();
 
 /**
  * checks if linked list is empty
  * @param head head of list
  * @return 1 if true | 0 if false
  */
-int is_list_empty (Client **head);
+static int is_list_empty (Client **head);
 
 /**
  * Frees memory used

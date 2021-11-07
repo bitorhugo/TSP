@@ -168,6 +168,8 @@ void create_trip_for_client (Client **head, uint32_t client_id, char* country_na
             if (temp->trips_to_be_made == NULL) {
                 // allocates memory for country_name
                 temp->trips_to_be_made = allocate_memory_trips(strlen(country_name));
+                strcat(temp->trips_to_be_made, country_name);
+                strcat(temp->trips_to_be_made, " ");
             }
             // TODO: ASK TEACHER ABOUT MEMORY USAGE, MAY NEED TO USE REALLOC
             else {
@@ -185,7 +187,7 @@ void create_trip_for_client (Client **head, uint32_t client_id, char* country_na
 
 }
 
-Client* allocate_memory_Client () {
+static Client* allocate_memory_Client () {
     Client *new_client = malloc(sizeof(Client));
     if (new_client == NULL) {
         fprintf(stderr, "Not able to allocate memory\n");
@@ -194,26 +196,28 @@ Client* allocate_memory_Client () {
     return new_client;
 }
 
-char* allocate_memory_trips (int size) {
+static char* allocate_memory_trips (int size) {
     char* trips = malloc(sizeof (char) * (size + 1)); // .. + 1 == Adds byte for '\0'
     if (trips == NULL) fprintf(stderr, "Not able to allocate memory\n");
     return trips;
 }
 
 
-int is_list_empty (Client **head) {
+static int is_list_empty (Client **head) {
     if (*head == NULL) return 1;
     else return 0;
 }
 
 void free_clients_list (Client **head) {
 
-    Client *i = *head;
-    Client *j;
-    for (j = i; j != NULL; i = j->next_client) {
+    Client *temp = NULL;
 
-        free (i);
-
+    while (*head != NULL) {
+        temp = *head;
+        *head = temp->next_client;
+        free(temp);
     }
+
+
 }
 
