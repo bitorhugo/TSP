@@ -8,8 +8,6 @@
  * A -> B -> C -> NULL
  */
 
-// TODO: CHANGE TO CALLOC -> INITIALIZES VARIABLES AT 0
-
 /*
  * 1 - allocates memory to new client
  * 2 - new client points to first client (head)
@@ -177,7 +175,7 @@ void create_trip_for_client (Client **head, uint32_t client_id, char* country_na
                 temp->trips_to_be_made = allocate_memory_trips();
                 temp->trips_to_be_made->name = allocate_memory_trip_name(strlen(country_name));
                 strcat(temp->trips_to_be_made->name, country_name);
-                add_whitespace_country_name(country_name);
+                add_whitespace_country_name(temp->trips_to_be_made->name);
             }
             else {
                 temp->trips_to_be_made = realloc(
@@ -193,7 +191,7 @@ void create_trip_for_client (Client **head, uint32_t client_id, char* country_na
 }
 
 static Client* allocate_memory_Client () {
-    Client *new_client = malloc(sizeof(Client));
+    Client *new_client = calloc(1, sizeof(Client));
     if (new_client == NULL) {
         fprintf(stderr, "Not able to allocate memory\n");
         exit(1);
@@ -208,13 +206,12 @@ Country* allocate_memory_trips () {
 }
 
 static char* allocate_memory_trip_name (u_int64_t size) {
-
-    char *names = malloc ((sizeof(char) * size) + sizeof(char)); // adds space for whitespace
+    char *names = calloc(size + 1, sizeof(char));
     if (names == NULL) fprintf(stderr, "ERROR: NOT ABLE TO ALLOCATE MEMORY\n");
     return names;
 }
 
-void check_trips_null (Country *trips) {
+bool check_trips_null (Country *trips) {
 
     if (trips == NULL) {
         trips = allocate_memory_trips();
@@ -226,8 +223,9 @@ static char* add_whitespace_country_name(char* country_name) {
     bool flag = false;
 
     for (int i = 0; i < strlen(country_name); ++i) {
-        if (country_name[i] == ' ') flag = true;
+        if (isspace(country_name[i])) flag = true;
     }
+
     if (flag == false)
         strcat(country_name, " ");
 

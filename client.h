@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <ctype.h>
 
 //-------------------------------------------//
 
@@ -118,7 +119,7 @@ static char* allocate_memory_trip_name (uint64_t size);
  * checks if trips are null
  * @param trips pointer to trips of client
  */
-void check_trips_null (Country *trips);
+bool check_trips_null (Country *trips);
 
 /**
  * adds whitespaces after country name if necessary
