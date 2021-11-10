@@ -8,6 +8,7 @@
  * A -> B -> C -> NULL
  */
 
+// TODO: CHANGE TO CALLOC -> INITIALIZES VARIABLES AT 0
 
 /*
  * 1 - allocates memory to new client
@@ -153,6 +154,9 @@ void sort_clients_VAT (Client **head) {
  * 1 - checks if trips array is empty
  * 1.2 - if empty, allocate memory
  * 2 - insert trip
+ * TODO: Ask teacher if cities to visit inside of country are predetermined
+ * TODO: ASK TEACHER ABOUT MEMORY USAGE, MAY NEED TO USE REALLOC
+ * TODO: check_trips_null (temp->trips_to_be_made);
  */
 void create_trip_for_client (Client **head, uint32_t client_id, char* country_name) {
 
@@ -164,23 +168,24 @@ void create_trip_for_client (Client **head, uint32_t client_id, char* country_na
     Client *temp = *head;
 
     while (temp != NULL) {
-        if (temp->user_id == client_id) {
+        if (temp->user_id == client_id) { // searches for wanted client
+
+            //check_trips_null (temp->trips_to_be_made);
+
             if (temp->trips_to_be_made == NULL) {
-                // allocates memory for country_name
-                temp->trips_to_be_made = allocate_memory_trips(strlen(country_name));
-                strcat(temp->trips_to_be_made, country_name);
-                strcat(temp->trips_to_be_made, " ");
+                // allocates memory for desired country to travel to
+                temp->trips_to_be_made = allocate_memory_trips();
+                temp->trips_to_be_made->name = allocate_memory_trip_name(strlen(country_name));
+                strcat(temp->trips_to_be_made->name, country_name);
+                add_whitespace_country_name(country_name);
             }
-            // TODO: ASK TEACHER ABOUT MEMORY USAGE, MAY NEED TO USE REALLOC
             else {
                 temp->trips_to_be_made = realloc(
                         temp->trips_to_be_made,
-                        strlen(temp->trips_to_be_made) + strlen(country_name));
-
-                strcat(temp->trips_to_be_made, country_name);
-                strcat(temp->trips_to_be_made, " ");
+                        strlen(temp->trips_to_be_made->name) + strlen(country_name));
+                strcat(temp->trips_to_be_made->name, country_name);
+                add_whitespace_country_name(country_name);
             }
-
             return;
         }
     }
@@ -196,12 +201,38 @@ static Client* allocate_memory_Client () {
     return new_client;
 }
 
-static char* allocate_memory_trips (int size) {
-    char* trips = malloc(sizeof (char) * (size + 1)); // .. + 1 == Adds byte for '\0'
-    if (trips == NULL) fprintf(stderr, "Not able to allocate memory\n");
-    return trips;
+Country* allocate_memory_trips () {
+    Country *new_country = malloc (sizeof(Country));
+    if (new_country == NULL) fprintf(stderr, "Not able to allocate memory\n");
+    return new_country;
 }
 
+static char* allocate_memory_trip_name (u_int64_t size) {
+
+    char *names = malloc ((sizeof(char) * size) + sizeof(char)); // adds space for whitespace
+    if (names == NULL) fprintf(stderr, "ERROR: NOT ABLE TO ALLOCATE MEMORY\n");
+    return names;
+}
+
+void check_trips_null (Country *trips) {
+
+    if (trips == NULL) {
+        trips = allocate_memory_trips();
+    }
+
+}
+
+static char* add_whitespace_country_name(char* country_name) {
+    bool flag = false;
+
+    for (int i = 0; i < strlen(country_name); ++i) {
+        if (country_name[i] == ' ') flag = true;
+    }
+    if (flag == false)
+        strcat(country_name, " ");
+
+    return country_name;
+}
 
 static int is_list_empty (Client **head) {
     if (*head == NULL) return 1;
@@ -217,7 +248,6 @@ void free_clients_list (Client **head) {
         *head = temp->next_client;
         free(temp);
     }
-
 
 }
 

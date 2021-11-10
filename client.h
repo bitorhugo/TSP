@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 //-------------------------------------------//
 
@@ -20,27 +21,32 @@ typedef struct Date{
     uint16_t year;
 }Date;
 
-typedef struct Points{
+typedef struct Points {
     float x;
     float y;
-}Points;
+} Points;
 
-typedef struct Client{
+typedef struct City {
+    uint16_t city_id;
+    Points coordinates;
+} City; // Possible rename to gene
+
+typedef struct Country {
+    char* name;
+    City *cities;
+} Country;
+
+typedef struct Client {
   uint32_t user_id;
   char* address;
   uint16_t contact_number;
   uint32_t billing;
   Date registration;
-  char* trips_finished;
-  char* trips_to_be_made;
+  Country* trips_finished;
+  Country* trips_to_be_made;
   struct Client *next_client; // pointer for the next client
-  struct Client *last_client; // pointer for last client
-}Client;
+} Client;
 
-typedef struct City{
-    uint16_t city_id;
-    Points coordinates;
-}City; // Possible rename to gene
 
 //-------------------------------------------//
 
@@ -55,11 +61,6 @@ void insert_new_client_head(Client **head);
  * @param tail tail of linked list
  */
 void insert_new_client_tail(Client **head);
-
-/**
- * prints all clients (linked list)
- * @param client start of linked list
- */
 
 /**
  * Removes client by user id
@@ -104,7 +105,27 @@ static Client* allocate_memory_Client();
  * Allocates memory for clients trips
  * @return pointer to arrays first position
  */
-static char* allocate_memory_trips();
+Country* allocate_memory_trips();
+
+/**
+ * Allocates memory for trips names
+ * @param size strlen of country name
+ * @return allocated char memory
+ */
+static char* allocate_memory_trip_name (uint64_t size);
+
+/**
+ * checks if trips are null
+ * @param trips pointer to trips of client
+ */
+void check_trips_null (Country *trips);
+
+/**
+ * adds whitespaces after country name if necessary
+ * @param country_name country name
+ * @return refactored country name
+ */
+static char* add_whitespace_country_name(char* country_name);
 
 /**
  * checks if linked list is empty
