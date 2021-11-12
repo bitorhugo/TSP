@@ -1,5 +1,6 @@
 //
 // Created by Vitor Hugo on 31/10/2021.
+//  Estudo AG: Elitismo, cruzamento (cycle crossover), ...
 //
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,8 +35,8 @@ typedef struct City {
 
 typedef struct Country {
     char* name;
-    City *cities;
-} Country;
+    City *cities; // possible rename to individual
+} Country; // Possible rename to population
 
 typedef struct Client {
   uint32_t user_id;
@@ -45,6 +46,7 @@ typedef struct Client {
   Date registration;
   Country* trips_finished;
   Country* trips_to_be_made;
+  int size_trips_to_be_made;
   struct Client *next_client; // pointer for the next client
 } Client;
 
@@ -115,7 +117,7 @@ static Client* allocate_memory_Client();
  * @param size size to reallocate to
  * @return pointer to newly reallocated memory
  */
-static Country* realloc_memory_trip (Country *trips);
+static Country* realloc_memory_trip (Client *client, int size);
 
 /**
  * allocates trip and puts country
@@ -123,7 +125,7 @@ static Country* realloc_memory_trip (Country *trips);
  * @param country country to add
  * @param is_empty 1 if empty | 0 if not first trip
  */
-void fill_trip_client (Client* client, char* country);
+char* fill_trip_name_client (Country* client, char* country);
 
 /**
  * Allocates memory for clients trips
