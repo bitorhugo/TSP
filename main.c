@@ -9,9 +9,10 @@ int main() {
 
     insert_new_client(&head, 0);
 
-    create_trip_for_client(&head, 0, "Portugal");
-    create_trip_for_client(&head, 0, "Germany");
-    create_trip_for_client(&head, 0, "France");
+    insert_trip_for_client(&head, 0, "Portugal");
+    insert_trip_for_client(&head, 0, "Germany");
+    insert_trip_for_client(&head, 0, "France");
+    remove_trip_for_client(&head, 0, "Germany");
     //print_clients(&head);
     //remove_client(&head, 0);
     //print_clients(&head);

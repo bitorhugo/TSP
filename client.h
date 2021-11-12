@@ -98,9 +98,17 @@ void sort_clients_VAT(Client **head);
  * adds trip to clients trips array
  * @param head head of linked list
  * @param client_id wanted client
- * @param country_name name of the country
+ * @param country_name name of the country to insert
  */
-void create_trip_for_client (Client **head, uint32_t client_id, char* country_name);
+void insert_trip_for_client (Client **head, uint32_t client_id, char* country_name);
+
+/**
+ * removes a trip from a client
+ * @param head head of linked list
+ * @param client_id wanted client
+ * @param country_name name of the country to remove
+ */
+void remove_trip_for_client (Client **head, uint32_t client_id, char* country_name);
 
 
 //-------------------------------------------//
@@ -125,7 +133,7 @@ static Country* realloc_memory_trip (Client *client, int size);
  * @param country country to add
  * @param is_empty 1 if empty | 0 if not first trip
  */
-char* fill_trip_name_client (Country* client, char* country);
+char* insert_trip_name_client (Country* client, char* country);
 
 /**
  * Allocates memory for clients trips

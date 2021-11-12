@@ -14,7 +14,7 @@
 void insert_new_client (Client **head, bool position) {
 
     Client *new_client = allocate_memory_Client(); // allocates memory for new client
-    if (is_list_empty(head)) position == 0;
+    if (is_list_empty(head)) position = 0;
 
     if (position == 0) {
         new_client->next_client = *head; // stores head pointer in new client
@@ -178,31 +178,29 @@ static Client* allocate_memory_Client () {
  * 1 - checks if trips array is empty
  * 1.2 - if empty, allocate memory
  * 2 - insert trip
- * TODO: Ask teacher if cities to visit inside of country are predetermined
- * TODO: Ask teacher how to go to last element on temp.trips_to_be_made
  */
-void create_trip_for_client (Client **head, uint32_t client_id, char* country_name) {
+void insert_trip_for_client (Client **head, uint32_t client_id, char* country_name) {
 
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
         return;
     }
 
-    Client *temp = *head;
-    Country *temp2 = NULL;
+    Client *temp = *head; // temp for going through linked list
+    Country *temp2 = NULL; // temp for going through trips array
     while (temp != NULL) {
         if (temp->user_id == client_id) { // searches for wanted client
 
             if (temp->trips_to_be_made == NULL) {
                 // allocates memory for desired country to travel to
                 temp->trips_to_be_made = allocate_memory_trip();
-                temp->trips_to_be_made->name = fill_trip_name_client(temp->trips_to_be_made, country_name);
+                temp->trips_to_be_made->name = insert_trip_name_client(temp->trips_to_be_made, country_name);
                 temp->size_trips_to_be_made = 1;
             }
             else {
                 temp->trips_to_be_made = realloc_memory_trip(temp, temp->size_trips_to_be_made);
                 temp2 = temp->trips_to_be_made + temp->size_trips_to_be_made;
-                temp2->name = fill_trip_name_client(temp2, country_name);
+                temp2->name = insert_trip_name_client(temp2, country_name);
                 temp->size_trips_to_be_made ++;
             }
 /*
@@ -214,19 +212,37 @@ void create_trip_for_client (Client **head, uint32_t client_id, char* country_na
   */
             return;
         }
+        temp = temp->next_client;
     }
-
+    printf("Client not found\n");
 }
 
-/*
- * 1 - Checks if trips is empty
- * 2 - allocates/reallocates memory for trips
- * 3 - add name do trip
- */
-char* fill_trip_name_client (Country* trips, char* country) {
-        trips->name = allocate_memory_trip_name(strlen(country));
-        strcat(trips->name, country);
-        return trips->name;
+void remove_trip_for_client (Client **head, uint32_t client_id, char* country_name) {
+
+    if (is_list_empty(head)) {
+        fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
+        return;
+    }
+
+    Client *temp = *head;
+
+
+    while (temp != NULL) {
+
+        if (temp->user_id == client_id) {
+
+            for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
+                Country *temp3 = temp->trips_to_be_made + i;
+                if (strcmp(temp3->name, country_name) == 0) {
+                    printf("found\n");
+                }
+
+            }
+
+        }
+
+        temp = temp->next_client;
+    }
 }
 
 Country* allocate_memory_trip () {
@@ -239,6 +255,17 @@ Country* realloc_memory_trip (Client *client, int size) {
     client->trips_to_be_made = realloc(client->trips_to_be_made, (size + 1) * sizeof(Country));
     if (client->trips_to_be_made == NULL) fprintf(stderr, "NOT ABLE TO REALLOCATE MEMORY\n");
     return client->trips_to_be_made;
+}
+
+/*
+ * 1 - Checks if trips is empty
+ * 2 - allocates/reallocates memory for trips
+ * 3 - add name do trip
+ */
+char* insert_trip_name_client (Country* trips, char* country) {
+    trips->name = allocate_memory_trip_name(strlen(country));
+    strcat(trips->name, country);
+    return trips->name;
 }
 
 static char* allocate_memory_trip_name (u_int64_t size) {
