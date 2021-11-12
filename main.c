@@ -7,13 +7,13 @@ int main() {
 
     Client *head = NULL;
 
-    insert_new_client_head(&head);
-    insert_new_client_tail(&head);
-    insert_new_client_tail(&head);
-    insert_new_client_head(&head);
-    insert_new_client_head(&head);
-    create_trip_for_client(&head, 0, "Porto");
-    //create_trip_for_client(&head, 0, "Lisbon");
+    insert_new_client(&head, 0);
+    insert_new_client(&head, 1);
+    insert_new_client(&head, 0);
+    insert_new_client(&head, 1);
+
+    create_trip_for_client(&head, 0, "Portugal");
+    create_trip_for_client(&head, 0, "Germany");
     //print_clients(&head);
     //remove_client(&head, 0);
     //print_clients(&head);

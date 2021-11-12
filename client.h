@@ -28,7 +28,7 @@ typedef struct Points {
 } Points;
 
 typedef struct City {
-    uint16_t city_id;
+    uint32_t city_id;
     Points coordinates;
 } City; // Possible rename to gene
 
@@ -50,6 +50,13 @@ typedef struct Client {
 
 
 //-------------------------------------------//
+
+/**
+ * insert new client
+ * @param head head of linked list
+ * @param position 0 -> head | 1 -> tail
+ */
+void insert_new_client (Client **head, bool position);
 
 /**
  * insert new client at the head of linked list
@@ -103,10 +110,26 @@ void create_trip_for_client (Client **head, uint32_t client_id, char* country_na
 static Client* allocate_memory_Client();
 
 /**
+ * Reallocates memory for client
+ * @param trips data_structure to resize
+ * @param size size to reallocate to
+ * @return pointer to newly reallocated memory
+ */
+static Country* realloc_memory_trip (Country *trips);
+
+/**
+ * allocates trip and puts country
+ * @param client client
+ * @param country country to add
+ * @param is_empty 1 if empty | 0 if not first trip
+ */
+void fill_trip_client (Client* client, char* country);
+
+/**
  * Allocates memory for clients trips
  * @return pointer to arrays first position
  */
-Country* allocate_memory_trips();
+static Country* allocate_memory_trip();
 
 /**
  * Allocates memory for trips names
@@ -116,17 +139,12 @@ Country* allocate_memory_trips();
 static char* allocate_memory_trip_name (uint64_t size);
 
 /**
- * checks if trips are null
- * @param trips pointer to trips of client
+ *
+ * @param trips trips
+ * @param size size to reallocate to
+ * @return pointer to arrays first position
  */
-bool check_trips_null (Country *trips);
-
-/**
- * adds whitespaces after country name if necessary
- * @param country_name country name
- * @return refactored country name
- */
-static char* add_whitespace_country_name(char* country_name);
+static char* realloc_memory_trip_name (char *trip_name, uint64_t size);
 
 /**
  * checks if linked list is empty
