@@ -205,12 +205,13 @@ void create_trip_for_client (Client **head, uint32_t client_id, char* country_na
                 temp2->name = fill_trip_name_client(temp2, country_name);
                 temp->size_trips_to_be_made ++;
             }
-
+/*
             for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
                 Country *temp3 = temp->trips_to_be_made + i;
                 printf("%s\n", temp3->name);
             }
             printf("\n");
+  */
             return;
         }
     }
