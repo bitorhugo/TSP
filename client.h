@@ -39,7 +39,7 @@ typedef struct Country {
 } Country; // Possible rename to population
 
 typedef struct Client {
-  uint32_t* user_id;
+  uint32_t user_id;
   char* address;
   uint16_t contact_number;
   uint32_t billing;

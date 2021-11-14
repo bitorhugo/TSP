@@ -21,8 +21,7 @@ void insert_new_client (Client **head, bool position, uint32_t *client_id) {
     if (position == 0) {
         new_client->next_client = *head; // stores head pointer in new client
         *head = new_client; //
-        new_client->user_id = calloc(1, sizeof(uint32_t));
-        *new_client->user_id = id_number;
+        new_client->user_id = id_number;
         printf("New client head at %p\tnext_client: %p\n", new_client, new_client->next_client);
     } else {
         new_client->next_client = NULL;
@@ -34,7 +33,7 @@ void insert_new_client (Client **head, bool position, uint32_t *client_id) {
         // inserts new client at the end and restores link
         temp->next_client = new_client;
         new_client->next_client = NULL;
-        *new_client->user_id = id_number;
+        new_client->user_id = id_number;
         printf("New client tail at %p\tnext_client: %p\n", new_client, new_client->next_client);
     }
 }
@@ -96,12 +95,12 @@ void remove_client (Client **head, uint32_t userid_to_delete) {
     Client *temp = *head; // temp = memory addr of head
 
     while (temp != NULL) { // goes through linked list until the end
-        if (*temp->user_id == userid_to_delete && temp == *head) { // checks if head is client to be deleted
+        if (temp->user_id == userid_to_delete && temp == *head) { // checks if head is client to be deleted
             *head = temp->next_client;
             free (temp);
             return;
         }
-        else if (*temp->next_client->user_id == userid_to_delete) {
+        else if (temp->next_client->user_id == userid_to_delete) {
             temp->next_client = temp->next_client->next_client;
             free (temp->next_client);
             return;
@@ -124,7 +123,7 @@ void search_client_by_id (Client **head, uint32_t userid_to_search) {
 
     Client* temp = *head;
     while (temp != NULL) {
-        if (*temp->user_id == userid_to_search) {
+        if (temp->user_id == userid_to_search) {
             printf("Client with id %d found at %p\n", userid_to_search, temp);
             return;
         }
@@ -145,7 +144,7 @@ void print_clients (Client **head) {
 
     Client *temp = *head;
     while (temp != NULL) {
-        printf("Client %d at %p\n", *temp->user_id, temp);
+        printf("Client %d at %p\n", temp->user_id, temp);
         temp = temp->next_client;
     }
 }
@@ -192,7 +191,7 @@ void insert_trip_for_client (Client **head, uint32_t client_id, char* country_na
     Client *temp = *head; // temp for going through linked list
     Country *temp2 = NULL; // temp for going through trips array
     while (temp != NULL) {
-        if (*temp->user_id == client_id) { // searches for wanted client
+        if (temp->user_id == client_id) { // searches for wanted client
 
             if (temp->trips_to_be_made == NULL) {
                 // allocates memory for desired country to travel to
@@ -229,7 +228,7 @@ void remove_trip_for_client (Client **head, uint32_t client_id, char* country_na
     Client *temp = *head;
 
     while (temp != NULL) {
-        if (*temp->user_id == client_id) {
+        if (temp->user_id == client_id) {
             for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
                 Country *temp3 = temp->trips_to_be_made + i;
                 if (strcmp(temp3->name, country_name) == 0) {
@@ -262,7 +261,7 @@ void edit_trip_for_client (Client **head, uint32_t client_id, char* country_name
     Client *temp = *head;
 
     while (temp != NULL) {
-        if (*temp->user_id == client_id) {
+        if (temp->user_id == client_id) {
             for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
                 Country *temp_country = temp->trips_to_be_made + i;
                 if (strcmp(temp_country->name, country_name) == 0) {
@@ -291,7 +290,7 @@ void print_trips (Client **head, uint32_t client_id) {
     Client *temp = *head;
 
     while (temp != NULL) {
-        if (*temp->user_id == client_id) {
+        if (temp->user_id == client_id) {
             for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
                 Country *temp_country = temp->trips_to_be_made + i;
                 printf("%s\t", temp_country->name);
