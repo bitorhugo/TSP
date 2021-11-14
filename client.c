@@ -10,17 +10,20 @@
 
 //------------------CLIENT-------------------------//
 
+void insert_new_client (Client **head, bool position, uint32_t *client_id) {
 
-void insert_new_client (Client **head, bool position) {
+    if (is_list_empty(head)) position = 0;
 
     Client *new_client = allocate_memory_Client(); // allocates memory for new client
-    if (is_list_empty(head)) position = 0;
+    *(client_id) += 1;
+    uint32_t id_number = *client_id;
 
     if (position == 0) {
         new_client->next_client = *head; // stores head pointer in new client
         *head = new_client; //
+        new_client->user_id = calloc(1, sizeof(uint32_t));
+        *new_client->user_id = id_number;
         printf("New client head at %p\tnext_client: %p\n", new_client, new_client->next_client);
-
     } else {
         new_client->next_client = NULL;
 
@@ -31,7 +34,7 @@ void insert_new_client (Client **head, bool position) {
         // inserts new client at the end and restores link
         temp->next_client = new_client;
         new_client->next_client = NULL;
-
+        *new_client->user_id = id_number;
         printf("New client tail at %p\tnext_client: %p\n", new_client, new_client->next_client);
     }
 }
@@ -93,12 +96,12 @@ void remove_client (Client **head, uint32_t userid_to_delete) {
     Client *temp = *head; // temp = memory addr of head
 
     while (temp != NULL) { // goes through linked list until the end
-        if (temp->user_id == userid_to_delete && temp == *head) { // checks if head is client to be deleted
+        if (*temp->user_id == userid_to_delete && temp == *head) { // checks if head is client to be deleted
             *head = temp->next_client;
             free (temp);
             return;
         }
-        else if (temp->next_client->user_id == userid_to_delete) {
+        else if (*temp->next_client->user_id == userid_to_delete) {
             temp->next_client = temp->next_client->next_client;
             free (temp->next_client);
             return;
@@ -121,7 +124,7 @@ void search_client_by_id (Client **head, uint32_t userid_to_search) {
 
     Client* temp = *head;
     while (temp != NULL) {
-        if (temp->user_id == userid_to_search) {
+        if (*temp->user_id == userid_to_search) {
             printf("Client with id %d found at %p\n", userid_to_search, temp);
             return;
         }
@@ -142,7 +145,7 @@ void print_clients (Client **head) {
 
     Client *temp = *head;
     while (temp != NULL) {
-        printf("Client %d at %p\n", temp->user_id, temp);
+        printf("Client %d at %p\n", *temp->user_id, temp);
         temp = temp->next_client;
     }
 }
@@ -163,7 +166,7 @@ void read_clients_from_file (Client **head) {
 
 }
 
-static Client* allocate_memory_Client () {
+Client* allocate_memory_Client () {
     Client *new_client = calloc(1, sizeof(Client));
     if (new_client == NULL) {
         fprintf(stderr, "Not able to allocate memory\n");
@@ -189,7 +192,7 @@ void insert_trip_for_client (Client **head, uint32_t client_id, char* country_na
     Client *temp = *head; // temp for going through linked list
     Country *temp2 = NULL; // temp for going through trips array
     while (temp != NULL) {
-        if (temp->user_id == client_id) { // searches for wanted client
+        if (*temp->user_id == client_id) { // searches for wanted client
 
             if (temp->trips_to_be_made == NULL) {
                 // allocates memory for desired country to travel to
@@ -203,13 +206,6 @@ void insert_trip_for_client (Client **head, uint32_t client_id, char* country_na
                 temp2->name = insert_trip_name_client(temp2, country_name);
                 temp->size_trips_to_be_made ++;
             }
-/*
-            for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
-                Country *temp3 = temp->trips_to_be_made + i;
-                printf("%s\n", temp3->name);
-            }
-            printf("\n");
-  */
             return;
         }
         temp = temp->next_client;
@@ -217,6 +213,12 @@ void insert_trip_for_client (Client **head, uint32_t client_id, char* country_na
     printf("Client not found\n");
 }
 
+/*
+ * 1 - searches for wanted client
+ * 2 - searches inside of client trips array for wanted trip
+ * 3 - deletes wanted trip
+ * 4 - reallocates memory for new trips array size
+ */
 void remove_trip_for_client (Client **head, uint32_t client_id, char* country_name) {
 
     if (is_list_empty(head)) {
@@ -226,21 +228,76 @@ void remove_trip_for_client (Client **head, uint32_t client_id, char* country_na
 
     Client *temp = *head;
 
-
     while (temp != NULL) {
-
-        if (temp->user_id == client_id) {
-
+        if (*temp->user_id == client_id) {
             for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
                 Country *temp3 = temp->trips_to_be_made + i;
                 if (strcmp(temp3->name, country_name) == 0) {
-                    printf("found\n");
+                    for (int j = i; j < temp->size_trips_to_be_made; ++j) {
+                        *(temp->trips_to_be_made + j) = *(temp->trips_to_be_made + j + 1);
+                    }
+                    temp->size_trips_to_be_made -= 1;
+                    realloc_memory_trip(temp, temp->size_trips_to_be_made);
+                    return;
                 }
-
             }
-
         }
+        temp = temp->next_client;
+    }
+    fprintf(stderr, "TRIP NOT FOUND\n");
+}
 
+/*
+ * 1 - searches for wanted client
+ * 2 - searches inside of clients trips array for wanted trip
+ * 3 - edits wanted trip
+ */
+void edit_trip_for_client (Client **head, uint32_t client_id, char* country_name, char* new_country_name) {
+
+    if (is_list_empty(head)) {
+        fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
+        return;
+    }
+
+    Client *temp = *head;
+
+    while (temp != NULL) {
+        if (*temp->user_id == client_id) {
+            for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
+                Country *temp_country = temp->trips_to_be_made + i;
+                if (strcmp(temp_country->name, country_name) == 0) {
+                    realloc_memory_trip_name(temp_country->name, strlen(new_country_name));
+                    strcpy(temp_country->name, new_country_name);
+                    return;
+                }
+            }
+        }
+        temp = temp->next_client;
+    }
+}
+
+/*
+ * 1 - searches for wanted client
+ * 2 - iterates over trips array
+ * 3 - prints each trip made
+ */
+void print_trips (Client **head, uint32_t client_id) {
+
+    if (is_list_empty(head)) {
+        fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
+        return;
+    }
+
+    Client *temp = *head;
+
+    while (temp != NULL) {
+        if (*temp->user_id == client_id) {
+            for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
+                Country *temp_country = temp->trips_to_be_made + i;
+                printf("%s\t", temp_country->name);
+            }
+            printf("\n");
+        }
         temp = temp->next_client;
     }
 }
@@ -268,13 +325,13 @@ char* insert_trip_name_client (Country* trips, char* country) {
     return trips->name;
 }
 
-static char* allocate_memory_trip_name (u_int64_t size) {
+char* allocate_memory_trip_name (u_int64_t size) {
     char *names = calloc(size, sizeof(char));
     if (names == NULL) fprintf(stderr, "ERROR: NOT ABLE TO ALLOCATE MEMORY\n");
     return names;
 }
 
-static char* realloc_memory_trip_name (char *trips, uint64_t size) {
+char* realloc_memory_trip_name (char *trips, uint64_t size) {
     trips = realloc(trips, strlen(trips) + size);
     if (trips == 0) fprintf(stderr, "NOT ABLE TO REALLOCATE MEMORY\n");
     return trips;
@@ -282,7 +339,7 @@ static char* realloc_memory_trip_name (char *trips, uint64_t size) {
 
 //------------------GENERAL-------------------------//
 
-static int is_list_empty (Client **head) {
+int is_list_empty (Client **head) {
     if (*head == NULL) return 1;
     else return 0;
 }

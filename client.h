@@ -39,7 +39,7 @@ typedef struct Country {
 } Country; // Possible rename to population
 
 typedef struct Client {
-  uint32_t user_id;
+  uint32_t* user_id;
   char* address;
   uint16_t contact_number;
   uint32_t billing;
@@ -58,7 +58,7 @@ typedef struct Client {
  * @param head head of linked list
  * @param position 0 -> head | 1 -> tail
  */
-void insert_new_client (Client **head, bool position);
+void insert_new_client (Client **head, bool position, uint32_t *client_id);
 
 /**
  * insert new client at the head of linked list
@@ -94,6 +94,8 @@ void read_clients_from_file(Client **head);
  */
 void sort_clients_VAT(Client **head);
 
+//-------------------------------------------//
+
 /**
  * adds trip to clients trips array
  * @param head head of linked list
@@ -110,14 +112,28 @@ void insert_trip_for_client (Client **head, uint32_t client_id, char* country_na
  */
 void remove_trip_for_client (Client **head, uint32_t client_id, char* country_name);
 
+/**
+ * edits trip of wanted client
+ * @param head head of linked list
+ * @param client_id wanted client
+ * @param country_name trip to be replaced
+ * @param new_country_name new trip
+ */
+void edit_trip_for_client (Client **head, uint32_t client_id, char* country_name, char* new_country_name);
 
+/**
+ * prints all trips wanted client made
+ * @param head head of linked list
+ * @param client_id wanted client
+ */
+void print_trips (Client **head, uint32_t client_id);
 //-------------------------------------------//
 
 /**
  * Allocates memory for Client
  * @return pointer to newly allocated memory
  */
-static Client* allocate_memory_Client();
+Client* allocate_memory_Client();
 
 /**
  * Reallocates memory for client
@@ -146,7 +162,7 @@ static Country* allocate_memory_trip();
  * @param size strlen of country name
  * @return allocated char memory
  */
-static char* allocate_memory_trip_name (uint64_t size);
+char* allocate_memory_trip_name (uint64_t size);
 
 /**
  *
@@ -154,14 +170,14 @@ static char* allocate_memory_trip_name (uint64_t size);
  * @param size size to reallocate to
  * @return pointer to arrays first position
  */
-static char* realloc_memory_trip_name (char *trip_name, uint64_t size);
+char* realloc_memory_trip_name (char *trip_name, uint64_t size);
 
 /**
  * checks if linked list is empty
  * @param head head of list
  * @return 1 if true | 0 if false
  */
-static int is_list_empty (Client **head);
+int is_list_empty (Client **head);
 
 /**
  * Frees memory used
