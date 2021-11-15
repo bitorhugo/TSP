@@ -50,7 +50,6 @@ typedef struct Client {
   struct Client *next_client; // pointer for the next client
 } Client;
 
-
 //-------------------------------------------//
 
 /**
@@ -94,7 +93,7 @@ void read_clients_from_file(Client **head);
  */
 void sort_clients_VAT(Client **head);
 
-//-------------------------------------------//
+//------------------TRIPS-------------------------//
 
 /**
  * adds trip to clients trips array
@@ -127,6 +126,47 @@ void edit_trip_for_client (Client **head, uint32_t client_id, char* country_name
  * @param client_id wanted client
  */
 void print_trips (Client **head, uint32_t client_id);
+
+//------------------TRIPS-------------------------//
+
+/**
+ * inserts cities to visit
+ * @param head head of linked list
+ * @param client_id client wanted
+ * @param country_name country name
+ * @param city_name city to insert
+ */
+void insert_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
+
+/**
+ * deletes a city from trip
+ * @param head head of linked list
+ * @param client_id wanted client
+ * @param country_name country name
+ * @param city_name city to delete
+ */
+void delete_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
+
+/**
+ * edits a city from trip
+ * @param head head of linked list
+ * @param client_id wanted client
+ * @param country_name country name
+ * @param city_name city to be edited
+ * @param new_city_name new city name
+ */
+void edit_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name, char *new_city_name);
+
+/**
+ * searches a city inside trip
+ * @param head head of linked list
+ * @param client_id wanted client
+ * @param country_name country name
+ * @param city_name city to print
+ */
+void search_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
+
+
 //-------------------------------------------//
 
 /**

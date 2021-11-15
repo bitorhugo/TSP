@@ -165,15 +165,6 @@ void read_clients_from_file (Client **head) {
 
 }
 
-Client* allocate_memory_Client () {
-    Client *new_client = calloc(1, sizeof(Client));
-    if (new_client == NULL) {
-        fprintf(stderr, "Not able to allocate memory\n");
-        exit(1);
-    }
-    return new_client;
-}
-
 //------------------TRIPS-------------------------//
 
 /*
@@ -291,26 +282,17 @@ void print_trips (Client **head, uint32_t client_id) {
 
     while (temp != NULL) {
         if (temp->user_id == client_id) {
+            if (temp->size_trips_to_be_made == 0) fprintf(stderr, "NO TRIPS FOUND\n");
             for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
                 Country *temp_country = temp->trips_to_be_made + i;
                 printf("%s\t", temp_country->name);
             }
             printf("\n");
+            return;
         }
         temp = temp->next_client;
     }
-}
-
-Country* allocate_memory_trip () {
-    Country *new_country = calloc(1, sizeof(Country));
-    if (new_country == NULL) fprintf(stderr, "NOT ABLE TO ALLOCATE MEMORY\n");
-    return new_country;
-}
-
-Country* realloc_memory_trip (Client *client, int size) {
-    client->trips_to_be_made = realloc(client->trips_to_be_made, (size + 1) * sizeof(Country));
-    if (client->trips_to_be_made == NULL) fprintf(stderr, "NOT ABLE TO REALLOCATE MEMORY\n");
-    return client->trips_to_be_made;
+    fprintf(stderr, "CLIENT NOT FOUND\n");
 }
 
 /*
@@ -324,10 +306,41 @@ char* insert_trip_name_client (Country* trips, char* country) {
     return trips->name;
 }
 
+//------------------Cities-------------------------//
+
+
+
+
+
+//------------------Allocate-------------------------//
+
+Client* allocate_memory_Client () {
+    Client *new_client = calloc(1, sizeof(Client));
+    if (new_client == NULL) {
+        fprintf(stderr, "Not able to allocate memory\n");
+        exit(1);
+    }
+    return new_client;
+}
+
+Country* allocate_memory_trip () {
+    Country *new_country = calloc(1, sizeof(Country));
+    if (new_country == NULL) fprintf(stderr, "NOT ABLE TO ALLOCATE MEMORY\n");
+    return new_country;
+}
+
 char* allocate_memory_trip_name (u_int64_t size) {
     char *names = calloc(size, sizeof(char));
     if (names == NULL) fprintf(stderr, "ERROR: NOT ABLE TO ALLOCATE MEMORY\n");
     return names;
+}
+
+//------------------Reallocate-------------------------//
+
+Country* realloc_memory_trip (Client *client, int size) {
+    client->trips_to_be_made = realloc(client->trips_to_be_made, (size + 1) * sizeof(Country));
+    if (client->trips_to_be_made == NULL) fprintf(stderr, "NOT ABLE TO REALLOCATE MEMORY\n");
+    return client->trips_to_be_made;
 }
 
 char* realloc_memory_trip_name (char *trips, uint64_t size) {
@@ -336,7 +349,7 @@ char* realloc_memory_trip_name (char *trips, uint64_t size) {
     return trips;
 }
 
-//------------------GENERAL-------------------------//
+//------------------Linked List-------------------------//
 
 int is_list_empty (Client **head) {
     if (*head == NULL) return 1;
