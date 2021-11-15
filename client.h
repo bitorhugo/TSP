@@ -35,7 +35,7 @@ typedef struct City {
 
 typedef struct Country {
     char* name;
-    City *cities; // possible rename to individual
+    City *cities; // Possible rename to individual
 } Country; // Possible rename to population
 
 typedef struct Client {
