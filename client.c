@@ -301,7 +301,7 @@ void print_trips (Client **head, uint32_t client_id) {
  * 3 - add name do trip
  */
 char* insert_trip_name_client (Country* trips, char* country) {
-    trips->name = allocate_memory_trip_name(strlen(country));
+    trips->name = allocate_memory_name(strlen(country));
     strcat(trips->name, country);
     return trips->name;
 }
@@ -318,35 +318,36 @@ void insert_trip_city (Client **head, uint32_t client_id, char *country_name, ch
     Client *temp = *head;
 
     while (temp != NULL) {
-
         if (temp->user_id == client_id) {
             Country *temp_country;
             for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
                 temp_country = temp->trips_to_be_made + i;
                 if (strcmp(country_name, temp_country->name) == 0) {
-                        insert_trip_city_name (temp, city_name);
-
-                    // if temp_country->city is empty allocate
-                    // else reallocate
+                        insert_city_name (temp, city_name);
+                        return;
                 }
             }
-
+            fprintf(stderr, "TRIP NOT FOUND\n");
+            return;
         }
-
         temp = temp->next_client;
     }
-
+    fprintf(stderr, "ERROR: CLIENT NOT FOUND\n");
 }
 
-void insert_trip_city_name (Client *client, char *city_name) {
+void insert_city_name (Client *client, char *city_name) {
 
     if (client->trips_to_be_made->cities == NULL) {
         client->trips_to_be_made->cities = allocate_memory_trip_city();
-        client->trips_to_be_made->cities->name = allocate_memory_trip_name(strlen(city_name));
+        client->trips_to_be_made->cities->name = allocate_memory_name(strlen(city_name));
         strcpy(client->trips_to_be_made->cities->name, city_name);
+        client->trips_to_be_made->size_trip_cities = 1;
     }
     else {
-
+        client->trips_to_be_made->cities = reallocate_memory_cities(client, client->trips_to_be_made->size_trip_cities);
+        City *temp_city = client->trips_to_be_made->cities + client->trips_to_be_made->size_trip_cities;
+        temp_city->name = allocate_memory_name(strlen(city_name));
+        strcpy(temp_city->name, city_name);
     }
 
 }
@@ -368,7 +369,7 @@ Country* allocate_memory_trip () {
     return new_country;
 }
 
-char* allocate_memory_trip_name (u_int64_t size) {
+char* allocate_memory_name (u_int64_t size) {
     char *names = calloc(size, sizeof(char));
     if (names == NULL) fprintf(stderr, "ERROR: NOT ABLE TO ALLOCATE MEMORY\n");
     return names;
@@ -394,6 +395,11 @@ char* realloc_memory_trip_name (char *trips, uint64_t size) {
     return trips;
 }
 
+City* reallocate_memory_cities(Client *client, int size) {
+    client->trips_to_be_made->cities = realloc(client->trips_to_be_made->cities, (size + 1) * sizeof(City));
+    if (client->trips_to_be_made->cities == NULL) fprintf(stderr, "ERROR: NOT ABLE TO REALLOCATE MEMORY FOR CITY\n");
+    return client->trips_to_be_made->cities;
+}
 
 //------------------Linked List-------------------------//
 

@@ -177,7 +177,7 @@ void edit_trip_city (Client **head, uint32_t client_id, char *country_name, char
  */
 void search_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
 
-void insert_trip_city_name (Client *client, char *city_name);
+void insert_city_name (Client *client, char *city_name);
 
 //------------------ALLOCATE-------------------------//
 
@@ -194,11 +194,11 @@ Client* allocate_memory_Client();
 Country* allocate_memory_trip();
 
 /**
- * Allocates memory for trips names
- * @param size strlen of country name
+ * Allocates memory for names
+ * @param size strlen of name
  * @return allocated char memory
  */
-char* allocate_memory_trip_name (uint64_t size);
+char* allocate_memory_name (uint64_t size);
 
 /**
  * Allocates memory for city
@@ -228,7 +228,7 @@ char* realloc_memory_trip_name (char *trip_name, uint64_t size);
  * Reallocates memory for city name
  * @return pointer to newly reallocated memory
  */
-City* reallocate_memory_trip_city();
+City* reallocate_memory_cities(Client *client, int size);
 
 //------------------LINKED-LIST-------------------------//
 
