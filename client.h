@@ -2,20 +2,22 @@
 // Created by Vitor Hugo on 31/10/2021.
 //  Estudo AG: Elitismo, cruzamento (cycle crossover), ...
 //
+//------------------LIBRARIES-------------------------//
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include <ctype.h>
 
-//-------------------------------------------//
+//------------------DEFINE-------------------------//
 
 #ifndef TSP_CLIENT_H
 #define TSP_CLIENT_H
 
 #define FILE_LINE_SIZE 100
 
-//-------------------------------------------//
+//------------------DATA-------------------------//
 
 typedef struct Date{
     uint16_t day;
@@ -29,7 +31,7 @@ typedef struct Points {
 } Points;
 
 typedef struct City {
-    uint32_t city_id;
+    char* name;
     Points coordinates;
 } City; // Possible rename to gene
 
@@ -50,7 +52,7 @@ typedef struct Client {
   struct Client *next_client; // pointer for the next client
 } Client;
 
-//-------------------------------------------//
+//------------------CLIENT-------------------------//
 
 /**
  * insert new client
@@ -93,7 +95,7 @@ void read_clients_from_file(Client **head);
  */
 void sort_clients_VAT(Client **head);
 
-//------------------TRIPS-------------------------//
+//------------------TRIP-------------------------//
 
 /**
  * adds trip to clients trips array
@@ -121,13 +123,21 @@ void remove_trip_for_client (Client **head, uint32_t client_id, char* country_na
 void edit_trip_for_client (Client **head, uint32_t client_id, char* country_name, char* new_country_name);
 
 /**
+ * allocates trip and puts country
+ * @param client client
+ * @param country country to add
+ * @param is_empty 1 if empty | 0 if not first trip
+ */
+char* insert_trip_name_client (Country* trips, char* country);
+
+/**
  * prints all trips wanted client made
  * @param head head of linked list
  * @param client_id wanted client
  */
 void print_trips (Client **head, uint32_t client_id);
 
-//------------------TRIPS-------------------------//
+//------------------CITY-------------------------//
 
 /**
  * inserts cities to visit
@@ -166,8 +176,7 @@ void edit_trip_city (Client **head, uint32_t client_id, char *country_name, char
  */
 void search_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
 
-
-//-------------------------------------------//
+//------------------ALLOCATE-------------------------//
 
 /**
  * Allocates memory for Client
@@ -176,26 +185,10 @@ void search_trip_city (Client **head, uint32_t client_id, char *country_name, ch
 Client* allocate_memory_Client();
 
 /**
- * Reallocates memory for client
- * @param trips data_structure to resize
- * @param size size to reallocate to
- * @return pointer to newly reallocated memory
- */
-static Country* realloc_memory_trip (Client *client, int size);
-
-/**
- * allocates trip and puts country
- * @param client client
- * @param country country to add
- * @param is_empty 1 if empty | 0 if not first trip
- */
-char* insert_trip_name_client (Country* client, char* country);
-
-/**
  * Allocates memory for clients trips
  * @return pointer to arrays first position
  */
-static Country* allocate_memory_trip();
+Country* allocate_memory_trip();
 
 /**
  * Allocates memory for trips names
@@ -205,12 +198,30 @@ static Country* allocate_memory_trip();
 char* allocate_memory_trip_name (uint64_t size);
 
 /**
+ * Allocates memory for city
+ * @return pointer to newly allocated city
+ */
+City* allocate_memory_trip_city();
+
+//------------------REALLOCATE-------------------------//
+
+/**
+ * Reallocates memory for client
+ * @param trips data_structure to resize
+ * @param size size to reallocate to
+ * @return pointer to newly reallocated memory
+ */
+Country* realloc_memory_trip (Client *client, int size);
+
+/**
  *
  * @param trips trips
  * @param size size to reallocate to
  * @return pointer to arrays first position
  */
 char* realloc_memory_trip_name (char *trip_name, uint64_t size);
+
+//------------------LINKED-LIST-------------------------//
 
 /**
  * checks if linked list is empty

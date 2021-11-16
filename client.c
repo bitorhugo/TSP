@@ -324,13 +324,17 @@ void insert_trip_city (Client **head, uint32_t client_id, char *country_name, ch
             for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
                 temp_country = temp->trips_to_be_made + i;
                 if (strcmp(country_name, temp_country->name) == 0) {
+                    if (temp_country->cities == NULL) {
+                        temp_country->cities = allocate_memory_trip_city();
+                        
+                    }
                     // if temp_country->city is empty allocate
                     // else reallocate
                 }
             }
 
         }
-        
+
         temp = temp->next_client;
     }
 
@@ -359,6 +363,12 @@ char* allocate_memory_trip_name (u_int64_t size) {
     char *names = calloc(size, sizeof(char));
     if (names == NULL) fprintf(stderr, "ERROR: NOT ABLE TO ALLOCATE MEMORY\n");
     return names;
+}
+
+City* allocate_memory_trip_city() {
+    City *new_city = calloc (1, sizeof(City));
+    if (new_city == NULL) fprintf(stderr, "ERROR_ NOT ABLE TO ALLOCATE MEMORY FOR CITY\n");
+    return new_city;
 }
 
 //------------------Reallocate-------------------------//
