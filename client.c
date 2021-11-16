@@ -308,7 +308,33 @@ char* insert_trip_name_client (Country* trips, char* country) {
 
 //------------------Cities-------------------------//
 
+void insert_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name) {
 
+    if (is_list_empty(head)) {
+        fprintf(stderr, "ERROR: NO CLIENTS FOUND\n");
+        return;
+    }
+
+    Client *temp = *head;
+
+    while (temp != NULL) {
+
+        if (temp->user_id == client_id) {
+            Country *temp_country;
+            for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
+                temp_country = temp->trips_to_be_made + i;
+                if (strcmp(country_name, temp_country->name) == 0) {
+                    // if temp_country->city is empty allocate
+                    // else reallocate
+                }
+            }
+
+        }
+        
+        temp = temp->next_client;
+    }
+
+}
 
 
 
