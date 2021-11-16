@@ -16,8 +16,9 @@ int main() {
 
     remove_trip_for_client(&head, 1, "Germany");
     print_trips(&head, 1);
-    remove_trip_for_client(&head, 1, "Portugal");
+    //remove_trip_for_client(&head, 1, "Portugal");
     print_trips(&head, 1);
+    insert_trip_city(&head, 1, "Portugal", "Porto");
     //print_clients(&head);
     //remove_client(&head, 0);
     //print_clients(&head);

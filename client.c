@@ -324,10 +324,8 @@ void insert_trip_city (Client **head, uint32_t client_id, char *country_name, ch
             for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
                 temp_country = temp->trips_to_be_made + i;
                 if (strcmp(country_name, temp_country->name) == 0) {
-                    if (temp_country->cities == NULL) {
-                        temp_country->cities = allocate_memory_trip_city();
-                        
-                    }
+                        insert_trip_city_name (temp, city_name);
+
                     // if temp_country->city is empty allocate
                     // else reallocate
                 }
@@ -340,7 +338,18 @@ void insert_trip_city (Client **head, uint32_t client_id, char *country_name, ch
 
 }
 
+void insert_trip_city_name (Client *client, char *city_name) {
 
+    if (client->trips_to_be_made->cities == NULL) {
+        client->trips_to_be_made->cities = allocate_memory_trip_city();
+        client->trips_to_be_made->cities->name = allocate_memory_trip_name(strlen(city_name));
+        strcpy(client->trips_to_be_made->cities->name, city_name);
+    }
+    else {
+
+    }
+
+}
 
 //------------------Allocate-------------------------//
 
@@ -384,6 +393,7 @@ char* realloc_memory_trip_name (char *trips, uint64_t size) {
     if (trips == 0) fprintf(stderr, "NOT ABLE TO REALLOCATE MEMORY\n");
     return trips;
 }
+
 
 //------------------Linked List-------------------------//
 

@@ -38,6 +38,7 @@ typedef struct City {
 typedef struct Country {
     char* name;
     City *cities; // Possible rename to individual
+    int size_trip_cities;
 } Country; // Possible rename to population
 
 typedef struct Client {
@@ -176,6 +177,8 @@ void edit_trip_city (Client **head, uint32_t client_id, char *country_name, char
  */
 void search_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
 
+void insert_trip_city_name (Client *client, char *city_name);
+
 //------------------ALLOCATE-------------------------//
 
 /**
@@ -220,6 +223,12 @@ Country* realloc_memory_trip (Client *client, int size);
  * @return pointer to arrays first position
  */
 char* realloc_memory_trip_name (char *trip_name, uint64_t size);
+
+/**
+ * Reallocates memory for city name
+ * @return pointer to newly reallocated memory
+ */
+City* reallocate_memory_trip_city();
 
 //------------------LINKED-LIST-------------------------//
 
