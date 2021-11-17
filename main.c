@@ -12,14 +12,17 @@ int main() {
 
     insert_trip_for_client(&head, 1, "Portugal");
     insert_trip_for_client(&head, 1, "Germany");
+    insert_trip_for_client(&head, 1, "Denmark");
     print_trips(&head, 1);
 
-    remove_trip_for_client(&head, 1, "Germany");
-    print_trips(&head, 1);
-    remove_trip_for_client(&head, 1, "Portugal");
-    print_trips(&head, 1);
     insert_trip_city(&head, 1, "Portugal", "Porto");
     insert_trip_city(&head, 1, "Portugal", "Lisbon");
+    insert_trip_city(&head, 1, "Germany", "Munich");
+    insert_trip_city(&head, 1, "Germany", "Berlin");
+    insert_trip_city(&head, 1, "Germany", "Be");
+
+    //remove_trip_city(&head, 1, "Germany", "a");
+    search_trip_city(&head, 1, "Portugal", "Lisbon");
     //print_clients(&head);
     //remove_client(&head, 0);
     //print_clients(&head);

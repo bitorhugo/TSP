@@ -150,13 +150,13 @@ void print_trips (Client **head, uint32_t client_id);
 void insert_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
 
 /**
- * deletes a city from trip
+ * removes a city from a trip
  * @param head head of linked list
  * @param client_id wanted client
  * @param country_name country name
  * @param city_name city to delete
  */
-void delete_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
+void remove_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
 
 /**
  * edits a city from trip
@@ -177,7 +177,12 @@ void edit_trip_city (Client **head, uint32_t client_id, char *country_name, char
  */
 void search_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
 
-void insert_city_name (Client *client, char *city_name);
+/**
+ * inserts city_name to clients cities array
+ * @param client wanted client
+ * @param city_name city name
+ */
+void insert_city_name (Country *client, char *city_name);
 
 //------------------ALLOCATE-------------------------//
 
@@ -228,7 +233,7 @@ char* realloc_memory_trip_name (char *trip_name, uint64_t size);
  * Reallocates memory for city name
  * @return pointer to newly reallocated memory
  */
-City* reallocate_memory_cities(Client *client, int size);
+City* reallocate_memory_cities(Country *country, int size);
 
 //------------------LINKED-LIST-------------------------//
 

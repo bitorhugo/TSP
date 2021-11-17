@@ -195,6 +195,7 @@ void insert_trip_for_client (Client **head, uint32_t client_id, char* country_na
                 temp2 = temp->trips_to_be_made + temp->size_trips_to_be_made;
                 temp2->name = insert_trip_name_client(temp2, country_name);
                 temp->size_trips_to_be_made ++;
+                temp2->cities = NULL;
             }
             return;
         }
@@ -322,8 +323,8 @@ void insert_trip_city (Client **head, uint32_t client_id, char *country_name, ch
             Country *temp_country;
             for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
                 temp_country = temp->trips_to_be_made + i;
-                if (strcmp(country_name, temp_country->name) == 0) {
-                        insert_city_name (temp, city_name);
+                if (strcmp(temp_country->name, country_name) == 0) {
+                        insert_city_name (temp_country, city_name);
                         return;
                 }
             }
@@ -335,23 +336,94 @@ void insert_trip_city (Client **head, uint32_t client_id, char *country_name, ch
     fprintf(stderr, "ERROR: CLIENT NOT FOUND\n");
 }
 
-void insert_city_name (Client *client, char *city_name) {
+void remove_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name) {
 
-    if (client->trips_to_be_made->cities == NULL) {
-        client->trips_to_be_made->cities = allocate_memory_trip_city();
-        client->trips_to_be_made->cities->name = allocate_memory_name(strlen(city_name));
-        strcpy(client->trips_to_be_made->cities->name, city_name);
-        client->trips_to_be_made->size_trip_cities = 1;
+    if (is_list_empty(head)) {
+        fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
+        return;
+    }
+
+    Client *temp = *head;
+    while (temp != NULL) {
+        if (temp->user_id == client_id) {
+            Country *temp_country;
+            for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
+                temp_country = temp->trips_to_be_made + i;
+                if (strcmp(temp_country->name, country_name) == 0) {
+                    City *temp_city;
+                    for (int j = 0; j < temp_country->size_trip_cities; ++j) {
+                        temp_city = temp_country->cities + j;
+                        if (strcmp(temp_city->name, city_name) == 0) {
+                            for (int k = 0; k < temp_country->size_trip_cities - j; ++k) {
+                                *(temp_city + k) = *(temp_city + k + 1);
+                            }
+                            temp_country->size_trip_cities -= 1;
+                            reallocate_memory_cities(temp_country, temp_country->size_trip_cities);
+                            return;
+                        }
+                    }
+                    fprintf(stderr, "ERROR: CITY NOT FOUND\n");
+                    return;
+                }
+            }
+            fprintf(stderr, "ERROR: COUNTRY NOT FOUND\n");
+            return;
+        }
+        temp = temp->next_client;
+    }
+    fprintf(stderr, "ERROR: CLIENT NOT FOUND\n");
+}
+
+void insert_city_name (Country *country, char *city_name) {
+
+    if (country->cities == NULL) {
+        country->cities = allocate_memory_trip_city();
+        country->cities->name = allocate_memory_name(strlen(city_name));
+        strcpy(country->cities->name, city_name);
+        country->size_trip_cities = 1;
     }
     else {
-        client->trips_to_be_made->cities = reallocate_memory_cities(client, client->trips_to_be_made->size_trip_cities);
-        City *temp_city = client->trips_to_be_made->cities + client->trips_to_be_made->size_trip_cities;
+        country->cities = reallocate_memory_cities(country, country->size_trip_cities);
+        City *temp_city = country->cities + country->size_trip_cities;
+        temp_city->name = NULL; // Makes sure that we can write name
         temp_city->name = allocate_memory_name(strlen(city_name));
         strcpy(temp_city->name, city_name);
+        country->size_trip_cities += 1;
     }
 
 }
 
+void search_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name) {
+    if (is_list_empty(head)) {
+        fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
+        return;
+    }
+    Client *temp = *head;
+    while (temp != NULL) {
+        if (temp->user_id == client_id) {
+            Country * temp_country;
+            for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
+                temp_country = temp->trips_to_be_made + i;
+                if (strcmp(temp_country->name, country_name) == 0) {
+                    City *temp_city;
+                    for (int j = 0; j < temp_country->size_trip_cities; ++j) {
+                        temp_city = temp_country->cities + j;
+                        if (strcmp(temp_city->name, city_name) == 0) {
+                            printf("City %s found", city_name);
+                            return;
+                        }
+                    }
+                    fprintf(stderr, "ERROR: CITY NOT FOUND\n");
+                    return;
+                }
+            }
+            fprintf(stderr, "ERROR_ COUNTRY NOT FOUND\n");
+            return;
+        }
+        temp = temp->next_client;
+    }
+    fprintf(stderr, "ERROR: CLIENT NOT FOUND\n");
+}
 //------------------Allocate-------------------------//
 
 Client* allocate_memory_Client () {
@@ -395,10 +467,10 @@ char* realloc_memory_trip_name (char *trips, uint64_t size) {
     return trips;
 }
 
-City* reallocate_memory_cities(Client *client, int size) {
-    client->trips_to_be_made->cities = realloc(client->trips_to_be_made->cities, (size + 1) * sizeof(City));
-    if (client->trips_to_be_made->cities == NULL) fprintf(stderr, "ERROR: NOT ABLE TO REALLOCATE MEMORY FOR CITY\n");
-    return client->trips_to_be_made->cities;
+City* reallocate_memory_cities(Country *country, int size) {
+    country->cities = realloc(country->cities, (size + 1) * sizeof(City));
+    if (country->cities == NULL) fprintf(stderr, "ERROR: NOT ABLE TO REALLOCATE MEMORY FOR CITY\n");
+    return country->cities;
 }
 
 //------------------Linked List-------------------------//
