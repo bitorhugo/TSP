@@ -21,7 +21,7 @@ int main() {
     insert_trip_city(&head, 1, "Germany", "Berlin");
     insert_trip_city(&head, 1, "Germany", "Be");
 
-    //remove_trip_city(&head, 1, "Germany", "a");
+    remove_trip_city(&head, 1, "Germany", "a");
     search_trip_city(&head, 1, "Portugal", "Lisbon");
     //print_clients(&head);
     //remove_client(&head, 0);
