@@ -20,9 +20,16 @@ int main() {
     insert_trip_city(&head, 1, "Germany", "Munich");
     insert_trip_city(&head, 1, "Germany", "Berlin");
     insert_trip_city(&head, 1, "Germany", "Be");
+    insert_trip_city(&head, 1, "Germany", "ABC");
 
-    remove_trip_city(&head, 1, "Germany", "a");
     search_trip_city(&head, 1, "Portugal", "Lisbon");
+    search_trip_city(&head, 1, "Germany", "Be");
+    search_trip_city(&head, 1, "Germany", "ABC");
+    search_trip_city(&head, 1, "Portugal", "Porto");
+
+    edit_trip_city(&head, 1, "Portugal", "Porto", "Aveiro");
+    //search_trip_city(&head, 1, "Portugal", "Porto");
+    search_trip_city(&head, 1, "Portugal", "Aveiro");
     //print_clients(&head);
     //remove_client(&head, 0);
     //print_clients(&head);

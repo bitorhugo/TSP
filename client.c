@@ -193,9 +193,9 @@ void insert_trip_for_client (Client **head, uint32_t client_id, char* country_na
             else {
                 temp->trips_to_be_made = realloc_memory_trip(temp, temp->size_trips_to_be_made);
                 temp2 = temp->trips_to_be_made + temp->size_trips_to_be_made;
+                temp2->name = 0, temp2->cities = 0, temp2->size_trip_cities = 0; // TODO: ASK TEACHER FOR A BETTER WAY
                 temp2->name = insert_trip_name_client(temp2, country_name);
                 temp->size_trips_to_be_made ++;
-                temp2->cities = NULL;
             }
             return;
         }
@@ -286,7 +286,7 @@ void print_trips (Client **head, uint32_t client_id) {
             if (temp->size_trips_to_be_made == 0) fprintf(stderr, "NO TRIPS FOUND\n");
             for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
                 Country *temp_country = temp->trips_to_be_made + i;
-                printf("%s\t", temp_country->name);
+                printf("%s ", temp_country->name);
             }
             printf("\n");
             return;
@@ -394,8 +394,8 @@ void edit_trip_city (Client **head, uint32_t client_id, char *country_name, char
                     for (int j = 0; j < temp_country->size_trip_cities; ++j) {
                         temp_city = temp_country->cities + j;
                         if (strcmp(temp_city->name, city_name) == 0) {
-                            realloc_memory_trip_name(temp_city->name, strlen(city_name));
-                            strcpy(temp_city->name, city_name);
+                            realloc_memory_trip_name(temp_city->name, strlen(new_city_name));
+                            strcpy(temp_city->name, new_city_name);
                             return;
                         }
                     }
@@ -424,7 +424,7 @@ void search_trip_city (Client **head, uint32_t client_id, char *country_name, ch
                     for (int j = 0; j < temp_country->size_trip_cities; ++j) {
                         temp_city = temp_country->cities + j;
                         if (strcmp(temp_city->name, city_name) == 0) {
-                            printf("City %s found", city_name);
+                            printf("City %s found\n", city_name);
                             return;
                         }
                     }
@@ -451,7 +451,7 @@ void insert_city_name (Country *country, char *city_name) {
     else {
         country->cities = reallocate_memory_cities(country, country->size_trip_cities);
         City *temp_city = country->cities + country->size_trip_cities;
-        temp_city->name = NULL; // Makes sure that we can write name
+        temp_city->name = 0;
         temp_city->name = allocate_memory_name(strlen(city_name));
         strcpy(temp_city->name, city_name);
         country->size_trip_cities += 1;
@@ -497,7 +497,7 @@ Country* realloc_memory_trip (Client *client, int size) {
 }
 
 char* realloc_memory_trip_name (char *trips, uint64_t size) {
-    trips = realloc(trips, strlen(trips) + size);
+    trips = realloc(trips, size);
     if (trips == 0) fprintf(stderr, "NOT ABLE TO REALLOCATE MEMORY\n");
     return trips;
 }
