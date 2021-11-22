@@ -359,6 +359,7 @@ void remove_trip_city (Client **head, uint32_t client_id, char *country_name, ch
                             }
                             temp_country->size_trip_cities -= 1;
                             reallocate_memory_cities(temp_country, temp_country->size_trip_cities);
+                            printf("City %s deleted\n", city_name);
                             return;
                         }
                     }
