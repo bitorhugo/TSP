@@ -172,7 +172,7 @@ void read_clients_from_file (Client **head) {
  * 1.2 - if empty, allocate memory
  * 2 - insert trip
  */
-void insert_trip_for_client (Client **head, uint32_t client_id, char* country_name) {
+void insert_trip (Client **head, uint32_t client_id, char* country_name) {
 
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
@@ -210,7 +210,7 @@ void insert_trip_for_client (Client **head, uint32_t client_id, char* country_na
  * 3 - deletes wanted trip
  * 4 - reallocates memory for new trips array size
  */
-void remove_trip_for_client (Client **head, uint32_t client_id, char* country_name) {
+void remove_trip (Client **head, uint32_t client_id, char* country_name) {
 
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
@@ -243,7 +243,7 @@ void remove_trip_for_client (Client **head, uint32_t client_id, char* country_na
  * 2 - searches inside of clients trips array for wanted trip
  * 3 - edits wanted trip
  */
-void edit_trip_for_client (Client **head, uint32_t client_id, char* country_name, char* new_country_name) {
+void edit_trip (Client **head, uint32_t client_id, char* country_name, char* new_country_name) {
 
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
@@ -309,7 +309,7 @@ char* insert_trip_name_client (Country* trips, char* country) {
 
 //------------------Cities-------------------------//
 
-void insert_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name) {
+void insert_city (Client **head, uint32_t client_id, char *country_name, char *city_name) {
 
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS FOUND\n");
@@ -336,7 +336,7 @@ void insert_trip_city (Client **head, uint32_t client_id, char *country_name, ch
     fprintf(stderr, "ERROR: CLIENT NOT FOUND\n");
 }
 
-void remove_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name) {
+void remove_city (Client **head, uint32_t client_id, char *country_name, char *city_name) {
 
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
@@ -375,7 +375,7 @@ void remove_trip_city (Client **head, uint32_t client_id, char *country_name, ch
     fprintf(stderr, "ERROR: CLIENT NOT FOUND\n");
 }
 
-void edit_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name, char *new_city_name) {
+void edit_city (Client **head, uint32_t client_id, char *country_name, char *city_name, char *new_city_name) {
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS FOUND\n");
         return;
@@ -409,7 +409,7 @@ void edit_trip_city (Client **head, uint32_t client_id, char *country_name, char
     }
 }
 
-void search_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name) {
+void search_city (Client **head, uint32_t client_id, char *country_name, char *city_name) {
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
         return;

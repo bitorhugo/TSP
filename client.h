@@ -1,7 +1,7 @@
 //
 // Created by Vitor Hugo on 31/10/2021.
-//  Estudo AG: Elitismo, cruzamento (cycle crossover), ...
 //
+
 //------------------LIBRARIES-------------------------//
 
 #include <stdio.h>
@@ -104,7 +104,7 @@ void sort_clients_VAT(Client **head);
  * @param client_id wanted client
  * @param country_name name of the country to insert
  */
-void insert_trip_for_client (Client **head, uint32_t client_id, char* country_name);
+void insert_trip (Client **head, uint32_t client_id, char* country_name);
 
 /**
  * removes a trip from a client
@@ -112,7 +112,7 @@ void insert_trip_for_client (Client **head, uint32_t client_id, char* country_na
  * @param client_id wanted client
  * @param country_name name of the country to remove
  */
-void remove_trip_for_client (Client **head, uint32_t client_id, char* country_name);
+void remove_trip (Client **head, uint32_t client_id, char* country_name);
 
 /**
  * edits trip of wanted client
@@ -121,7 +121,7 @@ void remove_trip_for_client (Client **head, uint32_t client_id, char* country_na
  * @param country_name trip to be replaced
  * @param new_country_name new trip
  */
-void edit_trip_for_client (Client **head, uint32_t client_id, char* country_name, char* new_country_name);
+void edit_trip (Client **head, uint32_t client_id, char* country_name, char* new_country_name);
 
 /**
  * allocates trip and puts country
@@ -147,7 +147,7 @@ void print_trips (Client **head, uint32_t client_id);
  * @param country_name country name
  * @param city_name city to insert
  */
-void insert_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
+void insert_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
 
 /**
  * removes a city from a trip
@@ -156,7 +156,7 @@ void insert_trip_city (Client **head, uint32_t client_id, char *country_name, ch
  * @param country_name country name
  * @param city_name city to delete
  */
-void remove_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
+void remove_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
 
 /**
  * edits a city from trip
@@ -166,7 +166,7 @@ void remove_trip_city (Client **head, uint32_t client_id, char *country_name, ch
  * @param city_name city to be edited
  * @param new_city_name new city name
  */
-void edit_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name, char *new_city_name);
+void edit_city (Client **head, uint32_t client_id, char *country_name, char *city_name, char *new_city_name);
 
 /**
  * searches a city inside trip
@@ -175,7 +175,7 @@ void edit_trip_city (Client **head, uint32_t client_id, char *country_name, char
  * @param country_name country name
  * @param city_name city to print
  */
-void search_trip_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
+void search_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
 
 /**
  * inserts city_name to clients cities array

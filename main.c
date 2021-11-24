@@ -25,22 +25,22 @@ int main() {
     search_client_by_id(&head, 1);
     search_client_by_id(&head, 2);
 
-    insert_trip_for_client(&head, 1, "Portugal");
-    insert_trip_for_client(&head, 1, "Germany");
-    insert_trip_for_client(&head, 1, "Denmark");
+    insert_trip(&head, 1, "Portugal");
+    insert_trip(&head, 1, "Germany");
+    insert_trip(&head, 1, "Denmark");
     print_trips(&head, 1);
 
-    insert_trip_city(&head, 1, "Portugal", "Porto");
-    insert_trip_city(&head, 1, "Portugal", "Lisbon");
-    insert_trip_city(&head, 1, "Germany", "Munich");
-    insert_trip_city(&head, 1, "Germany", "Berlin");
-    insert_trip_city(&head, 1, "Germany", "Be");
-    insert_trip_city(&head, 1, "Germany", "ABC");
+    insert_city(&head, 1, "Portugal", "Porto");
+    insert_city(&head, 1, "Portugal", "Lisbon");
+    insert_city(&head, 1, "Germany", "Munich");
+    insert_city(&head, 1, "Germany", "Berlin");
+    insert_city(&head, 1, "Germany", "Be");
+    insert_city(&head, 1, "Germany", "ABC");
 
-    search_trip_city(&head, 1, "Portugal", "Lisbon");
-    search_trip_city(&head, 1, "Germany", "Be");
-    search_trip_city(&head, 1, "Germany", "ABC");
-    search_trip_city(&head, 1, "Portugal", "Porto");
+    search_city(&head, 1, "Portugal", "Lisbon");
+    search_city(&head, 1, "Germany", "Be");
+    search_city(&head, 1, "Germany", "ABC");
+    search_city(&head, 1, "Portugal", "Porto");
 
     insert_PoI(&head, 1, "Portugal", "Porto", 1.1, 2.4);
     insert_PoI(&head, 1, "Portugal", "Lisbon", 3.2, 3.5);
