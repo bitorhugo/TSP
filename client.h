@@ -60,7 +60,7 @@ typedef struct Client {
  * @param head head of linked list
  * @param position 0 -> head | 1 -> tail
  */
-void insert_new_client (Client **head, bool position, uint32_t *client_id);
+void insert_new_client (Client **head, short position, uint32_t *client_id);
 
 /**
  * insert new client at the head of linked list
