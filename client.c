@@ -460,6 +460,43 @@ void insert_city_name (Country *country, char *city_name) {
 
 }
 
+//------------------POI-------------------------//
+void insert_PoI (Client **head, uint32_t client_id, char *country_name, char *city_name, double x, double y) {
+
+    if (is_list_empty(head)) {
+        fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
+        return;
+    }
+
+    Client *temp_client = *head;
+
+    while (temp_client != NULL) {
+        if (temp_client->user_id == client_id) {
+            Country *temp_country;
+            for (int i = 0; i < temp_client->size_trips_to_be_made; ++i) {
+                temp_country = temp_client->trips_to_be_made + i;
+                if (strcmp(temp_country->name, country_name) == 0) {
+                    City *temp_city;
+                    for (int j = 0; j < temp_country->size_trip_cities; ++j) {
+                        temp_city = temp_country->cities + j;
+                        if (strcmp(temp_city->name, city_name) == 0) {
+                            temp_city->coordinates.x = x;
+                            temp_city->coordinates.y = y;
+                            return;
+                        }
+                    }
+                    fprintf(stderr, "ERROR: CITY NOT FOUND\n");
+                    return;
+                }
+            }
+            fprintf(stderr, "ERROR: COUNTRY NOT FOUND\n");
+            return;
+        }
+        temp_client = temp_client->next_client;
+    }
+    fprintf(stderr, "ERROR: CLIENT NOT FOUND\n");
+}
+
 //------------------Allocate-------------------------//
 
 Client* allocate_memory_Client () {

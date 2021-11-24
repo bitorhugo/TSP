@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/Users/VitorHugo/CLionProjects/tsp/client.c
+client.h
+/Users/VitorHugo/CLionProjects/tsp/client.h
+
 /Users/VitorHugo/CLionProjects/tsp/client.h
 stdio.h
 -

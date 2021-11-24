@@ -26,8 +26,8 @@ typedef struct Date{
 }Date;
 
 typedef struct Points {
-    float x;
-    float y;
+    double x;
+    double y;
 } Points;
 
 typedef struct City {
@@ -183,6 +183,37 @@ void search_trip_city (Client **head, uint32_t client_id, char *country_name, ch
  * @param city_name city name
  */
 void insert_city_name (Country *client, char *city_name);
+
+//------------------CITY_PoI-------------------------//
+
+/**
+ * insert Points of Interest of certain city
+ * @param head head of linked list
+ * @param client_id wanted client
+ * @param country_name country name
+ * @param city_name city name
+ * @param x X coordinate
+ * @param y Y coordinate
+ */
+void insert_PoI (Client **head, uint32_t client_id, char *country_name, char *city_name, double x, double y);
+
+/**
+ * removes Points of Interest of certain city
+ * @param head head of linked list
+ * @param client_id wanted client
+ * @param country_name country name
+ * @param city_name city name
+ */
+void remove_PoI (Client **head, uint32_t client_id, char *country_name, char *city_name);
+
+/**
+ * Searches Points of Interest of certain city
+ * @param head head of linked list
+ * @param client_id wanted client
+ * @param country_name name of country
+ * @param city_name name of city
+ */
+void search_PoI (Client **head, uint32_t client_id, char *country_name, char *city_name);
 
 //------------------ALLOCATE-------------------------//
 

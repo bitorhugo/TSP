@@ -27,17 +27,8 @@ int main() {
     search_trip_city(&head, 1, "Germany", "ABC");
     search_trip_city(&head, 1, "Portugal", "Porto");
 
-    remove_trip_city(&head, 1, "Portugal", "Porto");
-
-    edit_trip_city(&head, 1, "Portugal", "Porto", "Aveiro");
-
-    //remove_trip_city(&head, 1, "Portugal", "Porto");
-    //search_trip_city(&head, 1, "Portugal", "Porto");
-    search_trip_city(&head, 1, "Portugal", "Aveiro");
-
-    //print_clients(&head);
-    //remove_client(&head, 0);
-    //print_clients(&head);
+    insert_PoI(&head, 1, "Portugal", "Porto", 1.1, 2.4);
+    insert_PoI(&head, 1, "Portugal", "Lisbon", 3.2, 3.5);
     free_clients_list(&head);
 
     return 0;
