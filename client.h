@@ -32,12 +32,12 @@ typedef struct Points {
 
 typedef struct City {
     char* name;
-    Points coordinates;
+    Points* coordinates;
 } City; // Possible rename to gene
 
 typedef struct Country {
     char* name;
-    City *cities; // Possible rename to individual
+    City* cities; // Possible rename to individual
     int size_trip_cities;
 } Country; // Possible rename to population
 
@@ -124,19 +124,18 @@ void remove_trip (Client **head, uint32_t client_id, char* country_name);
 void edit_trip (Client **head, uint32_t client_id, char* country_name, char* new_country_name);
 
 /**
- * allocates trip and puts country
- * @param client client
- * @param country country to add
- * @param is_empty 1 if empty | 0 if not first trip
- */
-char* insert_trip_name_client (Country* trips, char* country);
-
-/**
  * prints all trips wanted client made
  * @param head head of linked list
  * @param client_id wanted client
  */
 void print_trips (Client **head, uint32_t client_id);
+
+/**
+ * inserts country_name to client trips_to_be_made array
+ * @param client wanted client
+ * @param country_name country name
+ */
+void insert_trip_name(Client *client, char *country_name);
 
 //------------------CITY-------------------------//
 
@@ -182,7 +181,7 @@ void search_city (Client **head, uint32_t client_id, char *country_name, char *c
  * @param client wanted client
  * @param city_name city name
  */
-void insert_city_name (Country *client, char *city_name);
+void insert_city_name (Country *country, char *city_name);
 
 //------------------CITY_PoI-------------------------//
 
@@ -241,6 +240,12 @@ char* allocate_memory_name (uint64_t size);
  * @return pointer to newly allocated city
  */
 City* allocate_memory_trip_city();
+
+/**
+ * Allocates memory for Points
+ * @return pointer to newly allocated PoI
+ */
+Points* allocate_memory_points();
 
 //------------------REALLOCATE-------------------------//
 

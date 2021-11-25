@@ -180,23 +180,9 @@ void insert_trip (Client **head, uint32_t client_id, char* country_name) {
     }
 
     Client *temp = *head; // temp for going through linked list
-    Country *temp2 = NULL; // temp for going through trips array
     while (temp != NULL) {
         if (temp->user_id == client_id) { // searches for wanted client
-
-            if (temp->trips_to_be_made == NULL) {
-                // allocates memory for desired country to travel to
-                temp->trips_to_be_made = allocate_memory_trip();
-                temp->trips_to_be_made->name = insert_trip_name_client(temp->trips_to_be_made, country_name);
-                temp->size_trips_to_be_made = 1;
-            }
-            else {
-                temp->trips_to_be_made = realloc_memory_trip(temp, temp->size_trips_to_be_made);
-                temp2 = temp->trips_to_be_made + temp->size_trips_to_be_made;
-                temp2->name = 0, temp2->cities = 0, temp2->size_trip_cities = 0; // TODO: ASK TEACHER FOR A BETTER WAY
-                temp2->name = insert_trip_name_client(temp2, country_name);
-                temp->size_trips_to_be_made ++;
-            }
+            insert_trip_name(temp, country_name);
             return;
         }
         temp = temp->next_client;
@@ -296,15 +282,21 @@ void print_trips (Client **head, uint32_t client_id) {
     fprintf(stderr, "CLIENT NOT FOUND\n");
 }
 
-/*
- * 1 - Checks if trips is empty
- * 2 - allocates/reallocates memory for trips
- * 3 - add name do trip
- */
-char* insert_trip_name_client (Country* trips, char* country) {
-    trips->name = allocate_memory_name(strlen(country));
-    strcat(trips->name, country);
-    return trips->name;
+void insert_trip_name(Client *client, char *country_name) {
+    if (client->trips_to_be_made == NULL) {
+        client->trips_to_be_made = allocate_memory_trip();
+        client->trips_to_be_made->name = allocate_memory_name(strlen(country_name));
+        strcpy(client->trips_to_be_made->name, country_name);
+        client->size_trips_to_be_made = 1;
+    }
+    else {
+        client->trips_to_be_made = realloc_memory_trip(client, client->size_trips_to_be_made);
+        Country *temp_country = client->trips_to_be_made + client->size_trips_to_be_made;
+        temp_country->name = 0, temp_country->cities = 0, temp_country->size_trip_cities = 0; // TODO: ASK TEACHER FOR A BETTER WAY
+        temp_country->name = allocate_memory_name(strlen(country_name));
+        strcpy(temp_country->name, country_name);
+        client->size_trips_to_be_made += 1;
+    }
 }
 
 //------------------Cities-------------------------//
@@ -324,7 +316,7 @@ void insert_city (Client **head, uint32_t client_id, char *country_name, char *c
             for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
                 temp_country = temp->trips_to_be_made + i;
                 if (strcmp(temp_country->name, country_name) == 0) {
-                        insert_city_name (temp_country, city_name);
+                        insert_city_name (temp_country, city_name); // Pass Country due to City not being allocated yet
                         return;
                 }
             }
@@ -480,8 +472,9 @@ void insert_PoI (Client **head, uint32_t client_id, char *country_name, char *ci
                     for (int j = 0; j < temp_country->size_trip_cities; ++j) {
                         temp_city = temp_country->cities + j;
                         if (strcmp(temp_city->name, city_name) == 0) {
-                            temp_city->coordinates.x = x;
-                            temp_city->coordinates.y = y;
+                            temp_city->coordinates = allocate_memory_points();
+                            temp_city->coordinates->x = x;
+                            temp_city->coordinates->y = y;
                             return;
                         }
                     }
@@ -515,8 +508,8 @@ void remove_PoI (Client **head, uint32_t client_id, char *country_name, char *ci
                     for (int j = 0; j < temp_country->size_trip_cities; ++j) {
                         temp_city = temp_country->cities + j;
                         if (strcmp(temp_city->name, city_name) == 0) {
-                            temp_city->coordinates.x = 0; // TODO: ASK TEACHER IF NEED TO ALLOCATE MEM TO POINTS
-                            temp_city->coordinates.y = 0;
+                            temp_city->coordinates = 0;
+                            free (temp_city->coordinates);
                             return;
                         }
                     }
@@ -551,9 +544,13 @@ void search_PoI (Client **head, uint32_t client_id, char *country_name, char *ci
                     for (int j = 0; j < temp_country->size_trip_cities; ++j) {
                         temp_city = temp_country->cities + j;
                         if (strcmp(temp_city->name, city_name) == 0) {
+                            if (temp_city->coordinates == NULL) {
+                                fprintf(stderr, "ERROR: PoI NOT FOUND\n");
+                                return;
+                            }
                             printf("City %s PoI:\nx: %lf\ny: %lf", city_name,
-                                   temp_city->coordinates.x,
-                                   temp_city->coordinates.y);
+                                   temp_city->coordinates->x,
+                                   temp_city->coordinates->y);
                             return;
                         }
                     }
@@ -596,6 +593,12 @@ City* allocate_memory_trip_city() {
     City *new_city = calloc (1, sizeof(City));
     if (new_city == NULL) fprintf(stderr, "ERROR_ NOT ABLE TO ALLOCATE MEMORY FOR CITY\n");
     return new_city;
+}
+
+Points* allocate_memory_points() {
+    Points *brand_spanking_new_PoI = calloc (1, sizeof(Points));
+    if (brand_spanking_new_PoI == NULL) fprintf(stderr, "ERROR: NOT ABLE TO ALLOCATE MEMORY FOR POINTS\n");
+    return brand_spanking_new_PoI;
 }
 
 //------------------Reallocate-------------------------//

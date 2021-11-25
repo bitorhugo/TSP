@@ -7,20 +7,6 @@ int main() {
 
     insert_new_client(&head, 0, &num_client);
     insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
-    
 
     search_client_by_id(&head, 1);
     search_client_by_id(&head, 2);
@@ -44,6 +30,8 @@ int main() {
 
     insert_PoI(&head, 1, "Portugal", "Porto", 1.1, 2.4);
     insert_PoI(&head, 1, "Portugal", "Lisbon", 3.2, 3.5);
+
+    remove_PoI(&head, 1, "Portugal", "Porto");
 
     search_PoI(&head, 1, "Portugal", "Porto");
 
