@@ -28,10 +28,8 @@ int main() {
     search_city(&head, 1, "Germany", "ABC");
     search_city(&head, 1, "Portugal", "Porto");
 
-    insert_PoI(&head, 1, "Portugal", "Porto", 1.1, 2.4);
-    insert_PoI(&head, 1, "Portugal", "Lisbon", 3.2, 3.5);
-
-    remove_PoI(&head, 1, "Portugal", "Porto");
+    insert_PoI(&head, 1, "Portugal", "Porto", 1.1f, 2.4f);
+    insert_PoI(&head, 1, "Portugal", "Lisbon", 3.2f, 3.5f);
 
     search_PoI(&head, 1, "Portugal", "Porto");
 

@@ -179,9 +179,12 @@ void insert_trip (Client **head, uint32_t client_id, char* country_name) {
         return;
     }
 
+    //country_name = refactor_string_to_lower(country_name);
+
     Client *temp = *head; // temp for going through linked list
     while (temp != NULL) {
         if (temp->user_id == client_id) { // searches for wanted client
+
             insert_trip_name(temp, country_name);
             return;
         }
@@ -453,7 +456,7 @@ void insert_city_name (Country *country, char *city_name) {
 }
 
 //------------------POI-------------------------//
-void insert_PoI (Client **head, uint32_t client_id, char *country_name, char *city_name, double x, double y) {
+void insert_PoI (Client **head, uint32_t client_id, char *country_name, char *city_name, float x, float y) {
 
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
@@ -548,7 +551,7 @@ void search_PoI (Client **head, uint32_t client_id, char *country_name, char *ci
                                 fprintf(stderr, "ERROR: PoI NOT FOUND\n");
                                 return;
                             }
-                            printf("City %s PoI:\nx: %lf\ny: %lf", city_name,
+                            printf("City %s PoI:\nx: %.2f\ny: %.2f", city_name,
                                    temp_city->coordinates->x,
                                    temp_city->coordinates->y);
                             return;
@@ -640,3 +643,16 @@ void free_clients_list (Client **head) {
 
 }
 
+
+//------------------AUX-------------------------//
+// TODO: ASK TEACHER
+char* refactor_string_to_lower (char* str) {
+   char temp;
+    for (int i = 0; i < strlen(str) + 1; ++i) {
+        if (isupper(*(str + i))) {
+            temp = (char) tolower(*(str + i));
+            *(str + i) = temp;
+        }
+    }
+    return str;
+}

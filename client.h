@@ -26,8 +26,8 @@ typedef struct Date{
 }Date;
 
 typedef struct Points {
-    double x;
-    double y;
+    float x;
+    float y;
 } Points;
 
 typedef struct City {
@@ -194,7 +194,7 @@ void insert_city_name (Country *country, char *city_name);
  * @param x X coordinate
  * @param y Y coordinate
  */
-void insert_PoI (Client **head, uint32_t client_id, char *country_name, char *city_name, double x, double y);
+void insert_PoI (Client **head, uint32_t client_id, char *country_name, char *city_name, float x, float y);
 
 /**
  * removes Points of Interest of certain city
@@ -286,5 +286,9 @@ int is_list_empty (Client **head);
  * @param head head of liked list
  */
 void free_clients_list (Client **head);
+
+//------------------AUX-------------------------//
+
+char* refactor_string_to_lower (char* str);
 
 #endif //TSP_CLIENT_H
