@@ -90,29 +90,29 @@ CMakeFiles/tsp.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/main.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/main.c -o CMakeFiles/tsp.dir/main.c.s
 
-CMakeFiles/tsp.dir/client.c.o: CMakeFiles/tsp.dir/flags.make
-CMakeFiles/tsp.dir/client.c.o: ../client.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/tsp.dir/client.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/client.c.o   -c /Users/VitorHugo/CLionProjects/tsp/client.c
+CMakeFiles/tsp.dir/Client/client.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Client/client.c.o: ../Client/client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/tsp.dir/Client/client.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Client/client.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Client/client.c
 
-CMakeFiles/tsp.dir/client.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/client.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/client.c > CMakeFiles/tsp.dir/client.c.i
+CMakeFiles/tsp.dir/Client/client.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Client/client.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Client/client.c > CMakeFiles/tsp.dir/Client/client.c.i
 
-CMakeFiles/tsp.dir/client.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/client.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/client.c -o CMakeFiles/tsp.dir/client.c.s
+CMakeFiles/tsp.dir/Client/client.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Client/client.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Client/client.c -o CMakeFiles/tsp.dir/Client/client.c.s
 
 # Object files for target tsp
 tsp_OBJECTS = \
 "CMakeFiles/tsp.dir/main.c.o" \
-"CMakeFiles/tsp.dir/client.c.o"
+"CMakeFiles/tsp.dir/Client/client.c.o"
 
 # External object files for target tsp
 tsp_EXTERNAL_OBJECTS =
 
 tsp: CMakeFiles/tsp.dir/main.c.o
-tsp: CMakeFiles/tsp.dir/client.c.o
+tsp: CMakeFiles/tsp.dir/Client/client.c.o
 tsp: CMakeFiles/tsp.dir/build.make
 tsp: CMakeFiles/tsp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable tsp"

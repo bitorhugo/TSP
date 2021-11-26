@@ -1,11 +1,6 @@
-#include "client.h"
+#include "Client/client.h"
 
 int main() {
-
-    char c []= "hello";
-    for (int i = 0; i < strlen(c); ++i) {
-        c[i] = (char)toupper(c[i]);
-    }
 
     Client *head = NULL;
     uint32_t num_client = 0;
@@ -19,7 +14,7 @@ int main() {
     insert_trip(&head, 1, "Portugal");
     insert_trip(&head, 1, "Germany");
     insert_trip(&head, 1, "Denmark");
-    print_trips(&head, 1);
+    print_trips(&head, 1, 0);
 
     insert_city(&head, 1, "Portugal", "Porto");
     insert_city(&head, 1, "Portugal", "Lisbon");
@@ -37,6 +32,10 @@ int main() {
     insert_PoI(&head, 1, "Portugal", "Lisbon", 3.2f, 3.5f);
 
     search_PoI(&head, 1, "Portugal", "Porto");
+
+    print_trips_specific(&head, 1, "Portugal", "Lisbon", 0);
+
+    write_report(&head, 1);
 
     free_clients_list(&head);
 

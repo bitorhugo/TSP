@@ -143,32 +143,32 @@ tsp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/build
 .PHONY : tsp/fast
 
-client.o: client.c.o
+Client/client.o: Client/client.c.o
 
-.PHONY : client.o
+.PHONY : Client/client.o
 
 # target to build an object file
-client.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/client.c.o
-.PHONY : client.c.o
+Client/client.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client.c.o
+.PHONY : Client/client.c.o
 
-client.i: client.c.i
+Client/client.i: Client/client.c.i
 
-.PHONY : client.i
+.PHONY : Client/client.i
 
 # target to preprocess a source file
-client.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/client.c.i
-.PHONY : client.c.i
+Client/client.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client.c.i
+.PHONY : Client/client.c.i
 
-client.s: client.c.s
+Client/client.s: Client/client.c.s
 
-.PHONY : client.s
+.PHONY : Client/client.s
 
 # target to generate assembly for a file
-client.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/client.c.s
-.PHONY : client.c.s
+Client/client.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client.c.s
+.PHONY : Client/client.c.s
 
 main.o: main.c.o
 
@@ -206,9 +206,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... tsp"
-	@echo "... client.o"
-	@echo "... client.i"
-	@echo "... client.s"
+	@echo "... Client/client.o"
+	@echo "... Client/client.i"
+	@echo "... Client/client.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

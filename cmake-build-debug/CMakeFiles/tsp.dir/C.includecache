@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/VitorHugo/CLionProjects/tsp/client.c
+/Users/VitorHugo/CLionProjects/tsp/Client/client.c
 client.h
-/Users/VitorHugo/CLionProjects/tsp/client.h
+/Users/VitorHugo/CLionProjects/tsp/Client/client.h
 
-/Users/VitorHugo/CLionProjects/tsp/client.h
+/Users/VitorHugo/CLionProjects/tsp/Client/client.h
 stdio.h
 -
 stdlib.h

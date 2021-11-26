@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/tsp.dir/client.c.o"
+  "CMakeFiles/tsp.dir/Client/client.c.o"
   "CMakeFiles/tsp.dir/main.c.o"
   "tsp"
   "tsp.pdb"

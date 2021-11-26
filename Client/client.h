@@ -297,8 +297,8 @@ int is_list_empty (Client **head);
  */
 void free_clients_list (Client **head);
 
-//------------------AUX-------------------------//
+//------------------FILES-------------------------//
 
-char* refactor_string_to_lower (char* str);
+void write_report (Client **head, uint32_t client_id);
 
 #endif //TSP_CLIENT_H
