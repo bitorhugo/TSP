@@ -179,7 +179,7 @@ void insert_trip (Client **head, uint32_t client_id, char* country_name) {
         return;
     }
 
-    //country_name = refactor_string_to_lower(country_name);
+    country_name = refactor_string_to_lower(country_name);
 
     Client *temp = *head; // temp for going through linked list
     while (temp != NULL) {
@@ -261,7 +261,7 @@ void edit_trip (Client **head, uint32_t client_id, char* country_name, char* new
  * 2 - iterates over trips array
  * 3 - prints each trip made
  */
-void print_trips (Client **head, uint32_t client_id) {
+void print_trips (Client **head, uint32_t client_id, short is_finished) {
 
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
@@ -281,6 +281,42 @@ void print_trips (Client **head, uint32_t client_id) {
             return;
         }
         temp = temp->next_client;
+    }
+    fprintf(stderr, "CLIENT NOT FOUND\n");
+}
+
+void print_trips_specific (Client **head, uint32_t client_id, char *country_name, char *city_name, short is_finished) {
+    if (is_list_empty(head)) {
+        fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
+        return;
+    }
+    Client *temp_client = *head;
+    while (temp_client != NULL) {
+        if (temp_client->user_id == client_id) {
+            Country *temp_country;
+            for (int i = 0; i < temp_client->size_trips_finished; ++i) {
+                temp_country = temp_client->trips_finished + i;
+                if (strcmp(temp_country->name, country_name) == 0) {
+                    City *temp_city;
+                    for (int j = 0; j < temp_country->size_trip_cities; ++j) {
+                        temp_city = temp_country->cities + j;
+                        if (strcmp(temp_city->name, city_name) == 0) {
+                            if (temp_city->coordinates == 0) {
+                                fprintf(stderr, "ERROR: PoI NOT FOUND\n");
+                                return;
+                            }
+                            printf("Trips finished:\nCity %s\nPoI: x = %.2f, y = %.2f",
+                                   city_name, temp_city->coordinates->x, temp_city->coordinates->y);
+                        }
+                    }
+                    fprintf(stderr, "ERROR: CITY NOT FOUND\n");
+                    return;
+                }
+            }
+            fprintf(stderr, "ERROR: TRIP NOT FOUND\n");
+            return;
+        }
+        temp_client = temp_client->next_client;
     }
     fprintf(stderr, "CLIENT NOT FOUND\n");
 }
@@ -643,16 +679,14 @@ void free_clients_list (Client **head) {
 
 }
 
-
 //------------------AUX-------------------------//
 // TODO: ASK TEACHER
 char* refactor_string_to_lower (char* str) {
-   char temp;
-    for (int i = 0; i < strlen(str) + 1; ++i) {
-        if (isupper(*(str + i))) {
-            temp = (char) tolower(*(str + i));
-            *(str + i) = temp;
-        }
+    char temp;
+    for (int i = 0; i < strlen(str); ++i) {
+        temp = *(str + i);
+        temp = (char)tolower(temp);
+        *(str + i) = (char) tolower(*(str + i));
     }
     return str;
 }

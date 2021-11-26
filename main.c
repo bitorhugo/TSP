@@ -2,6 +2,11 @@
 
 int main() {
 
+    char c []= "hello";
+    for (int i = 0; i < strlen(c); ++i) {
+        c[i] = (char)toupper(c[i]);
+    }
+
     Client *head = NULL;
     uint32_t num_client = 0;
 

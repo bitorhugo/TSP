@@ -48,6 +48,7 @@ typedef struct Client {
   uint32_t billing;
   Date registration;
   Country* trips_finished;
+  int size_trips_finished;
   Country* trips_to_be_made;
   int size_trips_to_be_made;
   struct Client *next_client; // pointer for the next client
@@ -128,7 +129,16 @@ void edit_trip (Client **head, uint32_t client_id, char* country_name, char* new
  * @param head head of linked list
  * @param client_id wanted client
  */
-void print_trips (Client **head, uint32_t client_id);
+void print_trips (Client **head, uint32_t client_id, short is_finished);
+
+/**
+ * prints trips made with specific parameters
+ * @param head head of linked list
+ * @param client_id wanted client
+ * @param country_name country name
+ * @param city_name city name
+ */
+void print_trips_specific (Client **head, uint32_t client_id, char *country_name, char *city_name, short is_finished);
 
 /**
  * inserts country_name to client trips_to_be_made array
