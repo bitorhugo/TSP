@@ -299,6 +299,12 @@ void free_clients_list (Client **head);
 
 //------------------FILES-------------------------//
 
-void write_report (Client **head, uint32_t client_id);
+/**
+ * writes report to file
+ * @param head head of linked list
+ * @param client_id wanted client
+ * @param is_binary true if type binary | false if type txt
+ */
+void write_report (Client **head, uint32_t client_id, bool is_binary);
 
 #endif //TSP_CLIENT_H

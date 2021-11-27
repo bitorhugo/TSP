@@ -35,7 +35,7 @@ int main() {
 
     print_trips_specific(&head, 1, "Portugal", "Lisbon", 0);
 
-    write_report(&head, 1);
+    write_report(&head, 1, false);
 
     free_clients_list(&head);
 

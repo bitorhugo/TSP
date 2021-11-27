@@ -711,25 +711,24 @@ void free_clients_list (Client **head) {
 
 //------------------FILES-------------------------//
 
-void write_report (Client **head, uint32_t client_id) {
+void write_report (Client **head, uint32_t client_id, bool is_binary) {
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
         return;
     }
+    FILE *file_to_open;
+    if (is_binary == true) file_to_open = fopen ("report_binary.bin", "wb");
+    else  file_to_open =  fopen("report.txt", "w");
 
-    FILE *file_to_open = fopen("report.txt", "w");
     if (file_to_open == NULL) {
         fprintf(stderr, "ERROR: FILE FAULT\n");
         return;
     }
 
     Client *temp_client = *head;
-
     while (temp_client != NULL) {
 
-        if (temp_client->user_id == client_id) {
-            fprintf(file_to_open, "Client: %d", temp_client->user_id);
-        }
+        fwrite(temp_client, sizeof(*temp_client), 1, file_to_open);
 
         temp_client = temp_client->next_client;
     }
