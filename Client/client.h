@@ -43,10 +43,10 @@ typedef struct Country {
 
 typedef struct Client {
   uint32_t user_id;
-  char* address;
-  uint16_t contact_number;
-  uint32_t billing;
-  Date registration;
+  //char* address;
+  //uint16_t contact_number;
+  //uint32_t billing;
+  //Date registration;
   Country* trips_finished;
   int size_trips_finished;
   Country* trips_to_be_made;

@@ -8,6 +8,8 @@ int main() {
     insert_new_client(&head, true, 24563);
     insert_new_client(&head, true, 263423);
 
+    print_clients(&head);
+
     search_client_by_id(&head, 1);
     search_client_by_id(&head, 1234);
 
@@ -33,8 +35,11 @@ int main() {
 
     search_PoI(&head, 1234, "Portugal", "Porto");
 
+    sort_clients(&head, 0);
+
     print_trips_specific(&head, 1234, "Portugal", "Lisbon", 0);
 
+    print_clients(&head);
     //write_report(&head, 1, false);
 
 

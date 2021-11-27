@@ -137,14 +137,26 @@ void sort_clients (Client **head, short attribute) {
 
 void sort_clients_id (Client **head) {
 
-    Client *temp; // swap temporary
-
     for (Client *i = *head; i->next_client != NULL; i = i->next_client) {
-        for (Client *j = i->next_client; j != NULL; j++) {
-            if (i->user_id > j->user_id) {
-                temp = j->next_client;
-                j->next_client = i;
-                i->next_client = temp;
+        for (Client *j = i->next_client; j != NULL; j = j->next_client) {
+            if (j->user_id < i->user_id) {
+                uint32_t temp_id = j->user_id;
+                Country *temp_trips_to_be_made = j->trips_to_be_made;
+                int temp_size_trips_to_be_made = j->size_trips_to_be_made;
+                Country *temp_trips_finished = j->trips_finished;
+                int temp_size_trips_finished = j->size_trips_finished;
+
+                j->user_id = i->user_id;
+                j->trips_to_be_made = i->trips_to_be_made;
+                j->size_trips_to_be_made = i->size_trips_to_be_made;
+                j->trips_finished = i->trips_finished;
+                j->size_trips_finished = i->size_trips_finished;
+
+                i->user_id = temp_id;
+                i->trips_to_be_made = temp_trips_to_be_made;
+                i->size_trips_to_be_made = temp_size_trips_to_be_made;
+                i->trips_finished = temp_trips_finished;
+                i->size_trips_finished = temp_size_trips_finished;
             }
         }
     }
@@ -152,7 +164,6 @@ void sort_clients_id (Client **head) {
 }
 
 void sort_clients_name (Client **head) {
-
 }
 
 /*
