@@ -137,6 +137,9 @@ void sort_clients (Client **head, short attribute) {
 
 void sort_clients_id (Client **head) {
 
+    time_t start = 0, end = 0;
+    time(&start);
+
     for (Client *i = *head; i->next_client != NULL; i = i->next_client) {
         for (Client *j = i->next_client; j != NULL; j = j->next_client) {
             if (j->user_id < i->user_id) {
@@ -160,6 +163,8 @@ void sort_clients_id (Client **head) {
             }
         }
     }
+    time(&end);
+    printf("Time elapsed: %.5lf\n", difftime(end, start));
 
 }
 
