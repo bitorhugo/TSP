@@ -57,11 +57,12 @@ typedef struct Client {
 //------------------CLIENT-------------------------//
 
 /**
- * insert new client
+ * inserts a new client
  * @param head head of linked list
- * @param position 0 -> head | 1 -> tail
+ * @param at_head true if inserting at the beginning | false if at end
+ * @param client_id clients id
  */
-void insert_new_client (Client **head, short position, uint32_t *client_id);
+void insert_new_client (Client **head, bool at_head, uint32_t *client_id);
 
 /**
  * insert new client at the head of linked list
@@ -81,8 +82,32 @@ void insert_new_client_tail(Client **head);
  */
 void remove_client (Client **head, uint32_t userid);
 
+/**
+ * searches client by his id
+ * @param head head of linked list
+ * @param userid wanted client
+ */
 void search_client_by_id (Client **head, uint32_t userid);
 
+/**
+ * sorts clients
+ * @param head head of linked list
+ * @param attribute 0 -> sorts by ID | 1 -> NAME
+ */
+void sort_clients (Client **head, short attribute);
+
+/**
+ * sorts clients by id using selection sort: O(n^2)
+ * @param head head of linked list
+ */
+void sort_clients_id (Client **head);
+
+void sort_clients_name (Client **head);
+
+/**
+ * prints clients
+ * @param head head of linked list
+ */
 void print_clients(Client **head);
 
 /**
@@ -90,12 +115,6 @@ void print_clients(Client **head);
  * @param head head of linked list
  */
 void read_clients_from_file(Client **head);
-
-/**
- * Sorts list by VAT
- * @param head head of linked list
- */
-void sort_clients_VAT(Client **head);
 
 //------------------TRIP-------------------------//
 

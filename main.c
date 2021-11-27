@@ -5,8 +5,9 @@ int main() {
     Client *head = NULL;
     uint32_t num_client = 0;
 
-    insert_new_client(&head, 0, &num_client);
-    insert_new_client(&head, 0, &num_client);
+    insert_new_client(&head, true, &num_client);
+    insert_new_client(&head, true, &num_client);
+    insert_new_client(&head, true, &num_client);
 
     search_client_by_id(&head, 1);
     search_client_by_id(&head, 2);
@@ -35,7 +36,9 @@ int main() {
 
     print_trips_specific(&head, 1, "Portugal", "Lisbon", 0);
 
-    write_report(&head, 1, false);
+    //write_report(&head, 1, false);
+
+
 
     free_clients_list(&head);
 

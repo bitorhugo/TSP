@@ -6,15 +6,15 @@
 
 //------------------CLIENT-------------------------//
 
-void insert_new_client (Client **head, short position, uint32_t *client_id) {
+void insert_new_client (Client **head, bool at_head, uint32_t *client_id) {
 
-    if (is_list_empty(head)) position = 0;
+    if (is_list_empty(head)) at_head = true;
 
     Client *new_client = allocate_memory_Client(); // allocates memory for new client
     *(client_id) += 1;
     uint32_t id_number = *client_id;
 
-    if (position == 0) {
+    if (at_head) {
         new_client->next_client = *head; // stores head pointer in new client
         *head = new_client; //
         new_client->user_id = id_number;
@@ -124,6 +124,35 @@ void search_client_by_id (Client **head, uint32_t userid_to_search) {
         else temp = temp->next_client;
     }
     printf("Client %d not found.\n", userid_to_search);
+}
+
+void sort_clients (Client **head, short attribute) {
+    if (is_list_empty(head)) {
+        fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
+        return;
+    }
+    if (attribute == 0) sort_clients_id(head);
+    else sort_clients_name(head);
+}
+
+void sort_clients_id (Client **head) {
+
+    Client *temp; // swap temporary
+
+    for (Client *i = *head; i->next_client != NULL; i = i->next_client) {
+        for (Client *j = i->next_client; j != NULL; j++) {
+            if (i->user_id > j->user_id) {
+                temp = j->next_client;
+                j->next_client = i;
+                i->next_client = temp;
+            }
+        }
+    }
+
+}
+
+void sort_clients_name (Client **head) {
+
 }
 
 /*
@@ -248,11 +277,6 @@ void edit_trip (Client **head, uint32_t client_id, char* country_name, char* new
     }
 }
 
-/*
- * 1 - searches for wanted client
- * 2 - iterates over trips array
- * 3 - prints each trip made
- */
 void print_trips (Client **head, uint32_t client_id, short is_finished) {
 
     if (is_list_empty(head)) {
