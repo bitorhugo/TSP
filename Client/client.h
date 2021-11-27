@@ -62,7 +62,7 @@ typedef struct Client {
  * @param at_head true if inserting at the beginning | false if at end
  * @param client_id clients id
  */
-void insert_new_client (Client **head, bool at_head, uint32_t *client_id);
+void insert_new_client (Client **head, bool at_head, uint32_t client_id);
 
 /**
  * insert new client at the head of linked list

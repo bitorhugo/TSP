@@ -6,18 +6,18 @@
 
 //------------------CLIENT-------------------------//
 
-void insert_new_client (Client **head, bool at_head, uint32_t *client_id) {
+void insert_new_client (Client **head, bool at_head, uint32_t client_id) {
 
     if (is_list_empty(head)) at_head = true;
 
     Client *new_client = allocate_memory_Client(); // allocates memory for new client
-    *(client_id) += 1;
-    uint32_t id_number = *client_id;
+    //*(client_id) += 1;
+    //uint32_t id_number = *client_id;
 
     if (at_head) {
         new_client->next_client = *head; // stores head pointer in new client
         *head = new_client; //
-        new_client->user_id = id_number;
+        new_client->user_id = client_id;
         printf("New client head at %p\tnext_client: %p\n", new_client, new_client->next_client);
     } else {
         Client *temp = *head;
@@ -27,7 +27,7 @@ void insert_new_client (Client **head, bool at_head, uint32_t *client_id) {
         // inserts new client at the end and restores link
         temp->next_client = new_client;
         new_client->next_client = NULL;
-        new_client->user_id = id_number;
+        new_client->user_id = client_id;
         printf("New client tail at %p\tnext_client: %p\n", new_client, new_client->next_client);
     }
 }
