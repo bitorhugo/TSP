@@ -45,6 +45,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Client"/>
+					<Add directory="/Users/VitorHugo/CLionProjects/tsp/AG"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
@@ -67,6 +68,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Client"/>
+					<Add directory="/Users/VitorHugo/CLionProjects/tsp/AG"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
@@ -82,10 +84,25 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/AG/ag.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/AG/ag.h">
+			<Option target="tsp"/>
+		</Unit>
 		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Client/client.c">
 			<Option target="tsp"/>
 		</Unit>
 		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Client/client.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Client/client_PoI.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Client/client_city.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Client/client_trips.c">
 			<Option target="tsp"/>
 		</Unit>
 		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/main.c">

@@ -94,7 +94,7 @@ void search_client_by_id (Client **head, uint32_t userid);
 /**
  * sorts clients
  * @param head head of linked list
- * @param attribute 0 -> sorts by ID | 1 -> NAME
+ * @param attribute 0 == ID | 1 == NAME
  */
 void sort_clients (Client **head, short attribute);
 
@@ -104,6 +104,10 @@ void sort_clients (Client **head, short attribute);
  */
 void sort_clients_id (Client **head);
 
+/**
+ * sorts clients by name
+ * @param head head of linked list
+ */
 void sort_clients_name (Client **head);
 
 /**

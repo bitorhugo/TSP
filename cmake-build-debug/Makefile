@@ -143,6 +143,33 @@ tsp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/build
 .PHONY : tsp/fast
 
+AG/ag.o: AG/ag.c.o
+
+.PHONY : AG/ag.o
+
+# target to build an object file
+AG/ag.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/AG/ag.c.o
+.PHONY : AG/ag.c.o
+
+AG/ag.i: AG/ag.c.i
+
+.PHONY : AG/ag.i
+
+# target to preprocess a source file
+AG/ag.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/AG/ag.c.i
+.PHONY : AG/ag.c.i
+
+AG/ag.s: AG/ag.c.s
+
+.PHONY : AG/ag.s
+
+# target to generate assembly for a file
+AG/ag.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/AG/ag.c.s
+.PHONY : AG/ag.c.s
+
 Client/client.o: Client/client.c.o
 
 .PHONY : Client/client.o
@@ -169,6 +196,87 @@ Client/client.s: Client/client.c.s
 Client/client.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client.c.s
 .PHONY : Client/client.c.s
+
+Client/client_PoI.o: Client/client_PoI.c.o
+
+.PHONY : Client/client_PoI.o
+
+# target to build an object file
+Client/client_PoI.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_PoI.c.o
+.PHONY : Client/client_PoI.c.o
+
+Client/client_PoI.i: Client/client_PoI.c.i
+
+.PHONY : Client/client_PoI.i
+
+# target to preprocess a source file
+Client/client_PoI.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_PoI.c.i
+.PHONY : Client/client_PoI.c.i
+
+Client/client_PoI.s: Client/client_PoI.c.s
+
+.PHONY : Client/client_PoI.s
+
+# target to generate assembly for a file
+Client/client_PoI.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_PoI.c.s
+.PHONY : Client/client_PoI.c.s
+
+Client/client_city.o: Client/client_city.c.o
+
+.PHONY : Client/client_city.o
+
+# target to build an object file
+Client/client_city.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_city.c.o
+.PHONY : Client/client_city.c.o
+
+Client/client_city.i: Client/client_city.c.i
+
+.PHONY : Client/client_city.i
+
+# target to preprocess a source file
+Client/client_city.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_city.c.i
+.PHONY : Client/client_city.c.i
+
+Client/client_city.s: Client/client_city.c.s
+
+.PHONY : Client/client_city.s
+
+# target to generate assembly for a file
+Client/client_city.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_city.c.s
+.PHONY : Client/client_city.c.s
+
+Client/client_trips.o: Client/client_trips.c.o
+
+.PHONY : Client/client_trips.o
+
+# target to build an object file
+Client/client_trips.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_trips.c.o
+.PHONY : Client/client_trips.c.o
+
+Client/client_trips.i: Client/client_trips.c.i
+
+.PHONY : Client/client_trips.i
+
+# target to preprocess a source file
+Client/client_trips.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_trips.c.i
+.PHONY : Client/client_trips.c.i
+
+Client/client_trips.s: Client/client_trips.c.s
+
+.PHONY : Client/client_trips.s
+
+# target to generate assembly for a file
+Client/client_trips.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_trips.c.s
+.PHONY : Client/client_trips.c.s
 
 main.o: main.c.o
 
@@ -206,9 +314,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... tsp"
+	@echo "... AG/ag.o"
+	@echo "... AG/ag.i"
+	@echo "... AG/ag.s"
 	@echo "... Client/client.o"
 	@echo "... Client/client.i"
 	@echo "... Client/client.s"
+	@echo "... Client/client_PoI.o"
+	@echo "... Client/client_PoI.i"
+	@echo "... Client/client_PoI.s"
+	@echo "... Client/client_city.o"
+	@echo "... Client/client_city.i"
+	@echo "... Client/client_city.s"
+	@echo "... Client/client_trips.o"
+	@echo "... Client/client_trips.i"
+	@echo "... Client/client_trips.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

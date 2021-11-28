@@ -1,5 +1,9 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/tsp.dir/AG/ag.c.o"
   "CMakeFiles/tsp.dir/Client/client.c.o"
+  "CMakeFiles/tsp.dir/Client/client_PoI.c.o"
+  "CMakeFiles/tsp.dir/Client/client_city.c.o"
+  "CMakeFiles/tsp.dir/Client/client_trips.c.o"
   "CMakeFiles/tsp.dir/main.c.o"
   "tsp"
   "tsp.pdb"

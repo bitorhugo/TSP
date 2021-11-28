@@ -26,3 +26,15 @@ time.h
 unistd.h
 -
 
+/Users/VitorHugo/CLionProjects/tsp/Client/client_PoI.c
+client.h
+/Users/VitorHugo/CLionProjects/tsp/Client/client.h
+
+/Users/VitorHugo/CLionProjects/tsp/Client/client_city.c
+client.h
+/Users/VitorHugo/CLionProjects/tsp/Client/client.h
+
+/Users/VitorHugo/CLionProjects/tsp/Client/client_trips.c
+client.h
+/Users/VitorHugo/CLionProjects/tsp/Client/client.h
+

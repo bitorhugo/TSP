@@ -4,7 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/VitorHugo/CLionProjects/tsp/AG/ag.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/AG/ag.c.o"
   "/Users/VitorHugo/CLionProjects/tsp/Client/client.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Client/client.c.o"
+  "/Users/VitorHugo/CLionProjects/tsp/Client/client_PoI.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Client/client_PoI.c.o"
+  "/Users/VitorHugo/CLionProjects/tsp/Client/client_city.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Client/client_city.c.o"
+  "/Users/VitorHugo/CLionProjects/tsp/Client/client_trips.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Client/client_trips.c.o"
   "/Users/VitorHugo/CLionProjects/tsp/main.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
@@ -12,6 +16,7 @@ set(CMAKE_C_COMPILER_ID "AppleClang")
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../Client"
+  "../AG"
   )
 
 # Targets to which this target links.
