@@ -14,7 +14,7 @@ int main() {
     search_client_by_id(&head, 1);
     search_client_by_id(&head, 1234);
 
-    insert_trip(&head, 1234, "Portugal");
+    insert_trip(&head, 1234, "portugal");
     insert_trip(&head, 1234, "Germany");
     insert_trip(&head, 1234, "Denmark");
     print_trips(&head, 1234, 0);

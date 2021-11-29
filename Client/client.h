@@ -332,4 +332,6 @@ void free_clients_list (Client **head);
  */
 void write_report (Client **head, uint32_t client_id, bool is_binary);
 
+void camel_case_name(char *country_name, char *refactored_name);
+
 #endif //TSP_CLIENT_H

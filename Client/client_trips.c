@@ -12,11 +12,14 @@ void insert_trip (Client **head, uint32_t client_id, char* country_name) {
         return;
     }
 
+    char refactored_name[strlen(country_name) + 1]; // country_name is static so it can't be modified
+    camel_case_name(country_name, refactored_name);
+
     Client *temp = *head; // temp for going through linked list
     while (temp != NULL) {
         if (temp->user_id == client_id) { // searches for wanted client
 
-            insert_trip_name(temp, country_name);
+            insert_trip_name(temp, refactored_name);
             return;
         }
         temp = temp->next_client;
@@ -205,5 +208,12 @@ Country* realloc_memory_trip (Client *client, int size) {
     client->trips_to_be_made = realloc(client->trips_to_be_made, (size + 1) * sizeof(Country));
     if (client->trips_to_be_made == NULL) fprintf(stderr, "NOT ABLE TO REALLOCATE MEMORY\n");
     return client->trips_to_be_made;
+}
+
+void camel_case_name(char *country_name, char *refactored_name) {
+    for (int i = 0; i < strlen(country_name) + 1; ++i) {
+        refactored_name[i] = (char) tolower(country_name[i]);
+    }
+    refactored_name[0] = (char) toupper(refactored_name[0]);
 }
 
