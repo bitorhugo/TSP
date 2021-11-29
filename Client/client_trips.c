@@ -194,6 +194,13 @@ void insert_trip_name(Client *client, char *country_name) {
     }
 }
 
+void camel_case_name(char *country_name, char *refactored_name) {
+    for (int i = 0; i < strlen(country_name) + 1; ++i) {
+        refactored_name[i] = (char) tolower(country_name[i]);
+    }
+    refactored_name[0] = (char) toupper(refactored_name[0]);
+}
+
 //------------------Allocate-------------------------//
 
 Country* allocate_memory_trip () {
@@ -210,10 +217,4 @@ Country* realloc_memory_trip (Client *client, int size) {
     return client->trips_to_be_made;
 }
 
-void camel_case_name(char *country_name, char *refactored_name) {
-    for (int i = 0; i < strlen(country_name) + 1; ++i) {
-        refactored_name[i] = (char) tolower(country_name[i]);
-    }
-    refactored_name[0] = (char) toupper(refactored_name[0]);
-}
 

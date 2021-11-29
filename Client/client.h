@@ -172,6 +172,13 @@ void print_trips_specific (Client **head, uint32_t client_id, char *country_name
  */
 void insert_trip_name(Client *client, char *country_name);
 
+/**
+ * refactors countries' name to camel case (e.g. portugal -> Portugal || porTugal --> Portugal)
+ * @param country_name country name
+ * @param refactored_name refactored name
+ */
+void camel_case_name(char *country_name, char *refactored_name);
+
 //------------------CITY-------------------------//
 
 /**
@@ -332,6 +339,5 @@ void free_clients_list (Client **head);
  */
 void write_report (Client **head, uint32_t client_id, bool is_binary);
 
-void camel_case_name(char *country_name, char *refactored_name);
 
 #endif //TSP_CLIENT_H
