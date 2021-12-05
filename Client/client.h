@@ -339,5 +339,21 @@ void free_clients_list (Client **head);
  */
 void write_report (Client **head, uint32_t client_id, bool is_binary);
 
+//------------------AUX-------------------------//
+/**
+ * Splits linked list into two halves
+ * @param source
+ * @param frontRef
+ * @param backRef
+ */
+void FrontBackSplit(Client* source, Client** frontRef, Client** backRef);
+
+/**
+ * Merges sorted lists
+ * @param a
+ * @param b
+ * @return
+ */
+Client *SortedMerge(Client *a, Client *b);
 
 #endif //TSP_CLIENT_H

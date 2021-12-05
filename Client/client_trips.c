@@ -11,7 +11,6 @@ void insert_trip (Client **head, uint32_t client_id, char* country_name) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
         return;
     }
-
     char refactored_name[strlen(country_name) + 1]; // country_name is static so it can't be modified
     camel_case_name(country_name, refactored_name);
 

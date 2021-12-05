@@ -116,29 +116,19 @@ void sort_clients_id (Client **head) {
     time_t start = 0, end = 0;
     time(&start);
 
-    for (Client *i = *head; i->next_client != NULL; i = i->next_client) {
-        for (Client *j = i->next_client; j != NULL; j = j->next_client) {
-            if (j->user_id < i->user_id) {
-                uint32_t temp_id = j->user_id;
-                Country *temp_trips_to_be_made = j->trips_to_be_made;
-                int temp_size_trips_to_be_made = j->size_trips_to_be_made;
-                Country *temp_trips_finished = j->trips_finished;
-                int temp_size_trips_finished = j->size_trips_finished;
+    Client *temp_client = *head;
+    Client * a;
+    Client * b;
 
-                j->user_id = i->user_id;
-                j->trips_to_be_made = i->trips_to_be_made;
-                j->size_trips_to_be_made = i->size_trips_to_be_made;
-                j->trips_finished = i->trips_finished;
-                j->size_trips_finished = i->size_trips_finished;
+    if (temp_client->next_client == NULL) return;
 
-                i->user_id = temp_id;
-                i->trips_to_be_made = temp_trips_to_be_made;
-                i->size_trips_to_be_made = temp_size_trips_to_be_made;
-                i->trips_finished = temp_trips_finished;
-                i->size_trips_finished = temp_size_trips_finished;
-            }
-        }
-    }
+    FrontBackSplit(temp_client, &a, &b);
+
+    sort_clients_id(&a);
+    sort_clients_id(&b);
+
+    *head = SortedMerge(a, b);
+
     time(&end);
     printf("Time elapsed: %.5lf\n", difftime(end, start));
 
@@ -240,4 +230,49 @@ void write_report (Client **head, uint32_t client_id, bool is_binary) {
 
     fclose(file_to_open);
 
+}
+
+//------------------AUX-------------------------//
+
+void FrontBackSplit(Client* source, Client** frontRef, Client** backRef) {
+    Client *fast;
+    Client *slow;
+    slow = source;
+    fast = source->next_client;
+
+    /* Advance 'fast' two nodes, and advance 'slow' one node */
+    while (fast != NULL) {
+        fast = fast->next_client;
+        if (fast != NULL) {
+            slow = slow->next_client;
+            fast = fast->next_client;
+        }
+    }
+
+    /* 'slow' is before the midpoint in the list, so split it in two
+    at that point. */
+    *frontRef = source;
+    *backRef = slow->next_client;
+    slow->next_client = NULL;
+}
+
+Client *SortedMerge(Client *a, Client *b) {
+    Client* result = NULL;
+
+    /* Base cases */
+    if (a == NULL)
+        return (b);
+    else if (b == NULL)
+        return (a);
+
+    /* Pick either a or b, and recur */
+    if (a->user_id <= b->user_id) {
+        result = a;
+        result->next_client = SortedMerge(a->next_client, b);
+    }
+    else {
+        result = b;
+        result->next_client = SortedMerge(a, b->next_client);
+    }
+    return (result);
 }

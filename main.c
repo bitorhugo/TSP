@@ -38,11 +38,10 @@ int main() {
 
     sort_clients(&head, 0);
 
-    print_trips_specific(&head, 1234, "Portugal", "Lisbon", 0);
+    //print_trips_specific(&head, 1234, "Portugal", "Lisbon", 0);
 
     print_clients(&head);
     //write_report(&head, 1, false);
-
 
 
     free_clients_list(&head);
