@@ -4,9 +4,6 @@
 
 #include "ag.h"
 
-
-POPULATION *initial_population = NULL;
-
 void create_population (Client **head, POPULATION *population, uint32_t client_id, int size_of_population) {
     if (is_list_empty(head)) {
         fprintf (stderr, "ERROR: NO CLIENTS AVAILABLE\n");

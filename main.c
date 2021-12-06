@@ -4,6 +4,7 @@
 int main() {
 
     Client *head = NULL;
+    GENARATION *head_generations = NULL;
     POPULATION *initial_population = NULL;
 
     insert_new_client(&head, true, 1234);

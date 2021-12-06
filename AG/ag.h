@@ -21,6 +21,11 @@ typedef struct population {
     int num_of_cromossomas;
 }POPULATION;
 
+typedef struct generation {
+    POPULATION population;
+    struct generation *next_generation;
+}GENARATION;
+
 //------------------POPULATION-------------------------//
 
 void create_population (Client **head, POPULATION *population, uint32_t client_id, int size_of_population);
