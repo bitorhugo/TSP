@@ -22,6 +22,9 @@ int main() {
 
     insert_city(&head, 1234, "Portugal", "Porto");
     insert_city(&head, 1234, "Portugal", "Lisbon");
+    insert_city(&head, 1234, "Portugal", "Aveiro");
+    insert_city(&head, 1234, "Portugal", "Faro");
+    insert_city(&head, 1234, "Portugal", "Braga");
     insert_city(&head, 1234, "Germany", "Munich");
     insert_city(&head, 1234, "Germany", "Berlin");
     insert_city(&head, 1234, "Germany", "Be");
@@ -34,6 +37,9 @@ int main() {
 
     insert_PoI(&head, 1234, "Portugal", "Porto", 1.1f, 2.4f);
     insert_PoI(&head, 1234, "Portugal", "Lisbon", 3.2f, 3.5f);
+    insert_PoI(&head, 1234, "Portugal", "Aveiro", 13.2f, 45.5f);
+    insert_PoI(&head, 1234, "Portugal", "Faro", 7.2f, 4.5f);
+    insert_PoI(&head, 1234, "Portugal", "Braga", 32.2f, 23.5f);
 
     search_PoI(&head, 1234, "Portugal", "Porto");
 

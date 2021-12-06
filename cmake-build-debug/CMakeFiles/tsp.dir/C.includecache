@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../AG/ag.h
-client.h
-../AG/client.h
-
 ../Client/client.h
 stdio.h
 -
@@ -33,10 +29,4 @@ ag.h
 /Users/VitorHugo/CLionProjects/tsp/AG/ag.h
 client.h
 /Users/VitorHugo/CLionProjects/tsp/AG/client.h
-
-/Users/VitorHugo/CLionProjects/tsp/main.c
-client.h
-/Users/VitorHugo/CLionProjects/tsp/client.h
-ag.h
-/Users/VitorHugo/CLionProjects/tsp/ag.h
 
