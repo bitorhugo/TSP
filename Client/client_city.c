@@ -161,7 +161,7 @@ void insert_city_name (Country *country, char *city_name) {
 
 City* allocate_memory_trip_city() {
     City *new_city = calloc (1, sizeof(City));
-    if (new_city == NULL) fprintf(stderr, "ERROR_ NOT ABLE TO ALLOCATE MEMORY FOR CITY\n");
+    if (new_city == NULL) fprintf(stderr, "ERROR: NOT ABLE TO ALLOCATE MEMORY FOR CITY\n");
     return new_city;
 }
 

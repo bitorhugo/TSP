@@ -4,6 +4,7 @@
 int main() {
 
     Client *head = NULL;
+    POPULATION *initial_population = NULL;
 
     insert_new_client(&head, true, 1234);
     insert_new_client(&head, true, 24563);
@@ -43,6 +44,7 @@ int main() {
     print_clients(&head);
     //write_report(&head, 1, false);
 
+    create_population(&head, initial_population, 1234, 4);
 
     free_clients_list(&head);
 
