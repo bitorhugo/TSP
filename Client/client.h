@@ -21,40 +21,46 @@
 
 //------------------DATA-------------------------//
 
-typedef struct Date{
+typedef struct date{
     uint16_t day;
     uint16_t month;
     uint16_t year;
-}Date;
+}DATE;
 
-typedef struct Points {
+typedef struct poi {
+    char* name;
+}POI;
+
+typedef struct points {
     float x;
     float y;
-} Points;
+} POINTS;
 
-typedef struct City {
+typedef struct city {
     char* name;
-    Points* coordinates;
-} City; // Possible rename to gene
+    POINTS * coordinates;
+    POI *poi;
+    int num_of_poi;
+} CITY; // Possible rename to gene
 
-typedef struct Country {
+typedef struct country {
     char* name;
-    City* cities; // Possible rename to individual
+    CITY* cities; // Possible rename to individual
     int size_trip_cities;
-} Country; // Possible rename to population
+} COUNTRY; // Possible rename to population
 
-typedef struct Client {
+typedef struct client {
   uint32_t user_id;
   //char* address;
   //uint16_t contact_number;
   //uint32_t billing;
   //Date registration;
-  Country* trips_finished;
+  COUNTRY * trips_finished;
   int size_trips_finished;
-  Country* trips_to_be_made;
+  COUNTRY * trips_to_be_made;
   int size_trips_to_be_made;
-  struct Client *next_client; // pointer for the next client
-} Client;
+  struct client *next_client; // pointer for the next client
+} CLIENT;
 
 //------------------CLIENT-------------------------//
 
@@ -64,63 +70,63 @@ typedef struct Client {
  * @param at_head true if inserting at the beginning | false if at end
  * @param client_id clients id
  */
-void insert_new_client (Client **head, bool at_head, uint32_t client_id);
+void insert_new_client (CLIENT **head, bool at_head, uint32_t client_id);
 
 /**
  * insert new client at the head of linked list
  * @param head head of linked list
  */
-void insert_new_client_head(Client **head);
+void insert_new_client_head(CLIENT **head);
 
 /**
  * inserts new client at tail
  * @param tail tail of linked list
  */
-void insert_new_client_tail(Client **head);
+void insert_new_client_tail(CLIENT **head);
 
 /**
  * Removes client by user id
  * @param head head of linked list
  */
-void remove_client (Client **head, uint32_t userid);
+void remove_client (CLIENT **head, uint32_t userid);
 
 /**
  * searches client by his id
  * @param head head of linked list
  * @param userid wanted client
  */
-void search_client_by_id (Client **head, uint32_t userid);
+CLIENT * search_client_by_id (CLIENT **head, uint32_t userid);
 
 /**
  * sorts clients
  * @param head head of linked list
  * @param attribute 0 == ID | 1 == NAME
  */
-void sort_clients (Client **head, short attribute);
+void sort_clients (CLIENT **head, short attribute);
 
 /**
  * sorts clients by id using selection sort: O(n^2)
  * @param head head of linked list
  */
-void sort_clients_id (Client **head);
+void sort_clients_id (CLIENT **head);
 
 /**
  * sorts clients by name
  * @param head head of linked list
  */
-void sort_clients_name (Client **head);
+void sort_clients_name (CLIENT **head);
 
 /**
  * prints clients
  * @param head head of linked list
  */
-void print_clients(Client **head);
+void print_clients(CLIENT **head);
 
 /**
  * reads from csv file all clients
  * @param head head of linked list
  */
-void read_clients_from_file(Client **head);
+void read_clients_from_file(CLIENT **head);
 
 //------------------TRIP-------------------------//
 
@@ -130,7 +136,7 @@ void read_clients_from_file(Client **head);
  * @param client_id wanted client
  * @param country_name name of the country to insert
  */
-void insert_trip (Client **head, uint32_t client_id, char* country_name);
+void insert_trip (CLIENT *client, char* country_name);
 
 /**
  * removes a trip from a client
@@ -138,7 +144,7 @@ void insert_trip (Client **head, uint32_t client_id, char* country_name);
  * @param client_id wanted client
  * @param country_name name of the country to remove
  */
-void remove_trip (Client **head, uint32_t client_id, char* country_name);
+void remove_trip (CLIENT *client, char* country_name);
 
 /**
  * edits trip of wanted client
@@ -147,14 +153,14 @@ void remove_trip (Client **head, uint32_t client_id, char* country_name);
  * @param country_name trip to be replaced
  * @param new_country_name new trip
  */
-void edit_trip (Client **head, uint32_t client_id, char* country_name, char* new_country_name);
+void edit_trip (CLIENT *client, char* country_name, char* new_country_name);
 
 /**
  * prints all trips wanted client made
  * @param head head of linked list
  * @param client_id wanted client
  */
-void print_trips (Client **head, uint32_t client_id, short is_finished);
+void print_trips (CLIENT *client, bool is_finished);
 
 /**
  * prints trips made with specific parameters
@@ -163,14 +169,14 @@ void print_trips (Client **head, uint32_t client_id, short is_finished);
  * @param country_name country name
  * @param city_name city name
  */
-void print_trips_specific (Client **head, uint32_t client_id, char *country_name, char *city_name, short is_finished);
+void print_trips_specific (CLIENT **head, uint32_t client_id, char *country_name, char *city_name, short is_finished);
 
 /**
  * inserts country_name to client trips_to_be_made array
  * @param client wanted client
  * @param country_name country name
  */
-void insert_trip_name(Client *client, char *country_name);
+void insert_trip_name(CLIENT *client, char *country_name);
 
 /**
  * refactors countries' name to camel case (e.g. portugal -> Portugal || porTugal --> Portugal)
@@ -188,7 +194,7 @@ void camel_case_name(char *country_name, char *refactored_name);
  * @param country_name country name
  * @param city_name city to insert
  */
-void insert_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
+void insert_city (COUNTRY *country, char *city_name);
 
 /**
  * removes a city from a trip
@@ -197,7 +203,7 @@ void insert_city (Client **head, uint32_t client_id, char *country_name, char *c
  * @param country_name country name
  * @param city_name city to delete
  */
-void remove_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
+void remove_city (COUNTRY *country, char *city_name);
 
 /**
  * edits a city from trip
@@ -207,7 +213,7 @@ void remove_city (Client **head, uint32_t client_id, char *country_name, char *c
  * @param city_name city to be edited
  * @param new_city_name new city name
  */
-void edit_city (Client **head, uint32_t client_id, char *country_name, char *city_name, char *new_city_name);
+void edit_city (COUNTRY *country, char *city_name, char *new_city_name);
 
 /**
  * searches a city inside trip
@@ -216,16 +222,16 @@ void edit_city (Client **head, uint32_t client_id, char *country_name, char *cit
  * @param country_name country name
  * @param city_name city to print
  */
-void search_city (Client **head, uint32_t client_id, char *country_name, char *city_name);
+CITY * search_city (COUNTRY *country, char *city_name);
 
 /**
  * inserts city_name to clients cities array
  * @param client wanted client
  * @param city_name city name
  */
-void insert_city_name (Country *country, char *city_name);
+void insert_city_name (COUNTRY *country, char *city_name);
 
-//------------------CITY_PoI-------------------------//
+//------------------CITY_COORDINATES-------------------------//
 
 /**
  * insert Points of Interest of certain city
@@ -236,7 +242,7 @@ void insert_city_name (Country *country, char *city_name);
  * @param x X coordinate
  * @param y Y coordinate
  */
-void insert_PoI (Client **head, uint32_t client_id, char *country_name, char *city_name, float x, float y);
+void insert_coordinates (CITY *city, float x, float y);
 
 /**
  * removes Points of Interest of certain city
@@ -245,7 +251,9 @@ void insert_PoI (Client **head, uint32_t client_id, char *country_name, char *ci
  * @param country_name country name
  * @param city_name city name
  */
-void remove_PoI (Client **head, uint32_t client_id, char *country_name, char *city_name);
+void remove_coordinates (CITY *city);
+
+void edit_coordinates (CITY *city, float new_x, float new_y);
 
 /**
  * Searches Points of Interest of certain city
@@ -254,7 +262,17 @@ void remove_PoI (Client **head, uint32_t client_id, char *country_name, char *ci
  * @param country_name name of country
  * @param city_name name of city
  */
-void search_PoI (Client **head, uint32_t client_id, char *country_name, char *city_name);
+POINTS* search_coordinates (CITY *city);
+
+
+
+//------------------CITY_PoI-------------------------//
+
+void insert_PoI (CITY *city, char *poi_name);
+
+void remove_PoI (CITY *city, char *poi_name);
+
+POI* search_PoI (CITY *city, char *poi_name);
 
 //------------------ALLOCATE-------------------------//
 
@@ -262,13 +280,13 @@ void search_PoI (Client **head, uint32_t client_id, char *country_name, char *ci
  * Allocates memory for Client
  * @return pointer to newly allocated memory
  */
-Client* allocate_memory_Client();
+CLIENT * allocate_memory_Client();
 
 /**
  * Allocates memory for clients trips
  * @return pointer to arrays first position
  */
-Country* allocate_memory_trip();
+COUNTRY * allocate_memory_trip();
 
 /**
  * Allocates memory for names
@@ -281,13 +299,15 @@ char* allocate_memory_name (uint64_t size);
  * Allocates memory for city
  * @return pointer to newly allocated city
  */
-City* allocate_memory_trip_city();
+CITY * allocate_memory_trip_city();
 
 /**
  * Allocates memory for Points
  * @return pointer to newly allocated PoI
  */
-Points* allocate_memory_points();
+POINTS * allocate_memory_points();
+
+POI* allocate_memory_poi();
 
 //------------------REALLOCATE-------------------------//
 
@@ -297,7 +317,7 @@ Points* allocate_memory_points();
  * @param size size to reallocate to
  * @return pointer to newly reallocated memory
  */
-Country* realloc_memory_trip (Client *client, int size);
+COUNTRY * realloc_memory_trip (CLIENT *client, int size);
 
 /**
  *
@@ -311,7 +331,9 @@ char* realloc_memory_trip_name (char *trip_name, uint64_t size);
  * Reallocates memory for city name
  * @return pointer to newly reallocated memory
  */
-City* reallocate_memory_cities(Country *country, int size);
+CITY * reallocate_memory_cities(COUNTRY *country, int size);
+
+POI* realloc_memory_poi (CITY *city, int size);
 
 //------------------LINKED-LIST-------------------------//
 
@@ -320,14 +342,14 @@ City* reallocate_memory_cities(Country *country, int size);
  * @param head head of list
  * @return 1 if true | 0 if false
  */
-int is_list_empty (Client **head);
+int is_list_empty (CLIENT **head);
 
 /**
  * Frees memory used
  * Safely ends program
  * @param head head of liked list
  */
-void free_clients_list (Client **head);
+void free_clients_list (CLIENT **head);
 
 //------------------FILES-------------------------//
 
@@ -337,7 +359,7 @@ void free_clients_list (Client **head);
  * @param client_id wanted client
  * @param is_binary true if type binary | false if type txt
  */
-void write_report (Client **head, uint32_t client_id, bool is_binary);
+void write_report (CLIENT **head, uint32_t client_id, bool is_binary);
 
 //------------------AUX-------------------------//
 /**
@@ -346,7 +368,7 @@ void write_report (Client **head, uint32_t client_id, bool is_binary);
  * @param frontRef
  * @param backRef
  */
-void FrontBackSplit(Client* source, Client** frontRef, Client** backRef);
+void FrontBackSplit(CLIENT * source, CLIENT ** frontRef, CLIENT ** backRef);
 
 /**
  * Merges sorted lists
@@ -354,6 +376,6 @@ void FrontBackSplit(Client* source, Client** frontRef, Client** backRef);
  * @param b
  * @return
  */
-Client *SortedMerge(Client *a, Client *b);
+CLIENT *SortedMerge(CLIENT *a, CLIENT *b);
 
 #endif //TSP_CLIENT_H

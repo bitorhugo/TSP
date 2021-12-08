@@ -3,27 +3,15 @@
 //
 
 #include "ag.h"
+/*
+void create_population_t (POPULATION *population, Country *country_to_visit, int size_of_population) {
 
-void create_population (Client **head, POPULATION *population, uint32_t client_id, int size_of_population) {
-    if (is_list_empty(head)) {
-        fprintf (stderr, "ERROR: NO CLIENTS AVAILABLE\n");
-        return;
-    }
-    Client *temp_client = *head;
-    while (temp_client != NULL) {
-        if (temp_client->user_id == client_id)
-            insert_population(population, temp_client->trips_to_be_made, size_of_population);
-        temp_client = temp_client->next_client;
-    }
-    fprintf(stderr, "ERROR: CLIENT NOT FOUND\n");
-}
-
-void insert_population(POPULATION *population, Country* arr_of_countries, int size_of_population) {
     if (population == NULL)
         population = allocate_memory_population();
 
     population->num_of_cromossomas = size_of_population;
-    insert_cromossomas (population, arr_of_countries);
+    insert_cromossomas (population, country_to_visit);
+
 }
 
 void insert_cromossomas (POPULATION *population, Country *arr_of_countries) {
@@ -34,6 +22,7 @@ void insert_cromossomas (POPULATION *population, Country *arr_of_countries) {
         temp_cromo->num_of_genes = arr_of_countries->size_trip_cities;
         insert_gene (temp_cromo, arr_of_countries);
     }
+    shuffle_genes (population->cromossomas->genes, population->cromossomas->num_of_genes);
 }
 
 void insert_gene (CROMOSSOMA *cromo, Country *arr_of_countries) {
@@ -68,4 +57,15 @@ GENE *allocate_memory_genes(int size) {
     return new_gene;
 }
 
+void shuffle_genes (GENE *cromo, int size) {
+    if (size > 1) {
+        for (size_t i = 0; i < size; ++i) {
+            size_t j = i + rand() / (RAND_MAX / (size - i) + 1);
 
+            GENE t = *(cromo + j);
+            *(cromo + j) = *(cromo + i);
+            *(cromo + i) = t;
+        }
+    }
+}
+ */

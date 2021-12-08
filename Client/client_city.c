@@ -6,139 +6,59 @@
 
 //------------------Cities-------------------------//
 
-void insert_city (Client **head, uint32_t client_id, char *country_name, char *city_name) {
+void insert_city (COUNTRY *country, char *city_name) {
 
-    if (is_list_empty(head)) {
-        fprintf(stderr, "ERROR: NO CLIENTS FOUND\n");
-        return;
-    }
+    insert_city_name(country, city_name); // Pass Country due to City not being allocated yet
 
-    Client *temp = *head;
+}
 
-    while (temp != NULL) {
-        if (temp->user_id == client_id) {
-            Country *temp_country;
-            for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
-                temp_country = temp->trips_to_be_made + i;
-                if (strcmp(temp_country->name, country_name) == 0) {
-                    insert_city_name (temp_country, city_name); // Pass Country due to City not being allocated yet
-                    return;
-                }
+void remove_city (COUNTRY *country, char *city_name) {
+
+    CITY *temp_city;
+    for (int i = 0; i < country->size_trip_cities; ++i) {
+        temp_city = country->cities + i;
+        if (strcmp(temp_city->name, city_name) == 0) {
+            for (int j = 0; j < country->size_trip_cities - i; ++j) {
+                *(temp_city + j) = *(temp_city + j + 1);
             }
-            fprintf(stderr, "TRIP NOT FOUND\n");
+            country->size_trip_cities -= 1;
+            reallocate_memory_cities(country, country->size_trip_cities);
+            printf("City %s removed\n", city_name);
             return;
         }
-        temp = temp->next_client;
     }
-    fprintf(stderr, "ERROR: CLIENT NOT FOUND\n");
+
 }
 
-void remove_city (Client **head, uint32_t client_id, char *country_name, char *city_name) {
+void edit_city (COUNTRY *country, char *city_name, char *new_city_name) {
 
-    if (is_list_empty(head)) {
-        fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
+    CITY *temp_city = search_city(country, city_name);
+
+    if (temp_city != NULL) {
+        realloc_memory_trip_name(temp_city->name, strlen(new_city_name));
+        strcpy(temp_city->name, new_city_name);
         return;
     }
 
-    Client *temp = *head;
-    while (temp != NULL) {
-        if (temp->user_id == client_id) {
-            Country *temp_country;
-            for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
-                temp_country = temp->trips_to_be_made + i;
-                if (strcmp(temp_country->name, country_name) == 0) {
-                    City *temp_city;
-                    for (int j = 0; j < temp_country->size_trip_cities; ++j) {
-                        temp_city = temp_country->cities + j;
-                        if (strcmp(temp_city->name, city_name) == 0) {
-                            for (int k = 0; k < temp_country->size_trip_cities - j; ++k) {
-                                *(temp_city + k) = *(temp_city + k + 1);
-                            }
-                            temp_country->size_trip_cities -= 1;
-                            reallocate_memory_cities(temp_country, temp_country->size_trip_cities);
-                            printf("City %s deleted\n", city_name);
-                            return;
-                        }
-                    }
-                    fprintf(stderr, "ERROR: CITY NOT FOUND\n");
-                    return;
-                }
-            }
-            fprintf(stderr, "ERROR: COUNTRY NOT FOUND\n");
-            return;
-        }
-        temp = temp->next_client;
-    }
-    fprintf(stderr, "ERROR: CLIENT NOT FOUND\n");
+
 }
 
-void edit_city (Client **head, uint32_t client_id, char *country_name, char *city_name, char *new_city_name) {
-    if (is_list_empty(head)) {
-        fprintf(stderr, "ERROR: NO CLIENTS FOUND\n");
-        return;
-    }
+CITY * search_city (COUNTRY *country, char *city_name) {
 
-    Client *temp_client = *head;
-
-    while (temp_client != NULL) {
-
-        if (temp_client->user_id == client_id) {
-
-            Country *temp_country;
-            for (int i = 0; i < temp_client->size_trips_to_be_made; ++i) {
-                temp_country = temp_client->trips_to_be_made + i;
-                if (strcmp(temp_country->name, country_name) == 0) {
-                    City *temp_city;
-                    for (int j = 0; j < temp_country->size_trip_cities; ++j) {
-                        temp_city = temp_country->cities + j;
-                        if (strcmp(temp_city->name, city_name) == 0) {
-                            realloc_memory_trip_name(temp_city->name, strlen(new_city_name));
-                            strcpy(temp_city->name, new_city_name);
-                            return;
-                        }
-                    }
-                }
-            }
-
+    CITY *temp_city;
+    for (int i = 0; i < country->size_trip_cities; ++i) {
+        temp_city = country->cities + i;
+        if (strcmp(temp_city->name, city_name) == 0) {
+            printf("City %s found\n", city_name);
+            return temp_city;
         }
-
-        temp_client = temp_client->next_client;
     }
+    fprintf(stderr, "ERROR: CITY NOT FOUND\n");
+    return NULL;
+
 }
 
-void search_city (Client **head, uint32_t client_id, char *country_name, char *city_name) {
-    if (is_list_empty(head)) {
-        fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
-        return;
-    }
-    Client *temp = *head;
-    while (temp != NULL) {
-        if (temp->user_id == client_id) {
-            Country * temp_country;
-            for (int i = 0; i < temp->size_trips_to_be_made; ++i) {
-                temp_country = temp->trips_to_be_made + i;
-                if (strcmp(temp_country->name, country_name) == 0) {
-                    City *temp_city;
-                    for (int j = 0; j < temp_country->size_trip_cities; ++j) {
-                        temp_city = temp_country->cities + j;
-                        if (strcmp(temp_city->name, city_name) == 0) {
-                            printf("City %s found\n", city_name);
-                            return;
-                        }
-                    }
-                    fprintf(stderr, "ERROR: CITY NOT FOUND\n");
-                    return;
-                }
-            }
-            fprintf(stderr, "ERROR_ COUNTRY NOT FOUND\n");
-            return;
-        }
-        temp = temp->next_client;
-    }
-    fprintf(stderr, "ERROR: CLIENT NOT FOUND\n");
-}
-
-void insert_city_name (Country *country, char *city_name) {
+void insert_city_name (COUNTRY *country, char *city_name) {
 
     if (country->cities == NULL) {
         country->cities = allocate_memory_trip_city();
@@ -148,7 +68,7 @@ void insert_city_name (Country *country, char *city_name) {
     }
     else {
         country->cities = reallocate_memory_cities(country, country->size_trip_cities);
-        City *temp_city = country->cities + country->size_trip_cities;
+        CITY *temp_city = country->cities + country->size_trip_cities;
         temp_city->name = 0;
         temp_city->name = allocate_memory_name(strlen(city_name));
         strcpy(temp_city->name, city_name);
@@ -157,18 +77,74 @@ void insert_city_name (Country *country, char *city_name) {
 
 }
 
+//------------------Coordinates-------------------------//
+
+void insert_coordinates (CITY *city, float x, float y) {
+
+    if (city == NULL) {
+        fprintf(stderr, "ERROR: CITY NOT FOUND\n");
+        return;
+    }
+    city->coordinates = allocate_memory_points();
+    city->coordinates->x = x;
+    city->coordinates->y = y;
+
+}
+
+void remove_coordinates (CITY *city) {
+
+    if (city == NULL) {
+        fprintf(stderr, "ERROR: CITY NOT FOUND\n");
+        return;
+    }
+    city->coordinates = NULL;
+    free (city->coordinates);
+
+}
+
+void edit_coordinates (CITY *city, float new_x, float new_y) {
+
+    if (city == NULL) {
+        fprintf(stderr, "ERROR: CITY NOT FOUND\n");
+        return;
+    }
+
+    POINTS *temp_points = search_coordinates(city);
+
+    temp_points->x = new_x;
+    temp_points->y = new_y;
+
+}
+
+POINTS* search_coordinates (CITY *city) {
+
+    if (city == NULL || city->coordinates == NULL) {
+        fprintf(stderr, "ERROR: NOT ABLE TO SEARCH PoI\n");
+        return NULL;
+    }
+    printf("City %s\nx = %.2f, y = %.2f\n", city->name, city->coordinates->x, city->coordinates->y);
+    return city->coordinates;
+
+}
+
 //------------------Allocate-------------------------//
 
-City* allocate_memory_trip_city() {
-    City *new_city = calloc (1, sizeof(City));
+CITY * allocate_memory_trip_city() {
+    CITY *new_city = calloc (1, sizeof(CITY));
     if (new_city == NULL) fprintf(stderr, "ERROR: NOT ABLE TO ALLOCATE MEMORY FOR CITY\n");
     return new_city;
 }
 
+POINTS * allocate_memory_points() {
+    POINTS *brand_spanking_new_PoI = calloc (1, sizeof(POINTS));
+    if (brand_spanking_new_PoI == NULL) fprintf(stderr, "ERROR: NOT ABLE TO ALLOCATE MEMORY FOR POINTS\n");
+    return brand_spanking_new_PoI;
+}
+
 //------------------Reallocate-------------------------//
 
-City* reallocate_memory_cities(Country *country, int size) {
-    country->cities = realloc(country->cities, (size + 1) * sizeof(City));
+CITY * reallocate_memory_cities(COUNTRY *country, int size) {
+    country->cities = realloc(country->cities, (size + 1) * sizeof(CITY));
     if (country->cities == NULL) fprintf(stderr, "ERROR: NOT ABLE TO REALLOCATE MEMORY FOR CITY\n");
     return country->cities;
 }

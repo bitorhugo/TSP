@@ -6,6 +6,7 @@
 
 #ifndef TSP_AG_H
 #define TSP_AG_H
+/*
 typedef struct gene {
     float x;
     float y;
@@ -22,15 +23,18 @@ typedef struct population {
 }POPULATION;
 
 typedef struct generation {
-    POPULATION population;
-    struct generation *next_generation;
+    POPULATION *population;
+    int num_of_generations;
+    struct generation_list *next_generation;
 }GENARATION;
 
 //------------------POPULATION-------------------------//
 
 void create_population (Client **head, POPULATION *population, uint32_t client_id, int size_of_population);
 
-void insert_population(POPULATION *population, Country* temp_country, int size_of_population);
+void create_population_t (POPULATION *population, Country *country_to_visit, int size_of_population);
+
+        void insert_population(POPULATION *population, Country* temp_country, int size_of_population);
 
 //------------------CROMOSSOMA-------------------------//
 
@@ -40,6 +44,8 @@ void insert_cromossomas (POPULATION *cromo, Country *temp_country);
 
 void insert_gene (CROMOSSOMA *cromo, Country *arr_of_countries);
 
+void shuffle_genes (GENE *cromo, int size);
+
 //------------------ALLOCATE-------------------------//
 
 POPULATION *allocate_memory_population();
@@ -48,5 +54,5 @@ CROMOSSOMA *allocate_memory_cromossomas(int size);
 
 GENE *allocate_memory_genes(int size);
 
-
+*/
 #endif //TSP_AG_H

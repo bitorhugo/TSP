@@ -6,11 +6,11 @@
 
 //------------------CLIENT-------------------------//
 
-void insert_new_client (Client **head, bool at_head, uint32_t client_id) {
+void insert_new_client (CLIENT **head, bool at_head, uint32_t client_id) {
 
     if (is_list_empty(head)) at_head = true;
 
-    Client *new_client = allocate_memory_Client(); // allocates memory for new client
+    CLIENT *new_client = allocate_memory_Client(); // allocates memory for new client
     //*(client_id) += 1;
     //uint32_t id_number = *client_id;
 
@@ -20,7 +20,7 @@ void insert_new_client (Client **head, bool at_head, uint32_t client_id) {
         new_client->user_id = client_id;
         printf("New client head at %p\tnext_client: %p\n", new_client, new_client->next_client);
     } else {
-        Client *temp = *head;
+        CLIENT *temp = *head;
         while (temp->next_client != NULL) { // Moves through linked list until last current client found
             temp = temp->next_client;
         }
@@ -32,15 +32,15 @@ void insert_new_client (Client **head, bool at_head, uint32_t client_id) {
     }
 }
 
-void insert_new_client_head (Client **head) {
-    Client *new_client = allocate_memory_Client(); // allocates memory for new client
+void insert_new_client_head (CLIENT **head) {
+    CLIENT *new_client = allocate_memory_Client(); // allocates memory for new client
     new_client->next_client = *head; // stores head pointer in new client
     *head = new_client; //
     printf("New client head at %p\tnext_client: %p\n", new_client, new_client->next_client);
 }
 
-void insert_new_client_tail (Client **head) {
-    Client *new_client = allocate_memory_Client();
+void insert_new_client_tail (CLIENT **head) {
+    CLIENT *new_client = allocate_memory_Client();
     new_client->next_client = NULL;
 
     if (is_list_empty(head)) {
@@ -50,7 +50,7 @@ void insert_new_client_tail (Client **head) {
         return;
     }
 
-    Client *temp = *head;
+    CLIENT *temp = *head;
     while (temp->next_client != NULL) { // Moves through linked list until last current client found
         temp = temp->next_client;
     }
@@ -61,13 +61,13 @@ void insert_new_client_tail (Client **head) {
     printf("New client tail at %p\tnext_client: %p\n", new_client, new_client->next_client);
 }
 
-void remove_client (Client **head, uint32_t userid_to_delete) {
+void remove_client (CLIENT **head, uint32_t userid_to_delete) {
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE.\n");
         exit(1);
     }
 
-    Client *temp = *head; // temp = memory addr of head
+    CLIENT *temp = *head; // temp = memory addr of head
 
     while (temp != NULL) { // goes through linked list until the end
         if (temp->user_id == userid_to_delete && temp == *head) { // checks if head is client to be deleted
@@ -86,23 +86,24 @@ void remove_client (Client **head, uint32_t userid_to_delete) {
     printf("Client %d not found.\n", userid_to_delete);
 }
 
-void search_client_by_id (Client **head, uint32_t userid_to_search) {
+CLIENT *search_client_by_id (CLIENT **head, uint32_t userid_to_search) {
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
     }
 
-    Client* temp = *head;
+    CLIENT* temp = *head;
     while (temp != NULL) {
         if (temp->user_id == userid_to_search) {
             printf("Client with id %d found at %p\n", userid_to_search, temp);
-            return;
+            return temp;
         }
         else temp = temp->next_client;
     }
     printf("Client %d not found.\n", userid_to_search);
+    return NULL;
 }
 
-void sort_clients (Client **head, short attribute) {
+void sort_clients (CLIENT **head, short attribute) {
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
         return;
@@ -111,14 +112,14 @@ void sort_clients (Client **head, short attribute) {
     else sort_clients_name(head);
 }
 
-void sort_clients_id (Client **head) {
+void sort_clients_id (CLIENT **head) {
 
     time_t start = 0, end = 0;
     time(&start);
 
-    Client *temp_client = *head;
-    Client * a;
-    Client * b;
+    CLIENT *temp_client = *head;
+    CLIENT * a;
+    CLIENT * b;
 
     if (temp_client->next_client == NULL) return;
 
@@ -134,23 +135,23 @@ void sort_clients_id (Client **head) {
 
 }
 
-void sort_clients_name (Client **head) {
+void sort_clients_name (CLIENT **head) {
 }
 
-void print_clients (Client **head) {
+void print_clients (CLIENT **head) {
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
         return;
     }
 
-    Client *temp = *head;
+    CLIENT *temp = *head;
     while (temp != NULL) {
         printf("Client %d at %p\n", temp->user_id, temp);
         temp = temp->next_client;
     }
 }
 
-void read_clients_from_file (Client **head) {
+void read_clients_from_file (CLIENT **head) {
 
     FILE *file;
     file = fopen("readme.txt", "r");
@@ -162,8 +163,8 @@ void read_clients_from_file (Client **head) {
 
 //------------------Allocate-------------------------//
 
-Client* allocate_memory_Client () {
-    Client *new_client = calloc(1, sizeof(Client));
+CLIENT * allocate_memory_Client () {
+    CLIENT *new_client = calloc(1, sizeof(CLIENT));
     if (new_client == NULL) {
         fprintf(stderr, "Not able to allocate memory\n");
         exit(1);
@@ -187,14 +188,14 @@ char* realloc_memory_trip_name (char *trips, uint64_t size) {
 
 //------------------Linked List-------------------------//
 
-int is_list_empty (Client **head) {
+int is_list_empty (CLIENT **head) {
     if (*head == NULL) return 1;
     else return 0;
 }
 
-void free_clients_list (Client **head) {
+void free_clients_list (CLIENT **head) {
 
-    Client *temp = NULL;
+    CLIENT *temp = NULL;
 
     while (*head != NULL) {
         temp = *head;
@@ -206,7 +207,7 @@ void free_clients_list (Client **head) {
 
 //------------------FILES-------------------------//
 
-void write_report (Client **head, uint32_t client_id, bool is_binary) {
+void write_report (CLIENT **head, uint32_t client_id, bool is_binary) {
     if (is_list_empty(head)) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
         return;
@@ -220,7 +221,7 @@ void write_report (Client **head, uint32_t client_id, bool is_binary) {
         return;
     }
 
-    Client *temp_client = *head;
+    CLIENT *temp_client = *head;
     while (temp_client != NULL) {
 
         fwrite(temp_client, sizeof(*temp_client), 1, file_to_open);
@@ -234,9 +235,9 @@ void write_report (Client **head, uint32_t client_id, bool is_binary) {
 
 //------------------AUX-------------------------//
 
-void FrontBackSplit(Client* source, Client** frontRef, Client** backRef) {
-    Client *fast;
-    Client *slow;
+void FrontBackSplit(CLIENT * source, CLIENT ** frontRef, CLIENT ** backRef) {
+    CLIENT *fast;
+    CLIENT *slow;
     slow = source;
     fast = source->next_client;
 
@@ -256,8 +257,8 @@ void FrontBackSplit(Client* source, Client** frontRef, Client** backRef) {
     slow->next_client = NULL;
 }
 
-Client *SortedMerge(Client *a, Client *b) {
-    Client* result = NULL;
+CLIENT *SortedMerge(CLIENT *a, CLIENT *b) {
+    CLIENT * result = NULL;
 
     /* Base cases */
     if (a == NULL)
