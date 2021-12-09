@@ -11,8 +11,6 @@ void insert_new_client (CLIENT **head, bool at_head, uint32_t client_id) {
     if (is_list_empty(head)) at_head = true;
 
     CLIENT *new_client = allocate_memory_Client(); // allocates memory for new client
-    //*(client_id) += 1;
-    //uint32_t id_number = *client_id;
 
     if (at_head) {
         new_client->next_client = *head; // stores head pointer in new client
@@ -165,10 +163,9 @@ void read_clients_from_file (CLIENT **head) {
 
 CLIENT * allocate_memory_Client () {
     CLIENT *new_client = calloc(1, sizeof(CLIENT));
-    if (new_client == NULL) {
+    if (new_client == NULL)
         fprintf(stderr, "Not able to allocate memory\n");
-        exit(1);
-    }
+
     return new_client;
 }
 
@@ -276,4 +273,9 @@ CLIENT *SortedMerge(CLIENT *a, CLIENT *b) {
         result->next_client = SortedMerge(a, b->next_client);
     }
     return (result);
+}
+
+float float_rand( float min, float max ) {
+    float scale = rand() / (float) RAND_MAX; /* [0, 1.0] */
+    return min + scale * ( max - min );      /* [min, max] */
 }

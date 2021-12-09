@@ -11,6 +11,7 @@
 #include <ctype.h>
 #include <time.h>
 #include <unistd.h>
+#include <math.h>
 
 //------------------DEFINE-------------------------//
 
@@ -61,6 +62,12 @@ typedef struct client {
   int size_trips_to_be_made;
   struct client *next_client; // pointer for the next client
 } CLIENT;
+
+typedef struct client_list {
+    CLIENT client;
+    int num_of_clients;
+    struct client_list *next_client;
+}CLIENT_LIST;
 
 //------------------CLIENT-------------------------//
 
@@ -377,5 +384,7 @@ void FrontBackSplit(CLIENT * source, CLIENT ** frontRef, CLIENT ** backRef);
  * @return
  */
 CLIENT *SortedMerge(CLIENT *a, CLIENT *b);
+
+float float_rand( float min, float max );
 
 #endif //TSP_CLIENT_H

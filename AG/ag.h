@@ -6,8 +6,9 @@
 
 #ifndef TSP_AG_H
 #define TSP_AG_H
-/*
+
 typedef struct gene {
+    int id;
     float x;
     float y;
 }GENE;
@@ -15,6 +16,7 @@ typedef struct gene {
 typedef struct cromossoma {
     GENE *genes;
     int num_of_genes;
+    double fitness_valeu;
 }CROMOSSOMA;
 
 typedef struct population {
@@ -24,27 +26,33 @@ typedef struct population {
 
 typedef struct generation {
     POPULATION *population;
+}GENERATION;
+
+typedef struct generation_list {
+    GENERATION generation;
     int num_of_generations;
     struct generation_list *next_generation;
-}GENARATION;
+}GENERATION_LIST;
 
 //------------------POPULATION-------------------------//
 
-void create_population (Client **head, POPULATION *population, uint32_t client_id, int size_of_population);
+POPULATION* create_initial_population (COUNTRY *country_to_visit, int size_of_population);
 
-void create_population_t (POPULATION *population, Country *country_to_visit, int size_of_population);
+void insert_population(POPULATION *population, COUNTRY *temp_country, int size_of_population);
 
-        void insert_population(POPULATION *population, Country* temp_country, int size_of_population);
+//------------------FITNESS-------------------------//
+
+void sort_cromo_by_fitness (POPULATION *population);
+
+double fitness (CROMOSSOMA *cromo);
 
 //------------------CROMOSSOMA-------------------------//
 
-void insert_cromossomas (POPULATION *cromo, Country *temp_country);
+void insert_cromossomas (POPULATION *cromo, COUNTRY *temp_country);
 
 //------------------GENE-------------------------//
 
-void insert_gene (CROMOSSOMA *cromo, Country *arr_of_countries);
-
-void shuffle_genes (GENE *cromo, int size);
+void insert_gene (CROMOSSOMA *cromo, COUNTRY *arr_of_countries);
 
 //------------------ALLOCATE-------------------------//
 
@@ -54,5 +62,12 @@ CROMOSSOMA *allocate_memory_cromossomas(int size);
 
 GENE *allocate_memory_genes(int size);
 
-*/
+//------------------AUX-------------------------//
+
+void shuffle_genes (CROMOSSOMA *cromo, int size);
+
+double euclidean_dist (GENE* first, GENE *second);
+
+void swap_cromo (CROMOSSOMA *a, CROMOSSOMA *b);
+
 #endif //TSP_AG_H

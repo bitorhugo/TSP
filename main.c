@@ -21,23 +21,27 @@ int main() {
     insert_trip(one, "Denmark");
     print_trips(one, false);
 
-    COUNTRY *temp_country_one = one->trips_to_be_made + 1;
-
     insert_city(one->trips_to_be_made, "Porto");
     insert_city(one->trips_to_be_made, "Lisbon");
-    insert_city(temp_country_one, "Berlin");
+    insert_city(one->trips_to_be_made, "Aveiro");
+    insert_city(one->trips_to_be_made, "Braga");
+    insert_city(one->trips_to_be_made, "Faro");
+    insert_city(one->trips_to_be_made, "Viana");
+
+    CITY *temp_city_one;
+    for (int i = 0; i < one->trips_to_be_made->size_trip_cities; ++i) {
+        temp_city_one = one->trips_to_be_made->cities + i;
+        float x = float_rand(1.0f, 50.0f);
+        float y = float_rand(1.0f, 50.0f);
+        insert_coordinates(temp_city_one, x, y);
+    }
 
     search_city(one->trips_to_be_made, "Porto");
     search_city(one->trips_to_be_made, "Lisbon");
 
-    insert_coordinates(one->trips_to_be_made->cities, 2.2f, 1.2f);
-    edit_coordinates(one->trips_to_be_made->cities, 3.0f, 4.0f);
-    remove_coordinates(one->trips_to_be_made->cities);
-    search_coordinates(one->trips_to_be_made->cities);
-    insert_coordinates(one->trips_to_be_made->cities, 2.2f, 1.2f);
-    search_coordinates(one->trips_to_be_made->cities);
-
     insert_PoI(one->trips_to_be_made->cities, "Torre dos Clerigos");
+
+    create_initial_population(one->trips_to_be_made, 2);
 
     //sort_clients(&head, 0);
 
