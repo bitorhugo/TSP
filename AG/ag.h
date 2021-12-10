@@ -16,7 +16,7 @@ typedef struct gene {
 typedef struct cromossoma {
     GENE *genes;
     int num_of_genes;
-    double fitness_valeu;
+    float fitness_value;
 }CROMOSSOMA;
 
 typedef struct population {
@@ -40,15 +40,23 @@ POPULATION* create_initial_population (COUNTRY *country_to_visit, int size_of_po
 
 void insert_population(POPULATION *population, COUNTRY *temp_country, int size_of_population);
 
+POPULATION* create_next_population (CROMOSSOMA*a, CROMOSSOMA*b);
+
 //------------------FITNESS-------------------------//
 
 void sort_cromo_by_fitness (POPULATION *population);
 
-double fitness (CROMOSSOMA *cromo);
+float fitness (CROMOSSOMA *cromo);
 
 //------------------CROMOSSOMA-------------------------//
 
 void insert_cromossomas (POPULATION *cromo, COUNTRY *temp_country);
+
+//------------------CROSSOVER-------------------------//
+
+CROMOSSOMA* fitness_proportional_selection (POPULATION *population);
+
+CROMOSSOMA* elitism_selection (POPULATION *population);
 
 //------------------GENE-------------------------//
 
@@ -66,7 +74,7 @@ GENE *allocate_memory_genes(int size);
 
 void shuffle_genes (CROMOSSOMA *cromo, int size);
 
-double euclidean_dist (GENE* first, GENE *second);
+float euclidean_dist (GENE* first, GENE *second);
 
 void swap_cromo (CROMOSSOMA *a, CROMOSSOMA *b);
 

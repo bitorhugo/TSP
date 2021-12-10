@@ -15,35 +15,8 @@ POPULATION *create_initial_population (COUNTRY *country_to_visit, int size_of_po
     return new_population;
 }
 
-//------------------FITNESS-------------------------//
-
-void sort_cromo_by_fitness (POPULATION *population) {
-
-    CROMOSSOMA *a;
-    CROMOSSOMA *b;
-    for (int i = 0; i < population->num_of_cromossomas - 1; ++i) {
-        for (int j = i + 1; j < population->num_of_cromossomas; ++j) {
-            a = population->cromossomas + i;
-            b = population->cromossomas + j;
-            if (b->fitness_valeu > a->fitness_valeu)
-                swap_cromo(a, b);
-        }
-    }
-
-}
-
-double fitness (CROMOSSOMA *cromo) {
-    double sum = 0;
-    GENE *temp_gene = cromo->genes;
-    for (size_t i = 0; i < cromo->num_of_genes; ++i) {
-        temp_gene += i;
-        GENE *a = temp_gene;
-        GENE *b = temp_gene + 1;
-        if (i == cromo->num_of_genes - 1) // a = c0, b = c1, ..., a = c5, b = c0
-            b = cromo->genes;
-        sum += euclidean_dist(a, b);
-    }
-    return (1 / sum);
+POPULATION* create_next_population (CROMOSSOMA*a, CROMOSSOMA*b) {
+    return NULL;
 }
 
 //------------------CROMO-------------------------//
@@ -56,10 +29,12 @@ void insert_cromossomas (POPULATION *population, COUNTRY *country) {
         temp_cromo->num_of_genes = country->size_trip_cities;
         insert_gene (temp_cromo, country);
         shuffle_genes(temp_cromo, temp_cromo->num_of_genes);
-        temp_cromo->fitness_valeu = fitness(temp_cromo);
+        temp_cromo->fitness_value = fitness(temp_cromo);
     }
 
 }
+
+//------------------GENE-------------------------//
 
 void insert_gene (CROMOSSOMA *cromo, COUNTRY *arr_of_countries) {
     cromo->genes = allocate_memory_genes(cromo->num_of_genes);
@@ -72,6 +47,65 @@ void insert_gene (CROMOSSOMA *cromo, COUNTRY *arr_of_countries) {
         temp_gene->x = temp_city->coordinates->x;
         temp_gene->y = temp_city->coordinates->y;
     }
+}
+
+//------------------FITNESS-------------------------//
+
+void sort_cromo_by_fitness (POPULATION *population) {
+    // Selection Sort used due to low amount of values to compare
+    CROMOSSOMA *a;
+    CROMOSSOMA *b;
+    for (int i = 0; i < population->num_of_cromossomas - 1; ++i) {
+        for (int j = i + 1; j < population->num_of_cromossomas; ++j) {
+            a = population->cromossomas + i;
+            b = population->cromossomas + j;
+            if (b->fitness_value > a->fitness_value)
+                swap_cromo(a, b);
+        }
+    }
+
+}
+
+float fitness (CROMOSSOMA *cromo) {
+    float sum = 0;
+    GENE *temp_gene;
+    for (size_t i = 0; i < cromo->num_of_genes; ++i) {
+        temp_gene = cromo->genes + i;
+        GENE *a = temp_gene;
+        GENE *b = temp_gene + 1;
+        if (i == cromo->num_of_genes - 1) // a = c0, b = c1, ..., a = c5, b = c0
+            b = cromo->genes;
+        sum += euclidean_dist(a, b);
+    }
+    return ((float)1 / sum);
+}
+
+//------------------CROSSOVER-------------------------//
+
+CROMOSSOMA* fitness_proportional_selection (POPULATION *population) {
+
+    float p [population->num_of_cromossomas];
+    float sum_Aj = 0;
+    float p_range = float_rand(0.0f, 1.0f);
+
+    CROMOSSOMA *temp_cromo;
+    for (size_t i = 0; i < population->num_of_cromossomas; ++i) {
+        temp_cromo = population->cromossomas + i;
+        sum_Aj += temp_cromo->fitness_value; // fitness_value of each individual
+    }
+
+    for (size_t i = 0; i < population->num_of_cromossomas; ++i) {
+        temp_cromo = population->cromossomas + i;
+        p [i] = temp_cromo->fitness_value / sum_Aj;
+    }
+
+    // TODO: ASK TEACHER WHAT TO DO WITH P_RANGE
+
+    return temp_cromo;
+}
+
+CROMOSSOMA* elitism_selection (POPULATION *population) {
+    return population->cromossomas;
 }
 
 //------------------ALLOCATE-------------------------//
@@ -108,8 +142,8 @@ void shuffle_genes (CROMOSSOMA *cromo, int size) {
     }
 }
 
-double euclidean_dist (GENE* first, GENE *second) {
-    return sqrt(pow(second->x - first->x, 2) + pow(second->y - first->y, 2));
+float euclidean_dist (GENE* first, GENE *second) {
+    return sqrtf(powf(second->x - first->x, 2) + powf(second->y - first->y, 2));
 }
 
 void swap_cromo (CROMOSSOMA *a, CROMOSSOMA *b) {

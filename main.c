@@ -41,7 +41,8 @@ int main() {
 
     insert_PoI(one->trips_to_be_made->cities, "Torre dos Clerigos");
 
-    create_initial_population(one->trips_to_be_made, 2);
+    POPULATION *temp_pop = create_initial_population(one->trips_to_be_made, 2);
+    fitness_proportional_selection(temp_pop);
 
     //sort_clients(&head, 0);
 
