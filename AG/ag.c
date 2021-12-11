@@ -22,6 +22,7 @@ POPULATION* create_next_population (CROMOSSOMA*a, CROMOSSOMA*b) {
 //------------------CROMO-------------------------//
 
 void insert_cromossomas (POPULATION *population, COUNTRY *country) {
+
     population->cromossomas = allocate_memory_cromossomas(population->num_of_cromossomas);
     CROMOSSOMA *temp_cromo;
     for (int i = 0; i < population->num_of_cromossomas; ++i) {
@@ -59,8 +60,10 @@ void sort_cromo_by_fitness (POPULATION *population) {
         for (int j = i + 1; j < population->num_of_cromossomas; ++j) {
             a = population->cromossomas + i;
             b = population->cromossomas + j;
-            if (b->fitness_value > a->fitness_value)
+            if (b->fitness_value > a->fitness_value) {
                 swap_cromo(a, b);
+            }
+
         }
     }
 
@@ -80,32 +83,45 @@ float fitness (CROMOSSOMA *cromo) {
     return ((float)1 / sum);
 }
 
-//------------------CROSSOVER-------------------------//
-
-CROMOSSOMA* fitness_proportional_selection (POPULATION *population) {
-
-    float p [population->num_of_cromossomas];
-    float sum_Aj = 0;
-    float p_range = float_rand(0.0f, 1.0f);
-
+float sum_population_fitness (POPULATION *population){
+    float sum = 0;
     CROMOSSOMA *temp_cromo;
     for (size_t i = 0; i < population->num_of_cromossomas; ++i) {
         temp_cromo = population->cromossomas + i;
-        sum_Aj += temp_cromo->fitness_value; // fitness_value of each individual
+        sum += temp_cromo->fitness_value; // fitness_value of each individual
     }
-
-    for (size_t i = 0; i < population->num_of_cromossomas; ++i) {
-        temp_cromo = population->cromossomas + i;
-        p [i] = temp_cromo->fitness_value / sum_Aj;
-    }
-
-    // TODO: ASK TEACHER WHAT TO DO WITH P_RANGE
-
-    return temp_cromo;
+    return sum;
 }
 
-CROMOSSOMA* elitism_selection (POPULATION *population) {
-    return population->cromossomas;
+//------------------CROSSOVER-------------------------//
+
+void parent_selection (POPULATION *population, int elitism_amount) {
+    CROMOSSOMA *temp_cromo;
+
+    // via elitism n chromosomes with the best fitness stay to be crossed-over
+    for (size_t i = elitism_amount; i < population->num_of_cromossomas; ++i) {
+        temp_cromo = population->cromossomas + i;
+        temp_cromo = fitness_proportional_selection(population);
+    }
+
+}
+
+CROMOSSOMA* fitness_proportional_selection (POPULATION *population) {
+
+    float roulette [population->num_of_cromossomas];
+    float sum_Aj = sum_population_fitness(population);
+
+    CROMOSSOMA *temp_cromo;
+    for (size_t i = 0; i < population->num_of_cromossomas; ++i) { // roulette
+        temp_cromo = population->cromossomas + i;
+        roulette [i] = temp_cromo->fitness_value / sum_Aj;
+
+        float p_range = float_rand(0.0f, 1.0f);
+        if (p_range >= roulette[i]){
+            return temp_cromo;
+        }
+    }
+
 }
 
 //------------------ALLOCATE-------------------------//
@@ -131,7 +147,7 @@ GENE *allocate_memory_genes(int size) {
 //------------------AUX-------------------------//
 
 void shuffle_genes (CROMOSSOMA *cromo, int size) {
-    if (size > 1) {
+    if (size > 1) { // has to have more than one value for swap to occur
         for (size_t i = 0; i < size - 1; ++i) {
             size_t j = i + rand() / (RAND_MAX / (size - i) + 1);
             // swap

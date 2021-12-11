@@ -54,9 +54,10 @@ void insert_cromossomas (POPULATION *cromo, COUNTRY *temp_country);
 
 //------------------CROSSOVER-------------------------//
 
+void parent_selection (POPULATION *population, int elitism_amount);
+
 CROMOSSOMA* fitness_proportional_selection (POPULATION *population);
 
-CROMOSSOMA* elitism_selection (POPULATION *population);
 
 //------------------GENE-------------------------//
 
@@ -77,5 +78,7 @@ void shuffle_genes (CROMOSSOMA *cromo, int size);
 float euclidean_dist (GENE* first, GENE *second);
 
 void swap_cromo (CROMOSSOMA *a, CROMOSSOMA *b);
+
+float sum_population_fitness (POPULATION *population);
 
 #endif //TSP_AG_H
