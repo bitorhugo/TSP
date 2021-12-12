@@ -25,15 +25,16 @@ typedef struct population {
 }POPULATION;
 
 typedef struct generation {
-    POPULATION *population;
+    int id;
+    POPULATION *parent;
+    POPULATION *child;
+    struct generation *next_generation;
 }GENERATION;
 
-typedef struct generation_list {
-    GENERATION generation;
-    int num_of_generation_nodes;
-    struct generation_list *next_generation_node;
-}GENERATION_LIST;
 
+void intialize_genetic_algorithm (COUNTRY *country, int num_of_iterations, int size_of_population, int num_elitism, float mutation_probability);
+
+GENERATION* insert_generation (GENERATION **head, bool at_head);
 //------------------POPULATION-------------------------//
 
 POPULATION* create_initial_population (COUNTRY *country_to_visit, int size_of_population);
@@ -70,6 +71,8 @@ void insert_gene (CROMOSSOMA *cromo, COUNTRY *arr_of_countries);
 
 //------------------ALLOCATE-------------------------//
 
+GENERATION* allocate_memory_generation();
+
 POPULATION *allocate_memory_population();
 
 CROMOSSOMA *allocate_memory_cromossomas(int size);
@@ -89,5 +92,7 @@ void swap_gene (GENE *a, GENE *b);
 float sum_population_fitness (POPULATION *population);
 
 int random_non_reapeting_number (int min_value, int max_value);
+
+int is_generation_list_empty(GENERATION_LIST **head);
 
 #endif //TSP_AG_H

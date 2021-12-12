@@ -4,6 +4,62 @@
 
 #include "ag.h"
 
+//------------------AG-------------------------//
+
+void intialize_genetic_algorithm (COUNTRY *country, int num_iterations, int size_population, int num_elitism, float mutation_probability) {
+    GENERATION *head = NULL;
+    int AG_count = 1;
+
+    while (AG_count <= num_iterations) {
+        GENERATION *current_generation = insert_generation(&head, true);
+        if (AG_count == 0) {
+            current_generation->parent = create_initial_population(country, size_population);
+            current_generation->child = create_next_population(current_generation->parent, num_elitism, mutation_probability);
+        }
+        else {
+            
+        }
+        current_generation->id = AG_count;
+        AG_count ++;
+    }
+
+}
+
+//------------------GENERATION-------------------------//
+
+GENERATION* insert_generation (GENERATION **head, bool at_head) {
+
+    GENERATION *new_generation = allocate_memory_generation();
+
+    if (is_generation_list_empty(head))
+        at_head = true;
+
+
+    if (at_head) {
+        new_generation->next_generation = *head;
+        *head = new_generation;
+    }
+    else {
+        GENERATION *temp_generation = *head;
+        while (temp_generation != NULL) {
+            temp_generation = temp_generation->next_generation;
+        }
+        temp_generation->next_generation = new_generation;
+    }
+
+    return new_generation;
+
+}
+
+GENERATION * allocate_memory_generation() {
+    GENERATION *new_generation = calloc(1, sizeof(GENERATION));
+    return new_generation;
+}
+
+int is_generation_list_empty(GENERATION **head) {
+    return head == NULL;
+}
+
 //------------------POPULATION-------------------------//
 
 POPULATION *create_initial_population (COUNTRY *country_to_visit, int size_of_population) {
