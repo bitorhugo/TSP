@@ -275,7 +275,12 @@ CLIENT *SortedMerge(CLIENT *a, CLIENT *b) {
     return (result);
 }
 
-float float_rand( float min, float max ) {
+float float_rand (float min, float max) {
     float scale = rand() / (float) RAND_MAX; /* [0, 1.0] */
-    return min + scale * ( max - min );      /* [min, max] */
+    return min + scale * (max - min);      /* [min, max] */
+}
+
+int int_rand (int min, int max) {
+    int scale = rand() / (int) RAND_MAX;
+    return min + scale * (max - min);
 }

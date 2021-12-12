@@ -15,8 +15,26 @@ POPULATION *create_initial_population (COUNTRY *country_to_visit, int size_of_po
     return new_population;
 }
 
-POPULATION* create_next_population (CROMOSSOMA*a, CROMOSSOMA*b) {
-    return NULL;
+POPULATION* create_next_population (POPULATION *old_population, int elitism_amount, float mutation_prob) {
+
+    parent_selection(old_population, elitism_amount);
+
+    int num_child = old_population->num_of_cromossomas - elitism_amount; // elitism chromosomes
+    num_child /= 2; // fitness_proportional chromosomes
+
+    CROMOSSOMA *temp_cromo;
+    for (size_t i = 0; i < num_child; ++i) {
+        temp_cromo = old_population->cromossomas + elitism_amount + num_child;
+
+        CROMOSSOMA *parent_one = old_population->cromossomas + i;
+        CROMOSSOMA *parent_two = parent_one + elitism_amount;
+
+        temp_cromo = cross_over(parent_one, parent_two);
+    }
+
+    mutation(old_population, mutation_prob);
+
+    return old_population;
 }
 
 //------------------CROMO-------------------------//
@@ -95,6 +113,37 @@ float sum_population_fitness (POPULATION *population){
 
 //------------------CROSSOVER-------------------------//
 
+CROMOSSOMA* cross_over (CROMOSSOMA *parent_one, CROMOSSOMA *parent_two) {
+
+    // choose random non-repeating numbers from parent one
+    int num_of_random_numbers = parent_one->num_of_genes / 2;
+    CROMOSSOMA *child = parent_one; // copies parent_one
+    child->fitness_value = 0; // makes sure that fitness value is 0
+    shuffle_genes(child, child->num_of_genes); // shuffles genes
+    child->num_of_genes = num_of_random_numbers;
+
+    // fill the rest of child_cromo with parent_tow genes
+    int flag = 0;
+    for (size_t i = 0; i < parent_two->num_of_genes ; ++i) {
+        GENE *temp_parent = parent_two->genes + i;
+        for (size_t j = 0; j < child->num_of_genes; ++j) {
+            GENE *temp_child = child->genes + j;
+            if (temp_parent->id == temp_child->id) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag != 1) {
+            GENE *temp_child = child->genes + child->num_of_genes;
+            *temp_child = *temp_parent;
+            child->num_of_genes += 1;
+        }
+        if (child->num_of_genes == parent_two->num_of_genes) break;
+        flag = 0;
+    }
+    return child;
+}
+
 void parent_selection (POPULATION *population, int elitism_amount) {
     CROMOSSOMA *temp_cromo;
 
@@ -120,6 +169,32 @@ CROMOSSOMA* fitness_proportional_selection (POPULATION *population) {
         if (p_range >= roulette[i]){
             return temp_cromo;
         }
+    }
+
+}
+
+//------------------MUTATION-------------------------//
+
+void mutation (POPULATION * population, float mutation_prob) {
+
+    int random_gene_index = 0;
+
+    CROMOSSOMA *temp_cromo;
+    for (size_t i = 0; i < population->num_of_cromossomas; ++i) {
+        temp_cromo = population->cromossomas + i;
+        GENE *temp_gene;
+        for (size_t j = 0; i < temp_cromo->num_of_genes; ++j) {
+            temp_gene = temp_cromo->genes + j;
+            float p_range = float_rand(0.0f, 1.0f);
+            if (p_range < mutation_prob) {
+                do {
+                    random_gene_index = int_rand(0, temp_cromo->num_of_genes - 1);
+                }
+                while (random_gene_index == i);
+                swap_gene(temp_gene, temp_cromo->genes + random_gene_index);
+            }
+        }
+
     }
 
 }
@@ -164,6 +239,12 @@ float euclidean_dist (GENE* first, GENE *second) {
 
 void swap_cromo (CROMOSSOMA *a, CROMOSSOMA *b) {
     CROMOSSOMA temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void swap_gene (GENE *a, GENE *b) {
+    GENE temp = *a;
     *a = *b;
     *b = temp;
 }

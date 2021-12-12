@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tsp.dir/AG/ag.c.o"
+  "CMakeFiles/tsp.dir/AG/generation_list.c.o"
   "CMakeFiles/tsp.dir/Client/client.c.o"
   "CMakeFiles/tsp.dir/Client/client_PoI.c.o"
   "CMakeFiles/tsp.dir/Client/client_city.c.o"

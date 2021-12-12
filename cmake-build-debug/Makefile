@@ -170,6 +170,33 @@ AG/ag.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/AG/ag.c.s
 .PHONY : AG/ag.c.s
 
+AG/generation_list.o: AG/generation_list.c.o
+
+.PHONY : AG/generation_list.o
+
+# target to build an object file
+AG/generation_list.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/AG/generation_list.c.o
+.PHONY : AG/generation_list.c.o
+
+AG/generation_list.i: AG/generation_list.c.i
+
+.PHONY : AG/generation_list.i
+
+# target to preprocess a source file
+AG/generation_list.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/AG/generation_list.c.i
+.PHONY : AG/generation_list.c.i
+
+AG/generation_list.s: AG/generation_list.c.s
+
+.PHONY : AG/generation_list.s
+
+# target to generate assembly for a file
+AG/generation_list.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/AG/generation_list.c.s
+.PHONY : AG/generation_list.c.s
+
 Client/client.o: Client/client.c.o
 
 .PHONY : Client/client.o
@@ -317,6 +344,9 @@ help:
 	@echo "... AG/ag.o"
 	@echo "... AG/ag.i"
 	@echo "... AG/ag.s"
+	@echo "... AG/generation_list.o"
+	@echo "... AG/generation_list.i"
+	@echo "... AG/generation_list.s"
 	@echo "... Client/client.o"
 	@echo "... Client/client.i"
 	@echo "... Client/client.s"

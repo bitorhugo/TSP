@@ -30,8 +30,8 @@ typedef struct generation {
 
 typedef struct generation_list {
     GENERATION generation;
-    int num_of_generations;
-    struct generation_list *next_generation;
+    int num_of_generation_nodes;
+    struct generation_list *next_generation_node;
 }GENERATION_LIST;
 
 //------------------POPULATION-------------------------//
@@ -40,7 +40,7 @@ POPULATION* create_initial_population (COUNTRY *country_to_visit, int size_of_po
 
 void insert_population(POPULATION *population, COUNTRY *temp_country, int size_of_population);
 
-POPULATION* create_next_population (CROMOSSOMA*a, CROMOSSOMA*b);
+POPULATION* create_next_population (POPULATION *old_population, int elitism_amount, float mutation_prob);
 
 //------------------FITNESS-------------------------//
 
@@ -54,10 +54,15 @@ void insert_cromossomas (POPULATION *cromo, COUNTRY *temp_country);
 
 //------------------CROSSOVER-------------------------//
 
+CROMOSSOMA* cross_over (CROMOSSOMA *parent_one,CROMOSSOMA *parent_two);
+
 void parent_selection (POPULATION *population, int elitism_amount);
 
 CROMOSSOMA* fitness_proportional_selection (POPULATION *population);
 
+//------------------MUTATION-------------------------//
+
+void mutation (POPULATION * population, float mutation_prob);
 
 //------------------GENE-------------------------//
 
@@ -79,6 +84,10 @@ float euclidean_dist (GENE* first, GENE *second);
 
 void swap_cromo (CROMOSSOMA *a, CROMOSSOMA *b);
 
+void swap_gene (GENE *a, GENE *b);
+
 float sum_population_fitness (POPULATION *population);
+
+int random_non_reapeting_number (int min_value, int max_value);
 
 #endif //TSP_AG_H

@@ -387,4 +387,6 @@ CLIENT *SortedMerge(CLIENT *a, CLIENT *b);
 
 float float_rand( float min, float max );
 
+int int_rand (int min, int max);
+
 #endif //TSP_CLIENT_H
