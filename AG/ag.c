@@ -10,9 +10,18 @@ void intialize_genetic_algorithm (COUNTRY *country, int num_iterations, int size
     GENERATION *head = NULL;
     uint32_t AG_count = 1;
 
+    if (size_population % 2 != 0) {
+        fprintf(stderr, "ERROR: POPULATION SIZE HAS TO BE PAIR\n");
+        return;
+    }
+    if (num_elitism % 2 != 0 && num_elitism >= size_population) {
+        fprintf(stderr, "ERROR: ELITISM NUMBER HAS TO BE PAIR AND LESS THEN POPULATION SIZE\n");
+        return;
+    }
+
     while (AG_count <= num_iterations) {
         GENERATION *current_generation = insert_generation(&head, false);
-        if (AG_count == 0) {
+        if (AG_count == 1) {
             current_generation->parent = create_initial_population(country, size_population);
         }
         current_generation->child = create_next_population(current_generation->parent, num_elitism, mutation_probability);
@@ -98,7 +107,7 @@ GENERATION * allocate_memory_generation() {
 }
 
 int is_generation_list_empty(GENERATION **head) {
-    return head == NULL;
+    return *head == NULL;
 }
 
 //------------------POPULATION-------------------------//

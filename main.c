@@ -41,9 +41,6 @@ int main() {
 
     insert_PoI(one->trips_to_be_made->cities, "Torre dos Clerigos");
 
-    POPULATION *temp_pop = create_initial_population(one->trips_to_be_made, 2);
-    fitness_proportional_selection(temp_pop);
-
     //sort_clients(&head, 0);
 
     //print_trips_specific(&head, 1234, "Portugal", "Lisbon", 0);
@@ -51,6 +48,9 @@ int main() {
     //print_clients(&head);
     //write_report(&head, 1, false);
     //create_population(&head, initial_population, 1234, 4);
+
+
+    intialize_genetic_algorithm(one->trips_to_be_made, 3, 6, 2, 0.01f);
 
     free_clients_list(&head);
 

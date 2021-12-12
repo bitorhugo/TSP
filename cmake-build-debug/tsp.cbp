@@ -90,9 +90,6 @@
 		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/AG/ag.h">
 			<Option target="tsp"/>
 		</Unit>
-		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/AG/generation_list.c">
-			<Option target="tsp"/>
-		</Unit>
 		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Client/client.c">
 			<Option target="tsp"/>
 		</Unit>
