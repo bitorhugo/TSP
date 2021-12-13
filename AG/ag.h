@@ -32,8 +32,11 @@ typedef struct generation {
     struct generation *next_generation;
 }GENERATION;
 
+//------------------AG-------------------------//
 
 void intialize_genetic_algorithm (COUNTRY *country, int num_of_iterations, int size_of_population, int num_elitism, float mutation_probability);
+
+//------------------GENERATION-------------------------//
 
 GENERATION* insert_generation (GENERATION **head, bool at_head);
 
@@ -41,7 +44,6 @@ GENERATION* search_generation (GENERATION **head, uint32_t generation_id);
 
 GENERATION* search_generation_via_fitness (GENERATION **head, int fitness_value);
 
-CHROMOSOME* insert_fittest_chromosomes (CHROMOSOME* a, CHROMOSOME* b);
 //------------------POPULATION-------------------------//
 
 POPULATION* create_initial_population (COUNTRY *country_to_visit, int size_of_population);
@@ -50,15 +52,15 @@ void insert_population(POPULATION *population, COUNTRY *temp_country, int size_o
 
 POPULATION* create_next_population (POPULATION *old_population, int elitism_amount, float mutation_prob);
 
-//------------------FITNESS-------------------------//
-
-void sort_cromo_by_fitness (POPULATION *population);
-
-float fitness (CHROMOSOME *chromo);
-
 //------------------CROMOSSOMA-------------------------//
 
 void insert_cromossomas (POPULATION *chromo, COUNTRY *temp_country);
+
+void insert_fittest_chromosomes (GENERATION *generation);
+
+//------------------GENE-------------------------//
+
+void insert_gene (CHROMOSOME *cromo, COUNTRY *arr_of_countries);
 
 //------------------CROSSOVER-------------------------//
 
@@ -68,13 +70,15 @@ void parent_selection (POPULATION *population, int elitism_amount);
 
 CHROMOSOME * fitness_proportional_selection (POPULATION *population);
 
+//------------------FITNESS-------------------------//
+
+void sort_cromo_by_fitness (POPULATION *population);
+
+float fitness (CHROMOSOME *chromo);
+
 //------------------MUTATION-------------------------//
 
 void mutation (POPULATION * population, float mutation_prob);
-
-//------------------GENE-------------------------//
-
-void insert_gene (CHROMOSOME *cromo, COUNTRY *arr_of_countries);
 
 //------------------ALLOCATE-------------------------//
 

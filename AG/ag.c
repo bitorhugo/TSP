@@ -41,6 +41,7 @@ void intialize_genetic_algorithm (COUNTRY *country, int num_iterations, int size
         current_generation->child = create_next_population(current_generation->parent, num_elitism, mutation_probability);
         next_generation->parent = current_generation->child;
 
+        insert_fittest_chromosomes(current_generation);
 
         current_generation->id = AG_count;
         AG_count += 1;
@@ -168,12 +169,14 @@ void insert_cromossomas (POPULATION *population, COUNTRY *country) {
 
 }
 
-CHROMOSOME* insert_fittest_chromosomes (CHROMOSOME* a, CHROMOSOME* b) {
-    CHROMOSOME *fittest_chromosomes = allocate_memory_cromossomas(2);
-    *fittest_chromosomes = *a;
-    *(fittest_chromosomes + 1) = *b;
-
-    return fittest_chromosomes;
+void insert_fittest_chromosomes (GENERATION* generation) {
+    generation->fittest_chromosomes = allocate_memory_cromossomas(2);
+    CHROMOSOME *temp_chromo;
+    for (size_t i = 0; i < 2; ++i) {
+        temp_chromo = generation->fittest_chromosomes + i;
+        CHROMOSOME *temp_fittest = generation->parent->chromosomes + i;
+        *temp_chromo = *temp_fittest;
+    }
 }
 
 //------------------GENE-------------------------//
