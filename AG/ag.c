@@ -11,27 +11,36 @@ void intialize_genetic_algorithm (COUNTRY *country, int num_iterations, int size
     uint32_t AG_count = 1;
 
     if (size_population % 2 != 0) {
+        if (size_population == 0) {
+            fprintf(stderr, "ERROR: POPULATION SIZE CANNOT BE ZERO\n");
+            return;
+        }
         fprintf(stderr, "ERROR: POPULATION SIZE HAS TO BE PAIR\n");
         return;
     }
-    if (num_elitism % 2 != 0 && num_elitism >= size_population) {
-        fprintf(stderr, "ERROR: ELITISM NUMBER HAS TO BE PAIR AND LESS THEN POPULATION SIZE\n");
+    if (num_elitism % 2 != 0) {
+        if (num_elitism >= size_population) {
+            fprintf(stderr, "ERROR: ELITISM NUMBER HAS TO BE SMALLER THAN POPULATION\n");
+            return;
+        }
+        fprintf(stderr, "ERROR: ELITISM NUMBER HAS TO BE PAIR\n");
         return;
     }
 
+    GENERATION *next_generation = NULL;
+    GENERATION *current_generation = NULL;
+
     while (AG_count <= num_iterations) {
-        GENERATION *current_generation = insert_generation(&head, false);
+
+        current_generation = next_generation;
         if (AG_count == 1) {
+            current_generation = insert_generation(&head, false);
             current_generation->parent = create_initial_population(country, size_population);
         }
+        next_generation = insert_generation(&head, false);
         current_generation->child = create_next_population(current_generation->parent, num_elitism, mutation_probability);
-        current_generation->next_generation->parent = current_generation->child;
+        next_generation->parent = current_generation->child;
 
-        CHROMOSOME *temp_chromosomes;
-        for (size_t i = 0; i < 2; ++i) {
-            temp_chromosomes = current_generation->parent->chromosomes + i;
-            *(current_generation->fittest_chromosomes + i) = *temp_chromosomes;
-        }
 
         current_generation->id = AG_count;
         AG_count += 1;
@@ -55,7 +64,7 @@ GENERATION* insert_generation (GENERATION **head, bool at_head) {
     }
     else {
         GENERATION *temp_generation = *head;
-        while (temp_generation != NULL) {
+        while (temp_generation->next_generation != NULL) {
             temp_generation = temp_generation->next_generation;
         }
         temp_generation->next_generation = new_generation;
@@ -297,7 +306,7 @@ void mutation (POPULATION * population, float mutation_prob) {
     for (size_t i = 0; i < population->num_of_chromosomes; ++i) {
         temp_chromo = population->chromosomes + i;
         GENE *temp_gene;
-        for (size_t j = 0; i < temp_chromo->num_of_genes; ++j) {
+        for (size_t j = 0; j < temp_chromo->num_of_genes; ++j) {
             temp_gene = temp_chromo->genes + j;
             float p_range = float_rand(0.0f, 1.0f);
             if (p_range < mutation_prob) {
