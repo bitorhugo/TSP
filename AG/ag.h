@@ -106,4 +106,6 @@ int random_non_reapeting_number (int min_value, int max_value);
 
 int is_generation_list_empty(GENERATION **head);
 
+void free_generation_list (GENERATION **head);
+
 #endif //TSP_AG_H

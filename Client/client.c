@@ -11,11 +11,11 @@ void insert_new_client (CLIENT **head, bool at_head, uint32_t client_id) {
     if (is_list_empty(head)) at_head = true;
 
     CLIENT *new_client = allocate_memory_Client(); // allocates memory for new client
+    new_client->user_id = client_id;
 
     if (at_head) {
         new_client->next_client = *head; // stores head pointer in new client
         *head = new_client; //
-        new_client->user_id = client_id;
         printf("New client head at %p\tnext_client: %p\n", new_client, new_client->next_client);
     } else {
         CLIENT *temp = *head;
@@ -25,7 +25,6 @@ void insert_new_client (CLIENT **head, bool at_head, uint32_t client_id) {
         // inserts new client at the end and restores link
         temp->next_client = new_client;
         new_client->next_client = NULL;
-        new_client->user_id = client_id;
         printf("New client tail at %p\tnext_client: %p\n", new_client, new_client->next_client);
     }
 }
@@ -39,12 +38,11 @@ void insert_new_client_head (CLIENT **head) {
 
 void insert_new_client_tail (CLIENT **head) {
     CLIENT *new_client = allocate_memory_Client();
-    new_client->next_client = NULL;
 
     if (is_list_empty(head)) {
         *head = new_client;
         new_client->next_client = NULL;
-        printf("New client tail at %p\tnext_client: %p\n", new_client, new_client->next_client);
+        printf("New client at %p\tnext_client: %p\n", new_client, new_client->next_client);
         return;
     }
 
@@ -57,6 +55,38 @@ void insert_new_client_tail (CLIENT **head) {
     new_client->next_client = NULL;
 
     printf("New client tail at %p\tnext_client: %p\n", new_client, new_client->next_client);
+}
+
+void insert_new_client_sorted (CLIENT **head, uint32_t client_id) {
+    CLIENT *new_client = allocate_memory_Client();
+    new_client->user_id = client_id;
+    if (is_list_empty(head)) {
+        *head = new_client;
+        printf("New client %d at %p\tnext_client: %p\n", new_client->user_id, new_client, new_client->next_client);
+        return;
+    }
+    else {
+        sort_clients(head, 0);
+        CLIENT *temp_client = *head;
+        if (temp_client->user_id > client_id) {
+            new_client->next_client = *head;
+            *head = new_client;
+            return;
+        }
+        while (temp_client != NULL) {
+            if (temp_client->next_client == NULL) {
+                temp_client->next_client = new_client;
+                return;
+            } // if next_client == NULL insert at tail
+            if (temp_client->next_client->user_id > client_id) {
+                CLIENT *temp_swap = temp_client->next_client;
+                temp_client->next_client = new_client;
+                new_client->next_client = temp_swap;
+                return;
+            } // perform a swap to maintain linkage between clients
+            temp_client = temp_client->next_client;
+        }
+    }
 }
 
 void remove_client (CLIENT **head, uint32_t userid_to_delete) {
@@ -149,16 +179,6 @@ void print_clients (CLIENT **head) {
     }
 }
 
-void read_clients_from_file (CLIENT **head) {
-
-    FILE *file;
-    file = fopen("readme.txt", "r");
-    char line_of_file[FILE_LINE_SIZE];
-
-    if (file == NULL) exit(1);
-
-}
-
 //------------------Allocate-------------------------//
 
 CLIENT * allocate_memory_Client () {
@@ -205,28 +225,7 @@ void free_clients_list (CLIENT **head) {
 //------------------FILES-------------------------//
 
 void write_report (CLIENT **head, uint32_t client_id, bool is_binary) {
-    if (is_list_empty(head)) {
-        fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
-        return;
-    }
-    FILE *file_to_open;
-    if (is_binary == true) file_to_open = fopen ("report_binary.bin", "wb");
-    else  file_to_open =  fopen("report.txt", "w");
 
-    if (file_to_open == NULL) {
-        fprintf(stderr, "ERROR: FILE FAULT\n");
-        return;
-    }
-
-    CLIENT *temp_client = *head;
-    while (temp_client != NULL) {
-
-        fwrite(temp_client, sizeof(*temp_client), 1, file_to_open);
-
-        temp_client = temp_client->next_client;
-    }
-
-    fclose(file_to_open);
 
 }
 

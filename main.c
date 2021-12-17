@@ -10,7 +10,6 @@ int main() {
     insert_new_client(&head, true, 1234);
     insert_new_client(&head, true, 24563);
     insert_new_client(&head, true, 263423);
-
     print_clients(&head);
 
     search_client_by_id(&head, 1);

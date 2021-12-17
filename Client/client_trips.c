@@ -43,21 +43,24 @@ void edit_trip (CLIENT *client, char* country_name, char* new_country_name) {
 
 }
 
-void print_trips (CLIENT *client, bool is_finished) {
-
-    if (is_finished == false) {
-        if (client->size_trips_to_be_made == 0){
-            fprintf(stderr, "NO TRIPS FOUND\n");
-            return;
-        }
-        for (int i = 0; i < client->size_trips_to_be_made; ++i) {
-            COUNTRY *temp_country = client->trips_to_be_made + i;
-            printf("%s ", temp_country->name);
-        }
-        printf("\n");
-        return;
+COUNTRY* search_trip_finished (CLIENT* client, char* country_name) {
+    if (client->size_trips_finished == 0) {
+        fprintf(stderr, "ERROR: NO FINISHED TRIPS FOUND\n");
+        return NULL;
     }
-    else {
+    COUNTRY* temp_country;
+    for (size_t i = 0; i < client->size_trips_finished; ++i) {
+        temp_country = client->trips_finished + i;
+        if (strcmp(temp_country->name, country_name) == 0) {
+            return temp_country;
+        }
+    }
+    fprintf(stderr, "ERROR: FINISHED TRIP NOT FOUND\n");
+    return NULL;
+}
+
+void print_trips (CLIENT *client, bool is_finished) {
+    if (is_finished) {
         if (client->size_trips_finished == 0){
             fprintf(stderr, "NO TRIPS FOUND\n");
             return;
@@ -69,73 +72,32 @@ void print_trips (CLIENT *client, bool is_finished) {
         printf("\n");
         return;
     }
-
-}
-
-// TODO: Only finished trips required
-/*
-void print_trips_specific (CLIENT **head, uint32_t client_id, char *country_name, char *city_name, short is_finished) {
-    if (is_list_empty(head)) {
-        fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
+    else {
+        if (client->size_trips_to_be_made == 0){
+            fprintf(stderr, "NO TRIPS FOUND\n");
+            return;
+        }
+        for (int i = 0; i < client->size_trips_to_be_made; ++i) {
+            COUNTRY *temp_country = client->trips_to_be_made + i;
+            printf("%s ", temp_country->name);
+        }
+        printf("\n");
         return;
     }
-    CLIENT *temp_client = *head;
-    while (temp_client != NULL) {
-        if (temp_client->user_id == client_id) {
-            if (is_finished == 1) {
-                COUNTRY *temp_country;
-                for (int i = 0; i < temp_client->size_trips_finished; ++i) {
-                    temp_country = temp_client->trips_finished + i;
-                    if (strcmp(temp_country->name, country_name) == 0) {
-                        City *temp_city;
-                        for (int j = 0; j < temp_country->size_trip_cities; ++j) {
-                            temp_city = temp_country->cities + j;
-                            if (strcmp(temp_city->name, city_name) == 0) {
-                                if (temp_city->coordinates == 0) {
-                                    fprintf(stderr, "ERROR: PoI NOT FOUND\n");
-                                    return;
-                                }
-                                printf("Trips finished:\nCity %s\nPoI: x = %.2f, y = %.2f\n",
-                                       city_name, temp_city->coordinates->x, temp_city->coordinates->y);
-                            }
-                        }
-                        fprintf(stderr, "ERROR: CITY NOT FOUND\n");
-                        return;
-                    }
-                }
-                fprintf(stderr, "ERROR: TRIP NOT FOUND\n");
-                return;
-            }
-            else {
-                COUNTRY *temp_country;
-                for (int i = 0; i < temp_client->size_trips_to_be_made; ++i) {
-                    temp_country = temp_client->trips_to_be_made + i;
-                    if (strcmp(temp_country->name, country_name) == 0) {
-                        City *temp_city;
-                        for (int j = 0; j < temp_country->size_trip_cities; ++j) {
-                            temp_city = temp_country->cities + j;
-                            if (strcmp(temp_city->name, city_name) == 0) {
-                                if (temp_city->coordinates == 0) {
-                                    fprintf(stderr, "ERROR: PoI NOT FOUND\n");
-                                    return;
-                                }
-                                printf("Trips finished:\nCity %s\nPoI: x = %.2f, y = %.2f\n",
-                                       city_name, temp_city->coordinates->x, temp_city->coordinates->y);
-                                return;
-                            }
-                        }
-                        fprintf(stderr, "ERROR: CITY NOT FOUND\n");
-                        return;
-                    }
-                }
-                fprintf(stderr, "ERROR: TRIP NOT FOUND\n");
-                return;
-            }
-        }
-        temp_client = temp_client->next_client;
+}
+
+COUNTRY* print_finished_trips_specific (CLIENT *client, char *country_name, char *city_name, char *PoI) {
+    if (client->size_trips_finished == 0) {
+        fprintf(stderr, "ERROR: NO TRIPS FINISHED\n");
+        return NULL;
     }
-    fprintf(stderr, "CLIENT NOT FOUND\n");
-}*/
+
+    COUNTRY *temp_country = search_trip_finished(client, country_name);
+    CITY *temp_city = search_city(temp_country, city_name);
+    POI *temp_PoI = search_PoI(temp_city, PoI);
+    return temp_country;
+
+}
 
 void insert_trip_name(CLIENT *client, char *country_name) {
     if (client->trips_to_be_made == NULL) {

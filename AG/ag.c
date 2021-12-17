@@ -47,6 +47,14 @@ void intialize_genetic_algorithm (COUNTRY *country, int num_iterations, int size
         AG_count += 1;
     }
 
+    printf ("Best route to take: \n");
+    GENE *temp_gene;
+    for (size_t i = 0; i < country->size_trip_cities; ++i) {
+        temp_gene = current_generation->parent->chromosomes->genes + i;
+        printf("City %d (x: %.2f, y: %.2f)\n", temp_gene->id, temp_gene->x, temp_gene->y);
+    }
+
+    free_generation_list(&head);
 }
 
 //------------------GENERATION-------------------------//
@@ -120,6 +128,16 @@ int is_generation_list_empty(GENERATION **head) {
     return *head == NULL;
 }
 
+void free_generation_list (GENERATION **head) {
+    GENERATION *temp_generation = NULL;
+
+    while (*head != NULL) {
+        temp_generation = *head;
+        *head = temp_generation->next_generation;
+        free(temp_generation);
+    }
+}
+
 //------------------POPULATION-------------------------//
 
 POPULATION *create_initial_population (COUNTRY *country_to_visit, int size_of_population) {
@@ -149,6 +167,13 @@ POPULATION* create_next_population (POPULATION *old_population, int elitism_amou
     }
 
     mutation(old_population, mutation_prob);
+
+    for (size_t i = 0; i < old_population->num_of_chromosomes; ++i) {
+        temp_chromo = old_population->chromosomes + i;
+        temp_chromo->fitness_value = fitness(temp_chromo);
+    }
+
+    sort_cromo_by_fitness(old_population);
 
     return old_population;
 }
@@ -285,18 +310,27 @@ CHROMOSOME * fitness_proportional_selection (POPULATION *population) {
 
     float roulette [population->num_of_chromosomes];
     float sum_Aj = sum_population_fitness(population);
+    float cumulative_prob [population->num_of_chromosomes];
 
     CHROMOSOME *temp_chromo;
     for (size_t i = 0; i < population->num_of_chromosomes; ++i) { // roulette
         temp_chromo = population->chromosomes + i;
-        roulette [i] = temp_chromo->fitness_value / sum_Aj;
+        roulette[i] = temp_chromo->fitness_value / sum_Aj;
+        if (i > 0) cumulative_prob [i] = roulette [i] + cumulative_prob [i - 1]; // cumulative probability
+        else cumulative_prob [i] = roulette [i];
+    }
 
-        float p_range = float_rand(0.0f, 1.0f);
-        if (p_range >= roulette[i]){
+    float p_range = float_rand(0.0f, 1.0f);
+    if (p_range < *cumulative_prob) {
+        return population->chromosomes; // return first chromosome
+    }
+    for (size_t i = 1; i < population->num_of_chromosomes; ++i) {
+        temp_chromo = population->chromosomes + i;
+        if (p_range <= cumulative_prob[i] && p_range > cumulative_prob [i - 1]) {
             return temp_chromo;
         }
     }
-
+    return NULL;
 }
 
 //------------------MUTATION-------------------------//

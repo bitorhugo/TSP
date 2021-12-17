@@ -18,8 +18,6 @@
 #ifndef TSP_CLIENT_H
 #define TSP_CLIENT_H
 
-#define FILE_LINE_SIZE 100
-
 //------------------DATA-------------------------//
 
 typedef struct date{
@@ -90,6 +88,8 @@ void insert_new_client_head(CLIENT **head);
  * @param tail tail of linked list
  */
 void insert_new_client_tail(CLIENT **head);
+
+void insert_new_client_sorted (CLIENT **head, uint32_t client_id);
 
 /**
  * Removes client by user id
@@ -162,6 +162,8 @@ void remove_trip (CLIENT *client, char* country_name);
  */
 void edit_trip (CLIENT *client, char* country_name, char* new_country_name);
 
+COUNTRY* search_trip (CLIENT* client, char* country_name);
+
 /**
  * prints all trips wanted client made
  * @param head head of linked list
@@ -176,7 +178,7 @@ void print_trips (CLIENT *client, bool is_finished);
  * @param country_name country name
  * @param city_name city name
  */
-void print_trips_specific (CLIENT **head, uint32_t client_id, char *country_name, char *city_name, short is_finished);
+COUNTRY* print_finished_trips_specific (CLIENT *client, char *country_name, char *city_name, char *PoI);
 
 /**
  * inserts country_name to client trips_to_be_made array
