@@ -33,7 +33,7 @@ void intialize_genetic_algorithm (COUNTRY *country, int num_iterations, int size
     while (AG_count <= num_iterations) {
 
         current_generation = next_generation;
-        if (AG_count == 1) {
+        if (AG_count == 1) { // checks if is first generation
             current_generation = insert_generation(&head, false);
             current_generation->parent = create_initial_population(country, size_population);
         }
@@ -153,15 +153,16 @@ POPULATION* create_next_population (POPULATION *old_population, int elitism_amou
 
     parent_selection(old_population, elitism_amount);
 
-    int num_child = old_population->num_of_chromosomes - elitism_amount; // elitism chromosomes
-    num_child /= 2; // fitness_proportional chromosomes
-
-    CHROMOSOME *temp_chromo;
-    for (size_t i = 0; i < num_child; ++i) {
-        temp_chromo = old_population->chromosomes + elitism_amount + num_child;
-
-        CHROMOSOME *parent_one = old_population->chromosomes + i;
-        CHROMOSOME *parent_two = parent_one + elitism_amount;
+    CHROMOSOME *temp_chromo = NULL;
+    CHROMOSOME *parent_one = NULL;
+    CHROMOSOME *parent_two = NULL;
+    for (size_t i = elitism_amount; i < old_population->num_of_chromosomes; ++i) {
+        temp_chromo = old_population->chromosomes + i;
+        parent_one = temp_chromo;
+        if (i == old_population->num_of_chromosomes - 1)
+            parent_two = old_population->chromosomes + elitism_amount;
+        else
+            parent_two = (temp_chromo + 1);
 
         temp_chromo = cross_over(parent_one, parent_two);
     }
@@ -273,7 +274,7 @@ CHROMOSOME * cross_over (CHROMOSOME *parent_one, CHROMOSOME *parent_two) {
     shuffle_genes(child, child->num_of_genes); // shuffles genes
     child->num_of_genes = num_of_random_numbers;
 
-    // fill the rest of child_cromo with parent_tow genes
+    // fill the rest of child_cromo with parent_two genes
     int flag = 0;
     for (size_t i = 0; i < parent_two->num_of_genes ; ++i) {
         GENE *temp_parent = parent_two->genes + i;
@@ -297,7 +298,6 @@ CHROMOSOME * cross_over (CHROMOSOME *parent_one, CHROMOSOME *parent_two) {
 
 void parent_selection (POPULATION *population, int elitism_amount) {
     CHROMOSOME *temp_chromo;
-
     // via elitism n chromosomes with the best fitness stay to be crossed-over
     for (size_t i = elitism_amount; i < population->num_of_chromosomes; ++i) {
         temp_chromo = population->chromosomes + i;

@@ -4,8 +4,6 @@
 int main() {
 
     CLIENT *head = NULL;
-    //GENARATION *head_generations = NULL;
-    //POPULATION *initial_population = NULL;
 
     insert_new_client(&head, true, 1234);
     insert_new_client(&head, true, 24563);
@@ -49,7 +47,7 @@ int main() {
     //create_population(&head, initial_population, 1234, 4);
 
 
-    intialize_genetic_algorithm(one->trips_to_be_made, 3, 6, 2, 0.01f);
+    intialize_genetic_algorithm(one->trips_to_be_made, 3, 8, 2, 0.01f);
 
     free_clients_list(&head);
 
