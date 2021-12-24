@@ -280,6 +280,6 @@ float float_rand (float min, float max) {
 }
 
 int int_rand (int min, int max) {
-    int scale = rand() / (int) RAND_MAX;
-    return min + scale * (max - min);
+    int num = (rand() % (max - min + 1)) + min;
+    return num;
 }

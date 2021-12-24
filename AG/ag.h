@@ -68,7 +68,7 @@ CHROMOSOME * cross_over (CHROMOSOME *parent_one,CHROMOSOME *parent_two);
 
 void parent_selection (POPULATION *population, int elitism_amount);
 
-CHROMOSOME * fitness_proportional_selection (POPULATION *population);
+CHROMOSOME * fitness_proportional_selection (POPULATION *population, const float *cumulative_prob);
 
 //------------------FITNESS-------------------------//
 
@@ -92,6 +92,8 @@ GENE *allocate_memory_genes(int size);
 
 //------------------AUX-------------------------//
 
+CHROMOSOME* random_chromosome (POPULATION *population, int elitism);
+
 void shuffle_genes (CHROMOSOME *cromo, int size);
 
 float euclidean_dist (GENE* first, GENE *second);
@@ -103,6 +105,8 @@ void swap_gene (GENE *a, GENE *b);
 float sum_population_fitness (POPULATION *population);
 
 int random_non_reapeting_number (int min_value, int max_value);
+
+float* calculate_cumulative_prob (POPULATION *population);
 
 int is_generation_list_empty(GENERATION **head);
 

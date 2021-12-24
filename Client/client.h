@@ -50,10 +50,11 @@ typedef struct country {
 
 typedef struct client {
   uint32_t user_id;
-  //char* address;
-  //uint16_t contact_number;
-  //uint32_t billing;
-  //Date registration;
+  char *name;
+  char* address;
+  uint16_t contact_number;
+  uint32_t billing;
+  DATE registration;
   COUNTRY * trips_finished;
   int size_trips_finished;
   COUNTRY * trips_to_be_made;
@@ -61,11 +62,6 @@ typedef struct client {
   struct client *next_client; // pointer for the next client
 } CLIENT;
 
-typedef struct client_list {
-    CLIENT client;
-    int num_of_clients;
-    struct client_list *next_client;
-}CLIENT_LIST;
 
 //------------------CLIENT-------------------------//
 
