@@ -29,16 +29,14 @@ void intialize_genetic_algorithm (COUNTRY *country, int num_iterations, int size
             current_generation = insert_generation(&head, false);
             current_generation->parent = create_initial_population(country, size_population);
         }
+        current_generation->child = create_next_population(*current_generation->parent, num_elitism, mutation_probability);
         next_generation = insert_generation(&head, false);
-        current_generation->child = create_next_population(current_generation->parent, num_elitism, mutation_probability);
         next_generation->parent = current_generation->child;
 
         insert_fittest_chromosomes(current_generation);
-
         current_generation->id = AG_count;
         AG_count += 1;
     }
-
     printf ("Best route to take: \n");
     GENE *temp_gene;
     for (size_t i = 0; i < country->size_trip_cities; ++i) {
@@ -132,7 +130,7 @@ void free_generation_list (GENERATION **head) {
 
 //------------------POPULATION-------------------------//
 
-POPULATION *create_initial_population (COUNTRY *country_to_visit, int size_of_population) {
+POPULATION* create_initial_population (COUNTRY *country_to_visit, int size_of_population) {
 
     POPULATION *new_population = allocate_memory_population();
     new_population->num_of_chromosomes = size_of_population;
@@ -141,37 +139,19 @@ POPULATION *create_initial_population (COUNTRY *country_to_visit, int size_of_po
     return new_population;
 }
 
-POPULATION* create_next_population (POPULATION *old_population, int elitism_amount, float mutation_prob) {
+POPULATION* create_next_population (POPULATION population, int elitism_amount, float mutation_prob) {
 
     POPULATION *new_population = allocate_memory_population();
-    *new_population = *old_population;
+    *new_population = population;
 
     parent_selection(new_population, elitism_amount);
-
-    CHROMOSOME *temp_chromo;
-    CHROMOSOME *parent_one;
-    CHROMOSOME *parent_two;
-    CHROMOSOME *temp_parent_two = random_chromosome(new_population, elitism_amount);
-
-    for (size_t i = elitism_amount; i < new_population->num_of_chromosomes; ++i) {
-        temp_chromo = new_population->chromosomes + i;
-        parent_one = temp_chromo;
-        if (i == new_population->num_of_chromosomes - 1)
-            *parent_two = *temp_parent_two;
-        else {
-            parent_two = (temp_chromo + 1);
-        }
-        temp_chromo = cross_over(parent_one, parent_two);
-    }
-
+    breed_population(new_population, elitism_amount);
     mutation(new_population, mutation_prob);
 
     for (size_t i = 0; i < new_population->num_of_chromosomes; ++i) {
-        temp_chromo = new_population->chromosomes + i;
+        CHROMOSOME *temp_chromo = new_population->chromosomes + i;
         temp_chromo->fitness_value = fitness(temp_chromo);
     }
-
-    sort_cromo_by_fitness(new_population);
 
     return new_population;
 }
@@ -262,6 +242,27 @@ float sum_population_fitness (POPULATION *population){
 
 //------------------CROSSOVER-------------------------//
 
+void breed_population (POPULATION *population, int elitism_amount) {
+
+    CHROMOSOME *temp_chromo;
+    CHROMOSOME *parent_one;
+    CHROMOSOME *parent_two;
+    POPULATION *population_after_breeding = allocate_memory_population();
+    *population_after_breeding = *population;
+
+    for (size_t i = elitism_amount; i < population->num_of_chromosomes; ++i) {
+        parent_one = population->chromosomes + i;
+        parent_two = population->chromosomes + population->num_of_chromosomes - i - 1;
+        temp_chromo = cross_over(parent_one, parent_two);
+        *(population_after_breeding->chromosomes + i) = *temp_chromo;
+    }
+
+    *population = *population_after_breeding;
+
+    free (population_after_breeding);
+
+}
+
 CHROMOSOME* cross_over (CHROMOSOME *parent_one, CHROMOSOME *parent_two) {
 
     // choose random non-repeating numbers from parent one
@@ -295,20 +296,10 @@ CHROMOSOME* cross_over (CHROMOSOME *parent_one, CHROMOSOME *parent_two) {
 
 void parent_selection (POPULATION *population, int elitism_amount) {
 
-    float cumulative_prob [population->chromosomes->num_of_genes];
-    float sum_Aj = sum_population_fitness(population);
-    float roulette [population->num_of_chromosomes];
+    float cumulative_prob [population->num_of_chromosomes];
+    calculate_cumulative_prob(population, cumulative_prob);
 
     CHROMOSOME *temp_chromo;
-    for (size_t i = 0; i < population->num_of_chromosomes; ++i) { // roulette
-        temp_chromo = population->chromosomes + i;
-        roulette[i] = temp_chromo->fitness_value / sum_Aj;
-        if (i > 0)
-            cumulative_prob [i] = roulette [i] + cumulative_prob [i - 1]; // cumulative probability
-        else
-            cumulative_prob [i] = roulette [i];
-    }
-
     // via elitism n chromosomes with the best fitness stay to be crossed-over
     for (size_t i = elitism_amount; i < population->num_of_chromosomes; ++i) {
         temp_chromo = population->chromosomes + i;
@@ -378,11 +369,6 @@ GENE *allocate_memory_genes(int size) {
 
 //------------------AUX-------------------------//
 
-CHROMOSOME* random_chromosome (POPULATION *population, int elitism) {
-    // find random index between elitism amount and prior chromosome
-    return population->chromosomes + int_rand(elitism, population->num_of_chromosomes - 2);
-}
-
 void shuffle_genes (CHROMOSOME *chromo, int size) {
     if (size > 1) { // has to have more than one value for swap to occur
         for (size_t i = 0; i < size - 1; ++i) {
@@ -411,9 +397,8 @@ void swap_gene (GENE *a, GENE *b) {
     *b = temp;
 }
 
-float* calculate_cumulative_prob(POPULATION *population) {
+void calculate_cumulative_prob(POPULATION *population, float *cumulative_prob) {
 
-    float cumulative_prob [population->chromosomes->num_of_genes];
     float sum_Aj = sum_population_fitness(population);
     float roulette [population->num_of_chromosomes];
 
@@ -421,10 +406,8 @@ float* calculate_cumulative_prob(POPULATION *population) {
     for (size_t i = 0; i < population->num_of_chromosomes; ++i) { // roulette
         temp_chromo = population->chromosomes + i;
         roulette[i] = temp_chromo->fitness_value / sum_Aj;
-        if (i > 0)
-            cumulative_prob [i] = roulette [i] + cumulative_prob [i - 1]; // cumulative probability
-        else
-            cumulative_prob [i] = roulette [i];
+        if (i > 0) cumulative_prob [i] = roulette [i] + cumulative_prob [i - 1]; // cumulative probability
+        else cumulative_prob [i] = roulette [i];
     }
 
 }

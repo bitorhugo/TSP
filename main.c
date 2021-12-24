@@ -47,7 +47,7 @@ int main() {
     //create_population(&head, initial_population, 1234, 4);
 
 
-    intialize_genetic_algorithm(one->trips_to_be_made, 3, 4, 2, 0.01f);
+    intialize_genetic_algorithm(one->trips_to_be_made, 500, 8, 2, 0.01f);
 
     free_clients_list(&head);
 

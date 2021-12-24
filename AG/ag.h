@@ -50,7 +50,7 @@ POPULATION* create_initial_population (COUNTRY *country_to_visit, int size_of_po
 
 void insert_population(POPULATION *population, COUNTRY *temp_country, int size_of_population);
 
-POPULATION* create_next_population (POPULATION *old_population, int elitism_amount, float mutation_prob);
+POPULATION* create_next_population (POPULATION population, int elitism_amount, float mutation_prob);
 
 //------------------CROMOSSOMA-------------------------//
 
@@ -63,6 +63,8 @@ void insert_fittest_chromosomes (GENERATION *generation);
 void insert_gene (CHROMOSOME *cromo, COUNTRY *arr_of_countries);
 
 //------------------CROSSOVER-------------------------//
+
+void breed_population (POPULATION *population, int elitism_amount);
 
 CHROMOSOME * cross_over (CHROMOSOME *parent_one,CHROMOSOME *parent_two);
 
@@ -92,8 +94,6 @@ GENE *allocate_memory_genes(int size);
 
 //------------------AUX-------------------------//
 
-CHROMOSOME* random_chromosome (POPULATION *population, int elitism);
-
 void shuffle_genes (CHROMOSOME *cromo, int size);
 
 float euclidean_dist (GENE* first, GENE *second);
@@ -106,7 +106,7 @@ float sum_population_fitness (POPULATION *population);
 
 int random_non_reapeting_number (int min_value, int max_value);
 
-float* calculate_cumulative_prob (POPULATION *population);
+void calculate_cumulative_prob (POPULATION *population, float *cumulative_prob);
 
 int is_generation_list_empty(GENERATION **head);
 
