@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu99
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/VitorHugo/CLionProjects/tsp/Client -I/Users/VitorHugo/CLionProjects/tsp/AG 
+C_INCLUDES = -I/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos -I/Users/VitorHugo/CLionProjects/tsp/AG 
 

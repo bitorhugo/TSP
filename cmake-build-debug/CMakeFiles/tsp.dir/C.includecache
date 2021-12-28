@@ -6,29 +6,3 @@
 
 #IncludeRegexTransform: 
 
-../Client/client.h
-stdio.h
--
-stdlib.h
--
-string.h
--
-stdbool.h
--
-ctype.h
--
-time.h
--
-unistd.h
--
-math.h
--
-
-/Users/VitorHugo/CLionProjects/tsp/AG/ag.c
-ag.h
-/Users/VitorHugo/CLionProjects/tsp/AG/ag.h
-
-/Users/VitorHugo/CLionProjects/tsp/AG/ag.h
-client.h
-/Users/VitorHugo/CLionProjects/tsp/AG/client.h
-

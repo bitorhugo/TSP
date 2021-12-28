@@ -5,7 +5,7 @@
 #include "client.h"
 
 //------------------CLIENT-------------------------//
-
+/*
 void insert_new_client (CLIENT **head, bool at_head, uint32_t client_id) {
 
     if (is_list_empty(head)) at_head = true;
@@ -103,12 +103,12 @@ void remove_client (CLIENT **head, uint32_t userid_to_delete) {
             free (temp);
             return;
         }
-        else if (temp->next_client->user_id == userid_to_delete) {
+        if (temp->next_client->user_id == userid_to_delete) {
             temp->next_client = temp->next_client->next_client;
             free (temp->next_client);
             return;
         }
-        else temp = temp->next_client;
+        temp = temp->next_client;
     }
 
     printf("Client %d not found.\n", userid_to_delete);
@@ -178,7 +178,7 @@ void print_clients (CLIENT **head) {
         temp = temp->next_client;
     }
 }
-
+*/
 //------------------Allocate-------------------------//
 
 CLIENT * allocate_memory_Client () {

@@ -44,7 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Client"/>
+					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos"/>
 					<Add directory="/Users/VitorHugo/CLionProjects/tsp/AG"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
@@ -67,7 +67,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Client"/>
+					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos"/>
 					<Add directory="/Users/VitorHugo/CLionProjects/tsp/AG"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
@@ -84,25 +84,52 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/AG/ag.c">
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Cities/cities.c">
 			<Option target="tsp"/>
 		</Unit>
-		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/AG/ag.h">
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Cities/cities.h">
 			<Option target="tsp"/>
 		</Unit>
-		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Client/client.c">
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client/client.c">
 			<Option target="tsp"/>
 		</Unit>
-		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Client/client.h">
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client/client.h">
 			<Option target="tsp"/>
 		</Unit>
-		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Client/client_PoI.c">
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Linked_List/client_linked_list.c">
 			<Option target="tsp"/>
 		</Unit>
-		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Client/client_city.c">
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Linked_List/client_linked_list.h">
 			<Option target="tsp"/>
 		</Unit>
-		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Client/client_trips.c">
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Node/client_node.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Node/client_node.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Date/date.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Date/date.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Poi/poi.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Poi/poi.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Points/points.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Points/points.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Trips/trips.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Trips/trips.h">
 			<Option target="tsp"/>
 		</Unit>
 		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/main.c">

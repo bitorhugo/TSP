@@ -143,140 +143,221 @@ tsp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/build
 .PHONY : tsp/fast
 
-AG/ag.o: AG/ag.c.o
+Porto_Pontos/Cities/cities.o: Porto_Pontos/Cities/cities.c.o
 
-.PHONY : AG/ag.o
-
-# target to build an object file
-AG/ag.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/AG/ag.c.o
-.PHONY : AG/ag.c.o
-
-AG/ag.i: AG/ag.c.i
-
-.PHONY : AG/ag.i
-
-# target to preprocess a source file
-AG/ag.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/AG/ag.c.i
-.PHONY : AG/ag.c.i
-
-AG/ag.s: AG/ag.c.s
-
-.PHONY : AG/ag.s
-
-# target to generate assembly for a file
-AG/ag.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/AG/ag.c.s
-.PHONY : AG/ag.c.s
-
-Client/client.o: Client/client.c.o
-
-.PHONY : Client/client.o
+.PHONY : Porto_Pontos/Cities/cities.o
 
 # target to build an object file
-Client/client.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client.c.o
-.PHONY : Client/client.c.o
+Porto_Pontos/Cities/cities.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.o
+.PHONY : Porto_Pontos/Cities/cities.c.o
 
-Client/client.i: Client/client.c.i
+Porto_Pontos/Cities/cities.i: Porto_Pontos/Cities/cities.c.i
 
-.PHONY : Client/client.i
+.PHONY : Porto_Pontos/Cities/cities.i
 
 # target to preprocess a source file
-Client/client.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client.c.i
-.PHONY : Client/client.c.i
+Porto_Pontos/Cities/cities.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.i
+.PHONY : Porto_Pontos/Cities/cities.c.i
 
-Client/client.s: Client/client.c.s
+Porto_Pontos/Cities/cities.s: Porto_Pontos/Cities/cities.c.s
 
-.PHONY : Client/client.s
+.PHONY : Porto_Pontos/Cities/cities.s
 
 # target to generate assembly for a file
-Client/client.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client.c.s
-.PHONY : Client/client.c.s
+Porto_Pontos/Cities/cities.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.s
+.PHONY : Porto_Pontos/Cities/cities.c.s
 
-Client/client_PoI.o: Client/client_PoI.c.o
+Porto_Pontos/Client/client.o: Porto_Pontos/Client/client.c.o
 
-.PHONY : Client/client_PoI.o
+.PHONY : Porto_Pontos/Client/client.o
 
 # target to build an object file
-Client/client_PoI.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_PoI.c.o
-.PHONY : Client/client_PoI.c.o
+Porto_Pontos/Client/client.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.o
+.PHONY : Porto_Pontos/Client/client.c.o
 
-Client/client_PoI.i: Client/client_PoI.c.i
+Porto_Pontos/Client/client.i: Porto_Pontos/Client/client.c.i
 
-.PHONY : Client/client_PoI.i
+.PHONY : Porto_Pontos/Client/client.i
 
 # target to preprocess a source file
-Client/client_PoI.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_PoI.c.i
-.PHONY : Client/client_PoI.c.i
+Porto_Pontos/Client/client.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.i
+.PHONY : Porto_Pontos/Client/client.c.i
 
-Client/client_PoI.s: Client/client_PoI.c.s
+Porto_Pontos/Client/client.s: Porto_Pontos/Client/client.c.s
 
-.PHONY : Client/client_PoI.s
+.PHONY : Porto_Pontos/Client/client.s
 
 # target to generate assembly for a file
-Client/client_PoI.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_PoI.c.s
-.PHONY : Client/client_PoI.c.s
+Porto_Pontos/Client/client.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.s
+.PHONY : Porto_Pontos/Client/client.c.s
 
-Client/client_city.o: Client/client_city.c.o
+Porto_Pontos/Client_Linked_List/client_linked_list.o: Porto_Pontos/Client_Linked_List/client_linked_list.c.o
 
-.PHONY : Client/client_city.o
+.PHONY : Porto_Pontos/Client_Linked_List/client_linked_list.o
 
 # target to build an object file
-Client/client_city.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_city.c.o
-.PHONY : Client/client_city.c.o
+Porto_Pontos/Client_Linked_List/client_linked_list.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.o
+.PHONY : Porto_Pontos/Client_Linked_List/client_linked_list.c.o
 
-Client/client_city.i: Client/client_city.c.i
+Porto_Pontos/Client_Linked_List/client_linked_list.i: Porto_Pontos/Client_Linked_List/client_linked_list.c.i
 
-.PHONY : Client/client_city.i
+.PHONY : Porto_Pontos/Client_Linked_List/client_linked_list.i
 
 # target to preprocess a source file
-Client/client_city.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_city.c.i
-.PHONY : Client/client_city.c.i
+Porto_Pontos/Client_Linked_List/client_linked_list.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.i
+.PHONY : Porto_Pontos/Client_Linked_List/client_linked_list.c.i
 
-Client/client_city.s: Client/client_city.c.s
+Porto_Pontos/Client_Linked_List/client_linked_list.s: Porto_Pontos/Client_Linked_List/client_linked_list.c.s
 
-.PHONY : Client/client_city.s
+.PHONY : Porto_Pontos/Client_Linked_List/client_linked_list.s
 
 # target to generate assembly for a file
-Client/client_city.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_city.c.s
-.PHONY : Client/client_city.c.s
+Porto_Pontos/Client_Linked_List/client_linked_list.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.s
+.PHONY : Porto_Pontos/Client_Linked_List/client_linked_list.c.s
 
-Client/client_trips.o: Client/client_trips.c.o
+Porto_Pontos/Client_Node/client_node.o: Porto_Pontos/Client_Node/client_node.c.o
 
-.PHONY : Client/client_trips.o
+.PHONY : Porto_Pontos/Client_Node/client_node.o
 
 # target to build an object file
-Client/client_trips.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_trips.c.o
-.PHONY : Client/client_trips.c.o
+Porto_Pontos/Client_Node/client_node.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.o
+.PHONY : Porto_Pontos/Client_Node/client_node.c.o
 
-Client/client_trips.i: Client/client_trips.c.i
+Porto_Pontos/Client_Node/client_node.i: Porto_Pontos/Client_Node/client_node.c.i
 
-.PHONY : Client/client_trips.i
+.PHONY : Porto_Pontos/Client_Node/client_node.i
 
 # target to preprocess a source file
-Client/client_trips.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_trips.c.i
-.PHONY : Client/client_trips.c.i
+Porto_Pontos/Client_Node/client_node.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.i
+.PHONY : Porto_Pontos/Client_Node/client_node.c.i
 
-Client/client_trips.s: Client/client_trips.c.s
+Porto_Pontos/Client_Node/client_node.s: Porto_Pontos/Client_Node/client_node.c.s
 
-.PHONY : Client/client_trips.s
+.PHONY : Porto_Pontos/Client_Node/client_node.s
 
 # target to generate assembly for a file
-Client/client_trips.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Client/client_trips.c.s
-.PHONY : Client/client_trips.c.s
+Porto_Pontos/Client_Node/client_node.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.s
+.PHONY : Porto_Pontos/Client_Node/client_node.c.s
+
+Porto_Pontos/Date/date.o: Porto_Pontos/Date/date.c.o
+
+.PHONY : Porto_Pontos/Date/date.o
+
+# target to build an object file
+Porto_Pontos/Date/date.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.o
+.PHONY : Porto_Pontos/Date/date.c.o
+
+Porto_Pontos/Date/date.i: Porto_Pontos/Date/date.c.i
+
+.PHONY : Porto_Pontos/Date/date.i
+
+# target to preprocess a source file
+Porto_Pontos/Date/date.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.i
+.PHONY : Porto_Pontos/Date/date.c.i
+
+Porto_Pontos/Date/date.s: Porto_Pontos/Date/date.c.s
+
+.PHONY : Porto_Pontos/Date/date.s
+
+# target to generate assembly for a file
+Porto_Pontos/Date/date.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.s
+.PHONY : Porto_Pontos/Date/date.c.s
+
+Porto_Pontos/Poi/poi.o: Porto_Pontos/Poi/poi.c.o
+
+.PHONY : Porto_Pontos/Poi/poi.o
+
+# target to build an object file
+Porto_Pontos/Poi/poi.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.o
+.PHONY : Porto_Pontos/Poi/poi.c.o
+
+Porto_Pontos/Poi/poi.i: Porto_Pontos/Poi/poi.c.i
+
+.PHONY : Porto_Pontos/Poi/poi.i
+
+# target to preprocess a source file
+Porto_Pontos/Poi/poi.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.i
+.PHONY : Porto_Pontos/Poi/poi.c.i
+
+Porto_Pontos/Poi/poi.s: Porto_Pontos/Poi/poi.c.s
+
+.PHONY : Porto_Pontos/Poi/poi.s
+
+# target to generate assembly for a file
+Porto_Pontos/Poi/poi.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.s
+.PHONY : Porto_Pontos/Poi/poi.c.s
+
+Porto_Pontos/Points/points.o: Porto_Pontos/Points/points.c.o
+
+.PHONY : Porto_Pontos/Points/points.o
+
+# target to build an object file
+Porto_Pontos/Points/points.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.o
+.PHONY : Porto_Pontos/Points/points.c.o
+
+Porto_Pontos/Points/points.i: Porto_Pontos/Points/points.c.i
+
+.PHONY : Porto_Pontos/Points/points.i
+
+# target to preprocess a source file
+Porto_Pontos/Points/points.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.i
+.PHONY : Porto_Pontos/Points/points.c.i
+
+Porto_Pontos/Points/points.s: Porto_Pontos/Points/points.c.s
+
+.PHONY : Porto_Pontos/Points/points.s
+
+# target to generate assembly for a file
+Porto_Pontos/Points/points.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.s
+.PHONY : Porto_Pontos/Points/points.c.s
+
+Porto_Pontos/Trips/trips.o: Porto_Pontos/Trips/trips.c.o
+
+.PHONY : Porto_Pontos/Trips/trips.o
+
+# target to build an object file
+Porto_Pontos/Trips/trips.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.o
+.PHONY : Porto_Pontos/Trips/trips.c.o
+
+Porto_Pontos/Trips/trips.i: Porto_Pontos/Trips/trips.c.i
+
+.PHONY : Porto_Pontos/Trips/trips.i
+
+# target to preprocess a source file
+Porto_Pontos/Trips/trips.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.i
+.PHONY : Porto_Pontos/Trips/trips.c.i
+
+Porto_Pontos/Trips/trips.s: Porto_Pontos/Trips/trips.c.s
+
+.PHONY : Porto_Pontos/Trips/trips.s
+
+# target to generate assembly for a file
+Porto_Pontos/Trips/trips.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.s
+.PHONY : Porto_Pontos/Trips/trips.c.s
 
 main.o: main.c.o
 
@@ -314,21 +395,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... tsp"
-	@echo "... AG/ag.o"
-	@echo "... AG/ag.i"
-	@echo "... AG/ag.s"
-	@echo "... Client/client.o"
-	@echo "... Client/client.i"
-	@echo "... Client/client.s"
-	@echo "... Client/client_PoI.o"
-	@echo "... Client/client_PoI.i"
-	@echo "... Client/client_PoI.s"
-	@echo "... Client/client_city.o"
-	@echo "... Client/client_city.i"
-	@echo "... Client/client_city.s"
-	@echo "... Client/client_trips.o"
-	@echo "... Client/client_trips.i"
-	@echo "... Client/client_trips.s"
+	@echo "... Porto_Pontos/Cities/cities.o"
+	@echo "... Porto_Pontos/Cities/cities.i"
+	@echo "... Porto_Pontos/Cities/cities.s"
+	@echo "... Porto_Pontos/Client/client.o"
+	@echo "... Porto_Pontos/Client/client.i"
+	@echo "... Porto_Pontos/Client/client.s"
+	@echo "... Porto_Pontos/Client_Linked_List/client_linked_list.o"
+	@echo "... Porto_Pontos/Client_Linked_List/client_linked_list.i"
+	@echo "... Porto_Pontos/Client_Linked_List/client_linked_list.s"
+	@echo "... Porto_Pontos/Client_Node/client_node.o"
+	@echo "... Porto_Pontos/Client_Node/client_node.i"
+	@echo "... Porto_Pontos/Client_Node/client_node.s"
+	@echo "... Porto_Pontos/Date/date.o"
+	@echo "... Porto_Pontos/Date/date.i"
+	@echo "... Porto_Pontos/Date/date.s"
+	@echo "... Porto_Pontos/Poi/poi.o"
+	@echo "... Porto_Pontos/Poi/poi.i"
+	@echo "... Porto_Pontos/Poi/poi.s"
+	@echo "... Porto_Pontos/Points/points.o"
+	@echo "... Porto_Pontos/Points/points.i"
+	@echo "... Porto_Pontos/Points/points.s"
+	@echo "... Porto_Pontos/Trips/trips.o"
+	@echo "... Porto_Pontos/Trips/trips.i"
+	@echo "... Porto_Pontos/Trips/trips.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

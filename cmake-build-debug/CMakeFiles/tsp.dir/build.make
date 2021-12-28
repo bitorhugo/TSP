@@ -90,92 +90,137 @@ CMakeFiles/tsp.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/main.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/main.c -o CMakeFiles/tsp.dir/main.c.s
 
-CMakeFiles/tsp.dir/Client/client.c.o: CMakeFiles/tsp.dir/flags.make
-CMakeFiles/tsp.dir/Client/client.c.o: ../Client/client.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/tsp.dir/Client/client.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Client/client.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Client/client.c
+CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.o: ../Porto_Pontos/Client_Linked_List/client_linked_list.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Linked_List/client_linked_list.c
 
-CMakeFiles/tsp.dir/Client/client.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Client/client.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Client/client.c > CMakeFiles/tsp.dir/Client/client.c.i
+CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Linked_List/client_linked_list.c > CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.i
 
-CMakeFiles/tsp.dir/Client/client.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Client/client.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Client/client.c -o CMakeFiles/tsp.dir/Client/client.c.s
+CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Linked_List/client_linked_list.c -o CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.s
 
-CMakeFiles/tsp.dir/AG/ag.c.o: CMakeFiles/tsp.dir/flags.make
-CMakeFiles/tsp.dir/AG/ag.c.o: ../AG/ag.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/tsp.dir/AG/ag.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/AG/ag.c.o   -c /Users/VitorHugo/CLionProjects/tsp/AG/ag.c
+CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.o: ../Porto_Pontos/Client_Node/client_node.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Node/client_node.c
 
-CMakeFiles/tsp.dir/AG/ag.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/AG/ag.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/AG/ag.c > CMakeFiles/tsp.dir/AG/ag.c.i
+CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Node/client_node.c > CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.i
 
-CMakeFiles/tsp.dir/AG/ag.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/AG/ag.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/AG/ag.c -o CMakeFiles/tsp.dir/AG/ag.c.s
+CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Node/client_node.c -o CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.s
 
-CMakeFiles/tsp.dir/Client/client_trips.c.o: CMakeFiles/tsp.dir/flags.make
-CMakeFiles/tsp.dir/Client/client_trips.c.o: ../Client/client_trips.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/tsp.dir/Client/client_trips.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Client/client_trips.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Client/client_trips.c
+CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.o: ../Porto_Pontos/Client/client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client/client.c
 
-CMakeFiles/tsp.dir/Client/client_trips.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Client/client_trips.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Client/client_trips.c > CMakeFiles/tsp.dir/Client/client_trips.c.i
+CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client/client.c > CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.i
 
-CMakeFiles/tsp.dir/Client/client_trips.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Client/client_trips.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Client/client_trips.c -o CMakeFiles/tsp.dir/Client/client_trips.c.s
+CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client/client.c -o CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.s
 
-CMakeFiles/tsp.dir/Client/client_city.c.o: CMakeFiles/tsp.dir/flags.make
-CMakeFiles/tsp.dir/Client/client_city.c.o: ../Client/client_city.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/tsp.dir/Client/client_city.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Client/client_city.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Client/client_city.c
+CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.o: ../Porto_Pontos/Trips/trips.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Trips/trips.c
 
-CMakeFiles/tsp.dir/Client/client_city.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Client/client_city.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Client/client_city.c > CMakeFiles/tsp.dir/Client/client_city.c.i
+CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Trips/trips.c > CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.i
 
-CMakeFiles/tsp.dir/Client/client_city.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Client/client_city.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Client/client_city.c -o CMakeFiles/tsp.dir/Client/client_city.c.s
+CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Trips/trips.c -o CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.s
 
-CMakeFiles/tsp.dir/Client/client_PoI.c.o: CMakeFiles/tsp.dir/flags.make
-CMakeFiles/tsp.dir/Client/client_PoI.c.o: ../Client/client_PoI.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/tsp.dir/Client/client_PoI.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Client/client_PoI.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Client/client_PoI.c
+CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.o: ../Porto_Pontos/Cities/cities.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Cities/cities.c
 
-CMakeFiles/tsp.dir/Client/client_PoI.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Client/client_PoI.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Client/client_PoI.c > CMakeFiles/tsp.dir/Client/client_PoI.c.i
+CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Cities/cities.c > CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.i
 
-CMakeFiles/tsp.dir/Client/client_PoI.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Client/client_PoI.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Client/client_PoI.c -o CMakeFiles/tsp.dir/Client/client_PoI.c.s
+CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Cities/cities.c -o CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.s
+
+CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.o: ../Porto_Pontos/Points/points.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Points/points.c
+
+CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Points/points.c > CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.i
+
+CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Points/points.c -o CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.s
+
+CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.o: ../Porto_Pontos/Poi/poi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Poi/poi.c
+
+CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Poi/poi.c > CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.i
+
+CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Poi/poi.c -o CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.s
+
+CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.o: ../Porto_Pontos/Date/date.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Date/date.c
+
+CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Date/date.c > CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.i
+
+CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Date/date.c -o CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.s
 
 # Object files for target tsp
 tsp_OBJECTS = \
 "CMakeFiles/tsp.dir/main.c.o" \
-"CMakeFiles/tsp.dir/Client/client.c.o" \
-"CMakeFiles/tsp.dir/AG/ag.c.o" \
-"CMakeFiles/tsp.dir/Client/client_trips.c.o" \
-"CMakeFiles/tsp.dir/Client/client_city.c.o" \
-"CMakeFiles/tsp.dir/Client/client_PoI.c.o"
+"CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.o" \
+"CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.o" \
+"CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.o" \
+"CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.o" \
+"CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.o" \
+"CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.o" \
+"CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.o" \
+"CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.o"
 
 # External object files for target tsp
 tsp_EXTERNAL_OBJECTS =
 
 tsp: CMakeFiles/tsp.dir/main.c.o
-tsp: CMakeFiles/tsp.dir/Client/client.c.o
-tsp: CMakeFiles/tsp.dir/AG/ag.c.o
-tsp: CMakeFiles/tsp.dir/Client/client_trips.c.o
-tsp: CMakeFiles/tsp.dir/Client/client_city.c.o
-tsp: CMakeFiles/tsp.dir/Client/client_PoI.c.o
+tsp: CMakeFiles/tsp.dir/Porto_Pontos/Client_Linked_List/client_linked_list.c.o
+tsp: CMakeFiles/tsp.dir/Porto_Pontos/Client_Node/client_node.c.o
+tsp: CMakeFiles/tsp.dir/Porto_Pontos/Client/client.c.o
+tsp: CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.o
+tsp: CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.o
+tsp: CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.o
+tsp: CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.o
+tsp: CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.o
 tsp: CMakeFiles/tsp.dir/build.make
 tsp: CMakeFiles/tsp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable tsp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable tsp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tsp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
