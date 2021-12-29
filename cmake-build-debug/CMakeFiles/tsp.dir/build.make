@@ -194,6 +194,97 @@ CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Date/date.c -o CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.s
 
+CMakeFiles/tsp.dir/Genetic_Algorithm/Generation/generation.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Genetic_Algorithm/Generation/generation.c.o: ../Genetic_Algorithm/Generation/generation.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/tsp.dir/Genetic_Algorithm/Generation/generation.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Genetic_Algorithm/Generation/generation.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation/generation.c
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Generation/generation.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Genetic_Algorithm/Generation/generation.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation/generation.c > CMakeFiles/tsp.dir/Genetic_Algorithm/Generation/generation.c.i
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Generation/generation.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Genetic_Algorithm/Generation/generation.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation/generation.c -o CMakeFiles/tsp.dir/Genetic_Algorithm/Generation/generation.c.s
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Node/generation_node.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Node/generation_node.c.o: ../Genetic_Algorithm/Generation_Node/generation_node.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Node/generation_node.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Node/generation_node.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation_Node/generation_node.c
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Node/generation_node.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Node/generation_node.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation_Node/generation_node.c > CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Node/generation_node.c.i
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Node/generation_node.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Node/generation_node.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation_Node/generation_node.c -o CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Node/generation_node.c.s
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c.o: ../Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c > CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c.i
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c -o CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c.s
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.o: ../Genetic_Algorithm/main_algorithm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/main_algorithm.c
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/main_algorithm.c > CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.i
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/main_algorithm.c -o CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.s
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.o: ../Genetic_Algorithm/Population/population.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Population/population.c
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Population/population.c > CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.i
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Population/population.c -o CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.s
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.o: ../Genetic_Algorithm/Chromosome/chromosome.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Chromosome/chromosome.c
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Chromosome/chromosome.c > CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.i
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Chromosome/chromosome.c -o CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.s
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.o: ../Genetic_Algorithm/Gene/gene.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Gene/gene.c
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Gene/gene.c > CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.i
+
+CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Gene/gene.c -o CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.s
+
 # Object files for target tsp
 tsp_OBJECTS = \
 "CMakeFiles/tsp.dir/main.c.o" \
@@ -204,7 +295,14 @@ tsp_OBJECTS = \
 "CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.o" \
 "CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.o" \
 "CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.o" \
-"CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.o"
+"CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.o" \
+"CMakeFiles/tsp.dir/Genetic_Algorithm/Generation/generation.c.o" \
+"CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Node/generation_node.c.o" \
+"CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c.o" \
+"CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.o" \
+"CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.o" \
+"CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.o" \
+"CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.o"
 
 # External object files for target tsp
 tsp_EXTERNAL_OBJECTS =
@@ -218,9 +316,16 @@ tsp: CMakeFiles/tsp.dir/Porto_Pontos/Cities/cities.c.o
 tsp: CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.o
 tsp: CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.o
 tsp: CMakeFiles/tsp.dir/Porto_Pontos/Date/date.c.o
+tsp: CMakeFiles/tsp.dir/Genetic_Algorithm/Generation/generation.c.o
+tsp: CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Node/generation_node.c.o
+tsp: CMakeFiles/tsp.dir/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c.o
+tsp: CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.o
+tsp: CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.o
+tsp: CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.o
+tsp: CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.o
 tsp: CMakeFiles/tsp.dir/build.make
 tsp: CMakeFiles/tsp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable tsp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking C executable tsp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tsp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

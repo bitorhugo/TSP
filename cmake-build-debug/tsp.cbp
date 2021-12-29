@@ -45,7 +45,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos"/>
-					<Add directory="/Users/VitorHugo/CLionProjects/tsp/AG"/>
+					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
@@ -68,7 +68,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos"/>
-					<Add directory="/Users/VitorHugo/CLionProjects/tsp/AG"/>
+					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
@@ -84,6 +84,48 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Chromosome/chromosome.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Chromosome/chromosome.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Gene/gene.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Gene/gene.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation/generation.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation/generation.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation_Linked_List/generation_linked_list.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation_Node/generation_node.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Generation_Node/generation_node.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Population/population.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Population/population.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/main_algorithm.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/main_algorithm.h">
+			<Option target="tsp"/>
+		</Unit>
 		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Cities/cities.c">
 			<Option target="tsp"/>
 		</Unit>

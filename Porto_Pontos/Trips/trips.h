@@ -12,10 +12,9 @@ typedef struct country {
     int num_of_cities;
 }COUNTRY;
 
-COUNTRY *create_country (char *name);
-void insert_city (COUNTRY *country, CITY *city);
-void remove_city (COUNTRY *country, CITY *city);
-void edit_city (COUNTRY *country, CITY *city, char* new_city_name, float new_x, float new_y);
-CITY* search_city (COUNTRY *country, CITY *city);
+void insert_city (COUNTRY *country, char *city_name, float coordinate_x, float coordinate_y);
+void remove_city (COUNTRY *country, char *city_name);
+void edit_city (COUNTRY *country, char *current_city_name, char* new_city_name, float new_x, float new_y);
+CITY* search_city (COUNTRY *country, char *city_name);
 
 #endif //TSP_TRIPS_H

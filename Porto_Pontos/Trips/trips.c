@@ -11,33 +11,32 @@
 CITY* allocate_memory_city();
 CITY* reallocate_memory_city (COUNTRY *country);
 
-COUNTRY *create_country (char *country_name) {
-    COUNTRY *new_country = calloc(1, sizeof(COUNTRY));
-    new_country->name = country_name;
-    return new_country;
-}
+void insert_city (COUNTRY *country, char *city_name, float coordinate_x, float coordinate_y) {
+    CITY new_city = {0};
+    new_city.name = city_name;
+    new_city.coordinates.x = coordinate_x;
+    new_city.coordinates.y = coordinate_y;
 
-void insert_city (COUNTRY *country, CITY *city) {
     if (country->num_of_cities < 1) {
         country->cities = allocate_memory_city();
-        country->cities = city;
+        *country->cities = new_city;
         country->num_of_cities += 1;
     }
     else {
         country->cities = reallocate_memory_city(country);
         CITY *temp_city = country->cities + country->num_of_cities;
         temp_city->name = 0, temp_city->coordinates.x = 0, temp_city->coordinates.y = 0, temp_city->poi = 0, temp_city->num_of_poi = 0;
-        temp_city = city;
+        *temp_city = new_city;
         country->num_of_cities += 1;
     }
 }
 
-void remove_city (COUNTRY *country, CITY *city) {
+void remove_city (COUNTRY *country, char *city_name) {
     for (size_t i = 0; i < country->num_of_cities; ++i) {
         CITY *temp_city = country->cities + i;
-        if (strcmp(temp_city->name, city->name) == 0) {
+        if (strcmp(temp_city->name, city_name) == 0) {
             for (size_t j = i; j < country->num_of_cities; ++j) {
-                *(temp_city + j) = *(temp_city + j + 1);
+                *(country->cities + j) = *(country->cities + j + 1);
             }
             country->num_of_cities -= 1;
             country->cities = reallocate_memory_city(country);
@@ -47,9 +46,9 @@ void remove_city (COUNTRY *country, CITY *city) {
     fprintf(stderr, "ERROR: CITY NOT FOUND\n");
 }
 
-void edit_city (struct country *country, CITY *city, char* new_city_name, float new_x, float new_y) {
+void edit_city (COUNTRY *country, char *current_city_name, char* new_city_name, float new_x, float new_y) {
 
-    CITY *temp_city = search_city(country, city);
+    CITY *temp_city = search_city(country, current_city_name);
     if (temp_city == NULL) {
         fprintf(stderr, "ERROR: CITY NOT FOUND\n");
         return;
@@ -59,14 +58,14 @@ void edit_city (struct country *country, CITY *city, char* new_city_name, float 
     temp_city->coordinates.y = new_y;
 }
 
-CITY* search_city (struct country *country, CITY *city) {
+CITY* search_city (COUNTRY *country, char *city_name) {
     if (country->num_of_cities < 1) {
         fprintf(stderr, "ERROR: NO CITIES AVAILABLE\n");
         return NULL;
     }
     for (size_t i = 0; i < country->num_of_cities; ++i) {
         CITY *temp_city = country->cities + i;
-        if (strcmp(temp_city->name, city->name) == 0) {
+        if (strcmp(temp_city->name, city_name) == 0) {
             return temp_city;
         }
     }

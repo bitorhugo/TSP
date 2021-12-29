@@ -28,25 +28,28 @@ CLIENT create_client (char *name, uint32_t VAT, char *address, uint32_t phone_nu
     return new_client;
 }
 
-void insert_trip (CLIENT *client, COUNTRY *country) {
+void insert_trip (CLIENT *client, char *country_name) {
+    COUNTRY new_country = {0};
+    new_country.name = country_name;
+
     if (client->size_booked_trips < 1) {
         client->booked_trips = allocate_memory_trips();
-        client->booked_trips = country;
+        *client->booked_trips = new_country;
         client->size_booked_trips = 1;
     }
     else {
         client->booked_trips = reallocate_memory_trip(client);
         COUNTRY *temp_country = client->booked_trips + client->size_booked_trips;
         temp_country->name = 0, temp_country->cities = 0, temp_country->num_of_cities = 0;
-        temp_country = country;
+        *temp_country = new_country; // the content of country is passed onto client.booked_trips
         client->size_booked_trips +=1;
     }
 }
 
-void remove_trip (CLIENT *client, COUNTRY *country) {
+void remove_trip (CLIENT *client, char *country_name) {
     for (size_t i = 0; i < client->size_booked_trips; ++i) {
         COUNTRY *temp_country = client->booked_trips + i;
-        if (strcmp(temp_country->name, country->name) == 0) {
+        if (strcmp(temp_country->name, country_name) == 0) {
             for (size_t j = i; j < client->size_booked_trips; ++j) {
                 *(client->booked_trips + j) = *(client->booked_trips + j + 1);
             }
@@ -58,10 +61,10 @@ void remove_trip (CLIENT *client, COUNTRY *country) {
     fprintf(stderr, "ERROR: TRIP NOT FOUND\n");
 }
 
-void edit_trip (CLIENT *client, COUNTRY *country, char *new_country_name) {
+void edit_trip (CLIENT *client, char *current_country_name, char *new_country_name) {
     for (size_t i = 0; i < client->size_booked_trips; ++i) {
         COUNTRY *temp_country = client->booked_trips + i;
-        if (strcmp(temp_country->name, country->name) == 0) {
+        if (strcmp(temp_country->name, current_country_name) == 0) {
             temp_country->name = new_country_name;
             fprintf(stdout, "WARNING: COUNTRY NAME CHANGED\n");
             return;

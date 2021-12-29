@@ -25,9 +25,9 @@ typedef struct client {
 
 
 CLIENT create_client (char *name, uint32_t VAT, char *address, uint32_t phone_number, int birth_day, int birth_month, int birth_year);
-void insert_trip (CLIENT *client, COUNTRY *country);
-void remove_trip (CLIENT *client, COUNTRY *country);
-void edit_trip (CLIENT *client, COUNTRY *country, char *new_country_name);
+void insert_trip (CLIENT *client, char *country_name);
+void remove_trip (CLIENT *client, char *country_name);
+void edit_trip (CLIENT *client, char *current_country_name, char *new_country_name);
 void print_trips (CLIENT *client, bool is_finished);
 void print_finished_trip_specific (CLIENT *client, char *country_name, char *city_name, char *poi);
 

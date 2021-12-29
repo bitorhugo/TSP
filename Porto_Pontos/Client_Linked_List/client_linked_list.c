@@ -6,6 +6,15 @@
 
 #include <stdio.h>
 
+/*
+ * Private functions prototypes
+ */
+void sort_clients_id (CLIENT_LL *list);
+void sort_clients_name (CLIENT_LL *list);
+
+/*
+ * Public functions implementation
+ */
 void insert_client (CLIENT_LL *list, bool at_head, CLIENT client) {
     if (list->list_size < 1) {
         list->head = allocate_memory_node_client(client);
@@ -28,13 +37,12 @@ void insert_client (CLIENT_LL *list, bool at_head, CLIENT client) {
         }
     }
 }
-
-CLIENT search_client (CLIENT_LL *list, CLIENT client) {
+CLIENT search_client (CLIENT_LL *list, const char *client_name) {
 
     CLIENT_NODE *temp_node = list->head;
     while (temp_node != NULL) {
-        if (temp_node->client.VAT == client.VAT){
-            printf("Client %d found\n", temp_node->client.VAT);
+        if (temp_node->client.name == client_name){
+            printf("Client %s found\n", temp_node->client.name);
             return temp_node->client;
         }
         temp_node = temp_node->next_node;
@@ -43,7 +51,6 @@ CLIENT search_client (CLIENT_LL *list, CLIENT client) {
     CLIENT null = {0};
     return null;
 }
-
 void remove_client (CLIENT_LL *list, CLIENT client) {
     if (list->list_size < 1) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
@@ -67,7 +74,14 @@ void remove_client (CLIENT_LL *list, CLIENT client) {
     }
     fprintf (stderr, "ERROR: CLIENT NOT FOUND\n");
 }
-
+void sort_clients (CLIENT_LL *list, short attribute) {
+    if (list->list_size < 1) {
+        fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
+        return;
+    }
+    if (attribute == 0) sort_clients_id(list);
+    else sort_clients_name(list);
+}
 void print_clients (CLIENT_LL *list) {
     if (list->list_size < 1) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
@@ -78,7 +92,16 @@ void print_clients (CLIENT_LL *list) {
         temp_node = temp_node->next_node;
     }
 }
-
 void deallocate_client_linked_list (CLIENT_LL *list) {
     free(list);
+}
+
+/*
+ * Private functions implementation
+ */
+void sort_clients_id (CLIENT_LL *list) {
+
+}
+void sort_clients_name (CLIENT_LL *list) {
+
 }

@@ -5,7 +5,7 @@
 #include "client.h"
 
 //------------------CLIENT-------------------------//
-/*
+
 void insert_new_client (CLIENT **head, bool at_head, uint32_t client_id) {
 
     if (is_list_empty(head)) at_head = true;
@@ -178,7 +178,7 @@ void print_clients (CLIENT **head) {
         temp = temp->next_client;
     }
 }
-*/
+
 //------------------Allocate-------------------------//
 
 CLIENT * allocate_memory_Client () {

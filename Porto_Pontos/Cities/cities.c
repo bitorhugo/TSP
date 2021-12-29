@@ -8,15 +8,6 @@
 #include <stdio.h>
 #include <string.h>
 
-CITY *create_city (char *city_name, float x, float y) {
-    CITY *new_city = calloc(1, sizeof(CITY));
-
-    new_city->name = city_name;
-    new_city->coordinates.x = x;
-    new_city->coordinates.y = y;
-
-    return new_city;
-}
 
 POI* allocate_memory_poi ();
 POI* reallocate_memory_poi (CITY *city);
