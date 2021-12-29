@@ -35,11 +35,12 @@ GENERATION* search_generation (GENERATION_LL *list, uint32_t id) {
         return NULL;
     }
 
-    GENERATION_NODE * temp_node = list->head;
+    GENERATION_NODE *temp_node = list->head;
     while (temp_node != NULL) {
         if (temp_node->generation.id == id) {
             return &temp_node->generation;
         }
+        temp_node = temp_node->next_node;
     }
 
     fprintf(stderr, "ERROR: GENERATION NOT FOUND\n");

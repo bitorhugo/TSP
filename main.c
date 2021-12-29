@@ -44,6 +44,6 @@ int main() {
     // edit city from booked trip
     //edit_city(hugo.booked_trips, "Sidney", "Hobart", 32.4f, 87.5f);
 
-    initialize_algorithm(hugo.booked_trips, 1, 4, 0, 0.05f);
+    initialize_algorithm(hugo.booked_trips, 150, 4, 0, 0.05f);
     return 0;
 }

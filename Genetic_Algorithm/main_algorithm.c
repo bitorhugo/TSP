@@ -4,6 +4,7 @@
 #include "main_algorithm.h"
 #include <stdio.h>
 
+void print_last_generation_route (GENERATION_LL *list);
 
 void initialize_algorithm (const COUNTRY *booked_trip, int num_iterations, int size_population, int num_elitism, float prob_mutation) {
     // create generation linked list
@@ -43,7 +44,16 @@ void initialize_algorithm (const COUNTRY *booked_trip, int num_iterations, int s
         insert_generation(&list, false, generation);
     }
 
+    print_last_generation_route(&list);
+
 }
 
-
-
+void print_last_generation_route (GENERATION_LL *list) {
+    printf ("Best route to take: \n");
+    GENERATION *last_generation = search_generation(list, list->list_size - 1);
+    GENE *temp_gene;
+    for (size_t i = 0; i < list->head->generation.parent_population.chromosomes->num_genes; ++i) {
+        temp_gene = last_generation->parent_population.chromosomes->genes + i;
+        printf("City %d (x: %.2f, y: %.2f)\n", temp_gene->id, temp_gene->x, temp_gene->y);
+    }
+}
