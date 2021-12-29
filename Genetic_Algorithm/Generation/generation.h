@@ -18,4 +18,6 @@ typedef struct generation {
 POPULATION insert_first_population (GENERATION *generation, const COUNTRY *booked_trip, int size_population);
 POPULATION insert_child_population (GENERATION *generation, int num_elitism, float mutation_prob);
 
+POPULATION copy_population (POPULATION *population);
+
 #endif //TSP_GENERATION_H

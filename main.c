@@ -33,16 +33,17 @@ int main() {
     print_trips(&hugo, false);
 
     // insert city in booked trip
-    insert_city(hugo.booked_trips, "Sidney", 12.3f, 45.6f);
-    insert_city(hugo.booked_trips, "Melbourne", 45.4f, 12.5f);
-    insert_city(hugo.booked_trips, "Darwin", 75.2f, 67.5f);
+    insert_city(hugo.booked_trips, "Sidney", -31.08f, 150.91f);
+    insert_city(hugo.booked_trips, "Melbourne", -35.35f, 149.23f);
+    insert_city(hugo.booked_trips, "Darwin", -32.91f, 151.75f);
+    insert_city(hugo.booked_trips, "Liverpool", -33.92f, 150.92f);
     // remove city from booked trip
-    remove_city(hugo.booked_trips, "Melbourne");
+    //remove_city(hugo.booked_trips, "Melbourne");
     // search city from booked trip
     search_city(hugo.booked_trips, "Darwin");
     // edit city from booked trip
-    edit_city(hugo.booked_trips, "Sidney", "Hobart", 32.4f, 87.5f);
+    //edit_city(hugo.booked_trips, "Sidney", "Hobart", 32.4f, 87.5f);
 
-    initialize_algorithm(hugo.booked_trips, 2, 4, 0, 0.05f);
+    initialize_algorithm(hugo.booked_trips, 1, 4, 0, 0.05f);
     return 0;
 }

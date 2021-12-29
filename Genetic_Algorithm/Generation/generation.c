@@ -4,11 +4,11 @@
 
 #include "generation.h"
 
-POPULATION copy_population (POPULATION *population);
+
 void parent_selection (POPULATION *population, int num_elitism);
 void calculate_cumulative_probability (POPULATION *population, float *cumulative_prob_arr);
 float sum_population_fitness (POPULATION *population);
-CHROMOSOME* fitness_selection (POPULATION population, const float *cumulative_prob);
+CHROMOSOME fitness_selection (POPULATION population, const float *cumulative_prob);
 float float_in_range (float min, float max);
 void breed (POPULATION *population, int num_elitism);
 CHROMOSOME copy_chromosome (CHROMOSOME chromosome);
@@ -116,9 +116,10 @@ void parent_selection (POPULATION *population, int num_elitism) {
     POPULATION temp_population = copy_population(population);
 
     // choose chromosomes
+    CHROMOSOME *temp_chromo;
     for (size_t i = num_elitism; i < population->num_chromosomes; ++i) {
-        CHROMOSOME *temp_chromo = population->chromosomes + i;
-        temp_chromo = fitness_selection(temp_population, cumulative_prob);
+        temp_chromo = population->chromosomes + i;
+        *temp_chromo = fitness_selection(temp_population, cumulative_prob);
     }
 
 }
@@ -162,7 +163,7 @@ float sum_population_fitness (POPULATION *population) {
     }
     return sum;
 }
-CHROMOSOME* fitness_selection (POPULATION population, const float *cumulative_prob) {
+CHROMOSOME fitness_selection (POPULATION population, const float *cumulative_prob) {
     // range acts like the spinning mechanism of roulette
     float range = float_in_range(0.0f, 1.0f);
 
@@ -170,11 +171,11 @@ CHROMOSOME* fitness_selection (POPULATION population, const float *cumulative_pr
     for (size_t i = 1; i < population.num_chromosomes; ++i) {
         CHROMOSOME *temp_chromo = population.chromosomes + i;
         if (range <= cumulative_prob [i] && range > cumulative_prob [i - 1]) {
-            return temp_chromo;
+            return *temp_chromo;
         }
     }
 
-    return population.chromosomes; // return first chromosome if failed
+    return *population.chromosomes; // return first chromosome if failed
 }
 float float_in_range (float min, float max) {
     float scale = rand() / (float) RAND_MAX;
@@ -196,14 +197,15 @@ void breed (POPULATION *population, int num_elitism) {
 
     CHROMOSOME *parent_one = NULL;
     CHROMOSOME *parent_two = NULL;
-
+    CHROMOSOME *temp_chromo;
     // select parent one and parent two
     for (size_t i = num_elitism; i < population->num_chromosomes; ++i) {
-        CHROMOSOME *temp_chromo = population->chromosomes + i;
+        temp_chromo = population->chromosomes + i;
 
         parent_one = temp_chromo;
         if (i == population->num_chromosomes - 1) {
-            *parent_two = saved_chromo;
+            // set parent_two address to saved_chromo address otherwise address of parent two == parent_one
+            parent_two = &saved_chromo;
         }
         else {
             parent_two = temp_chromo + 1;
@@ -271,7 +273,9 @@ CHROMOSOME cross_over (CHROMOSOME *parent_one, CHROMOSOME *parent_two) {
             *temp_child = *temp_parent;
             child->num_genes += 1;
         }
-        if (child->num_genes == parent_two->num_genes) break;
+        if (child->num_genes == parent_two->num_genes){
+            break;
+        }
         flag = 0;
     }
     return *child;

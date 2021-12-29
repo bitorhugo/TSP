@@ -7,7 +7,7 @@
 
 void initialize_algorithm (const COUNTRY *booked_trip, int num_iterations, int size_population, int num_elitism, float prob_mutation) {
     // create generation linked list
-    GENERATION_LL list;
+    GENERATION_LL list = {0};
 
     if (size_population % 2 != 0 || size_population == 0) {
         fprintf (stderr, "ERROR: POPULATION SIZE MUST BE PAIR AND POSITIVE\n");
@@ -22,18 +22,27 @@ void initialize_algorithm (const COUNTRY *booked_trip, int num_iterations, int s
     GENERATION generation = {0};
 
     // insert first population
-    generation.parent_population = insert_first_population(&generation, booked_trip, size_population);
+    insert_first_population(&generation, booked_trip, size_population);
 
     // insert child population
     generation.child_population = insert_child_population(&generation, num_elitism, prob_mutation);
- /*   insert_generation(&list, false, generation);
+    insert_generation(&list, false, generation);
 
     for (size_t i = 1; i <= num_iterations; ++i) {
 
-        generation.parent_population = insert_population(&generation, num_elitism, prob_mutation);
-        generation.child_population = insert_population(&generation, num_elitism, prob_mutation);
+        // next generation parent will be a copy of last generation child
+        generation.parent_population = copy_population(&generation.child_population);
+
+        // insert child population
+        generation.child_population = insert_child_population(&generation, num_elitism, prob_mutation);
+
+        // set generation id value
+        generation.id = i;
+
+        // insert generation in linked list
+        insert_generation(&list, false, generation);
     }
-*/
+
 }
 
 
