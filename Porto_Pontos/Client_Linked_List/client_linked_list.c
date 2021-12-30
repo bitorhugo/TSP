@@ -5,6 +5,7 @@
 #include "client_linked_list.h"
 
 #include <stdio.h>
+#include <string.h>
 
 /*
  * Private functions prototypes
@@ -12,6 +13,10 @@
 void sort_clients_id (CLIENT_LL *list);
 void sort_clients_name (CLIENT_LL *list);
 void FrontBackSplit(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef);
+void deallocate_booked_trips (CLIENT *client);
+void deallocate_finished_trips (CLIENT *client);
+void deallocate_cities (COUNTRY *country);
+void deallocate_poi (CITY *city);
 
 /*
  * Public functions implementation
@@ -55,20 +60,20 @@ CLIENT search_client (CLIENT_LL *list, const char *client_name) {
     CLIENT null = {0};
     return null;
 }
-void remove_client (CLIENT_LL *list, CLIENT client) {
+void remove_client (CLIENT_LL *list, char *client_name) {
     if (list->list_size < 1) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
         return;
     }
     CLIENT_NODE *temp_node = list->head;
     while (temp_node != NULL) {
-        if (temp_node->client.VAT == client.VAT) { // checks if head is to be removed
+        if (strcmp(temp_node->client.name, client_name) == 0) { // checks if head is to be removed
             list->head = temp_node->next_node;
             deallocate_memory_node_client(temp_node);
             list->list_size -= 1;
             return;
         }
-        if (temp_node->next_node->client.VAT == client.VAT) {
+        if (strcmp(temp_node->client.name, client_name) == 0) {
             temp_node->next_node = temp_node->next_node->next_node;
             deallocate_memory_node_client(temp_node->next_node);
             list->list_size -= 1;
@@ -204,7 +209,21 @@ void read_clients_txt (CLIENT_LL *list, char *filename) {
 
 }
 void deallocate_client_linked_list (CLIENT_LL *list) {
-    free(list);
+
+    while (list->head != NULL) {
+        CLIENT_NODE *temp_node = list->head;
+
+        // deallocate booked trips
+        deallocate_booked_trips(&temp_node->client);
+
+        // deallocate finished trips
+        deallocate_finished_trips(&temp_node->client);
+
+        // set head as next node
+        list->head = temp_node->next_node;
+    }
+
+
 }
 
 /*
@@ -250,4 +269,38 @@ void FrontBackSplit(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE *
 
 void sort_clients_name (CLIENT_LL *list) {
 
+}
+
+void deallocate_booked_trips (CLIENT *client) {
+    for (size_t i = 0; i < client->size_booked_trips; ++i) {
+        COUNTRY *temp_country = client->booked_trips + i;
+        // deallocate booked trips cities
+        deallocate_cities(temp_country);
+        free(temp_country);
+    }
+}
+
+void deallocate_finished_trips (CLIENT *client) {
+    for (size_t i = 0; i < client->size_finished_trips; ++i) {
+        COUNTRY *temp_country = client->finished_trips + i;
+        // deallocate booked trips cities
+        deallocate_cities(temp_country);
+        free(temp_country);
+    }
+}
+
+void deallocate_cities (COUNTRY *country) {
+    for (size_t i = 0; i < country->num_of_cities; ++i) {
+        CITY *temp_city = country->cities + i;
+        // deallocate poi
+        deallocate_poi(temp_city);
+        free(temp_city);
+    }
+}
+
+void deallocate_poi (CITY *city) {
+    for (size_t i = 0; i < city->num_of_poi; ++i) {
+        POI *temp_poi = city->poi + i;
+        free(temp_poi);
+    }
 }

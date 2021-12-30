@@ -10,7 +10,7 @@ int main() {
     insert_client(&client_list, false, "Andre", 321, "Lisbon", 9123454, 12, 6, 1899);
     insert_client(&client_list, true, "Carlos", 567, "Faro", 238744, 8, 12, 1989);
     // remove client in list
-    //remove_client(&client_list, hugo);
+    remove_client(&client_list, "Joao");
     // search for client in list
     search_client(&client_list, "Andre");
     // print all clients in list
@@ -33,14 +33,17 @@ int main() {
     insert_city(client_list.head->next_node->client.booked_trips, "Darwin", -32.91f, 151.75f);
     insert_city(client_list.head->next_node->client.booked_trips, "Liverpool", -33.92f, 150.92f);
     // remove city from booked trip
-    //remove_city(hugo.booked_trips, "Melbourne");
+    remove_city(client_list.head->next_node->client.booked_trips , "Denver");
     // search city from booked trip
     search_city(client_list.head->next_node->client.booked_trips, "Darwin");
     // edit city from booked trip
-    //edit_city(hugo.booked_trips, "Sidney", "Hobart", 32.4f, 87.5f);
+    edit_city(client_list.head->next_node->client.booked_trips, "Sidney", "Hobart", 32.4f, 87.5f);
 
     save_client_txt(&client_list, "../Files/txt/clients.txt");
 
     initialize_algorithm(client_list.head->next_node->client.booked_trips, 150, 4, 0, 0.05f);
+
+    deallocate_client_linked_list(&client_list);
+
     return 0;
 }

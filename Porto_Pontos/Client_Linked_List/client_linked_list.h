@@ -39,7 +39,7 @@ CLIENT search_client (CLIENT_LL *list, const char *client_name);
  * @param list linked list
  * @param client client wanted
  */
-void remove_client (CLIENT_LL *list, CLIENT client);
+void remove_client (CLIENT_LL *list, char *client_name);
 /**
  * print all clients from linked list
  * @param list linked list
