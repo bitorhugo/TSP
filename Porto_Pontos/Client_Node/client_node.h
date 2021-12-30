@@ -12,10 +12,10 @@ typedef struct client_node {
     struct client_node *next_node;
 }CLIENT_NODE;
 
-CLIENT_NODE* allocate_memory_node_client (CLIENT client);
+CLIENT_NODE* allocate_memory_node_client ();
 
 void deallocate_memory_node_client (CLIENT_NODE *node);
 
-
+CLIENT create_client (char *name, uint32_t VAT, char *address, uint32_t phone_number, int birth_day, int birth_month, int birth_year);
 
 #endif //TSP_CLIENT_NODE_H

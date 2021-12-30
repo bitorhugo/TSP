@@ -26,7 +26,7 @@ typedef struct client_linked_list {
  * @param at_head head of linked list
  * @param client client to insert
  */
-void insert_client (CLIENT_LL *list, bool at_head, CLIENT client);
+void insert_client (CLIENT_LL *list, bool at_head, char *name, uint32_t VAT, char *address, uint32_t phone_number, int birth_day, int birth_month, int birth_year);
 /**
  * searches for a client from the linked list
  * @param list linked list

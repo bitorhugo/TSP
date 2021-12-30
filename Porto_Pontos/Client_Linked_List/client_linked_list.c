@@ -16,13 +16,16 @@ void FrontBackSplit(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE *
 /*
  * Public functions implementation
  */
-void insert_client (CLIENT_LL *list, bool at_head, CLIENT client) {
+void insert_client (CLIENT_LL *list, bool at_head, char *name, uint32_t VAT, char *address, uint32_t phone_number, int birth_day, int birth_month, int birth_year) {
     if (list->list_size < 1) {
-        list->head = allocate_memory_node_client(client);
+        list->head = allocate_memory_node_client();
+        list->head->client = create_client(name, VAT, address, phone_number, birth_day, birth_month, birth_year);
         list->list_size = 1;
     }
     else {
-        CLIENT_NODE *new_node = allocate_memory_node_client(client);
+        CLIENT_NODE *new_node = allocate_memory_node_client();
+        new_node->client = create_client(name, VAT, address, phone_number, birth_day, birth_month, birth_year);
+
         if (at_head) {
             new_node->next_node = list->head;
             list->head = new_node;
@@ -194,9 +197,7 @@ void read_clients_txt (CLIENT_LL *list, char *filename) {
         DATE registration = {0};
         fscanf(fp, "%d %*s %d %*s %d", &registration.day, &registration.month, &registration.year);
 
-
-        CLIENT new_client = create_client(name, vat, address, phone_number, birth.day, birth.month, birth.day);
-        insert_client(list, false, new_client);
+        insert_client(list, false, name, vat, address, phone_number, birth.day, birth.month, birth.year);
     }
 
     fclose(fp);

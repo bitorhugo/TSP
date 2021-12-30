@@ -14,20 +14,6 @@ COUNTRY* reallocate_memory_trip (CLIENT *client);
 void print_finished_trips (CLIENT *client);
 void print_booked_trips (CLIENT *client);
 
-
-CLIENT create_client (char *name, uint32_t VAT, char *address, uint32_t phone_number, int birth_day, int birth_month, int birth_year) {
-    CLIENT new_client = {0};
-
-    new_client.name = name;
-    new_client.VAT = VAT;
-    new_client.address = address;
-    new_client.phone_number = phone_number;
-    new_client.birth = insert_birth (birth_day, birth_month, birth_year);
-    new_client.registration = insert_registration_day();
-
-    return new_client;
-}
-
 void insert_trip (CLIENT *client, char *country_name) {
     COUNTRY new_country = {0};
     new_country.name = country_name;

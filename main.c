@@ -5,15 +5,10 @@ int main() {
 
     CLIENT_LL client_list;
 
-    // create client
-    CLIENT hugo = create_client("Hugo", 123, "Porto", 91912, 21, 8, 1998);
-    CLIENT andre = create_client("Andre", 321, "Lisbon", 9123454, 12, 6, 1899);
-    CLIENT carlos = create_client("Carlos", 567, "Faro", 238744, 8, 12, 1989);
-
     // insert client in list
-    insert_client(&client_list, false, hugo);
-    insert_client(&client_list, false, andre);
-    insert_client(&client_list, true, carlos);
+    insert_client(&client_list, false, "Hugo", 123, "Porto", 91912, 21, 8, 1998);
+    insert_client(&client_list, false, "Andre", 321, "Lisbon", 9123454, 12, 6, 1899);
+    insert_client(&client_list, true, "Carlos", 567, "Faro", 238744, 8, 12, 1989);
     // remove client in list
     //remove_client(&client_list, hugo);
     // search for client in list
