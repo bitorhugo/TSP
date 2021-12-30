@@ -51,6 +51,18 @@ void print_clients (CLIENT_LL *list);
  * @param attribute 0 -> by id || 1 -> by name
  */
 void sort_clients (CLIENT_LL *list, short attribute);
+/**
+ * saves clients info to .txt file
+ * @param list linked list
+ * @param filename file name
+ */
+void save_client_txt (CLIENT_LL *list, char *filename);
+/**
+ * read clients into linked list from .txt file
+ * @param list linked list
+ * @param filename filename
+ */
+void read_clients_txt (CLIENT_LL *list, char *filename);
 /*
  * frees linked list
  */

@@ -149,6 +149,7 @@ void sort_clients_id (CLIENT **head) {
     CLIENT * a;
     CLIENT * b;
 
+    // check that list is sortable
     if (temp_client->next_client == NULL) return;
 
     FrontBackSplit(temp_client, &a, &b);

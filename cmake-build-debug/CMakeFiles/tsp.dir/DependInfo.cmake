@@ -27,6 +27,7 @@ set(CMAKE_C_COMPILER_ID "AppleClang")
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../Porto_Pontos"
   "../Genetic_Algorithm"
+  "../Files"
   )
 
 # Targets to which this target links.

@@ -181,7 +181,6 @@ float float_in_range (float min, float max) {
     float scale = rand() / (float) RAND_MAX;
     return min + scale * (max - min);
 }
-
 void breed (POPULATION *population, int num_elitism) {
     /*
      * Cross-over is done by combining n parent chromosomes
@@ -215,7 +214,6 @@ void breed (POPULATION *population, int num_elitism) {
     }
 
 }
-
 CHROMOSOME copy_chromosome (CHROMOSOME chromosome) {
     // create chromosome
     CHROMOSOME new_chromosome;
@@ -239,7 +237,6 @@ CHROMOSOME copy_chromosome (CHROMOSOME chromosome) {
 
     return new_chromosome;
 }
-
 CHROMOSOME cross_over (CHROMOSOME *parent_one, CHROMOSOME *parent_two) {
     // Copy parent_one
     CHROMOSOME *child = parent_one;
@@ -280,7 +277,6 @@ CHROMOSOME cross_over (CHROMOSOME *parent_one, CHROMOSOME *parent_two) {
     }
     return *child;
 }
-
 POPULATION mutation (POPULATION population, float mutation_prob) {
     // create random index to be selected
     int random_gene_index = 0;
@@ -311,12 +307,10 @@ POPULATION mutation (POPULATION population, float mutation_prob) {
     }
     return population;
 }
-
 int int_in_range (int min, int max) {
     int num = (rand() % (max - min + 1)) + min;
     return num;
 }
-
 void swap_gene (GENE *a, GENE *b) {
     GENE temp = *a;
     *a = *b;
