@@ -39,11 +39,14 @@ int main() {
     // edit city from booked trip
     edit_city(client_list.head->next_node->client.booked_trips, "Sidney", "Hobart", 32.4f, 87.5f);
 
+    // save clients info and trips to txt file
     save_client_txt(&client_list, "../Files/txt/clients.txt");
 
+    // find best route to take for a certain trip
     initialize_algorithm(client_list.head->next_node->client.booked_trips, 54, 4, 0, 0.05f);
-    
-    //deallocate_client_linked_list(&client_list);
+
+    // deallocates clients linked list
+    deallocate_client_linked_list(&client_list);
 
     return 0;
 }

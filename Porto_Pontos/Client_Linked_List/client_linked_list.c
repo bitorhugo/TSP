@@ -245,8 +245,12 @@ void read_clients_txt (CLIENT_LL *list, char *filename) {
 }
 void deallocate_client_linked_list (CLIENT_LL *list) {
 
+    CLIENT_NODE *temp_node = NULL;
+
     while (list->head != NULL) {
-        CLIENT_NODE *temp_node = list->head;
+        temp_node = list->head;
+        // set head as next node
+        list->head = temp_node->next_node;
 
         // deallocate booked trips
         deallocate_booked_trips(&temp_node->client);
@@ -254,8 +258,8 @@ void deallocate_client_linked_list (CLIENT_LL *list) {
         // deallocate finished trips
         deallocate_finished_trips(&temp_node->client);
 
-        // set head as next node
-        list->head = temp_node->next_node;
+
+
     }
 
 
@@ -307,35 +311,38 @@ void sort_clients_name (CLIENT_LL *list) {
 }
 
 void deallocate_booked_trips (CLIENT *client) {
-    for (size_t i = 0; i < client->size_booked_trips; ++i) {
-        COUNTRY *temp_country = client->booked_trips + i;
-        // deallocate booked trips cities
-        deallocate_cities(temp_country);
-        free(temp_country);
+    // start from the end of the array since first element is equal to &booked_trips
+    // if we were to start from the beginning of the array
+    // we wouldn't be able to access booked trip elements after the first one is deallocated
+    if (client->size_booked_trips > 0) {
+        for (int i = client->size_booked_trips - 1; i >= 0; --i) {
+            COUNTRY *temp_country = client->booked_trips + i;
+            deallocate_cities(temp_country);
+        }
+        free (client->booked_trips);
     }
 }
 
 void deallocate_finished_trips (CLIENT *client) {
-    for (size_t i = 0; i < client->size_finished_trips; ++i) {
-        COUNTRY *temp_country = client->finished_trips + i;
-        // deallocate booked trips cities
-        deallocate_cities(temp_country);
-        free(temp_country);
+    if (client->size_finished_trips > 0) {
+        for (int i = client->size_finished_trips - 1; i >= 0; --i) {
+            COUNTRY *temp_country = client->finished_trips + i;
+            deallocate_cities(temp_country);
+        }
+        free (client->finished_trips);
     }
 }
 
 void deallocate_cities (COUNTRY *country) {
-    for (size_t i = 0; i < country->num_of_cities; ++i) {
-        CITY *temp_city = country->cities + i;
-        // deallocate poi
-        deallocate_poi(temp_city);
-        free(temp_city);
+    if (country->num_of_cities > 0) {
+        for (int i = country->num_of_cities - 1; i >= 0; --i) {
+            CITY *tem_city = country->cities + i;
+            deallocate_poi(tem_city);
+        }
+        free (country->cities);
     }
 }
 
 void deallocate_poi (CITY *city) {
-    for (size_t i = 0; i < city->num_of_poi; ++i) {
-        POI *temp_poi = city->poi + i;
-        free(temp_poi);
-    }
+    free (city->poi);
 }
