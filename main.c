@@ -41,9 +41,9 @@ int main() {
 
     save_client_txt(&client_list, "../Files/txt/clients.txt");
 
-    initialize_algorithm(client_list.head->next_node->client.booked_trips, 150, 4, 0, 0.05f);
-
-    deallocate_client_linked_list(&client_list);
+    initialize_algorithm(client_list.head->next_node->client.booked_trips, 54, 4, 0, 0.05f);
+    
+    //deallocate_client_linked_list(&client_list);
 
     return 0;
 }

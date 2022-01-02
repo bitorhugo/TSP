@@ -32,7 +32,8 @@ void initialize_algorithm (const COUNTRY *booked_trip, int num_iterations, int s
     for (size_t i = 1; i <= num_iterations; ++i) {
 
         // next generation parent will be a copy of last generation child
-        generation.parent_population = copy_population(&generation.child_population);
+        generation.parent_population = generation.child_population;
+        //generation.parent_population = copy_population(&generation.child_population);
 
         // insert child population
         generation.child_population = insert_child_population(&generation, num_elitism, prob_mutation);

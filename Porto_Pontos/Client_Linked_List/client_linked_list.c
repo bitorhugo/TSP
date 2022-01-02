@@ -164,13 +164,21 @@ void read_clients_txt (CLIENT_LL *list, char *filename) {
     /*
      * FILE TEMPLATE
      * Number of clients: %d
-     * Clients:
+     * *Clients:*
      *  'name'
      *  'VAT',
      *  'address',
      *  'phone_number',
      *  'birth (day/month/year),
      *  'registration' (day/month/year)',
+     *  'number of booked trips: %d
+     *  'booked trips:',
+     *      'trips name',
+     *      'num cities',
+     *          'cities name',
+     *          'coordinate x',
+     *          'coordinate y',
+     *  'finished trips',
      */
 
     // read number of clients
@@ -202,7 +210,34 @@ void read_clients_txt (CLIENT_LL *list, char *filename) {
         DATE registration = {0};
         fscanf(fp, "%d %*s %d %*s %d", &registration.day, &registration.month, &registration.year);
 
+        // insert client
         insert_client(list, false, name, vat, address, phone_number, birth.day, birth.month, birth.year);
+
+        // get client
+        CLIENT temp_client = search_client(list, name);
+
+        // save number of trips
+        int num_trips = 0;
+        fscanf(fp, "%*s %d", &num_trips);
+
+        for (size_t j = 0; j < num_trips; ++j) {
+            // save trip
+            char country_name [100] = "";
+            insert_trip(&temp_client, country_name);
+        }
+
+        // save number of cities
+        int num_cities = 0;
+        fscanf(fp, "%*s, %d", &num_cities);
+
+        // save cities
+        for (size_t k = 0; k < num_cities; ++i) {
+            COUNTRY *temp_country = temp_client.booked_trips + k;
+            char city_name [100] = "";
+            fscanf(fp, "%[^,]", city_name);
+        }
+
+
     }
 
     fclose(fp);
