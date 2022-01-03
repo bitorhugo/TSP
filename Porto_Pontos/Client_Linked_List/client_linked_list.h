@@ -21,12 +21,31 @@ typedef struct client_linked_list {
 }CLIENT_LL;
 
 /**
- * insert a client from the linked list
+ * insert client into linked list
  * @param list linked list
- * @param at_head head of linked list
- * @param client client to insert
+ * @param at_head choose if client is inserted at head
+ * @param name client name
+ * @param VAT client VAT
+ * @param address client address
+ * @param phone_number client phone number
+ * @param birth_day client birth day
+ * @param birth_month client birth month
+ * @param birth_year client birth year
  */
 void insert_client (CLIENT_LL *list, bool at_head, char *name, uint32_t VAT, char *address, uint32_t phone_number, int birth_day, int birth_month, int birth_year);
+
+/**
+ * insert a client into linked list sorted
+ * @param list linked list
+ * @param name client name
+ * @param VAT client VAT
+ * @param address client address
+ * @param phone_number client phone number
+ * @param birth_day client birth day
+ * @param birth_month client birth month
+ * @param birth_year client birth year
+ */
+void insert_client_sorted (CLIENT_LL *list, char *name, uint32_t VAT, char *address, uint32_t phone_number, int birth_day, int birth_month, int birth_year);
 /**
  * searches for a client from the linked list
  * @param list linked list

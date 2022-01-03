@@ -47,6 +47,40 @@ void insert_client (CLIENT_LL *list, bool at_head, char *name, uint32_t VAT, cha
         }
     }
 }
+void insert_client_sorted (CLIENT_LL *list, char *name, uint32_t VAT, char *address, uint32_t phone_number, int birth_day, int birth_month, int birth_year) {
+    if (list->list_size < 1) {
+        list->head = allocate_memory_node_client();
+        list->head->client = create_client(name, VAT, address, phone_number, birth_day, birth_month, birth_year);
+        list->list_size = 1;
+    }
+    else {
+        // makes sure that list is sorted
+        sort_clients_id(&list->head);
+
+        CLIENT_NODE *new_node = allocate_memory_node_client();
+        new_node->client = create_client(name, VAT, address, phone_number, birth_day, birth_month, birth_year);
+
+        CLIENT_NODE *temp_node = list->head;
+        while (temp_node->next_node != NULL) {
+
+            if (temp_node->next_node->client.VAT > new_node->client.VAT) {
+                // if new_node is to be inserted at head
+                // point head at new_node
+                if (temp_node == list->head) {
+                    new_node->next_node = temp_node;
+                    list->head = new_node;
+                    return;
+                }
+                // insert new_node between temp_node and temp_node->next_node
+                new_node->next_node = temp_node->next_node;
+                temp_node->next_node = new_node;
+                return;
+            }
+
+            temp_node = temp_node->next_node;
+        }
+    }
+}
 CLIENT search_client (CLIENT_LL *list, const char *client_name) {
 
     CLIENT_NODE *temp_node = list->head;
