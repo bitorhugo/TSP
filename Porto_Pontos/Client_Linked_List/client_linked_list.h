@@ -56,7 +56,7 @@ void sort_clients (CLIENT_LL *list, short attribute);
  * @param list linked list
  * @param filename file name
  */
-void save_client_txt (CLIENT_LL *list, char *filename);
+void client_report_txt (CLIENT_LL *list, char *filename);
 /**
  * read clients into linked list from .txt file
  * @param list linked list

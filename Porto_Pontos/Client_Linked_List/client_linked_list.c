@@ -10,9 +10,10 @@
 /*
  * Private functions prototypes
  */
-void sort_clients_id (CLIENT_LL *list);
+void sort_clients_id (CLIENT_NODE **head);
 void sort_clients_name (CLIENT_LL *list);
-void FrontBackSplit(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef);
+void frontBackSplit(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef);
+CLIENT_NODE* sortedMerge(CLIENT_NODE *a, CLIENT_NODE *b);
 void deallocate_booked_trips (CLIENT *client);
 void deallocate_finished_trips (CLIENT *client);
 void deallocate_cities (COUNTRY *country);
@@ -88,7 +89,7 @@ void sort_clients (CLIENT_LL *list, short attribute) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
         return;
     }
-    if (attribute == 0) sort_clients_id(list);
+    if (attribute == 0) sort_clients_id(&list->head);
     else sort_clients_name(list);
 }
 void print_clients (CLIENT_LL *list) {
@@ -100,8 +101,9 @@ void print_clients (CLIENT_LL *list) {
         printf ("Client %d\n", temp_node->client.VAT);
         temp_node = temp_node->next_node;
     }
+    printf("..\n");
 }
-void save_client_txt (CLIENT_LL *list, char *filename) {
+void client_report_txt (CLIENT_LL *list, char *filename) {
     FILE *fp = fopen(filename, "w");
     if (fp == NULL) {
         fprintf(stderr, "ERROR: NOT ABLE TO OPEN FILE FOR WRITING\n");
@@ -182,7 +184,7 @@ void read_clients_txt (CLIENT_LL *list, char *filename) {
      */
 
     // read number of clients
-    fscanf(fp, "%*[^:] %*s %d", &list->list_size);
+    fscanf(fp, "%d", &list->list_size);
 
     for (size_t i = 0; i < list->list_size; ++i) {
 
@@ -223,6 +225,7 @@ void read_clients_txt (CLIENT_LL *list, char *filename) {
         for (size_t j = 0; j < num_trips; ++j) {
             // save trip
             char country_name [100] = "";
+
             insert_trip(&temp_client, country_name);
         }
 
@@ -268,42 +271,24 @@ void deallocate_client_linked_list (CLIENT_LL *list) {
 /*
  * Private functions implementation
  */
-void sort_clients_id (CLIENT_LL *list) {
-    CLIENT_NODE *temp_client = list->head;
-    CLIENT_NODE * a;
-    CLIENT_NODE * b;
+void sort_clients_id (CLIENT_NODE **head) {
+    // base case — length 0 or 1
+    if (*head == NULL || (*head)->next_node == NULL) {
+        return;
+    }
 
-    // check that list is sortable
-    if (list->head->next_node == NULL) return;
+    CLIENT_NODE *a;
+    CLIENT_NODE *b;
 
-    FrontBackSplit(temp_client, &a, &b);
-/*
+    // split `head` into `a` and `b` sublists
+    frontBackSplit(*head, &a, &b);
+
+    // recursively sort the sublists
     sort_clients_id(&a);
     sort_clients_id(&b);
 
-    *head = SortedMerge(a, b);*/
-}
-
-void FrontBackSplit(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef) {
-    CLIENT_NODE *fast;
-    CLIENT_NODE *slow;
-    slow = source;
-    fast = source->next_node;
-
-    /* Advance 'fast' two nodes, and advance 'slow' one node */
-    while (fast != NULL) {
-        fast = fast->next_node;
-        if (fast != NULL) {
-            slow = slow->next_node;
-            fast = fast->next_node;
-        }
-    }
-
-    /* 'slow' is before the midpoint in the list, so split it in two
-    at that point. */
-    *frontRef = source;
-    *backRef = slow->next_node;
-    slow->next_node = NULL;
+    // answer = merge the two sorted lists
+    *head = sortedMerge(a, b);
 }
 
 void sort_clients_name (CLIENT_LL *list) {
@@ -345,4 +330,62 @@ void deallocate_cities (COUNTRY *country) {
 
 void deallocate_poi (CITY *city) {
     free (city->poi);
+}
+
+void frontBackSplit(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef)
+{
+    // if the length is less than 2, handle it separately
+    if (source == NULL || source->next_node == NULL)
+    {
+        *frontRef = source;
+        *backRef = NULL;
+        return;
+    }
+
+    CLIENT_NODE * slow = source;
+    CLIENT_NODE * fast = source->next_node;
+
+    // advance `fast` two nodes, and advance `slow` one node
+    while (fast != NULL)
+    {
+        fast = fast->next_node;
+        if (fast != NULL)
+        {
+            slow = slow->next_node;
+            fast = fast->next_node;
+        }
+    }
+
+    // `slow` is before the midpoint in the list, so split it in two
+    // at that point.
+    *frontRef = source;
+    *backRef = slow->next_node;
+    slow->next_node = NULL;
+}
+
+CLIENT_NODE* sortedMerge(CLIENT_NODE *a, CLIENT_NODE *b)
+{
+    // base cases
+    if (a == NULL) {
+        return b;
+    }
+
+    else if (b == NULL) {
+        return a;
+    }
+
+    CLIENT_NODE *result = NULL;
+
+    // pick either `a` or `b`, and recur
+    if (a->client.VAT <= b->client.VAT)
+    {
+        result = a;
+        result->next_node = sortedMerge(a->next_node, b);
+    }
+    else {
+        result = b;
+        result->next_node = sortedMerge(a, b->next_node);
+    }
+
+    return result;
 }

@@ -6,14 +6,19 @@ int main() {
     CLIENT_LL client_list;
 
     // insert client in list
-    insert_client(&client_list, false, "Hugo", 123, "Porto", 91912, 21, 8, 1998);
-    insert_client(&client_list, false, "Andre", 321, "Lisbon", 9123454, 12, 6, 1899);
-    insert_client(&client_list, true, "Carlos", 567, "Faro", 238744, 8, 12, 1989);
+    insert_client(&client_list, false, "Hugo", 2, "Porto", 91912, 21, 8, 1998);
+    insert_client(&client_list, false, "Andre", 3, "Lisbon", 9123454, 12, 6, 1899);
+    insert_client(&client_list, false, "Carlos", 1, "Faro", 238744, 8, 12, 1989);
+    insert_client(&client_list, false, "Afonso", 0, "Viana", 92834, 21, 4, 1998);
     // remove client in list
     remove_client(&client_list, "Joao");
     // search for client in list
     search_client(&client_list, "Andre");
     // print all clients in list
+    print_clients(&client_list);
+    // sort clients
+    sort_clients(&client_list, 0);
+    // print all clients
     print_clients(&client_list);
 
     // book a trip
@@ -40,7 +45,7 @@ int main() {
     edit_city(client_list.head->next_node->client.booked_trips, "Sidney", "Hobart", 32.4f, 87.5f);
 
     // save clients info and trips to txt file
-    save_client_txt(&client_list, "../Files/txt/clients.txt");
+    client_report_txt(&client_list, "../Files/txt/report.txt");
 
     // find best route to take for a certain trip
     initialize_algorithm(client_list.head->next_node->client.booked_trips, 54, 4, 0, 0.05f);
