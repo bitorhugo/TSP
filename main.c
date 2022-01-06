@@ -42,7 +42,9 @@ int main() {
     search_city(client_list.head->next_node->client.booked_trips, "Darwin");
     // edit city from booked trip
     edit_city(client_list.head->next_node->client.booked_trips, "Sidney", "Hobart", 32.4f, 87.5f);
-
+    // insert city description
+    insert_description(client_list.head->next_node->client.booked_trips->cities, "capital and most populous city of the Australian island state of Tasmania");
+    edit_description(client_list.head->next_node->client.booked_trips->cities, "capital and most populous city of the Australian.");
     // insert poi
     insert_poi(client_list.head->next_node->client.booked_trips->cities, "Salamanca Place");
     insert_poi(client_list.head->next_node->client.booked_trips->cities, "MONA");

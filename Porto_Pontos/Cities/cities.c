@@ -12,6 +12,7 @@
 POI* allocate_memory_poi ();
 POI* reallocate_memory_poi (CITY *city, int size);
 char* allocate_memory_name (uint64_t str_size);
+char* reallocate_memory_name (char *name, uint64_t str_size);
 
 void insert_poi (CITY *city, char *poi) {
     if (city->num_of_poi < 1) {
@@ -28,7 +29,6 @@ void insert_poi (CITY *city, char *poi) {
         city->num_of_poi += 1;
     }
 }
-
 void remove_poi (CITY *city, char *poi) {
     if (city->num_of_poi < 1) {
         fprintf(stderr, "ERROR: NO POI AVAILABLE\n");
@@ -48,7 +48,6 @@ void remove_poi (CITY *city, char *poi) {
     }
     fprintf(stderr, "ERROR: POI NOT FOUND\n");
 }
-
 POI* search_poi (CITY *city, char *poi) {
     if (city->num_of_poi < 1) {
         fprintf(stderr, "ERROR: NO POI AVAILABLE\n");
@@ -62,6 +61,27 @@ POI* search_poi (CITY *city, char *poi) {
     }
     fprintf(stderr, "ERROR: POI NOT FOUND\n");
     return NULL;
+}
+
+void insert_description (CITY *city, char *description) {
+    if (city->description != NULL) {
+        fprintf(stderr, "ERROR: CITY ALREADY HAS A DESCRIPTION\n");
+        return;
+    }
+    else {
+        city->description = allocate_memory_name(strlen(description));
+        strcpy(city->description, description);
+    }
+}
+void edit_description (CITY *city, char *new_description) {
+    if (city->description == NULL) {
+        fprintf(stderr, "ERROR: CITY DOES NOT HAVE A DESCRIPTION\n");
+        return;
+    }
+    else {
+        city->description = reallocate_memory_name(city->description, strlen(new_description));
+        strcpy(city->description, new_description);
+    }
 }
 
 POI* allocate_memory_poi () {
@@ -84,6 +104,14 @@ char* allocate_memory_name (uint64_t str_size) {
     char * name = calloc(str_size, sizeof (char));
     if (name == NULL) {
         fprintf(stderr, "ERROR: NOT ABLE TO ALLOCATE NAME\n");
+    }
+    return name;
+}
+
+char* reallocate_memory_name (char *name, uint64_t str_size) {
+    name = realloc(name, str_size * sizeof(char));
+    if (name == NULL) {
+        fprintf(stderr, "ERROR: NOT ABLE TO REALLOCATE MEMORY FOR NAME\n");
     }
     return name;
 }
