@@ -4,3 +4,7 @@ Client Hugo:
 Client Andre:
 Booked trips: 	New Zealand, usa
 
+Client Afonso:
+
+Client Carlos:
+

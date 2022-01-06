@@ -4,7 +4,6 @@
 int main() {
 
     CLIENT_LL client_list;
-
     // insert client in list
     insert_client(&client_list, false, "Hugo", 1, "Porto", 91912, 21, 8, 1998);
     insert_client(&client_list, false, "Andre", 4, "Lisbon", 9123454, 12, 6, 1899);
@@ -43,6 +42,15 @@ int main() {
     search_city(client_list.head->next_node->client.booked_trips, "Darwin");
     // edit city from booked trip
     edit_city(client_list.head->next_node->client.booked_trips, "Sidney", "Hobart", 32.4f, 87.5f);
+
+    // insert poi
+    insert_poi(client_list.head->next_node->client.booked_trips->cities, "Salamanca Place");
+    insert_poi(client_list.head->next_node->client.booked_trips->cities, "MONA");
+    insert_poi(client_list.head->next_node->client.booked_trips->cities, "Cascade Brewery");
+    // remove poi
+    remove_poi(client_list.head->next_node->client.booked_trips->cities, "MONA");
+    // search poi
+    POI *hello = search_poi(client_list.head->next_node->client.booked_trips->cities, "Cascade Brewery");
 
     // save clients info and trips to txt file
     client_report_txt(&client_list, "../Files/txt/report.txt");
