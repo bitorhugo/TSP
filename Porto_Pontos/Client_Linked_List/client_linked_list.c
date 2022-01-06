@@ -18,6 +18,8 @@ void deallocate_booked_trips (CLIENT *client);
 void deallocate_finished_trips (CLIENT *client);
 void deallocate_cities (COUNTRY *country);
 void deallocate_poi (CITY *city);
+void deallocate_poi_name (POI *poi);
+void deallocate_description (CITY *city);
 
 /*
  * Public functions implementation
@@ -363,7 +365,19 @@ void deallocate_cities (COUNTRY *country) {
 }
 
 void deallocate_poi (CITY *city) {
+    for (int i = city->num_of_poi; i >= 0; --i) {
+        POI *temp_poi = city->poi + i;
+        deallocate_poi_name(temp_poi);
+    }
     free (city->poi);
+}
+
+void deallocate_poi_name (POI *poi) {
+    free (poi->name);
+}
+
+void deallocate_description (CITY *city) {
+    free (city->description);
 }
 
 void frontBackSplit(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef)
