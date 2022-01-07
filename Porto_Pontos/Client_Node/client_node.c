@@ -21,7 +21,7 @@ CLIENT create_client (char *name, uint32_t VAT, char *address, uint32_t phone_nu
     new_client.VAT = VAT;
     new_client.address = address;
     new_client.phone_number = phone_number;
-    new_client.birth = insert_birth (birth_day, birth_month, birth_year);
+    new_client.birth = create_date(birth_day, birth_month, birth_year);
     new_client.registration = insert_registration_day();
 
     return new_client;

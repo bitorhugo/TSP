@@ -14,7 +14,7 @@ COUNTRY* reallocate_memory_trip (CLIENT *client);
 void print_finished_trips (CLIENT *client);
 void print_booked_trips (CLIENT *client);
 
-void insert_trip (CLIENT *client, char *country_name) {
+void book_trip (CLIENT *client, char *country_name) {
     COUNTRY new_country = {0};
     new_country.name = country_name;
 
@@ -31,7 +31,6 @@ void insert_trip (CLIENT *client, char *country_name) {
         client->size_booked_trips +=1;
     }
 }
-
 void remove_trip (CLIENT *client, char *country_name) {
     for (size_t i = 0; i < client->size_booked_trips; ++i) {
         COUNTRY *temp_country = client->booked_trips + i;
@@ -46,7 +45,6 @@ void remove_trip (CLIENT *client, char *country_name) {
     }
     fprintf(stderr, "ERROR: TRIP NOT FOUND\n");
 }
-
 void edit_trip (CLIENT *client, char *current_country_name, char *new_country_name) {
     for (size_t i = 0; i < client->size_booked_trips; ++i) {
         COUNTRY *temp_country = client->booked_trips + i;
@@ -57,7 +55,6 @@ void edit_trip (CLIENT *client, char *current_country_name, char *new_country_na
         }
     }
 }
-
 void print_trips (CLIENT *client, bool is_finished) {
     if (is_finished) {
         print_finished_trips (client);
@@ -66,15 +63,24 @@ void print_trips (CLIENT *client, bool is_finished) {
         print_booked_trips (client);
     }
 }
-
 void print_finished_trip_specific (CLIENT *client, char *country_name, char *city_name, char *poi) {
     COUNTRY *temp_country = search_finished_trip(client, country_name);
     if (temp_country == NULL) {
-        fprintf(stderr, "ERROR: FINISHED TRIP NOT FOUND\n");
         return;
     }
-    printf ("Country %s", temp_country->name);
-    // TODO: CITY AND POI SEARCH
+    printf ("Country %s\n", temp_country->name);
+
+    CITY * temp_city = search_city(temp_country, city_name);
+    if (temp_city == NULL) {
+        return;
+    }
+    printf("City %s\n", city_name);
+
+    POI *temp_poi = search_poi(temp_city, poi);
+    if (temp_poi == NULL) {
+        return;
+    }
+    printf("POI: %s\n", poi);
 }
 
 
@@ -89,7 +95,6 @@ void print_booked_trips (CLIENT *client) {
         printf ("Country [%zu] :: %s\n", i, temp_country->name); // size_t -> unsigned long format specifier
     }
 }
-
 void print_finished_trips (CLIENT *client) {
     if (client->size_finished_trips < 1) {
         fprintf(stderr, "ERROR: NO FINISHED TRIPS AVAILABLE\n");
@@ -101,7 +106,6 @@ void print_finished_trips (CLIENT *client) {
         printf ("Country [%zu] :: %s\n", i, temp_country->name);
     }
 }
-
 COUNTRY* search_finished_trip (CLIENT *client, char *country_name) {
     if (client->size_finished_trips < 1) {
         fprintf(stderr, "ERROR: NO FINISHED TRIPS AVAILABLE\n");
@@ -113,9 +117,9 @@ COUNTRY* search_finished_trip (CLIENT *client, char *country_name) {
             return temp_country;
         }
     }
+    fprintf(stderr, "ERROR: FINISHED TRIP NOT FOUND\n");
     return NULL;
 }
-
 COUNTRY* allocate_memory_trips () {
     COUNTRY *new_country = calloc(1, sizeof(COUNTRY));
     if (new_country == NULL){
@@ -123,7 +127,6 @@ COUNTRY* allocate_memory_trips () {
     }
     return new_country;
 }
-
 COUNTRY* reallocate_memory_trip (CLIENT *client) {
     client->booked_trips = realloc(client->booked_trips, (client->size_booked_trips + 1) * sizeof(COUNTRY));
     if (client->booked_trips == NULL) {

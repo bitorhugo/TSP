@@ -16,11 +16,36 @@ typedef struct city {
     int num_of_poi;
 }CITY;
 
-CITY *create_city (char *city_name, float x, float y);
+/**
+ * inserts a poi into city
+ * @param city city
+ * @param poi point of interest
+ */
 void insert_poi (CITY *city, char *poi);
+/**
+ * removes poi from city
+ * @param city city
+ * @param poi point of interest
+ */
 void remove_poi (CITY *city, char *poi);
+/**
+ * searches for a poi from city
+ * @param city city
+ * @param poi point of interest
+ * @return address of poi
+ */
 POI* search_poi (CITY *city, char *poi);
+/**
+ * inserts a description of the city
+ * @param city city
+ * @param description description
+ */
 void insert_description (CITY *city, char *description);
+/**
+ * edits a description of a city
+ * @param city city
+ * @param new_description new description
+ */
 void edit_description (CITY *city, char *new_description);
 
 #endif //TSP_CITIES_H

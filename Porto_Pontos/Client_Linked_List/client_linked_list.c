@@ -262,7 +262,7 @@ void read_clients_txt (CLIENT_LL *list, char *filename) {
             // save trip
             char country_name [100] = "";
 
-            insert_trip(&temp_client, country_name);
+            book_trip(&temp_client, country_name);
         }
 
         // save number of cities
@@ -291,17 +291,15 @@ void deallocate_client_linked_list (CLIENT_LL *list) {
         // set head as next node
         list->head = temp_node->next_node;
 
-        // deallocate booked trips
+        // free booked trips
         deallocate_booked_trips(&temp_node->client);
 
-        // deallocate finished trips
+        // free finished trips
         deallocate_finished_trips(&temp_node->client);
 
-
-
+        // free client node
+        deallocate_memory_node_client(temp_node);
     }
-
-
 }
 
 /*
@@ -358,14 +356,19 @@ void deallocate_cities (COUNTRY *country) {
     if (country->num_of_cities > 0) {
         for (int i = country->num_of_cities - 1; i >= 0; --i) {
             CITY *tem_city = country->cities + i;
-            deallocate_poi(tem_city);
+            if (tem_city->num_of_poi > 1) {
+                deallocate_poi(tem_city);
+            }
+            if (tem_city->description != NULL) {
+                deallocate_description(tem_city);
+            }
         }
         free (country->cities);
     }
 }
 
 void deallocate_poi (CITY *city) {
-    for (int i = city->num_of_poi; i >= 0; --i) {
+    for (int i = city->num_of_poi - 1; i >= 0; --i) {
         POI *temp_poi = city->poi + i;
         deallocate_poi_name(temp_poi);
     }
@@ -410,7 +413,6 @@ void frontBackSplit(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE *
     *backRef = slow->next_node;
     slow->next_node = NULL;
 }
-
 CLIENT_NODE* sortedMerge(CLIENT_NODE *a, CLIENT_NODE *b)
 {
     // base cases

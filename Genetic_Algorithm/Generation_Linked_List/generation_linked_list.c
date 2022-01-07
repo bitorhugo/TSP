@@ -5,6 +5,8 @@
 #include "generation_linked_list.h"
 #include <stdio.h>
 
+void deallocate_memory_chromosome (POPULATION pop);
+void deallocate_memory_gene (CHROMOSOME *chromosome);
 
 void insert_generation (GENERATION_LL *list, bool at_head, GENERATION generation) {
     if (list->list_size < 1) {
@@ -48,5 +50,32 @@ GENERATION* search_generation (GENERATION_LL *list, uint32_t id) {
 }
 
 void deallocate_generation_linked_list (GENERATION_LL *list) {
-    free(list);
+    GENERATION_NODE *temp_node = NULL;
+    while (list->head != NULL) {
+        temp_node = list->head;
+        // set head as next node
+        list->head = temp_node->next_node;
+
+        // free parent population
+        POPULATION temp_population = temp_node->generation.parent_population;
+        deallocate_memory_chromosome(temp_population);
+        // free child population
+        temp_population = temp_node->generation.child_population;
+        deallocate_memory_chromosome(temp_population);
+
+        // free generation node
+        deallocate_memory_generation_node(temp_node);
+    }
+}
+
+void deallocate_memory_chromosome (POPULATION pop) {
+    for (int i = pop.num_chromosomes - 1; i >= 0; --i) {
+        CHROMOSOME *temp_chromo = pop.chromosomes + i;
+        deallocate_memory_gene(temp_chromo);
+    }
+    free (pop.chromosomes);
+}
+
+void deallocate_memory_gene (CHROMOSOME *chromosome) {
+    free(chromosome->genes);
 }

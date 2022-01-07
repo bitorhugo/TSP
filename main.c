@@ -21,9 +21,9 @@ int main() {
     print_clients(&client_list);
 
     // book a trip
-    insert_trip(&client_list.head->next_node->client, "england");
-    insert_trip(&client_list.head->next_node->client, "australia");
-    insert_trip(&client_list.head->next_node->client, "usa");
+    book_trip(&client_list.head->next_node->client, "england");
+    book_trip(&client_list.head->next_node->client, "australia");
+    book_trip(&client_list.head->next_node->client, "usa");
     // remove a booked trip
     remove_trip(&client_list.head->next_node->client, "england");
     // edit a booked trip
@@ -52,7 +52,7 @@ int main() {
     // remove poi
     remove_poi(client_list.head->next_node->client.booked_trips->cities, "MONA");
     // search poi
-    POI *hello = search_poi(client_list.head->next_node->client.booked_trips->cities, "Cascade Brewery");
+    search_poi(client_list.head->next_node->client.booked_trips->cities, "Cascade Brewery");
 
     // save clients info and trips to txt file
     client_report_txt(&client_list, "../Files/txt/report.txt");

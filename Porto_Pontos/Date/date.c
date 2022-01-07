@@ -19,7 +19,7 @@ DATE insert_registration_day () {
     return new_registration;
 }
 
-DATE insert_birth (int day, int month, int year) {
+DATE create_date (int day, int month, int year) {
     DATE new_date = {0};
 
     new_date.day = day;
