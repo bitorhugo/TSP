@@ -9,12 +9,13 @@
 
 typedef struct generation_node {
     GENERATION generation;
+    POPULATION best_population;
     struct generation_node *next_node;
 }GENERATION_NODE;
 
 GENERATION_NODE* allocate_memory_generation_node (GENERATION generation);
-
 void deallocate_memory_generation_node (GENERATION_NODE *node);
+
 
 
 #endif //TSP_GENERATION_NODE_H

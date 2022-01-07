@@ -30,7 +30,6 @@ void insert_generation (GENERATION_LL *list, bool at_head, GENERATION generation
         }
     }
 }
-
 GENERATION* search_generation (GENERATION_LL *list, uint32_t id) {
     if (list->list_size < 1) {
         fprintf(stderr, "ERROR: NO GENERATIONS FOUND\n");
@@ -48,7 +47,6 @@ GENERATION* search_generation (GENERATION_LL *list, uint32_t id) {
     fprintf(stderr, "ERROR: GENERATION NOT FOUND\n");
     return NULL;
 }
-
 void deallocate_generation_linked_list (GENERATION_LL *list) {
     GENERATION_NODE *temp_node = NULL;
     while (list->head != NULL) {
@@ -61,6 +59,9 @@ void deallocate_generation_linked_list (GENERATION_LL *list) {
         deallocate_memory_chromosome(temp_population);
         // free child population
         temp_population = temp_node->generation.child_population;
+        deallocate_memory_chromosome(temp_population);
+        // free best population
+        temp_population = temp_node->best_population;
         deallocate_memory_chromosome(temp_population);
 
         // free generation node
@@ -75,7 +76,6 @@ void deallocate_memory_chromosome (POPULATION pop) {
     }
     free (pop.chromosomes);
 }
-
 void deallocate_memory_gene (CHROMOSOME *chromosome) {
     free(chromosome->genes);
 }

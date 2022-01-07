@@ -58,7 +58,7 @@ int main() {
     client_report_txt(&client_list, "../Files/txt/report.txt");
 
     // find best route to take for a certain trip
-    initialize_algorithm(client_list.head->next_node->client.booked_trips, 54, 4, 0, 0.05f);
+    initialize_algorithm(client_list.head->next_node->client.booked_trips, 999, 4, 0, 0.05f);
 
     // deallocates clients linked list
     deallocate_client_linked_list(&client_list);

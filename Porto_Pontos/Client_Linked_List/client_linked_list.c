@@ -12,8 +12,8 @@
  */
 void sort_clients_id (CLIENT_NODE **head);
 void sort_clients_name (CLIENT_LL *list);
-void frontBackSplit(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef);
-CLIENT_NODE* sortedMerge(CLIENT_NODE *a, CLIENT_NODE *b);
+void split_list_in_two(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef);
+CLIENT_NODE* sorted_merge(CLIENT_NODE *a, CLIENT_NODE *b);
 void deallocate_booked_trips (CLIENT *client);
 void deallocate_finished_trips (CLIENT *client);
 void deallocate_cities (COUNTRY *country);
@@ -315,14 +315,14 @@ void sort_clients_id (CLIENT_NODE **head) {
     CLIENT_NODE *b;
 
     // split `head` into `a` and `b` sublists
-    frontBackSplit(*head, &a, &b);
+    split_list_in_two(*head, &a, &b);
 
     // recursively sort the sublists
     sort_clients_id(&a);
     sort_clients_id(&b);
 
     // answer = merge the two sorted lists
-    *head = sortedMerge(a, b);
+    *head = sorted_merge(a, b);
 }
 
 void sort_clients_name (CLIENT_LL *list) {
@@ -383,7 +383,7 @@ void deallocate_description (CITY *city) {
     free (city->description);
 }
 
-void frontBackSplit(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef)
+void split_list_in_two(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef)
 {
     // if the length is less than 2, handle it separately
     if (source == NULL || source->next_node == NULL)
@@ -413,7 +413,7 @@ void frontBackSplit(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE *
     *backRef = slow->next_node;
     slow->next_node = NULL;
 }
-CLIENT_NODE* sortedMerge(CLIENT_NODE *a, CLIENT_NODE *b)
+CLIENT_NODE* sorted_merge(CLIENT_NODE *a, CLIENT_NODE *b)
 {
     // base cases
     if (a == NULL) {
@@ -430,11 +430,11 @@ CLIENT_NODE* sortedMerge(CLIENT_NODE *a, CLIENT_NODE *b)
     if (a->client.VAT <= b->client.VAT)
     {
         result = a;
-        result->next_node = sortedMerge(a->next_node, b);
+        result->next_node = sorted_merge(a->next_node, b);
     }
     else {
         result = b;
-        result->next_node = sortedMerge(a, b->next_node);
+        result->next_node = sorted_merge(a, b->next_node);
     }
 
     return result;
