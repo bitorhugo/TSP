@@ -13,7 +13,6 @@ GENERATION_NODE* allocate_memory_generation_node (GENERATION generation) {
     insert_best_population(new_node);
     return new_node;
 }
-
 void deallocate_memory_generation_node (GENERATION_NODE *node) {
     free(node);
 }

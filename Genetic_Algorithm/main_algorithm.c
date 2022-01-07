@@ -23,7 +23,7 @@ void initialize_algorithm (const COUNTRY *booked_trip, int num_iterations, int s
     GENERATION generation = {0};
 
     // insert first population
-    insert_first_population(&generation, booked_trip, size_population);
+    generation.parent_population = insert_first_population(&generation, booked_trip, size_population);
 
     // insert child population
     generation.child_population = insert_child_population(&generation, num_elitism, prob_mutation);

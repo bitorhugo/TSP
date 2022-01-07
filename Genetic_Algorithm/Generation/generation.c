@@ -30,15 +30,12 @@ POPULATION insert_first_population (GENERATION *generation, const COUNTRY *booke
     // sort chromosomes by fitness value
     sort_chromosomes_by_fitness(&new_population);
 
-    // insert population in generation
-    generation->parent_population = new_population;
-
     return new_population;
 }
 
 POPULATION insert_child_population (GENERATION *generation, int num_elitism, float mutation_prob) {
     // create population
-    POPULATION new_population = copy_population(&generation->parent_population);
+    POPULATION new_population = deep_copy_population(&generation->parent_population);
 
     // choose parent chromosomes for breeding
     parent_selection(&new_population, num_elitism);
@@ -56,7 +53,7 @@ POPULATION insert_child_population (GENERATION *generation, int num_elitism, flo
 }
 
 
-POPULATION copy_population (POPULATION *population) {
+POPULATION deep_copy_population (POPULATION *population) {
     // create population
     POPULATION new_population = {0};
 
