@@ -10,7 +10,7 @@ typedef struct country {
     char *name;
     CITY *cities;
     int num_of_cities;
-}COUNTRY;
+} COUNTRY;
 
 /**
  * inserts a city into country
@@ -19,13 +19,14 @@ typedef struct country {
  * @param coordinate_x coordinate x
  * @param coordinate_y coordinate y
  */
-void insert_city (COUNTRY *country, char *city_name, float coordinate_x, float coordinate_y);
+void insert_city(COUNTRY *country, char *city_name, float coordinate_x, float coordinate_y);
 /**
  * removes a city from country
  * @param country country
  * @param city_name city name to remove
  */
-void remove_city (COUNTRY *country, char *city_name);
+void remove_city(COUNTRY *country, char *city_name);
+
 /**
  * edits a city name and coordinates from country
  * @param country country
@@ -34,13 +35,14 @@ void remove_city (COUNTRY *country, char *city_name);
  * @param new_x new coordinate x
  * @param new_y new coordinate y
  */
-void edit_city (COUNTRY *country, char *current_city_name, char* new_city_name, float new_x, float new_y);
+void edit_city(COUNTRY *country, char *current_city_name, char *new_city_name, float new_x, float new_y);
+
 /**
  * searches for a city from country
  * @param country country
  * @param city_name city name
  * @return address of city
  */
-CITY* search_city (COUNTRY *country, char *city_name);
+CITY *search_city(COUNTRY *country, char *city_name);
 
 #endif //TSP_TRIPS_H
