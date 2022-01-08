@@ -31,6 +31,20 @@ typedef struct client {
 void book_trip(CLIENT *client, char *country_name);
 
 /**
+ * inserts a finished trip into a client
+ * @param client client
+ * @param country_name country_name
+ */
+void finish_trip_requisite (CLIENT *client, char *country_name);
+
+/**
+ * finishes a trip for a client from his booked trips
+ * @param client client
+ * @param booked_trip client booked trips
+ */
+void finish_trip(CLIENT *client, COUNTRY *booked_trip);
+
+/**
  * removes a booked trip from a client
  * @param client client client
  * @param country_name country name to remove
@@ -60,13 +74,6 @@ COUNTRY *search_trip(CLIENT *client, char *country_name, bool is_finished);
  * @param is_finished 0: print booked trips || 1: print finished trips
  */
 void print_trips(CLIENT *client, bool is_finished);
-
-/**
- * finishes a trip for a client from his booked trips
- * @param client client
- * @param booked_trip client booked trips
- */
-void finish_trip(CLIENT *client, COUNTRY *booked_trip);
 
 /**
 * prints finished trips with specific content

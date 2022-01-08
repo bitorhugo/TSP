@@ -38,6 +38,23 @@ void book_trip (CLIENT *client, char *country_name) {
         client->size_booked_trips +=1;
     }
 }
+void finish_trip_requisite (CLIENT *client, char *country_name) {
+    COUNTRY new_country = {0};
+    set_country_name(&new_country, country_name);
+
+    if (client->size_finished_trips < 1) {
+        client->finished_trips = allocate_memory_trips();
+        *client->finished_trips = new_country;
+        client->size_finished_trips = 1;
+    }
+    else {
+        client->finished_trips = reallocate_memory_trip(client, true);
+        COUNTRY *temp_country = client->finished_trips + client->size_finished_trips;
+        temp_country->name = 0, temp_country->cities = 0, temp_country->num_of_cities = 0;
+        *temp_country = new_country;
+        client->size_finished_trips += 1;
+    }
+}
 void finish_trip(CLIENT *client, COUNTRY *booked_trip) {
     if (booked_trip == NULL) {
         fprintf(stderr, "ERROR: BOOKED TRIP NOT VALID\n");

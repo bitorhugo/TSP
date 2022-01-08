@@ -16,25 +16,29 @@ void split_list_in_two(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NOD
 CLIENT_NODE* sorted_merge(CLIENT_NODE *a, CLIENT_NODE *b);
 
 void read_clients_txt (CLIENT_LL *list, FILE *fp);
-void read_trips_txt (CLIENT *client, FILE *fp, bool is_finished);
+void read_booked_trips_txt (CLIENT *client, FILE *fp);
+void read_finished_trips_txt (CLIENT *client, FILE *fp);
 void read_cities_txt (COUNTRY *country, FILE *fp);
 void read_description_txt (CITY *city, FILE *fp);
 void read_poi_txt (CITY *city, FILE *fp);
 
 void save_client_txt (CLIENT_LL *list, FILE *fp);
 void save_booked_trips_txt (CLIENT *client, FILE *fp);
+void save_finished_trips_txt (CLIENT *client, FILE *fp);
 void save_cities_txt (COUNTRY *country, FILE *fp);
 void save_description_txt (CITY *city, FILE *fp);
 void save_poi_txt (CITY *city, FILE *fp);
 
 void read_clients_bin (CLIENT_LL *list, FILE *fp);
 void read_booked_trips_bin (CLIENT *client, FILE *fp);
+void read_finished_trips_bin (CLIENT *client, FILE *fp);
 void read_cities_bin (COUNTRY *country, FILE *fp);
 void read_description_bin (CITY *city, FILE *fp);
 void read_poi_bin (CITY *city, FILE *fp);
 
 void save_client_bin (CLIENT_LL *list, FILE *fp);
 void save_booked_trips_bin (CLIENT *client, FILE *fp);
+void save_finished_trips_bin (CLIENT *client, FILE *fp);
 void save_cities_bin (COUNTRY *country, FILE *fp);
 void save_description_bin (CITY *city, FILE *fp);
 void save_poi_bin (CITY *city, FILE *fp);
@@ -217,6 +221,7 @@ void client_report_txt (CLIENT_LL *list, char *filename) {
         temp_node = temp_node->next_node;
     }
 }
+
 void read_list_txt (CLIENT_LL *list, char *filename) {
     FILE *fp = fopen(filename, "r");
     if (fp == NULL) {
@@ -358,41 +363,41 @@ void read_clients_txt (CLIENT_LL *list, FILE *fp) {
         CLIENT *temp_client = search_client(list, name);
 
         // reads booked trips
-        read_trips_txt(temp_client, fp, false);
+        read_booked_trips_txt(temp_client, fp);
+
+        // read finish trips
+        read_finished_trips_txt(temp_client,fp);
     }
 }
-void read_trips_txt (CLIENT *client, FILE *fp, bool is_finished) {
-    if (is_finished) {
-        // read number of finished trips
-        int num_trips = 0;
-        fscanf(fp, "%d", &num_trips);
+void read_booked_trips_txt (CLIENT *client, FILE *fp) {
 
-        for (size_t i = 0; i < num_trips; ++i) {
-            // save trip name
-            char country_name [50] = "";
-            fscanf(fp, "%*[\n] %[^,]", country_name);
-
-        }
-    }
-    else {
-        int num_trips = 0;
-        fscanf(fp, "%d", &num_trips);
-
-        for (size_t i = 0; i < num_trips; ++i) {
-            char country_name [50] = "";
-            fscanf(fp, "%*c %[^,]", country_name);
-
-            // book a trip
-            book_trip(client, country_name);
-
-            // get a trip
-            COUNTRY *temp_country = search_trip(client, country_name, false);
-
-            // reads cities
-            read_cities_txt(temp_country, fp);
-        }
+    int num_trips = 0;
+    fscanf(fp, "%d", &num_trips);
+    for (size_t i = 0; i < num_trips; ++i) {
+        char country_name [50] = "";
+        fscanf(fp, "%*c %[^,]", country_name);
+        // book a trip
+        book_trip(client, country_name);
+        // get a trip
+        COUNTRY *temp_country = search_trip(client, country_name, false);
+        // reads cities
+        read_cities_txt(temp_country, fp);
     }
 
+}
+void read_finished_trips_txt (CLIENT *client, FILE *fp) {
+    int num_trips = 0;
+    fscanf(fp, "%d", &num_trips);
+    for (size_t i = 0; i < num_trips; ++i) {
+        char country_name[50] = "";
+        fscanf(fp, "%*c %[^,]", country_name);
+        // finish a trip
+        finish_trip_requisite(client, country_name);
+        // get a trip
+        COUNTRY *temp_country = search_trip(client, country_name, true);
+        // reads cities
+        read_cities_txt(temp_country, fp);
+    }
 }
 void read_cities_txt (COUNTRY *country, FILE *fp) {
     // read number of cities
@@ -475,6 +480,9 @@ void save_client_txt (CLIENT_LL *list, FILE *fp) {
         // save booked trips
         save_booked_trips_txt (&temp_node->client, fp);
 
+        // save finsihed trips
+        save_finished_trips_txt(&temp_node->client, fp);
+
         temp_node = temp_node->next_node;
     }
 }
@@ -493,6 +501,20 @@ void save_booked_trips_txt (CLIENT *client, FILE *fp) {
         save_cities_txt (temp_country, fp);
     }
 
+}
+void save_finished_trips_txt (CLIENT *client, FILE *fp) {
+    // save number finished trips
+    fprintf(fp, "%d\n", client->size_finished_trips);
+
+    for (size_t i = 0; i < client->size_finished_trips; ++i) {
+        COUNTRY *temp_country = client->finished_trips + i;
+
+        // save trip name
+        fprintf(fp, "%s,\n", temp_country->name);
+
+        // save cities
+        save_cities_txt (temp_country, fp);
+    }
 }
 void save_cities_txt (COUNTRY *country, FILE *fp) {
     // save number of cities
@@ -571,6 +593,9 @@ void read_clients_bin (CLIENT_LL *list, FILE *fp) {
 
         // read booked trips
         read_booked_trips_bin(temp_client, fp);
+
+        // read finished trips
+        read_finished_trips_bin(temp_client, fp);
     }
 }
 void read_booked_trips_bin (CLIENT *client, FILE *fp) {
@@ -590,6 +615,28 @@ void read_booked_trips_bin (CLIENT *client, FILE *fp) {
 
         // search booked trip
         COUNTRY *temp_country = search_trip(client, booked_trip_name, false);
+
+        // read cities
+        read_cities_bin(temp_country, fp);
+    }
+}
+void read_finished_trips_bin (CLIENT *client, FILE *fp) {
+    // read number of trips
+    int num_finished_trips = 0;
+    fread(&num_finished_trips, sizeof(int), 1, fp);
+
+    for (size_t i = 0; i < num_finished_trips; ++i) {
+        // read booked trip name
+        uint64_t finished_trip_name_size = 0;
+        fread(&finished_trip_name_size, sizeof(uint64_t), 1, fp);
+        char finished_trip_name [50] = "";
+        fread(finished_trip_name, sizeof(char), finished_trip_name_size, fp);
+
+        // insert booked trip
+        finish_trip_requisite(client, finished_trip_name);
+
+        // search booked trip
+        COUNTRY *temp_country = search_trip(client, finished_trip_name, true);
 
         // read cities
         read_cities_bin(temp_country, fp);
@@ -691,6 +738,9 @@ void save_client_bin (CLIENT_LL *list, FILE *fp) {
         // save booked trips bin
         save_booked_trips_bin(&temp_node->client, fp);
 
+        // save finished trips
+        save_finished_trips_bin(&temp_node->client, fp);
+
         temp_node = temp_node->next_node;
     }
 }
@@ -706,6 +756,23 @@ void save_booked_trips_bin (CLIENT *client, FILE *fp) {
         uint64_t booked_trip_name_size = strlen(temp_country->name) + 1;
         fwrite(&booked_trip_name_size, sizeof(uint64_t), 1, fp);
         fwrite(temp_country->name, sizeof(char), booked_trip_name_size, fp);
+
+        save_cities_bin(temp_country, fp);
+
+    }
+}
+void save_finished_trips_bin (CLIENT *client, FILE *fp) {
+    // save number of finished trips
+    int finished_trips_size = client->size_finished_trips;
+    fwrite(&finished_trips_size, sizeof(int), 1, fp);
+
+    for (size_t i = 0; i < client->size_finished_trips; ++i) {
+        COUNTRY *temp_country = client->finished_trips + i;
+
+        // save trip name
+        uint64_t finished_trip_name_size = strlen(temp_country->name) + 1;
+        fwrite(&finished_trip_name_size, sizeof(uint64_t), 1, fp);
+        fwrite(temp_country->name, sizeof(char), finished_trip_name_size, fp);
 
         save_cities_bin(temp_country, fp);
 
