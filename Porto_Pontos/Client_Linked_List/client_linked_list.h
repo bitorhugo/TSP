@@ -52,7 +52,7 @@ void insert_client_sorted (CLIENT_LL *list, char *name, uint32_t VAT, char *addr
  * @param client_name clients name
  * @return return client wanted
  */
-CLIENT search_client (CLIENT_LL *list, const char *client_name);
+CLIENT* search_client (CLIENT_LL *list, const char *client_name);
 /**
  * removes a client from the linked list
  * @param list linked list
@@ -81,7 +81,7 @@ void client_report_txt (CLIENT_LL *list, char *filename);
  * @param list linked list
  * @param filename filename
  */
-void read_clients_txt (CLIENT_LL *list, char *filename);
+void read_list_txt (CLIENT_LL *list, char *filename);
 /*
  * frees linked list
  */

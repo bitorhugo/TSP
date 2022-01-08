@@ -11,20 +11,18 @@
 
 POI* allocate_memory_poi ();
 POI* reallocate_memory_poi (CITY *city, int size);
-char* allocate_memory_name (uint64_t str_size);
-char* reallocate_memory_name (char *name, uint64_t str_size);
 
 void insert_poi (CITY *city, char *poi) {
     if (city->num_of_poi < 1) {
         city->poi = allocate_memory_poi();
-        city->poi->name = allocate_memory_name(strlen(poi));
+        city->poi->name = allocate_memory_str(strlen(poi));
         strcpy(city->poi->name, poi);
         city->num_of_poi = 1;
     }
     else {
         city->poi = reallocate_memory_poi(city, city->num_of_poi + 1);
         POI *temp_poi = city->poi + city->num_of_poi;
-        temp_poi->name = allocate_memory_name(strlen(poi));
+        temp_poi->name = allocate_memory_str(strlen(poi));
         strcpy(temp_poi->name, poi);
         city->num_of_poi += 1;
     }
@@ -69,7 +67,7 @@ void insert_description (CITY *city, char *description) {
         return;
     }
     else {
-        city->description = allocate_memory_name(strlen(description));
+        city->description = allocate_memory_str(strlen(description));
         strcpy(city->description, description);
     }
 }
@@ -79,7 +77,7 @@ void edit_description (CITY *city, char *new_description) {
         return;
     }
     else {
-        city->description = reallocate_memory_name(city->description, strlen(new_description));
+        city->description = reallocate_memory_str(city->description, strlen(new_description));
         strcpy(city->description, new_description);
     }
 }
@@ -100,18 +98,18 @@ POI* reallocate_memory_poi (CITY *city, int size) {
     return city->poi;
 }
 
-char* allocate_memory_name (uint64_t str_size) {
-    char * name = calloc(str_size, sizeof (char));
-    if (name == NULL) {
-        fprintf(stderr, "ERROR: NOT ABLE TO ALLOCATE NAME\n");
+char* allocate_memory_str (uint64_t size) {
+    char *str = calloc(size, sizeof (char));
+    if (str == NULL) {
+        fprintf(stderr, "ERROR: NOT ABLE TO ALLOCATE STRING\n");
     }
-    return name;
+    return str;
 }
 
-char* reallocate_memory_name (char *name, uint64_t str_size) {
-    name = realloc(name, str_size * sizeof(char));
-    if (name == NULL) {
+char* reallocate_memory_str (char *str, uint64_t size) {
+    str = realloc(str, size * sizeof(char));
+    if (str == NULL) {
         fprintf(stderr, "ERROR: NOT ABLE TO REALLOCATE MEMORY FOR NAME\n");
     }
-    return name;
+    return str;
 }

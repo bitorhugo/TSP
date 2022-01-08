@@ -10,10 +10,11 @@
 
 CITY* allocate_memory_city();
 CITY* reallocate_memory_city (COUNTRY *country);
+void set_city_name (CITY *city, char *city_name);
 
 void insert_city (COUNTRY *country, char *city_name, float coordinate_x, float coordinate_y) {
     CITY new_city = {0};
-    new_city.name = city_name;
+    set_city_name(&new_city, city_name);
     new_city.coordinates.x = coordinate_x;
     new_city.coordinates.y = coordinate_y;
 
@@ -83,4 +84,9 @@ CITY* reallocate_memory_city (COUNTRY *country) {
         fprintf(stderr, "ERROR: NOT ABLE TO REALLOCATE CITY\n");
     }
     return country->cities;
+}
+
+void set_city_name (CITY *city, char *city_name) {
+    city->name = allocate_memory_str(strlen(city_name));
+    strcpy(city->name, city_name);
 }

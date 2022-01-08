@@ -45,7 +45,15 @@ void remove_trip(CLIENT *client, char *country_name);
  */
 void edit_trip(CLIENT *client, char *current_country_name, char *new_country_name);
 
-COUNTRY* search_trip (CLIENT *client, char *country_name, bool is_finished);
+/**
+ * searches for a trip from a client
+ * @param client client
+ * @param country_name country name
+ * @param is_finished 0: booked trips array | 1: finished trip array
+ * @return trip
+ */
+COUNTRY *search_trip(CLIENT *client, char *country_name, bool is_finished);
+
 /**
  * prints trips from a client
  * @param client client

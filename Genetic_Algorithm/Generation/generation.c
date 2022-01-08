@@ -110,7 +110,7 @@ void parent_selection (POPULATION *population, int num_elitism) {
     */
 
     // copy population to select chromosomes from
-    POPULATION temp_population = copy_population(population);
+    POPULATION temp_population = deep_copy_population(population);
 
     // choose chromosomes
     CHROMOSOME *temp_chromo;

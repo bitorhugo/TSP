@@ -14,6 +14,11 @@ void sort_clients_id (CLIENT_NODE **head);
 void sort_clients_name (CLIENT_LL *list);
 void split_list_in_two(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef);
 CLIENT_NODE* sorted_merge(CLIENT_NODE *a, CLIENT_NODE *b);
+void read_clients_txt (CLIENT_LL *list, FILE *fp);
+void read_trips_txt (CLIENT *client, FILE *fp, bool is_finished);
+void read_cities_txt (COUNTRY *country, FILE *fp);
+void read_description_txt (CITY *city, FILE *fp);
+void read_poi_txt (CITY *city, FILE *fp);
 void deallocate_booked_trips (CLIENT *client);
 void deallocate_finished_trips (CLIENT *client);
 void deallocate_cities (COUNTRY *country);
@@ -83,19 +88,17 @@ void insert_client_sorted (CLIENT_LL *list, char *name, uint32_t VAT, char *addr
         }
     }
 }
-CLIENT search_client (CLIENT_LL *list, const char *client_name) {
-
+CLIENT* search_client (CLIENT_LL *list, const char *client_name) {
     CLIENT_NODE *temp_node = list->head;
     while (temp_node != NULL) {
-        if (temp_node->client.name == client_name){
+        if (strcmp(temp_node->client.name, client_name) == 0){
             printf("Client %s found\n", temp_node->client.name);
-            return temp_node->client;
+            return &temp_node->client;
         }
         temp_node = temp_node->next_node;
     }
     fprintf(stderr, "ERROR: CLIENT NOT FOUND\n");
-    CLIENT null = {0};
-    return null;
+    return NULL;
 }
 void remove_client (CLIENT_LL *list, char *client_name) {
     if (list->list_size < 1) {
@@ -192,7 +195,7 @@ void client_report_txt (CLIENT_LL *list, char *filename) {
         temp_node = temp_node->next_node;
     }
 }
-void read_clients_txt (CLIENT_LL *list, char *filename) {
+void read_list_txt (CLIENT_LL *list, char *filename) {
     FILE *fp = fopen(filename, "r");
     if (fp == NULL) {
         fprintf(stderr, "ERROR: NOT ABLE TO OPEN FILE FOR READING\n");
@@ -201,87 +204,153 @@ void read_clients_txt (CLIENT_LL *list, char *filename) {
 
     /*
      * FILE TEMPLATE
-     * Number of clients: %d
-     * *Clients:*
-     *  'name'
-     *  'VAT',
-     *  'address',
-     *  'phone_number',
-     *  'birth (day/month/year),
-     *  'registration' (day/month/year)',
-     *  'number of booked trips: %d
-     *  'booked trips:',
-     *      'trips name',
-     *      'num cities',
-     *          'cities name',
-     *          'coordinate x',
-     *          'coordinate y',
-     *  'finished trips',
+     * 'number of clients'
+     *      'name',
+     *      'VAT'
+     *      'address',
+     *      'phone_number'
+     *      'birth' (day/month/year)
+     *      'number of booked trips'
+     *          'trips name',
+     *          'num cities'
+     *              'cities name',
+     *              'coordinate x', 'coordinate y'
+     *                  'city description',
+     *              'num city poi'
+     *                  'poi',
+     *      'finished trips',
      */
 
+    // reads clients
+    read_clients_txt(list, fp);
+
+    fclose(fp);
+}
+void read_clients_txt (CLIENT_LL *list, FILE *fp) {
     // read number of clients
-    fscanf(fp, "%d", &list->list_size);
+    int num_clients = 0;
+    fscanf(fp, "%d", &num_clients);
 
-    for (size_t i = 0; i < list->list_size; ++i) {
-
+    for (size_t i = 0; i < num_clients; ++i) {
         // save insert name
         char name [50] = "";
-        fscanf(fp, "%s", name);
+        fscanf(fp, "%*[\n] %[^,]", name);
 
         // save VAT
         uint32_t vat = 0;
-        fscanf(fp, "%d", &vat);
+        fscanf(fp, "%*c %d", &vat);
 
         // save address
         char address [100] = "";
-        fscanf(fp, "%s", address);
+        fscanf(fp, "%*[\n] %[^,]", address);
 
         // save phone_number
         uint32_t phone_number = 0;
-        fscanf(fp, "%d", &phone_number);
+        fscanf(fp, "%*c %d", &phone_number);
 
         // save birth (day/month/year)
         DATE birth = {0};
-        fscanf(fp, "%d %*s %d %*s %d", &birth.day, &birth.month, &birth.year);
-
-        // save registration
-        DATE registration = {0};
-        fscanf(fp, "%d %*s %d %*s %d", &registration.day, &registration.month, &registration.year);
+        fscanf(fp, "%d %*c %d %*c %d", &birth.day, &birth.month, &birth.year);
 
         // insert client
         insert_client(list, false, name, vat, address, phone_number, birth.day, birth.month, birth.year);
 
         // get client
-        CLIENT temp_client = search_client(list, name);
+        CLIENT *temp_client = search_client(list, name);
 
-        // save number of trips
+        // reads booked trips
+        read_trips_txt(temp_client, fp, false);
+    }
+}
+void read_trips_txt (CLIENT *client, FILE *fp, bool is_finished) {
+    if (is_finished) {
+        // read number of finished trips
         int num_trips = 0;
-        fscanf(fp, "%*s %d", &num_trips);
+        fscanf(fp, "%d", &num_trips);
 
-        for (size_t j = 0; j < num_trips; ++j) {
-            // save trip
-            char country_name [100] = "";
+        for (size_t i = 0; i < num_trips; ++i) {
+            // save trip name
+            char country_name [50] = "";
+            fscanf(fp, "%*[\n] %[^,]", country_name);
 
-            book_trip(&temp_client, country_name);
         }
+    }
+    else {
+        int num_trips = 0;
+        fscanf(fp, "%d", &num_trips);
 
-        // save number of cities
-        int num_cities = 0;
-        fscanf(fp, "%*s, %d", &num_cities);
+        for (size_t i = 0; i < num_trips; ++i) {
+            char country_name [50] = "";
+            fscanf(fp, "%*[\n] %[^,]", country_name);
 
-        // save cities
-        for (size_t k = 0; k < num_cities; ++i) {
-            COUNTRY *temp_country = temp_client.booked_trips + k;
-            char city_name [100] = "";
-            fscanf(fp, "%[^,]", city_name);
+            // book a trip
+            book_trip(client, country_name);
+
+            // get a trip
+            COUNTRY *temp_country = search_trip(client, country_name, false);
+
+            // reads cities
+            read_cities_txt(temp_country, fp);
         }
-
-
     }
 
-    fclose(fp);
+}
+void read_cities_txt (COUNTRY *country, FILE *fp) {
+    // read number of cities
+    int num_cities = 0;
+    fscanf(fp, "%*c %d", &num_cities);
+
+    for (size_t i = 0; i < num_cities; ++i) {
+        // save city name
+        char city_name [50] = "";
+        fscanf(fp, "%*c %[^,]", city_name);
+
+        // save coordinates
+        POINTS coordinates = {0};
+        fscanf(fp, "%*c %f %*c %f", &coordinates.x, &coordinates.y);
+
+        // insert city
+        insert_city(country, city_name, coordinates.x, coordinates.y);
+
+        // get city
+        CITY *temp_city = search_city(country, city_name);
+
+        // read description
+        read_description_txt(temp_city, fp);
+
+        // read poi
+        read_poi_txt(temp_city, fp);
+
+    }
+}
+void read_description_txt (CITY *city, FILE *fp) {
+    // save description
+    char description [200] = "";
+    fscanf(fp, "%*[\n] %[^,]", description);
+
+    // insert description
+    insert_description(city, description);
+}
+void read_poi_txt (CITY *city, FILE *fp) {
+    // save num poi
+    int num_poi = 0;
+    fscanf(fp, "%*c %d", &num_poi);
+
+    for (size_t i = 0; i < num_poi; ++i) {
+        // save poi
+        char poi [100] = "";
+
+        if (i == 0) {
+            fscanf(fp, "%*[\n] %[^,]", poi);
+        }
+        else {
+            fscanf(fp, "%*c %[^,]", poi);
+        }
+        insert_poi(city, poi);
+    }
 
 }
+
 void deallocate_client_linked_list (CLIENT_LL *list) {
 
     CLIENT_NODE *temp_node = NULL;

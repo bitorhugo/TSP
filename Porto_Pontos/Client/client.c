@@ -7,7 +7,10 @@
 #include <stdio.h>
 #include <string.h>
 
-
+/*
+ * private prototypes
+ */
+void set_country_name (COUNTRY *country, char *country_name);
 COUNTRY* search_finished_trip (CLIENT *client, char *country_name);
 COUNTRY* search_booked_trip (CLIENT *client, char *country_name);
 COUNTRY* allocate_memory_trips();
@@ -15,9 +18,12 @@ COUNTRY* reallocate_memory_trip (CLIENT *client, bool is_finished);
 void print_finished_trips (CLIENT *client);
 void print_booked_trips (CLIENT *client);
 
+/*
+ * public functions
+ */
 void book_trip (CLIENT *client, char *country_name) {
     COUNTRY new_country = {0};
-    new_country.name = country_name;
+    set_country_name(&new_country, country_name);
 
     if (client->size_booked_trips < 1) {
         client->booked_trips = allocate_memory_trips();
@@ -33,6 +39,10 @@ void book_trip (CLIENT *client, char *country_name) {
     }
 }
 void finish_trip(CLIENT *client, COUNTRY *booked_trip) {
+    if (booked_trip == NULL) {
+        fprintf(stderr, "ERROR: BOOKED TRIP NOT VALID\n");
+        return;
+    }
     if (client->size_finished_trips < 1) {
         client->finished_trips = allocate_memory_trips();
         *client->finished_trips = *booked_trip;
@@ -46,7 +56,6 @@ void finish_trip(CLIENT *client, COUNTRY *booked_trip) {
         client->size_finished_trips += 1;
     }
     remove_trip(client, booked_trip->name);
-
 }
 void remove_trip (CLIENT *client, char *country_name) {
     for (size_t i = 0; i < client->size_booked_trips; ++i) {
@@ -66,7 +75,8 @@ void edit_trip (CLIENT *client, char *current_country_name, char *new_country_na
     for (size_t i = 0; i < client->size_booked_trips; ++i) {
         COUNTRY *temp_country = client->booked_trips + i;
         if (strcmp(temp_country->name, current_country_name) == 0) {
-            temp_country->name = new_country_name;
+            temp_country->name = reallocate_memory_str(temp_country->name, strlen(new_country_name));
+            strcpy(temp_country->name, new_country_name);
             fprintf(stdout, "WARNING: COUNTRY NAME CHANGED\n");
             return;
         }
@@ -108,7 +118,13 @@ void print_finished_trip_specific (CLIENT *client, char *country_name, char *cit
     printf("POI visited: %s\n", poi);
 }
 
-
+/*
+ * private functions
+ */
+void set_country_name (COUNTRY *country, char *country_name) {
+    country->name = allocate_memory_str(strlen(country_name));
+    strcpy(country->name, country_name);
+}
 void print_booked_trips (CLIENT *client) {
     if (client->size_booked_trips < 1) {
         fprintf(stderr, "ERROR: NO BOOKED TRIPS AVAILABLE\n");
@@ -168,7 +184,11 @@ COUNTRY* allocate_memory_trips () {
 }
 COUNTRY* reallocate_memory_trip (CLIENT *client, bool is_finished) {
     if (is_finished) {
-
+        client->finished_trips = realloc(client->finished_trips, (client->size_finished_trips + 1) * sizeof(COUNTRY));
+        if (client->finished_trips == NULL) {
+            fprintf(stderr, "ERROR: NOT ABLE TO REALLOCATE TRIP\n");
+        }
+        return client->finished_trips;
     }
     else {
         client->booked_trips = realloc(client->booked_trips, (client->size_booked_trips + 1) * sizeof(COUNTRY));
@@ -177,5 +197,4 @@ COUNTRY* reallocate_memory_trip (CLIENT *client, bool is_finished) {
         }
         return client->booked_trips;
     }
-
 }

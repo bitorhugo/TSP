@@ -4,6 +4,7 @@
 
 #include "Points/points.h"
 #include "Poi/poi.h"
+#include <stdlib.h>
 
 #ifndef TSP_CITIES_H
 #define TSP_CITIES_H
@@ -47,5 +48,9 @@ void insert_description (CITY *city, char *description);
  * @param new_description new description
  */
 void edit_description (CITY *city, char *new_description);
+
+char* allocate_memory_str (uint64_t size);
+
+char* reallocate_memory_str (char *str, uint64_t size);
 
 #endif //TSP_CITIES_H

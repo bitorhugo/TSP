@@ -1,0 +1,35 @@
+3
+    Andre Andre,
+    245263582
+    Rua do Amial Porto,
+    962321123
+    20/10/1998
+    2
+        Japan,
+        3
+            Tokyo,
+            1.3972, 103.8719
+                Located at the head of Tokyo Bay the prefecture forms part of the Kantō region on the central Pacific coast of Japan's main island of Honshu,
+            2
+                The Imperial Palace,
+                Sensō-ji Temple,
+            Ōsaka,
+            34.7500, 135.4601
+            Osaka is a large port city and commercial center on the Japanese island of Honshu,
+            3
+                Universal Studios,
+                Minami,
+                Osaka Aquarium,
+            Kyōto,
+            35.0111, 135.7669
+                Kyoto is considered the cultural capital of Japan and a major tourist destination,
+        Belgium,
+        4
+            Brussels,
+                50.8333, 4.3333
+            Antwerp,
+                51.2206, 4.4003
+            Gent,
+                51.0536, 3.7253
+            Mons,
+                50.4550, 3.9520

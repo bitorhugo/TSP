@@ -4,6 +4,10 @@
 int main() {
 
     CLIENT_LL client_list;
+
+    // read clients from txt
+    read_list_txt(&client_list, "../Files/txt/clients.txt");
+
     // insert client in list
     insert_client(&client_list, false, "Hugo", 1, "Porto", 91912, 21, 8, 1998);
     insert_client(&client_list, false, "Andre", 4, "Lisbon", 9123454, 12, 6, 1899);
@@ -59,6 +63,9 @@ int main() {
 
     // find best route to take for a certain trip
     initialize_algorithm(client_list.head->next_node->client.booked_trips, 999, 4, 0, 0.05f);
+
+    // finish a trip
+    finish_trip(&client_list.head->next_node->client, client_list.head->next_node->client.booked_trips);
 
     // deallocates clients linked list
     deallocate_client_linked_list(&client_list);
