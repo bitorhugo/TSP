@@ -548,6 +548,249 @@ Porto_Pontos/Trips/trips.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.s
 .PHONY : Porto_Pontos/Trips/trips.c.s
 
+Tests/test_Cities/test_cities.o: Tests/test_Cities/test_cities.c.o
+
+.PHONY : Tests/test_Cities/test_cities.o
+
+# target to build an object file
+Tests/test_Cities/test_cities.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.o
+.PHONY : Tests/test_Cities/test_cities.c.o
+
+Tests/test_Cities/test_cities.i: Tests/test_Cities/test_cities.c.i
+
+.PHONY : Tests/test_Cities/test_cities.i
+
+# target to preprocess a source file
+Tests/test_Cities/test_cities.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.i
+.PHONY : Tests/test_Cities/test_cities.c.i
+
+Tests/test_Cities/test_cities.s: Tests/test_Cities/test_cities.c.s
+
+.PHONY : Tests/test_Cities/test_cities.s
+
+# target to generate assembly for a file
+Tests/test_Cities/test_cities.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.s
+.PHONY : Tests/test_Cities/test_cities.c.s
+
+Tests/test_Client_List/test_client_list.o: Tests/test_Client_List/test_client_list.c.o
+
+.PHONY : Tests/test_Client_List/test_client_list.o
+
+# target to build an object file
+Tests/test_Client_List/test_client_list.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.o
+.PHONY : Tests/test_Client_List/test_client_list.c.o
+
+Tests/test_Client_List/test_client_list.i: Tests/test_Client_List/test_client_list.c.i
+
+.PHONY : Tests/test_Client_List/test_client_list.i
+
+# target to preprocess a source file
+Tests/test_Client_List/test_client_list.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.i
+.PHONY : Tests/test_Client_List/test_client_list.c.i
+
+Tests/test_Client_List/test_client_list.s: Tests/test_Client_List/test_client_list.c.s
+
+.PHONY : Tests/test_Client_List/test_client_list.s
+
+# target to generate assembly for a file
+Tests/test_Client_List/test_client_list.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.s
+.PHONY : Tests/test_Client_List/test_client_list.c.s
+
+Tests/test_Description/test_description.o: Tests/test_Description/test_description.c.o
+
+.PHONY : Tests/test_Description/test_description.o
+
+# target to build an object file
+Tests/test_Description/test_description.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.o
+.PHONY : Tests/test_Description/test_description.c.o
+
+Tests/test_Description/test_description.i: Tests/test_Description/test_description.c.i
+
+.PHONY : Tests/test_Description/test_description.i
+
+# target to preprocess a source file
+Tests/test_Description/test_description.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.i
+.PHONY : Tests/test_Description/test_description.c.i
+
+Tests/test_Description/test_description.s: Tests/test_Description/test_description.c.s
+
+.PHONY : Tests/test_Description/test_description.s
+
+# target to generate assembly for a file
+Tests/test_Description/test_description.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.s
+.PHONY : Tests/test_Description/test_description.c.s
+
+Tests/test_Files/test_BIN/test_bin.o: Tests/test_Files/test_BIN/test_bin.c.o
+
+.PHONY : Tests/test_Files/test_BIN/test_bin.o
+
+# target to build an object file
+Tests/test_Files/test_BIN/test_bin.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.o
+.PHONY : Tests/test_Files/test_BIN/test_bin.c.o
+
+Tests/test_Files/test_BIN/test_bin.i: Tests/test_Files/test_BIN/test_bin.c.i
+
+.PHONY : Tests/test_Files/test_BIN/test_bin.i
+
+# target to preprocess a source file
+Tests/test_Files/test_BIN/test_bin.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.i
+.PHONY : Tests/test_Files/test_BIN/test_bin.c.i
+
+Tests/test_Files/test_BIN/test_bin.s: Tests/test_Files/test_BIN/test_bin.c.s
+
+.PHONY : Tests/test_Files/test_BIN/test_bin.s
+
+# target to generate assembly for a file
+Tests/test_Files/test_BIN/test_bin.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.s
+.PHONY : Tests/test_Files/test_BIN/test_bin.c.s
+
+Tests/test_Files/test_Report/test_report.o: Tests/test_Files/test_Report/test_report.c.o
+
+.PHONY : Tests/test_Files/test_Report/test_report.o
+
+# target to build an object file
+Tests/test_Files/test_Report/test_report.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.o
+.PHONY : Tests/test_Files/test_Report/test_report.c.o
+
+Tests/test_Files/test_Report/test_report.i: Tests/test_Files/test_Report/test_report.c.i
+
+.PHONY : Tests/test_Files/test_Report/test_report.i
+
+# target to preprocess a source file
+Tests/test_Files/test_Report/test_report.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.i
+.PHONY : Tests/test_Files/test_Report/test_report.c.i
+
+Tests/test_Files/test_Report/test_report.s: Tests/test_Files/test_Report/test_report.c.s
+
+.PHONY : Tests/test_Files/test_Report/test_report.s
+
+# target to generate assembly for a file
+Tests/test_Files/test_Report/test_report.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.s
+.PHONY : Tests/test_Files/test_Report/test_report.c.s
+
+Tests/test_Files/test_TXT/test_txt.o: Tests/test_Files/test_TXT/test_txt.c.o
+
+.PHONY : Tests/test_Files/test_TXT/test_txt.o
+
+# target to build an object file
+Tests/test_Files/test_TXT/test_txt.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.o
+.PHONY : Tests/test_Files/test_TXT/test_txt.c.o
+
+Tests/test_Files/test_TXT/test_txt.i: Tests/test_Files/test_TXT/test_txt.c.i
+
+.PHONY : Tests/test_Files/test_TXT/test_txt.i
+
+# target to preprocess a source file
+Tests/test_Files/test_TXT/test_txt.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.i
+.PHONY : Tests/test_Files/test_TXT/test_txt.c.i
+
+Tests/test_Files/test_TXT/test_txt.s: Tests/test_Files/test_TXT/test_txt.c.s
+
+.PHONY : Tests/test_Files/test_TXT/test_txt.s
+
+# target to generate assembly for a file
+Tests/test_Files/test_TXT/test_txt.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.s
+.PHONY : Tests/test_Files/test_TXT/test_txt.c.s
+
+Tests/test_POI/test_poi.o: Tests/test_POI/test_poi.c.o
+
+.PHONY : Tests/test_POI/test_poi.o
+
+# target to build an object file
+Tests/test_POI/test_poi.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.o
+.PHONY : Tests/test_POI/test_poi.c.o
+
+Tests/test_POI/test_poi.i: Tests/test_POI/test_poi.c.i
+
+.PHONY : Tests/test_POI/test_poi.i
+
+# target to preprocess a source file
+Tests/test_POI/test_poi.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.i
+.PHONY : Tests/test_POI/test_poi.c.i
+
+Tests/test_POI/test_poi.s: Tests/test_POI/test_poi.c.s
+
+.PHONY : Tests/test_POI/test_poi.s
+
+# target to generate assembly for a file
+Tests/test_POI/test_poi.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.s
+.PHONY : Tests/test_POI/test_poi.c.s
+
+Tests/test_Trips/test_Booked_Trips/test_booked_trips.o: Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.o
+
+.PHONY : Tests/test_Trips/test_Booked_Trips/test_booked_trips.o
+
+# target to build an object file
+Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.o
+.PHONY : Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.o
+
+Tests/test_Trips/test_Booked_Trips/test_booked_trips.i: Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.i
+
+.PHONY : Tests/test_Trips/test_Booked_Trips/test_booked_trips.i
+
+# target to preprocess a source file
+Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.i
+.PHONY : Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.i
+
+Tests/test_Trips/test_Booked_Trips/test_booked_trips.s: Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.s
+
+.PHONY : Tests/test_Trips/test_Booked_Trips/test_booked_trips.s
+
+# target to generate assembly for a file
+Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.s
+.PHONY : Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.s
+
+Tests/test_Trips/test_Finished_Trips/test_finished_trips.o: Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.o
+
+.PHONY : Tests/test_Trips/test_Finished_Trips/test_finished_trips.o
+
+# target to build an object file
+Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.o
+.PHONY : Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.o
+
+Tests/test_Trips/test_Finished_Trips/test_finished_trips.i: Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.i
+
+.PHONY : Tests/test_Trips/test_Finished_Trips/test_finished_trips.i
+
+# target to preprocess a source file
+Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.i
+.PHONY : Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.i
+
+Tests/test_Trips/test_Finished_Trips/test_finished_trips.s: Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.s
+
+.PHONY : Tests/test_Trips/test_Finished_Trips/test_finished_trips.s
+
+# target to generate assembly for a file
+Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tsp.dir/build.make CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.s
+.PHONY : Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -629,6 +872,33 @@ help:
 	@echo "... Porto_Pontos/Trips/trips.o"
 	@echo "... Porto_Pontos/Trips/trips.i"
 	@echo "... Porto_Pontos/Trips/trips.s"
+	@echo "... Tests/test_Cities/test_cities.o"
+	@echo "... Tests/test_Cities/test_cities.i"
+	@echo "... Tests/test_Cities/test_cities.s"
+	@echo "... Tests/test_Client_List/test_client_list.o"
+	@echo "... Tests/test_Client_List/test_client_list.i"
+	@echo "... Tests/test_Client_List/test_client_list.s"
+	@echo "... Tests/test_Description/test_description.o"
+	@echo "... Tests/test_Description/test_description.i"
+	@echo "... Tests/test_Description/test_description.s"
+	@echo "... Tests/test_Files/test_BIN/test_bin.o"
+	@echo "... Tests/test_Files/test_BIN/test_bin.i"
+	@echo "... Tests/test_Files/test_BIN/test_bin.s"
+	@echo "... Tests/test_Files/test_Report/test_report.o"
+	@echo "... Tests/test_Files/test_Report/test_report.i"
+	@echo "... Tests/test_Files/test_Report/test_report.s"
+	@echo "... Tests/test_Files/test_TXT/test_txt.o"
+	@echo "... Tests/test_Files/test_TXT/test_txt.i"
+	@echo "... Tests/test_Files/test_TXT/test_txt.s"
+	@echo "... Tests/test_POI/test_poi.o"
+	@echo "... Tests/test_POI/test_poi.i"
+	@echo "... Tests/test_POI/test_poi.s"
+	@echo "... Tests/test_Trips/test_Booked_Trips/test_booked_trips.o"
+	@echo "... Tests/test_Trips/test_Booked_Trips/test_booked_trips.i"
+	@echo "... Tests/test_Trips/test_Booked_Trips/test_booked_trips.s"
+	@echo "... Tests/test_Trips/test_Finished_Trips/test_finished_trips.o"
+	@echo "... Tests/test_Trips/test_Finished_Trips/test_finished_trips.i"
+	@echo "... Tests/test_Trips/test_Finished_Trips/test_finished_trips.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

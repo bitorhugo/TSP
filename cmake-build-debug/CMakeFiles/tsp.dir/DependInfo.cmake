@@ -19,6 +19,15 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Poi/poi.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Porto_Pontos/Poi/poi.c.o"
   "/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Points/points.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Porto_Pontos/Points/points.c.o"
   "/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Trips/trips.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Porto_Pontos/Trips/trips.c.o"
+  "/Users/VitorHugo/CLionProjects/tsp/Tests/test_Cities/test_cities.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.o"
+  "/Users/VitorHugo/CLionProjects/tsp/Tests/test_Client_List/test_client_list.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.o"
+  "/Users/VitorHugo/CLionProjects/tsp/Tests/test_Description/test_description.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.o"
+  "/Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_BIN/test_bin.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.o"
+  "/Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_Report/test_report.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.o"
+  "/Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_TXT/test_txt.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.o"
+  "/Users/VitorHugo/CLionProjects/tsp/Tests/test_POI/test_poi.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.o"
+  "/Users/VitorHugo/CLionProjects/tsp/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.o"
+  "/Users/VitorHugo/CLionProjects/tsp/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.o"
   "/Users/VitorHugo/CLionProjects/tsp/main.c" "/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles/tsp.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
@@ -28,6 +37,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../Porto_Pontos"
   "../Genetic_Algorithm"
   "../Files"
+  "../Tests"
   )
 
 # Targets to which this target links.

@@ -95,11 +95,13 @@ void insert_client_sorted (CLIENT_LL *list, char *name, uint32_t VAT, char *addr
                 if (temp_node == list->head) {
                     new_node->next_node = temp_node;
                     list->head = new_node;
+                    list->list_size += 1;
                     return;
                 }
                 // insert new_node between temp_node and temp_node->next_node
                 new_node->next_node = temp_node->next_node;
                 temp_node->next_node = new_node;
+                list->list_size += 1;
                 return;
             }
 
@@ -533,7 +535,8 @@ void read_clients_bin (CLIENT_LL *list, FILE *fp) {
 
     for (size_t i = 0; i < num_clients; ++i) {
         // read client name size
-        uint64_t name_size = fread(&name_size, sizeof(uint64_t), 1, fp);
+        uint64_t name_size = 0;
+        fread(&name_size, sizeof(uint64_t), 1, fp);
         // read client name
         char name [50] = "";
         fread(name, sizeof(char), name_size, fp);
@@ -701,8 +704,8 @@ void save_booked_trips_bin (CLIENT *client, FILE *fp) {
 
         // save trip name
         uint64_t booked_trip_name_size = strlen(temp_country->name) + 1;
-        fwrite(&booked_trips_size, sizeof(uint64_t), 1, fp);
-        fwrite(temp_country->name, sizeof(char), booked_trips_size, fp);
+        fwrite(&booked_trip_name_size, sizeof(uint64_t), 1, fp);
+        fwrite(temp_country->name, sizeof(char), booked_trip_name_size, fp);
 
         save_cities_bin(temp_country, fp);
 

@@ -285,6 +285,123 @@ CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm/Gene/gene.c -o CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.s
 
+CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.o: ../Tests/test_Files/test_BIN/test_bin.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_BIN/test_bin.c
+
+CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_BIN/test_bin.c > CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.i
+
+CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_BIN/test_bin.c -o CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.s
+
+CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.o: ../Tests/test_Files/test_TXT/test_txt.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_TXT/test_txt.c
+
+CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_TXT/test_txt.c > CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.i
+
+CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_TXT/test_txt.c -o CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.s
+
+CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.o: ../Tests/test_Client_List/test_client_list.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Tests/test_Client_List/test_client_list.c
+
+CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Tests/test_Client_List/test_client_list.c > CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.i
+
+CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Tests/test_Client_List/test_client_list.c -o CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.s
+
+CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.o: ../Tests/test_Trips/test_Booked_Trips/test_booked_trips.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c
+
+CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c > CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.i
+
+CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c -o CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.s
+
+CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.o: ../Tests/test_Trips/test_Finished_Trips/test_finished_trips.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c
+
+CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c > CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.i
+
+CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c -o CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.s
+
+CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.o: ../Tests/test_Cities/test_cities.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Tests/test_Cities/test_cities.c
+
+CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Tests/test_Cities/test_cities.c > CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.i
+
+CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Tests/test_Cities/test_cities.c -o CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.s
+
+CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.o: ../Tests/test_Description/test_description.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Tests/test_Description/test_description.c
+
+CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Tests/test_Description/test_description.c > CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.i
+
+CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Tests/test_Description/test_description.c -o CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.s
+
+CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.o: ../Tests/test_POI/test_poi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Tests/test_POI/test_poi.c
+
+CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Tests/test_POI/test_poi.c > CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.i
+
+CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Tests/test_POI/test_poi.c -o CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.s
+
+CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.o: CMakeFiles/tsp.dir/flags.make
+CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.o: ../Tests/test_Files/test_Report/test_report.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.o   -c /Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_Report/test_report.c
+
+CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_Report/test_report.c > CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.i
+
+CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_Report/test_report.c -o CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.s
+
 # Object files for target tsp
 tsp_OBJECTS = \
 "CMakeFiles/tsp.dir/main.c.o" \
@@ -302,7 +419,16 @@ tsp_OBJECTS = \
 "CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.o" \
 "CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.o" \
 "CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.o" \
-"CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.o"
+"CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.o" \
+"CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.o" \
+"CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.o" \
+"CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.o" \
+"CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.o" \
+"CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.o" \
+"CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.o" \
+"CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.o" \
+"CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.o" \
+"CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.o"
 
 # External object files for target tsp
 tsp_EXTERNAL_OBJECTS =
@@ -323,9 +449,18 @@ tsp: CMakeFiles/tsp.dir/Genetic_Algorithm/main_algorithm.c.o
 tsp: CMakeFiles/tsp.dir/Genetic_Algorithm/Population/population.c.o
 tsp: CMakeFiles/tsp.dir/Genetic_Algorithm/Chromosome/chromosome.c.o
 tsp: CMakeFiles/tsp.dir/Genetic_Algorithm/Gene/gene.c.o
+tsp: CMakeFiles/tsp.dir/Tests/test_Files/test_BIN/test_bin.c.o
+tsp: CMakeFiles/tsp.dir/Tests/test_Files/test_TXT/test_txt.c.o
+tsp: CMakeFiles/tsp.dir/Tests/test_Client_List/test_client_list.c.o
+tsp: CMakeFiles/tsp.dir/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c.o
+tsp: CMakeFiles/tsp.dir/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c.o
+tsp: CMakeFiles/tsp.dir/Tests/test_Cities/test_cities.c.o
+tsp: CMakeFiles/tsp.dir/Tests/test_Description/test_description.c.o
+tsp: CMakeFiles/tsp.dir/Tests/test_POI/test_poi.c.o
+tsp: CMakeFiles/tsp.dir/Tests/test_Files/test_Report/test_report.c.o
 tsp: CMakeFiles/tsp.dir/build.make
 tsp: CMakeFiles/tsp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking C executable tsp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/VitorHugo/CLionProjects/tsp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Linking C executable tsp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tsp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

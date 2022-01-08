@@ -47,6 +47,7 @@
 					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos"/>
 					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm"/>
 					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Files"/>
+					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Tests"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
@@ -71,6 +72,7 @@
 					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos"/>
 					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Genetic_Algorithm"/>
 					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Files"/>
+					<Add directory="/Users/VitorHugo/CLionProjects/tsp/Tests"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
@@ -174,6 +176,60 @@
 			<Option target="tsp"/>
 		</Unit>
 		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Trips/trips.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Cities/test_cities.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Cities/test_cities.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Client_List/test_client_list.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Client_List/test_client_list.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Description/test_description.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Description/test_description.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_BIN/test_bin.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_BIN/test_bin.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_Report/test_report.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_Report/test_report.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_TXT/test_txt.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Files/test_TXT/test_txt.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_POI/test_poi.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_POI/test_poi.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Trips/test_Booked_Trips/test_booked_trips.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Trips/test_Booked_Trips/test_booked_trips.h">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Trips/test_Finished_Trips/test_finished_trips.c">
+			<Option target="tsp"/>
+		</Unit>
+		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/Tests/test_Trips/test_Finished_Trips/test_finished_trips.h">
 			<Option target="tsp"/>
 		</Unit>
 		<Unit filename="/Users/VitorHugo/CLionProjects/tsp/main.c">
