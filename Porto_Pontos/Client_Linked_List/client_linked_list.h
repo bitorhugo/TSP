@@ -84,6 +84,8 @@ void client_report_txt (CLIENT_LL *list, char *filename);
 void read_list_txt (CLIENT_LL *list, char *filename);
 
 void save_list_txt (CLIENT_LL *list, char *filename);
+
+void save_list_bin (CLIENT_LL *list, char *filename);
 /*
  * frees linked list
  */

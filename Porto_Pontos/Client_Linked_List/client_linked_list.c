@@ -14,16 +14,25 @@ void sort_clients_id (CLIENT_NODE **head);
 void sort_clients_name (CLIENT_LL *list);
 void split_list_in_two(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef);
 CLIENT_NODE* sorted_merge(CLIENT_NODE *a, CLIENT_NODE *b);
+
 void read_clients_txt (CLIENT_LL *list, FILE *fp);
 void read_trips_txt (CLIENT *client, FILE *fp, bool is_finished);
 void read_cities_txt (COUNTRY *country, FILE *fp);
 void read_description_txt (CITY *city, FILE *fp);
 void read_poi_txt (CITY *city, FILE *fp);
+
 void save_client_txt (CLIENT_LL *list, FILE *fp);
 void save_booked_trips_txt (CLIENT *client, FILE *fp);
 void save_cities_txt (COUNTRY *country, FILE *fp);
 void save_description_txt (CITY *city, FILE *fp);
 void save_poi_txt (CITY *city, FILE *fp);
+
+void save_client_bin (CLIENT_LL *list, FILE *fp);
+void save_booked_trips_bin (CLIENT *client, FILE *fp);
+void save_cities_bin (COUNTRY *country, FILE *fp);
+void save_description_bin (CITY *city, FILE *fp);
+void save_poi_bin (CITY *city, FILE *fp);
+
 void deallocate_booked_trips (CLIENT *client);
 void deallocate_finished_trips (CLIENT *client);
 void deallocate_cities (COUNTRY *country);
@@ -259,6 +268,14 @@ void save_list_txt (CLIENT_LL *list, char *filename) {
 
     fclose(fp);
 }
+void save_list_bin (CLIENT_LL *list, char *filename) {
+    FILE *fp = fopen(filename, "wb");
+    if (fp == NULL) {
+        fprintf(stderr, "ERROR: NOT ABLE TO OPEN FILE FOR WRITING BIN\n");
+        return;
+    }
+    save_client_bin(list, fp);
+}
 void deallocate_client_linked_list (CLIENT_LL *list) {
 
     CLIENT_NODE *temp_node = NULL;
@@ -488,6 +505,111 @@ void save_poi_txt (CITY *city, FILE *fp) {
         POI *temp_poi = city->poi + i;
         // save poi
         fprintf(fp, "%s,\n", temp_poi->name);
+    }
+}
+
+void save_client_bin (CLIENT_LL *list, FILE *fp) {
+    // save number of clients
+    int num_clients = list->list_size;
+    fwrite(&num_clients, sizeof(int), 1, fp);
+
+    CLIENT_NODE *temp_node = list->head;
+    while (temp_node != NULL) {
+
+        // save client name size
+        uint64_t client_name_size = strlen(temp_node->client.name) + 1;
+        fwrite(&client_name_size, sizeof(uint64_t), 1, fp);
+        // save client name
+        fwrite(temp_node->client.name, sizeof(char), client_name_size, fp);
+
+        // save client VAT
+        uint32_t vat = temp_node->client.VAT;
+        fwrite(&vat, sizeof(uint32_t), 1, fp);
+
+        // save address size
+        uint64_t client_address_size = strlen(temp_node->client.address) + 1;
+        fwrite(&client_address_size, sizeof(uint64_t), 1, fp);
+        // save address
+        fwrite(temp_node->client.address, sizeof(char), client_address_size, fp);
+
+        // save phone number
+        uint32_t phone_number = temp_node->client.phone_number;
+        fwrite(&phone_number, sizeof(uint32_t), 1, fp);
+
+        // save birth
+        int client_birth_day = temp_node->client.birth.day;
+        int client_birth_month = temp_node->client.birth.month;
+        int client_birth_year = temp_node->client.birth.year;
+        fwrite(&client_birth_day, sizeof(int), 1, fp);
+        fwrite(&client_birth_month, sizeof(int), 1, fp);
+        fwrite(&client_birth_year, sizeof(int), 1, fp);
+
+        // save booked trips bin
+        save_booked_trips_bin(&temp_node->client, fp);
+
+        temp_node = temp_node->next_node;
+    }
+}
+void save_booked_trips_bin (CLIENT *client, FILE *fp) {
+    // save number of booked trips
+    int booked_trips_size = client->size_booked_trips;
+    fwrite(&booked_trips_size, sizeof(int), 1, fp);
+
+    for (size_t i = 0; i < client->size_booked_trips; ++i) {
+        COUNTRY *temp_country = client->booked_trips + i;
+
+        // save trip name
+        uint64_t booked_trip_name_size = strlen(temp_country->name) + 1;
+        fwrite(&booked_trips_size, sizeof(uint64_t), 1, fp);
+        fwrite(temp_country->name, sizeof(char), booked_trips_size, fp);
+
+        save_cities_bin(temp_country, fp);
+
+    }
+}
+void save_cities_bin (COUNTRY *country, FILE *fp) {
+    // save number of cities
+    int num_cities = country->num_of_cities;
+    fwrite(&num_cities, sizeof(int), 1, fp);
+
+    for (size_t i = 0; i < country->num_of_cities; ++i) {
+        CITY *temp_city = country->cities + i;
+
+        // save city name
+        uint64_t city_name_size = strlen(temp_city->name) + 1;
+        fwrite(&city_name_size, sizeof(uint64_t), 1, fp);
+        fwrite(temp_city->name, sizeof(char), city_name_size, fp);
+
+        // save city coordinates
+        float x = temp_city->coordinates.x;
+        float y = temp_city->coordinates.y;
+        fwrite(&x, sizeof(float), 1, fp);
+        fwrite(&y, sizeof(float), 1, fp);
+
+        // save description
+        save_description_bin(temp_city, fp);
+
+        // save poi
+        save_poi_bin(temp_city, fp);
+    }
+}
+void save_description_bin (CITY *city, FILE *fp) {
+    // save description
+    uint64_t des_size = strlen(city->description) + 1;
+    fwrite(&des_size, sizeof(uint64_t), 1, fp);
+    fwrite(city->description, sizeof(char), des_size, fp);
+}
+void save_poi_bin (CITY *city, FILE *fp) {
+    // save number poi
+    int num_poi = city->num_of_poi;
+    fwrite(&num_poi, sizeof(int), 1, fp);
+
+    for (size_t i = 0; i < city->num_of_poi; ++i) {
+        POI * temp_poi = city->poi + i;
+        // save poi
+        uint64_t poi_size = strlen(temp_poi->name) + 1;
+        fwrite(&poi_size, sizeof(uint64_t), 1, fp);
+        fwrite(temp_poi->name, sizeof(char), poi_size, fp);
     }
 }
 
