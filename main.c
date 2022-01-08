@@ -9,7 +9,7 @@ int main() {
     //read_list_txt(&client_list, "../Files/txt/clients.txt");
 
     // insert client in list
-    insert_client(&client_list, false, "Hugo", 1, "Porto", 91912, 21, 8, 1998);
+    insert_client(&client_list, false, "Bitor Hugo", 1, "Porto", 91912, 21, 8, 1998);
     insert_client(&client_list, false, "Andre", 4, "Lisbon", 9123454, 12, 6, 1899);
     insert_client(&client_list, false, "Carlos", 6, "Faro", 238744, 8, 12, 1989);
     insert_client_sorted(&client_list, "Afonso", 5, "Viana", 92834, 21, 4, 1998);

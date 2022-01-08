@@ -19,6 +19,11 @@ void read_trips_txt (CLIENT *client, FILE *fp, bool is_finished);
 void read_cities_txt (COUNTRY *country, FILE *fp);
 void read_description_txt (CITY *city, FILE *fp);
 void read_poi_txt (CITY *city, FILE *fp);
+void save_client_txt (CLIENT_LL *list, FILE *fp);
+void save_booked_trips_txt (CLIENT *client, FILE *fp);
+void save_cities_txt (COUNTRY *country, FILE *fp);
+void save_description_txt (CITY *city, FILE *fp);
+void save_poi_txt (CITY *city, FILE *fp);
 void deallocate_booked_trips (CLIENT *client);
 void deallocate_finished_trips (CLIENT *client);
 void deallocate_cities (COUNTRY *country);
@@ -225,6 +230,35 @@ void read_list_txt (CLIENT_LL *list, char *filename) {
 
     fclose(fp);
 }
+void save_list_txt (CLIENT_LL *list, char *filename) {
+    FILE *fp = fopen(filename, "w");
+    if (fp == NULL) {
+        fprintf(stderr, "ERROR: NOT ABLE TO OPEN FILE FOR WRITING\n");
+        return;
+    }
+    /*
+     * FILE TEMPLATE
+     * 'number of clients'
+     *      'name',
+     *      'VAT'
+     *      'address',
+     *      'phone_number'
+     *      'birth' (day/month/year)
+     *      'number of booked trips'
+     *          'trips name',
+     *          'num cities'
+     *              'cities name',
+     *              'coordinate x', 'coordinate y'
+     *                  'city description',
+     *              'num city poi'
+     *                  'poi',
+     *      'finished trips',
+     */
+    // saves clients to file
+    save_client_txt(list, fp);
+
+    fclose(fp);
+}
 void deallocate_client_linked_list (CLIENT_LL *list) {
 
     CLIENT_NODE *temp_node = NULL;
@@ -290,7 +324,6 @@ void read_clients_txt (CLIENT_LL *list, FILE *fp) {
         read_trips_txt(temp_client, fp, false);
     }
 }
-
 void read_trips_txt (CLIENT *client, FILE *fp, bool is_finished) {
     if (is_finished) {
         // read number of finished trips
@@ -324,7 +357,6 @@ void read_trips_txt (CLIENT *client, FILE *fp, bool is_finished) {
     }
 
 }
-
 void read_cities_txt (COUNTRY *country, FILE *fp) {
     // read number of cities
     int num_cities = 0;
@@ -353,7 +385,6 @@ void read_cities_txt (COUNTRY *country, FILE *fp) {
 
     }
 }
-
 void read_description_txt (CITY *city, FILE *fp) {
     // save description
     char description [200] = "";
@@ -362,7 +393,6 @@ void read_description_txt (CITY *city, FILE *fp) {
     // insert description
     insert_description(city, description);
 }
-
 void read_poi_txt (CITY *city, FILE *fp) {
     // save num poi
     int num_poi = 0;
@@ -381,6 +411,84 @@ void read_poi_txt (CITY *city, FILE *fp) {
         insert_poi(city, poi);
     }
 
+}
+
+void save_client_txt (CLIENT_LL *list, FILE *fp) {
+    // save number of clients
+    fprintf(fp, "%d\n", list->list_size);
+
+    CLIENT_NODE *temp_node = list->head;
+    while (temp_node != NULL) {
+
+        // save client name
+        fprintf(fp, "%s,\n", temp_node->client.name);
+
+        // save client VAT
+        fprintf(fp, "%d\n", temp_node->client.VAT);
+
+        // save client address
+        fprintf(fp, "%s,\n", temp_node->client.address);
+
+        // save phone number
+        fprintf(fp, "%d\n", temp_node->client.phone_number);
+
+        // save birth
+        fprintf(fp, "%d/%d/%d\n", temp_node->client.birth.day, temp_node->client.birth.month, temp_node->client.birth.year);
+
+        // save booked trips
+        save_booked_trips_txt (&temp_node->client, fp);
+
+        temp_node = temp_node->next_node;
+    }
+}
+void save_booked_trips_txt (CLIENT *client, FILE *fp) {
+
+    // save number booked trips
+    fprintf(fp, "%d\n", client->size_booked_trips);
+
+    for (size_t i = 0; i < client->size_booked_trips; ++i) {
+        COUNTRY *temp_country = client->booked_trips + i;
+
+        // save trip name
+        fprintf(fp, "%s,\n", temp_country->name);
+
+        // save cities
+        save_cities_txt (temp_country, fp);
+    }
+
+}
+void save_cities_txt (COUNTRY *country, FILE *fp) {
+    // save number of cities
+    fprintf(fp, "%d\n", country->num_of_cities);
+
+    for (size_t i = 0; i < country->num_of_cities; ++i) {
+        CITY *temp_city = country->cities + i;
+        // save city name
+        fprintf(fp, "%s,\n", temp_city->name);
+
+        // save coordinates
+        fprintf(fp, "%f, %f\n", temp_city->coordinates.x, temp_city->coordinates.y);
+
+        // save description
+        save_description_txt (temp_city, fp);
+
+        // save poi
+        save_poi_txt (temp_city, fp);
+    }
+}
+void save_description_txt (CITY *city, FILE *fp) {
+    // save description
+    fprintf(fp, "%s,\n", city->description);
+}
+void save_poi_txt (CITY *city, FILE *fp) {
+    // save number of poi
+    fprintf(fp, "%d\n", city->num_of_poi);
+
+    for (size_t i = 0; i < city->num_of_poi; ++i) {
+        POI *temp_poi = city->poi + i;
+        // save poi
+        fprintf(fp, "%s,\n", temp_poi->name);
+    }
 }
 
 void sort_clients_id (CLIENT_NODE **head) {
@@ -402,7 +510,6 @@ void sort_clients_id (CLIENT_NODE **head) {
     // answer = merge the two sorted lists
     *head = sorted_merge(a, b);
 }
-
 void sort_clients_name (CLIENT_LL *list) {
 
 }
@@ -420,7 +527,6 @@ void deallocate_booked_trips (CLIENT *client) {
         free (client->booked_trips);
     }
 }
-
 void deallocate_finished_trips (CLIENT *client) {
     if (client->size_finished_trips > 0) {
         for (int i = client->size_finished_trips - 1; i >= 0; --i) {
@@ -431,7 +537,6 @@ void deallocate_finished_trips (CLIENT *client) {
         free (client->finished_trips);
     }
 }
-
 void deallocate_cities (COUNTRY *country) {
     if (country->num_of_cities > 0) {
         for (int i = country->num_of_cities - 1; i >= 0; --i) {
@@ -449,7 +554,6 @@ void deallocate_cities (COUNTRY *country) {
         free (country->cities);
     }
 }
-
 void deallocate_poi (CITY *city) {
     for (int i = city->num_of_poi - 1; i >= 0; --i) {
         POI *temp_poi = city->poi + i;
@@ -457,7 +561,6 @@ void deallocate_poi (CITY *city) {
     }
     free (city->poi);
 }
-
 void deallocate_str (char *str) {
     free (str);
 }
