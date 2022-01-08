@@ -23,8 +23,7 @@ void deallocate_booked_trips (CLIENT *client);
 void deallocate_finished_trips (CLIENT *client);
 void deallocate_cities (COUNTRY *country);
 void deallocate_poi (CITY *city);
-void deallocate_poi_name (POI *poi);
-void deallocate_description (CITY *city);
+void deallocate_str (char *str);
 
 /*
  * Public functions implementation
@@ -226,6 +225,37 @@ void read_list_txt (CLIENT_LL *list, char *filename) {
 
     fclose(fp);
 }
+
+
+void deallocate_client_linked_list (CLIENT_LL *list) {
+
+    CLIENT_NODE *temp_node = NULL;
+
+    while (list->head != NULL) {
+        temp_node = list->head;
+        // set head as next node
+        list->head = temp_node->next_node;
+
+        // free client name
+        deallocate_str(temp_node->client.name);
+
+        // free client address
+        deallocate_str(temp_node->client.address);
+
+        // free booked trips
+        deallocate_booked_trips(&temp_node->client);
+
+        // free finished trips
+        deallocate_finished_trips(&temp_node->client);
+
+        // free client node
+        deallocate_memory_node_client(temp_node);
+    }
+}
+
+/*
+ * Private functions implementation
+ */
 void read_clients_txt (CLIENT_LL *list, FILE *fp) {
     // read number of clients
     int num_clients = 0;
@@ -262,6 +292,7 @@ void read_clients_txt (CLIENT_LL *list, FILE *fp) {
         read_trips_txt(temp_client, fp, false);
     }
 }
+
 void read_trips_txt (CLIENT *client, FILE *fp, bool is_finished) {
     if (is_finished) {
         // read number of finished trips
@@ -295,6 +326,7 @@ void read_trips_txt (CLIENT *client, FILE *fp, bool is_finished) {
     }
 
 }
+
 void read_cities_txt (COUNTRY *country, FILE *fp) {
     // read number of cities
     int num_cities = 0;
@@ -323,6 +355,7 @@ void read_cities_txt (COUNTRY *country, FILE *fp) {
 
     }
 }
+
 void read_description_txt (CITY *city, FILE *fp) {
     // save description
     char description [200] = "";
@@ -331,6 +364,7 @@ void read_description_txt (CITY *city, FILE *fp) {
     // insert description
     insert_description(city, description);
 }
+
 void read_poi_txt (CITY *city, FILE *fp) {
     // save num poi
     int num_poi = 0;
@@ -351,29 +385,6 @@ void read_poi_txt (CITY *city, FILE *fp) {
 
 }
 
-void deallocate_client_linked_list (CLIENT_LL *list) {
-
-    CLIENT_NODE *temp_node = NULL;
-
-    while (list->head != NULL) {
-        temp_node = list->head;
-        // set head as next node
-        list->head = temp_node->next_node;
-
-        // free booked trips
-        deallocate_booked_trips(&temp_node->client);
-
-        // free finished trips
-        deallocate_finished_trips(&temp_node->client);
-
-        // free client node
-        deallocate_memory_node_client(temp_node);
-    }
-}
-
-/*
- * Private functions implementation
- */
 void sort_clients_id (CLIENT_NODE **head) {
     // base case — length 0 or 1
     if (*head == NULL || (*head)->next_node == NULL) {
@@ -405,6 +416,7 @@ void deallocate_booked_trips (CLIENT *client) {
     if (client->size_booked_trips > 0) {
         for (int i = client->size_booked_trips - 1; i >= 0; --i) {
             COUNTRY *temp_country = client->booked_trips + i;
+            deallocate_str(temp_country->name);
             deallocate_cities(temp_country);
         }
         free (client->booked_trips);
@@ -415,6 +427,7 @@ void deallocate_finished_trips (CLIENT *client) {
     if (client->size_finished_trips > 0) {
         for (int i = client->size_finished_trips - 1; i >= 0; --i) {
             COUNTRY *temp_country = client->finished_trips + i;
+            deallocate_str(temp_country->name);
             deallocate_cities(temp_country);
         }
         free (client->finished_trips);
@@ -425,11 +438,14 @@ void deallocate_cities (COUNTRY *country) {
     if (country->num_of_cities > 0) {
         for (int i = country->num_of_cities - 1; i >= 0; --i) {
             CITY *tem_city = country->cities + i;
+
+            deallocate_str(tem_city->name);
+
             if (tem_city->num_of_poi > 1) {
                 deallocate_poi(tem_city);
             }
             if (tem_city->description != NULL) {
-                deallocate_description(tem_city);
+                deallocate_str(tem_city->description);
             }
         }
         free (country->cities);
@@ -439,17 +455,13 @@ void deallocate_cities (COUNTRY *country) {
 void deallocate_poi (CITY *city) {
     for (int i = city->num_of_poi - 1; i >= 0; --i) {
         POI *temp_poi = city->poi + i;
-        deallocate_poi_name(temp_poi);
+        deallocate_str(temp_poi->name);
     }
     free (city->poi);
 }
 
-void deallocate_poi_name (POI *poi) {
-    free (poi->name);
-}
-
-void deallocate_description (CITY *city) {
-    free (city->description);
+void deallocate_str (char *str) {
+    free (str);
 }
 
 void split_list_in_two(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef)
