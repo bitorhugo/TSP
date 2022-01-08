@@ -7,14 +7,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 CITY* allocate_memory_city();
 CITY* reallocate_memory_city (COUNTRY *country);
-void set_city_name (CITY *city, char *city_name);
+void set_city_name (CITY *city, char *city_name, bool is_alloc);
 
 void insert_city (COUNTRY *country, char *city_name, float coordinate_x, float coordinate_y) {
     CITY new_city = {0};
-    set_city_name(&new_city, city_name);
+    set_city_name(&new_city, city_name, true);
     new_city.coordinates.x = coordinate_x;
     new_city.coordinates.y = coordinate_y;
 
@@ -54,7 +55,7 @@ void edit_city (COUNTRY *country, char *current_city_name, char* new_city_name, 
         fprintf(stderr, "ERROR: CITY NOT FOUND\n");
         return;
     }
-    temp_city->name = new_city_name;
+    set_city_name(temp_city, new_city_name, false);
     temp_city->coordinates.x = new_x;
     temp_city->coordinates.y = new_y;
 }
@@ -86,7 +87,13 @@ CITY* reallocate_memory_city (COUNTRY *country) {
     return country->cities;
 }
 
-void set_city_name (CITY *city, char *city_name) {
-    city->name = allocate_memory_str(strlen(city_name));
-    strcpy(city->name, city_name);
+void set_city_name (CITY *city, char *city_name, bool is_alloc) {
+    if (is_alloc) {
+        city->name = allocate_memory_str(strlen(city_name));
+        strcpy(city->name, city_name);
+    }
+    else {
+        city->name = reallocate_memory_str(city->name, strlen(city_name));
+        strcpy(city->name, city_name);
+    }
 }

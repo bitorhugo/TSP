@@ -14,41 +14,23 @@ Poi/poi.h
 stdlib.h
 -
 
-../Porto_Pontos/Client/client.h
-Trips/trips.h
-../Porto_Pontos/Client/Trips/trips.h
-Date/date.h
-../Porto_Pontos/Client/Date/date.h
-stdlib.h
--
-stdbool.h
--
-
-../Porto_Pontos/Client_Node/client_node.h
-Client/client.h
-../Porto_Pontos/Client_Node/Client/client.h
-
-../Porto_Pontos/Date/date.h
-
 ../Porto_Pontos/Poi/poi.h
 
 ../Porto_Pontos/Points/points.h
 
-../Porto_Pontos/Trips/trips.h
-Cities/cities.h
-../Porto_Pontos/Trips/Cities/cities.h
-
-/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Linked_List/client_linked_list.c
-client_linked_list.h
-/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Linked_List/client_linked_list.h
+/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Trips/trips.c
+trips.h
+/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Trips/trips.h
+stdlib.h
+-
 stdio.h
 -
 string.h
 -
-
-/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Linked_List/client_linked_list.h
-Client_Node/client_node.h
-/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Linked_List/Client_Node/client_node.h
 stdbool.h
 -
+
+/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Trips/trips.h
+Cities/cities.h
+/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Trips/Cities/cities.h
 

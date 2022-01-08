@@ -6,7 +6,7 @@ int main() {
     CLIENT_LL client_list;
 
     // read clients from txt
-    read_list_txt(&client_list, "../Files/txt/clients.txt");
+    //read_list_txt(&client_list, "../Files/txt/clients.txt");
 
     // insert client in list
     insert_client(&client_list, false, "Hugo", 1, "Porto", 91912, 21, 8, 1998);

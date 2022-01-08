@@ -225,8 +225,6 @@ void read_list_txt (CLIENT_LL *list, char *filename) {
 
     fclose(fp);
 }
-
-
 void deallocate_client_linked_list (CLIENT_LL *list) {
 
     CLIENT_NODE *temp_node = NULL;
