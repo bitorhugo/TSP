@@ -27,6 +27,12 @@ void save_cities_txt (COUNTRY *country, FILE *fp);
 void save_description_txt (CITY *city, FILE *fp);
 void save_poi_txt (CITY *city, FILE *fp);
 
+void read_clients_bin (CLIENT_LL *list, FILE *fp);
+void read_booked_trips_bin (CLIENT *client, FILE *fp);
+void read_cities_bin (COUNTRY *country, FILE *fp);
+void read_description_bin (CITY *city, FILE *fp);
+void read_poi_bin (CITY *city, FILE *fp);
+
 void save_client_bin (CLIENT_LL *list, FILE *fp);
 void save_booked_trips_bin (CLIENT *client, FILE *fp);
 void save_cities_bin (COUNTRY *country, FILE *fp);
@@ -155,6 +161,7 @@ void print_clients (CLIENT_LL *list) {
     }
     printf("..\n");
 }
+
 void client_report_txt (CLIENT_LL *list, char *filename) {
     FILE *fp = fopen(filename, "w");
     if (fp == NULL) {
@@ -268,6 +275,15 @@ void save_list_txt (CLIENT_LL *list, char *filename) {
 
     fclose(fp);
 }
+void read_list_bin (CLIENT_LL *list, char *filename) {
+    FILE *fp = fopen(filename, "rb");
+    if (fp == NULL) {
+        fprintf(stderr, "ERROR: NOT ABLE TO OPEN FILE FOR READING BIN\n");
+        return;
+    }
+    read_clients_bin(list, fp);
+    fclose(fp);
+}
 void save_list_bin (CLIENT_LL *list, char *filename) {
     FILE *fp = fopen(filename, "wb");
     if (fp == NULL) {
@@ -275,7 +291,9 @@ void save_list_bin (CLIENT_LL *list, char *filename) {
         return;
     }
     save_client_bin(list, fp);
+    fclose(fp);
 }
+
 void deallocate_client_linked_list (CLIENT_LL *list) {
 
     CLIENT_NODE *temp_node = NULL;
@@ -505,6 +523,129 @@ void save_poi_txt (CITY *city, FILE *fp) {
         POI *temp_poi = city->poi + i;
         // save poi
         fprintf(fp, "%s,\n", temp_poi->name);
+    }
+}
+
+void read_clients_bin (CLIENT_LL *list, FILE *fp) {
+    // read number of clients
+    int num_clients = 0;
+    fread(&num_clients, sizeof(int), 1, fp);
+
+    for (size_t i = 0; i < num_clients; ++i) {
+        // read client name size
+        uint64_t name_size = fread(&name_size, sizeof(uint64_t), 1, fp);
+        // read client name
+        char name [50] = "";
+        fread(name, sizeof(char), name_size, fp);
+
+        // read vat
+        uint32_t vat = 0;
+        fread(&vat, sizeof(uint32_t), 1, fp);
+
+        // read address
+        uint64_t add_size = 0;
+        fread(&add_size, sizeof(uint64_t), 1, fp);
+        char address [100] = "";
+        fread(address, sizeof(char), add_size, fp);
+
+        // read phone number
+        uint32_t phone_number = 0;
+        fread(&phone_number, sizeof(uint32_t), 1, fp);
+
+        // read birth date
+        int day = 0;
+        int month = 0;
+        int year = 0;
+        fread(&day, sizeof(int), 1, fp);
+        fread(&month, sizeof(int), 1, fp);
+        fread(&year, sizeof(int), 1, fp);
+
+        // insert client
+        insert_client(list, false, name, vat, address, phone_number, day, month, year);
+
+        // search for client
+        CLIENT *temp_client = search_client(list, name);
+
+        // read booked trips
+        read_booked_trips_bin(temp_client, fp);
+    }
+}
+void read_booked_trips_bin (CLIENT *client, FILE *fp) {
+    // read number of trips
+    int num_booked_trips = 0;
+    fread(&num_booked_trips, sizeof(int), 1, fp);
+
+    for (size_t i = 0; i < num_booked_trips; ++i) {
+        // read booked trip name
+        uint64_t booked_trip_name_size = 0;
+        fread(&booked_trip_name_size, sizeof(uint64_t), 1, fp);
+        char booked_trip_name [50] = "";
+        fread(booked_trip_name, sizeof(char), booked_trip_name_size, fp);
+
+        // insert booked trip
+        book_trip(client, booked_trip_name);
+
+        // search booked trip
+        COUNTRY *temp_country = search_trip(client, booked_trip_name, false);
+
+        // read cities
+        read_cities_bin(temp_country, fp);
+    }
+}
+void read_cities_bin (COUNTRY *country, FILE *fp) {
+    // read number of cities
+    int num_cities = 0;
+    fread(&num_cities, sizeof(int), 1, fp);
+
+    for (size_t i = 0; i < num_cities; ++i) {
+        // read city name
+        uint64_t city_name_size = 0;
+        fread(&city_name_size, sizeof(uint64_t), 1, fp);
+        char city_name [50] = "";
+        fread(city_name, sizeof(char), city_name_size, fp);
+
+        // read coordinates
+        float x = 0, y = 0;
+        fread(&x, sizeof(float), 1, fp);
+        fread(&y, sizeof(float), 1, fp);
+
+        // insert city
+        insert_city(country, city_name, x, y);
+
+        // search city
+        CITY *temp_city = search_city(country, city_name);
+
+        // read description
+        read_description_bin(temp_city, fp);
+
+        // read poi
+        read_poi_bin(temp_city, fp);
+    }
+}
+void read_description_bin (CITY *city, FILE *fp) {
+    // read description
+    uint64_t des_size = 0;
+    fread(&des_size, sizeof(uint64_t), 1, fp);
+    char description [200] = "";
+    fread(description, sizeof(char), des_size, fp);
+
+    // insert description
+    insert_description(city, description);
+}
+void read_poi_bin (CITY *city, FILE *fp) {
+    // read number of poi
+    int num_poi = 0;
+    fread(&num_poi, sizeof(int), 1, fp);
+
+    for (size_t i = 0; i < num_poi; ++i) {
+        // read poi
+        uint64_t poi_size = 0;
+        fread(&poi_size, sizeof(uint64_t), 1, fp);
+        char poi [100] = "";
+        fread(poi, sizeof(char), poi_size, fp);
+
+        // insert poi
+        insert_poi(city, poi);
     }
 }
 
