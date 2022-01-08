@@ -1,4 +1,4 @@
-3
+2
     Andre Andre,
     245263582
     Rua do Amial Porto,
@@ -15,7 +15,7 @@
                 Sensō-ji Temple,
             Ōsaka,
             34.7500, 135.4601
-            Osaka is a large port city and commercial center on the Japanese island of Honshu,
+                Osaka is a large port city and commercial center on the Japanese island of Honshu,
             3
                 Universal Studios,
                 Minami,
@@ -23,13 +23,40 @@
             Kyōto,
             35.0111, 135.7669
                 Kyoto is considered the cultural capital of Japan and a major tourist destination,
+            2
+                Nijo Castle,
+                Fushimi-Inari Taisha Shrine,
         Belgium,
         4
             Brussels,
-                50.8333, 4.3333
+            50.8333, 4.3333
+                The City of Brussels is the largest municipality and historical centre of the Brussels-Capital Region as well as the capital of Belgium,
+            4
+                Grand Place,
+                Place du Châtelain,
+                Eglise Saint Gilles,
+                L'Arche,
             Antwerp,
-                51.2206, 4.4003
+            51.2206, 4.4003
+                Antwerp is a port city on Belgium’s River Scheldt with history dating to the Middle Ages,
+            2
+                Kasteel de Merode Westerlo,
+                Grote Markt,
             Gent,
-                51.0536, 3.7253
+            51.0536, 3.7253
+                Ghent is a port city in northwest Belgium at the confluence of the Leie and Scheldt rivers,
+            1
+                Museum of Fine Arts,
             Mons,
-                50.4550, 3.9520
+            50.4550, 3.9520
+                Mons is the capital of Hainaut province in Belgium’s Walloon Region,
+            3
+                Belfry of Mons,
+                Grand-Hornu,
+                Sculpture rue de Nimy,
+    Bitor Hugo,
+    289651380
+    Rua das Flores Porto,
+    913673456
+    18/04/1889
+    3

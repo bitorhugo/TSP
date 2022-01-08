@@ -1,17 +1,16 @@
 PORTO PONTOS CLIENTS
-Client Р)‡ою:
-
 Client Hugo:
-Booked trips: 	New Zealand, usa
 
 Client Andre:
+Booked trips: 	New Zealand, usa
 
 Client Afonso:
 
 Client Carlos:
 
-Client Р)‡ою:
+Client Andre Andre:
+Booked trips: 	Japan, Belgium
 
-Client Р)‡ою:
-Booked trips: 	, 
+Client Bitor Hugo:
+Booked trips: 	, 	, 
 

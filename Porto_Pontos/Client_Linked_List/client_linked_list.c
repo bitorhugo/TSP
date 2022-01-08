@@ -264,7 +264,7 @@ void read_clients_txt (CLIENT_LL *list, FILE *fp) {
     for (size_t i = 0; i < num_clients; ++i) {
         // save insert name
         char name [50] = "";
-        fscanf(fp, "%*[\n] %[^,]", name);
+        fscanf(fp, "%*c %[^,]", name);
 
         // save VAT
         uint32_t vat = 0;
@@ -312,7 +312,7 @@ void read_trips_txt (CLIENT *client, FILE *fp, bool is_finished) {
 
         for (size_t i = 0; i < num_trips; ++i) {
             char country_name [50] = "";
-            fscanf(fp, "%*[\n] %[^,]", country_name);
+            fscanf(fp, "%*c %[^,]", country_name);
 
             // book a trip
             book_trip(client, country_name);
