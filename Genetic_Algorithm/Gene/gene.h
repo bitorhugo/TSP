@@ -16,6 +16,6 @@ typedef struct gene {
  * @param size array size
  * @return address of gene array
  */
-GENE *allocate_memory_gene (int size);
+GENE *allocate_memory_gene(int size);
 
 #endif //TSP_GENE_H

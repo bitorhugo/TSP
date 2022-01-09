@@ -3,7 +3,7 @@
 //
 #include "test_bin.h"
 
-int main_bin_test (CLIENT_LL *list) {
+int main_bin_test(CLIENT_LL *list) {
 
     // read clients from bin
     read_list_bin(list, "../Files/bin/clients.bin");

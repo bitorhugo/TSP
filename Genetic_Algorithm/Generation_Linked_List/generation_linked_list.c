@@ -5,22 +5,27 @@
 #include "generation_linked_list.h"
 #include <stdio.h>
 
-void deallocate_memory_chromosome (POPULATION pop);
-void deallocate_memory_gene (CHROMOSOME *chromosome);
+/*
+ * Private prototypes
+ */
+void deallocate_memory_chromosome(POPULATION pop);
 
-void insert_generation (GENERATION_LL *list, bool at_head, GENERATION generation) {
+void deallocate_memory_gene(CHROMOSOME *chromosome);
+
+/*
+ * Public implementations
+ */
+void insert_generation(GENERATION_LL *list, bool at_head, GENERATION generation) {
     if (list->list_size < 1) {
         list->head = allocate_memory_generation_node(generation);
         list->list_size = 1;
-    }
-    else {
+    } else {
         GENERATION_NODE *new_node = allocate_memory_generation_node(generation);
         if (at_head) {
             new_node->next_node = list->head;
             list->head = new_node;
             list->list_size += 1;
-        }
-        else {
+        } else {
             GENERATION_NODE *temp_node = list->head;
             while (temp_node->next_node != NULL) {
                 temp_node = temp_node->next_node;
@@ -30,7 +35,8 @@ void insert_generation (GENERATION_LL *list, bool at_head, GENERATION generation
         }
     }
 }
-GENERATION* search_generation (GENERATION_LL *list, uint32_t id) {
+
+GENERATION *search_generation(GENERATION_LL *list, uint32_t id) {
     if (list->list_size < 1) {
         fprintf(stderr, "ERROR: NO GENERATIONS FOUND\n");
         return NULL;
@@ -47,7 +53,8 @@ GENERATION* search_generation (GENERATION_LL *list, uint32_t id) {
     fprintf(stderr, "ERROR: GENERATION NOT FOUND\n");
     return NULL;
 }
-void deallocate_generation_linked_list (GENERATION_LL *list) {
+
+void deallocate_generation_linked_list(GENERATION_LL *list) {
     GENERATION_NODE *temp_node = NULL;
     while (list->head != NULL) {
         temp_node = list->head;
@@ -55,27 +62,28 @@ void deallocate_generation_linked_list (GENERATION_LL *list) {
         list->head = temp_node->next_node;
 
         // free parent population
-        POPULATION temp_population = temp_node->generation.parent_population;
-        deallocate_memory_chromosome(temp_population);
+        deallocate_memory_chromosome(temp_node->generation.parent_population);
         // free child population
-        temp_population = temp_node->generation.child_population;
-        deallocate_memory_chromosome(temp_population);
+        deallocate_memory_chromosome(temp_node->generation.child_population);
         // free best population
-        temp_population = temp_node->best_population;
-        deallocate_memory_chromosome(temp_population);
+        deallocate_memory_chromosome(temp_node->best_population);
 
         // free generation node
         deallocate_memory_generation_node(temp_node);
     }
 }
 
-void deallocate_memory_chromosome (POPULATION pop) {
+/*
+ * private implementations
+ */
+void deallocate_memory_chromosome(POPULATION pop) {
     for (int i = pop.num_chromosomes - 1; i >= 0; --i) {
         CHROMOSOME *temp_chromo = pop.chromosomes + i;
         deallocate_memory_gene(temp_chromo);
     }
-    free (pop.chromosomes);
+    free(pop.chromosomes);
 }
-void deallocate_memory_gene (CHROMOSOME *chromosome) {
+
+void deallocate_memory_gene(CHROMOSOME *chromosome) {
     free(chromosome->genes);
 }

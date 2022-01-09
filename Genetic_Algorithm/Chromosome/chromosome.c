@@ -6,18 +6,19 @@
 #include <math.h>
 
 /*
- * Private function prototype
+ * Private prototype
  */
-float euclidean_dist (GENE* first, GENE *second);
+float euclidean_dist(GENE *first, GENE *second);
 
 /*
- * Public functions implementation
+ * Public implementation
  */
-CHROMOSOME* allocate_memory_chromosome (int size) {
+CHROMOSOME *allocate_memory_chromosome(int size) {
     CHROMOSOME *new_chromo = calloc(size, sizeof(CHROMOSOME));
     return new_chromo;
 }
-void insert_gene (CHROMOSOME *chromosome, const COUNTRY *booked_trip) {
+
+void insert_gene(CHROMOSOME *chromosome, const COUNTRY *booked_trip) {
 
     // allocate memory for genes
     chromosome->genes = allocate_memory_gene(chromosome->num_genes);
@@ -34,7 +35,8 @@ void insert_gene (CHROMOSOME *chromosome, const COUNTRY *booked_trip) {
     }
 
 }
-void shuffle_genes (CHROMOSOME *chromosome) {
+
+void shuffle_genes(CHROMOSOME *chromosome) {
 
     if (chromosome->num_genes > 1) { // has to have more than one gene for swap to occur
         for (size_t i = 0; i < chromosome->num_genes - 1; ++i) {
@@ -47,7 +49,8 @@ void shuffle_genes (CHROMOSOME *chromosome) {
     }
 
 }
-float calculate_fitness (CHROMOSOME *chromosome) {
+
+float calculate_fitness(CHROMOSOME *chromosome) {
 
     float sum = 0;
     GENE *temp_gene;
@@ -59,13 +62,13 @@ float calculate_fitness (CHROMOSOME *chromosome) {
             b = chromosome->genes;
         sum += euclidean_dist(a, b);
     }
-    return ((float)1 / sum);
+    return ((float) 1 / sum);
 
 }
 
 /*
- * Private functions implementation
+ * Private implementation
  */
-float euclidean_dist (GENE* first, GENE *second) {
+float euclidean_dist(GENE *first, GENE *second) {
     return sqrtf(powf(second->x - first->x, 2) + powf(second->y - first->y, 2));
 }

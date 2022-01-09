@@ -12,8 +12,7 @@ typedef struct generation {
     uint32_t id;
     POPULATION parent_population;
     POPULATION child_population;
-    POPULATION fittest_chromosome;
-}GENERATION;
+} GENERATION;
 
 /**
  * inserts first population into first generation
@@ -21,7 +20,8 @@ typedef struct generation {
  * @param size_population size of population
  * @return first population
  */
-POPULATION insert_first_population (const COUNTRY *booked_trip, int size_population);
+POPULATION insert_first_population(const COUNTRY *booked_trip, int size_population);
+
 /**
  * inserts child population into generation
  * @param generation address of generation
@@ -29,12 +29,13 @@ POPULATION insert_first_population (const COUNTRY *booked_trip, int size_populat
  * @param mutation_prob mutation probability
  * @return child population
  */
-POPULATION insert_child_population (GENERATION *generation, int num_elitism, float mutation_prob);
+POPULATION insert_child_population(GENERATION *generation, int num_elitism, float mutation_prob);
+
 /**
  * copies every value of a population
  * @param population population to copy
  * @return copied population
  */
-POPULATION deep_copy_population (POPULATION *population);
+POPULATION deep_copy_population(POPULATION *population);
 
 #endif //TSP_GENERATION_H

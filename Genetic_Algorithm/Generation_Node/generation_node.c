@@ -4,21 +4,33 @@
 
 #include "generation_node.h"
 
-void insert_best_population (GENERATION_NODE *node);
+/*
+ * private prototype
+ */
+/**
+ * save population with best two chromosomes into generation node
+ * @param node generation node
+ */
+void insert_best_population(GENERATION_NODE *node);
 
-
-GENERATION_NODE* allocate_memory_generation_node (GENERATION generation) {
+/*
+ * public implementations
+ */
+GENERATION_NODE *allocate_memory_generation_node(GENERATION generation) {
     GENERATION_NODE *new_node = calloc(1, sizeof(GENERATION_NODE));
     new_node->generation = generation;
     insert_best_population(new_node);
     return new_node;
 }
-void deallocate_memory_generation_node (GENERATION_NODE *node) {
+
+void deallocate_memory_generation_node(GENERATION_NODE *node) {
     free(node);
 }
 
-
-void insert_best_population (GENERATION_NODE *node) {
+/*
+ * private implementation
+ */
+void insert_best_population(GENERATION_NODE *node) {
     // set number of chromosomes
     node->best_population.num_chromosomes = 2;
     // allocate memory for chromosomes

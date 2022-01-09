@@ -9,23 +9,25 @@
 typedef struct population {
     CHROMOSOME *chromosomes;
     int num_chromosomes;
-}POPULATION;
+} POPULATION;
 
 /**
  * allocates memory for population
  * @return address of population
  */
-POPULATION* allocate_memory_population();
+POPULATION *allocate_memory_population();
+
 /**
  * inserts chromosomes into population
  * @param population address of population
  * @param booked_trip client booked trip
  */
-void insert_chromosomes (POPULATION *population, const COUNTRY *booked_trip);
+void insert_chromosomes(POPULATION *population, const COUNTRY *booked_trip);
+
 /**
  * sort chromosomes by their fitness value
  * @param population
  */
-void sort_chromosomes_by_fitness (POPULATION *population);
+void sort_chromosomes_by_fitness(POPULATION *population);
 
 #endif //TSP_POPULATION_H

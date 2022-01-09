@@ -4,8 +4,14 @@
 #include "main_algorithm.h"
 #include <stdio.h>
 
+/*
+ * Private prototype
+ */
 void print_last_generation_route (GENERATION_LL *list);
 
+/*
+ * Public implementation
+ */
 void initialize_algorithm (const COUNTRY *booked_trip, int num_iterations, int size_population, int num_elitism, float prob_mutation) {
     // create generation linked list
     GENERATION_LL list = {0};
@@ -47,11 +53,11 @@ void initialize_algorithm (const COUNTRY *booked_trip, int num_iterations, int s
     // prints best route found
     print_last_generation_route(&list);
 
-    // deallocates generation linked list
-    deallocate_generation_linked_list(&list);
-
 }
 
+/*
+ * Private implementation
+ */
 void print_last_generation_route (GENERATION_LL *list) {
     printf ("Best route to take: \n");
     GENERATION *last_generation = search_generation(list, list->list_size - 1);

@@ -5,7 +5,7 @@
 #include "test_txt.h"
 
 
-int main_txt_test (CLIENT_LL *list) {
+int main_txt_test(CLIENT_LL *list) {
 
     // read clients from txt
     read_list_txt(list, "../Files/txt/clients.txt");

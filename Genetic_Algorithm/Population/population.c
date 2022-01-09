@@ -4,9 +4,15 @@
 
 #include "population.h"
 
-void swap_cromo (CHROMOSOME *a, CHROMOSOME *b);
+/*
+ * private prototypes
+ */
+void swap_cromo(CHROMOSOME *a, CHROMOSOME *b);
 
-void insert_chromosomes (POPULATION *population, const COUNTRY *booked_trip) {
+/*
+ * public implementation
+ */
+void insert_chromosomes(POPULATION *population, const COUNTRY *booked_trip) {
 
     // allocate space for 'x' chromosomes
     population->chromosomes = allocate_memory_chromosome(population->num_chromosomes);
@@ -30,7 +36,7 @@ void insert_chromosomes (POPULATION *population, const COUNTRY *booked_trip) {
 
 }
 
-void sort_chromosomes_by_fitness (POPULATION *population) {
+void sort_chromosomes_by_fitness(POPULATION *population) {
 
     // Selection Sort used due to low amount of values to compare
     for (int i = 0; i < population->num_chromosomes - 1; ++i) {
@@ -47,7 +53,10 @@ void sort_chromosomes_by_fitness (POPULATION *population) {
 
 }
 
-void swap_cromo (CHROMOSOME *a, CHROMOSOME *b) {
+/*
+ * private implementation
+ */
+void swap_cromo(CHROMOSOME *a, CHROMOSOME *b) {
     CHROMOSOME temp = *a;
     *a = *b;
     *b = temp;
