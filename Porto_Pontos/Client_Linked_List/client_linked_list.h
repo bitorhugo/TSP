@@ -45,6 +45,7 @@ void insert_client (CLIENT_LL *list, bool at_head, char *name, uint32_t VAT, cha
  * @param birth_month client birth month
  * @param birth_year client birth year
  */
+
 void insert_client_sorted (CLIENT_LL *list, char *name, uint32_t VAT, char *address, uint32_t phone_number, int birth_day, int birth_month, int birth_year);
 /**
  * searches for a client from the linked list
@@ -52,12 +53,14 @@ void insert_client_sorted (CLIENT_LL *list, char *name, uint32_t VAT, char *addr
  * @param client_name clients name
  * @return return client wanted
  */
+
 CLIENT* search_client (CLIENT_LL *list, const char *client_name);
 /**
  * removes a client from the linked list
  * @param list linked list
  * @param client client wanted
  */
+
 void remove_client (CLIENT_LL *list, char *client_name);
 /**
  * print all clients from linked list
@@ -67,9 +70,8 @@ void print_clients (CLIENT_LL *list);
 /**
  * sorts clients from linked list
  * @param list linked list
- * @param attribute 0 -> by id || 1 -> by name
  */
-void sort_clients (CLIENT_LL *list, short attribute);
+void sort_clients (CLIENT_LL *list);
 /**
  * saves clients info to .txt file
  * @param list linked list

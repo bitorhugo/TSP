@@ -42,7 +42,8 @@ int main() {
     main_test_report(&client_list);
 
     // find best route to take for a certain trip
-    initialize_algorithm(client_list.head->next_node->client.booked_trips, 999, 4, 0, 0.05f);
+    // Make sure that test files is commented
+    initialize_algorithm(client_list.head->client.booked_trips, 999, 4, 0, 0.05f);
 
     // deallocates clients linked list
     deallocate_client_linked_list(&client_list);

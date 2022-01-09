@@ -11,7 +11,6 @@
  * Private functions prototypes
  */
 void sort_clients_id (CLIENT_NODE **head);
-void sort_clients_name (CLIENT_LL *list);
 void split_list_in_two(CLIENT_NODE * source, CLIENT_NODE ** frontRef, CLIENT_NODE ** backRef);
 CLIENT_NODE* sorted_merge(CLIENT_NODE *a, CLIENT_NODE *b);
 
@@ -78,40 +77,11 @@ void insert_client (CLIENT_LL *list, bool at_head, char *name, uint32_t VAT, cha
     }
 }
 void insert_client_sorted (CLIENT_LL *list, char *name, uint32_t VAT, char *address, uint32_t phone_number, int birth_day, int birth_month, int birth_year) {
-    if (list->list_size < 1) {
-        list->head = allocate_memory_node_client();
-        list->head->client = create_client(name, VAT, address, phone_number, birth_day, birth_month, birth_year);
-        list->list_size = 1;
-    }
-    else {
-        // makes sure that list is sorted
-        sort_clients_id(&list->head);
+    // insert a client
+    insert_client(list, false, name, VAT, address, phone_number, birth_day, birth_month, birth_year);
 
-        CLIENT_NODE *new_node = allocate_memory_node_client();
-        new_node->client = create_client(name, VAT, address, phone_number, birth_day, birth_month, birth_year);
-
-        CLIENT_NODE *temp_node = list->head;
-        while (temp_node->next_node != NULL) {
-
-            if (temp_node->next_node->client.VAT > new_node->client.VAT) {
-                // if new_node is to be inserted at head
-                // point head at new_node
-                if (temp_node == list->head) {
-                    new_node->next_node = temp_node;
-                    list->head = new_node;
-                    list->list_size += 1;
-                    return;
-                }
-                // insert new_node between temp_node and temp_node->next_node
-                new_node->next_node = temp_node->next_node;
-                temp_node->next_node = new_node;
-                list->list_size += 1;
-                return;
-            }
-
-            temp_node = temp_node->next_node;
-        }
-    }
+    // sort the list
+    sort_clients(list);
 }
 CLIENT* search_client (CLIENT_LL *list, const char *client_name) {
     CLIENT_NODE *temp_node = list->head;
@@ -132,13 +102,15 @@ void remove_client (CLIENT_LL *list, char *client_name) {
     }
     CLIENT_NODE *temp_node = list->head;
     while (temp_node != NULL) {
-        if (strcmp(temp_node->client.name, client_name) == 0) { // checks if head is to be removed
+        // check if head is to be removed
+        if (strcmp(temp_node->client.name, client_name) == 0 && temp_node == list->head) {
             list->head = temp_node->next_node;
             deallocate_memory_node_client(temp_node);
             list->list_size -= 1;
             return;
         }
-        if (strcmp(temp_node->client.name, client_name) == 0) {
+        if (strcmp(temp_node->next_node->client.name, client_name) == 0) {
+            // establish link between current node with next_node->next_node
             temp_node->next_node = temp_node->next_node->next_node;
             deallocate_memory_node_client(temp_node->next_node);
             list->list_size -= 1;
@@ -148,13 +120,12 @@ void remove_client (CLIENT_LL *list, char *client_name) {
     }
     fprintf (stderr, "ERROR: CLIENT NOT FOUND\n");
 }
-void sort_clients (CLIENT_LL *list, short attribute) {
+void sort_clients (CLIENT_LL *list) {
     if (list->list_size < 1) {
         fprintf(stderr, "ERROR: NO CLIENTS AVAILABLE\n");
         return;
     }
-    if (attribute == 0) sort_clients_id(&list->head);
-    else sort_clients_name(list);
+    sort_clients_id(&list->head);
 }
 void print_clients (CLIENT_LL *list) {
     if (list->list_size < 1) {
@@ -195,6 +166,7 @@ void client_report_txt (CLIENT_LL *list, char *filename) {
             fprintf(fp, "Booked trips: ");
             for (size_t i = 0; i < temp_node->client.size_booked_trips; ++i) {
                 COUNTRY *temp_country = temp_node->client.booked_trips + i;
+                // for readability purposes
                 if (i == temp_node->client.size_booked_trips - 1) {
                     fprintf(fp, "%s\n", temp_country->name);
                     break;
@@ -220,6 +192,7 @@ void client_report_txt (CLIENT_LL *list, char *filename) {
 
         temp_node = temp_node->next_node;
     }
+    fclose(fp);
 }
 
 void read_list_txt (CLIENT_LL *list, char *filename) {
@@ -842,9 +815,6 @@ void sort_clients_id (CLIENT_NODE **head) {
 
     // answer = merge the two sorted lists
     *head = sorted_merge(a, b);
-}
-void sort_clients_name (CLIENT_LL *list) {
-
 }
 
 void deallocate_booked_trips (CLIENT *client) {

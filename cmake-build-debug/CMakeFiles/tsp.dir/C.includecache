@@ -24,12 +24,6 @@ stdlib.h
 stdbool.h
 -
 
-../Porto_Pontos/Client_Linked_List/client_linked_list.h
-Client_Node/client_node.h
-../Porto_Pontos/Client_Linked_List/Client_Node/client_node.h
-stdbool.h
--
-
 ../Porto_Pontos/Client_Node/client_node.h
 Client/client.h
 ../Porto_Pontos/Client_Node/Client/client.h
@@ -44,11 +38,17 @@ Client/client.h
 Cities/cities.h
 ../Porto_Pontos/Trips/Cities/cities.h
 
-/Users/VitorHugo/CLionProjects/tsp/Tests/test_Client_List/test_client_list.c
-test_client_list.h
-/Users/VitorHugo/CLionProjects/tsp/Tests/test_Client_List/test_client_list.h
+/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Linked_List/client_linked_list.c
+client_linked_list.h
+/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Linked_List/client_linked_list.h
+stdio.h
+-
+string.h
+-
 
-/Users/VitorHugo/CLionProjects/tsp/Tests/test_Client_List/test_client_list.h
-Client_Linked_List/client_linked_list.h
-/Users/VitorHugo/CLionProjects/tsp/Tests/test_Client_List/Client_Linked_List/client_linked_list.h
+/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Linked_List/client_linked_list.h
+Client_Node/client_node.h
+/Users/VitorHugo/CLionProjects/tsp/Porto_Pontos/Client_Linked_List/Client_Node/client_node.h
+stdbool.h
+-
 

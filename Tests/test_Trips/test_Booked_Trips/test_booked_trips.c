@@ -11,9 +11,11 @@ int main_test_booked_trips (CLIENT *client) {
     book_trip(client, "Australia");
     book_trip(client, "Brazil");
     // remove a booked trip
-    remove_trip(client, "Austria");
+    remove_trip(client, "Australia");
     // edit a booked trip
     edit_trip(client, "Australia", "New Zealand");
+    // search a booked trip
+    search_trip(client, "Brazil", false);
     // print booked trips
     print_trips(client, false);
 

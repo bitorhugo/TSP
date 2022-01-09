@@ -22,6 +22,8 @@ int main_bin_test (CLIENT_LL *list) {
         insert_poi(temp_city, "point of interest");
     }
 
+    finish_trip_requisite(&list->head->client, "Australia");
+
     // save clients to bin
     save_list_bin(list, "../Files/bin/clients.bin");
 

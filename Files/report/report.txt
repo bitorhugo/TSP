@@ -1,0 +1,6 @@
+PORTO PONTOS CLIENTS
+Client Toni:
+Booked trips: 	England, Brazil
+
+Client Afonso:
+

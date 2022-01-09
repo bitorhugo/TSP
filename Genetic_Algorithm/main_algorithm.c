@@ -47,6 +47,8 @@ void initialize_algorithm (const COUNTRY *booked_trip, int num_iterations, int s
 
     print_last_generation_route(&list);
 
+    deallocate_generation_linked_list(&list);
+
 }
 
 void print_last_generation_route (GENERATION_LL *list) {
