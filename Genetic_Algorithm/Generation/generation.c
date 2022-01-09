@@ -17,7 +17,7 @@ POPULATION mutation (POPULATION population, float mutation_prob);
 int int_in_range (int min, int max);
 void swap_gene (GENE *a, GENE *b);
 
-POPULATION insert_first_population (GENERATION *generation, const COUNTRY *booked_trip, int size_population) {
+POPULATION insert_first_population (const COUNTRY *booked_trip, int size_population) {
     // create population
     POPULATION new_population = {0};
 

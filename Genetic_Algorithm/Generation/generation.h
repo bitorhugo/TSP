@@ -17,12 +17,11 @@ typedef struct generation {
 
 /**
  * inserts first population into first generation
- * @param generation first generation
  * @param booked_trip client booked trip
  * @param size_population size of population
  * @return first population
  */
-POPULATION insert_first_population (GENERATION *generation, const COUNTRY *booked_trip, int size_population);
+POPULATION insert_first_population (const COUNTRY *booked_trip, int size_population);
 /**
  * inserts child population into generation
  * @param generation address of generation
