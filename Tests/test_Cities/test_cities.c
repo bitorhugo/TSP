@@ -17,7 +17,7 @@ int main_test_cities(COUNTRY *country) {
     // search city from booked trip
     search_city(country, "Darwin");
     // edit city from booked trip
-    edit_city(country, "Sidney", "Hobart", 32.4f, 87.5f);
+    edit_city(country, "Sidney", "Hobart", -32.4f, 87.5f);
 
     return 0;
 }

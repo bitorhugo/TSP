@@ -21,6 +21,8 @@ typedef struct chromosome {
  */
 CHROMOSOME *allocate_memory_chromosome(int size);
 
+void deallocate_memory_chromosome (CHROMOSOME *chromosome);
+
 /**
  * inserts a gene into chromosome
  * @param chromosome address of chromosome

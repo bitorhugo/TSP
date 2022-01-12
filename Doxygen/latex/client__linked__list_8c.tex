@@ -1,0 +1,734 @@
+\hypertarget{client__linked__list_8c}{}\section{Porto\+\_\+\+Pontos/\+Client\+\_\+\+Linked\+\_\+\+List/client\+\_\+linked\+\_\+list.c File Reference}
+\label{client__linked__list_8c}\index{Porto\+\_\+\+Pontos/\+Client\+\_\+\+Linked\+\_\+\+List/client\+\_\+linked\+\_\+list.\+c@{Porto\+\_\+\+Pontos/\+Client\+\_\+\+Linked\+\_\+\+List/client\+\_\+linked\+\_\+list.\+c}}
+{\ttfamily \#include \char`\"{}client\+\_\+linked\+\_\+list.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{client__linked__list_8c_a5b8a0849021d6045360296c6bd56dae4}{sort\+\_\+clients\+\_\+id} (\hyperlink{client__node_8h_aa942063b3975bfdbcdda012fbc612a9b}{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$$\ast$head)
+\item 
+void \hyperlink{client__linked__list_8c_a6a807e2d9d85d5dce5121393ad04884b}{split\+\_\+list\+\_\+in\+\_\+two} (\hyperlink{client__node_8h_aa942063b3975bfdbcdda012fbc612a9b}{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$source, \hyperlink{client__node_8h_aa942063b3975bfdbcdda012fbc612a9b}{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$$\ast$front\+Ref, \hyperlink{client__node_8h_aa942063b3975bfdbcdda012fbc612a9b}{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$$\ast$back\+Ref)
+\item 
+\hyperlink{client__node_8h_aa942063b3975bfdbcdda012fbc612a9b}{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$ \hyperlink{client__linked__list_8c_aead9223560db93fa1da01412ceed79c6}{sorted\+\_\+merge} (\hyperlink{client__node_8h_aa942063b3975bfdbcdda012fbc612a9b}{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$a, \hyperlink{client__node_8h_aa942063b3975bfdbcdda012fbc612a9b}{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$b)
+\item 
+void \hyperlink{client__linked__list_8c_a01220a6b6d0299ddb038b05dcd06bd23}{read\+\_\+clients\+\_\+txt} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_af2b6e4113ea4dc336c4bc58466d71712}{read\+\_\+booked\+\_\+trips\+\_\+txt} (\hyperlink{client_8h_a5b9629cfae95f0660c94fb7bde7a6a15}{C\+L\+I\+E\+N\+T} $\ast$\hyperlink{structclient}{client}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_ac102c6385d71abef3c96afa1e2272235}{read\+\_\+finished\+\_\+trips\+\_\+txt} (\hyperlink{client_8h_a5b9629cfae95f0660c94fb7bde7a6a15}{C\+L\+I\+E\+N\+T} $\ast$\hyperlink{structclient}{client}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_ae6f183b06027a217e0c30ac3c7bcfa7d}{read\+\_\+cities\+\_\+txt} (\hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$\hyperlink{structcountry}{country}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_a1a6188b631a975c3da4c38c2774ddd7a}{read\+\_\+description\+\_\+txt} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_a24544ca303e6116b97e12a4ffcd64fe2}{read\+\_\+poi\+\_\+txt} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_a177f7b3f8b3e68cce0ee866e3c6e9b3e}{save\+\_\+client\+\_\+txt} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_abf2fe15feac655828cd575f1565a7479}{save\+\_\+booked\+\_\+trips\+\_\+txt} (\hyperlink{client_8h_a5b9629cfae95f0660c94fb7bde7a6a15}{C\+L\+I\+E\+N\+T} $\ast$\hyperlink{structclient}{client}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_ab514fde1b867a0616105b8f8a9b75031}{save\+\_\+finished\+\_\+trips\+\_\+txt} (\hyperlink{client_8h_a5b9629cfae95f0660c94fb7bde7a6a15}{C\+L\+I\+E\+N\+T} $\ast$\hyperlink{structclient}{client}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_a0a972f97baffe0434de19e67ab9d07b7}{save\+\_\+cities\+\_\+txt} (\hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$\hyperlink{structcountry}{country}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_af5b85db17eb56d5eaec4fa1767d6e6c2}{save\+\_\+description\+\_\+txt} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_a3bbb85beff0f0de94edc6e08361206c1}{save\+\_\+poi\+\_\+txt} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_a74062ce4e1144fbcb67d30eda8d82194}{read\+\_\+clients\+\_\+bin} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_adcb5ead2373304a4358510834a417703}{read\+\_\+booked\+\_\+trips\+\_\+bin} (\hyperlink{client_8h_a5b9629cfae95f0660c94fb7bde7a6a15}{C\+L\+I\+E\+N\+T} $\ast$\hyperlink{structclient}{client}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_a61ebe392b6907e9c40fd509722885aaf}{read\+\_\+finished\+\_\+trips\+\_\+bin} (\hyperlink{client_8h_a5b9629cfae95f0660c94fb7bde7a6a15}{C\+L\+I\+E\+N\+T} $\ast$\hyperlink{structclient}{client}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_a09314dc7b72f30051efc5ed490e8b419}{read\+\_\+cities\+\_\+bin} (\hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$\hyperlink{structcountry}{country}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_af7a9707fbcbefde2ad6e0336117e2163}{read\+\_\+description\+\_\+bin} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_a977c636efd1cec4b0363f1e8447b300c}{read\+\_\+poi\+\_\+bin} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_ac34b3b001366772de3d76c8adda341a2}{save\+\_\+client\+\_\+bin} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_a111142f4301dbc39c922dc3a6701ce14}{save\+\_\+booked\+\_\+trips\+\_\+bin} (\hyperlink{client_8h_a5b9629cfae95f0660c94fb7bde7a6a15}{C\+L\+I\+E\+N\+T} $\ast$\hyperlink{structclient}{client}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_a6851f1d5b836217b3bf6f24f2dd5d469}{save\+\_\+finished\+\_\+trips\+\_\+bin} (\hyperlink{client_8h_a5b9629cfae95f0660c94fb7bde7a6a15}{C\+L\+I\+E\+N\+T} $\ast$\hyperlink{structclient}{client}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_a3ec6d1a3fdd00bc00ef625eb12baecef}{save\+\_\+cities\+\_\+bin} (\hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$\hyperlink{structcountry}{country}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_af8749b55229deb199730ca3f70c397ec}{save\+\_\+description\+\_\+bin} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_a0eec4ca979fa3bc2b0d967b089bfa8c3}{save\+\_\+poi\+\_\+bin} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{client__linked__list_8c_aa0c6fe4ea4a093c731972259869168f4}{deallocate\+\_\+booked\+\_\+trips} (\hyperlink{client_8h_a5b9629cfae95f0660c94fb7bde7a6a15}{C\+L\+I\+E\+N\+T} $\ast$\hyperlink{structclient}{client})
+\item 
+void \hyperlink{client__linked__list_8c_a5c35c3660b477cdd4fcb6690c10c230c}{deallocate\+\_\+finished\+\_\+trips} (\hyperlink{client_8h_a5b9629cfae95f0660c94fb7bde7a6a15}{C\+L\+I\+E\+N\+T} $\ast$\hyperlink{structclient}{client})
+\item 
+void \hyperlink{client__linked__list_8c_a3ab456ce36b0f6c1604d9253924bd649}{deallocate\+\_\+cities} (\hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$\hyperlink{structcountry}{country})
+\item 
+void \hyperlink{client__linked__list_8c_a83cbf9d6fe2acc97cc870438e8efb5a9}{deallocate\+\_\+poi} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city})
+\item 
+void \hyperlink{client__linked__list_8c_a8403cabefef5f2d1283db822d25bced5}{deallocate\+\_\+str} (char $\ast$str)
+\item 
+void \hyperlink{client__linked__list_8c_aca5b39cd8cdf49a689689ef612eae64e}{insert\+\_\+client} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list, bool at\+\_\+head, char $\ast$name, uint32\+\_\+t V\+A\+T, char $\ast$address, uint32\+\_\+t phone\+\_\+number, int birth\+\_\+day, int birth\+\_\+month, int birth\+\_\+year)
+\item 
+void \hyperlink{client__linked__list_8c_a967a6e9fad020602eabf439ed7cdd9b0}{insert\+\_\+client\+\_\+sorted} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list, char $\ast$name, uint32\+\_\+t V\+A\+T, char $\ast$address, uint32\+\_\+t phone\+\_\+number, int birth\+\_\+day, int birth\+\_\+month, int birth\+\_\+year)
+\item 
+\hyperlink{client_8h_a5b9629cfae95f0660c94fb7bde7a6a15}{C\+L\+I\+E\+N\+T} $\ast$ \hyperlink{client__linked__list_8c_a199e7a35ae6304b7ca50acc2729db9ce}{search\+\_\+client} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list, const char $\ast$client\+\_\+name)
+\item 
+void \hyperlink{client__linked__list_8c_aae0ce50ac7892a1685691740a2913351}{remove\+\_\+client} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list, char $\ast$client\+\_\+name)
+\item 
+void \hyperlink{client__linked__list_8c_af1a22805cf98d102715527ecafea27ed}{sort\+\_\+clients} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list)
+\item 
+void \hyperlink{client__linked__list_8c_aa04f651bdfed4682914a8ff22d7e1ea1}{print\+\_\+clients} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list)
+\item 
+void \hyperlink{client__linked__list_8c_a3dd8ec7bcf1790936f1180ce59662c30}{client\+\_\+report\+\_\+txt} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list, char $\ast$filename)
+\item 
+void \hyperlink{client__linked__list_8c_ad197768c56a8aa9eed9549bda0f71e0e}{read\+\_\+list\+\_\+txt} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list, char $\ast$filename)
+\item 
+void \hyperlink{client__linked__list_8c_a3642cc9f6e1f00bce818effae28d56d7}{save\+\_\+list\+\_\+txt} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list, char $\ast$filename)
+\item 
+void \hyperlink{client__linked__list_8c_ae88a40cc689282b660d7c94a7bc4559f}{read\+\_\+list\+\_\+bin} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list, char $\ast$filename)
+\item 
+void \hyperlink{client__linked__list_8c_af79d83a895a313c246d685976999217a}{save\+\_\+list\+\_\+bin} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list, char $\ast$filename)
+\item 
+void \hyperlink{client__linked__list_8c_a837285268bfa01810589685d9b5178af}{deallocate\+\_\+client\+\_\+linked\+\_\+list} (\hyperlink{client__linked__list_8h_ad7476678a5390d6399e54637bc30111e}{C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$list)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{client__linked__list_8c_a3dd8ec7bcf1790936f1180ce59662c30}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!client\+\_\+report\+\_\+txt@{client\+\_\+report\+\_\+txt}}
+\index{client\+\_\+report\+\_\+txt@{client\+\_\+report\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{client\+\_\+report\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void client\+\_\+report\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a3dd8ec7bcf1790936f1180ce59662c30}
+saves clients info to .txt file 
+\begin{DoxyParams}{Parameters}
+{\em list} & linked list \\
+\hline
+{\em filename} & file name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 142 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_aa0c6fe4ea4a093c731972259869168f4}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!deallocate\+\_\+booked\+\_\+trips@{deallocate\+\_\+booked\+\_\+trips}}
+\index{deallocate\+\_\+booked\+\_\+trips@{deallocate\+\_\+booked\+\_\+trips}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{deallocate\+\_\+booked\+\_\+trips}]{\setlength{\rightskip}{0pt plus 5cm}void deallocate\+\_\+booked\+\_\+trips (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T} $\ast$}]{client}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_aa0c6fe4ea4a093c731972259869168f4}
+
+
+Definition at line 820 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a3ab456ce36b0f6c1604d9253924bd649}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!deallocate\+\_\+cities@{deallocate\+\_\+cities}}
+\index{deallocate\+\_\+cities@{deallocate\+\_\+cities}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{deallocate\+\_\+cities}]{\setlength{\rightskip}{0pt plus 5cm}void deallocate\+\_\+cities (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{country}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a3ab456ce36b0f6c1604d9253924bd649}
+
+
+Definition at line 843 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a837285268bfa01810589685d9b5178af}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!deallocate\+\_\+client\+\_\+linked\+\_\+list@{deallocate\+\_\+client\+\_\+linked\+\_\+list}}
+\index{deallocate\+\_\+client\+\_\+linked\+\_\+list@{deallocate\+\_\+client\+\_\+linked\+\_\+list}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{deallocate\+\_\+client\+\_\+linked\+\_\+list}]{\setlength{\rightskip}{0pt plus 5cm}void deallocate\+\_\+client\+\_\+linked\+\_\+list (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a837285268bfa01810589685d9b5178af}
+
+
+Definition at line 277 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a5c35c3660b477cdd4fcb6690c10c230c}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!deallocate\+\_\+finished\+\_\+trips@{deallocate\+\_\+finished\+\_\+trips}}
+\index{deallocate\+\_\+finished\+\_\+trips@{deallocate\+\_\+finished\+\_\+trips}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{deallocate\+\_\+finished\+\_\+trips}]{\setlength{\rightskip}{0pt plus 5cm}void deallocate\+\_\+finished\+\_\+trips (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T} $\ast$}]{client}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a5c35c3660b477cdd4fcb6690c10c230c}
+
+
+Definition at line 833 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a83cbf9d6fe2acc97cc870438e8efb5a9}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!deallocate\+\_\+poi@{deallocate\+\_\+poi}}
+\index{deallocate\+\_\+poi@{deallocate\+\_\+poi}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{deallocate\+\_\+poi}]{\setlength{\rightskip}{0pt plus 5cm}void deallocate\+\_\+poi (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a83cbf9d6fe2acc97cc870438e8efb5a9}
+
+
+Definition at line 860 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a8403cabefef5f2d1283db822d25bced5}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!deallocate\+\_\+str@{deallocate\+\_\+str}}
+\index{deallocate\+\_\+str@{deallocate\+\_\+str}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{deallocate\+\_\+str}]{\setlength{\rightskip}{0pt plus 5cm}void deallocate\+\_\+str (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a8403cabefef5f2d1283db822d25bced5}
+
+
+Definition at line 867 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_aca5b39cd8cdf49a689689ef612eae64e}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!insert\+\_\+client@{insert\+\_\+client}}
+\index{insert\+\_\+client@{insert\+\_\+client}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{insert\+\_\+client}]{\setlength{\rightskip}{0pt plus 5cm}void insert\+\_\+client (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{bool}]{at\+\_\+head, }
+\item[{char $\ast$}]{name, }
+\item[{uint32\+\_\+t}]{V\+A\+T, }
+\item[{char $\ast$}]{address, }
+\item[{uint32\+\_\+t}]{phone\+\_\+number, }
+\item[{int}]{birth\+\_\+day, }
+\item[{int}]{birth\+\_\+month, }
+\item[{int}]{birth\+\_\+year}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_aca5b39cd8cdf49a689689ef612eae64e}
+insert client into linked list 
+\begin{DoxyParams}{Parameters}
+{\em list} & linked list \\
+\hline
+{\em at\+\_\+head} & choose if client is inserted at head \\
+\hline
+{\em name} & client name \\
+\hline
+{\em V\+A\+T} & client V\+A\+T \\
+\hline
+{\em address} & client address \\
+\hline
+{\em phone\+\_\+number} & client phone number \\
+\hline
+{\em birth\+\_\+day} & client birth day \\
+\hline
+{\em birth\+\_\+month} & client birth month \\
+\hline
+{\em birth\+\_\+year} & client birth year \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a967a6e9fad020602eabf439ed7cdd9b0}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!insert\+\_\+client\+\_\+sorted@{insert\+\_\+client\+\_\+sorted}}
+\index{insert\+\_\+client\+\_\+sorted@{insert\+\_\+client\+\_\+sorted}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{insert\+\_\+client\+\_\+sorted}]{\setlength{\rightskip}{0pt plus 5cm}void insert\+\_\+client\+\_\+sorted (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{char $\ast$}]{name, }
+\item[{uint32\+\_\+t}]{V\+A\+T, }
+\item[{char $\ast$}]{address, }
+\item[{uint32\+\_\+t}]{phone\+\_\+number, }
+\item[{int}]{birth\+\_\+day, }
+\item[{int}]{birth\+\_\+month, }
+\item[{int}]{birth\+\_\+year}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a967a6e9fad020602eabf439ed7cdd9b0}
+insert a client into linked list sorted 
+\begin{DoxyParams}{Parameters}
+{\em list} & linked list \\
+\hline
+{\em name} & client name \\
+\hline
+{\em V\+A\+T} & client V\+A\+T \\
+\hline
+{\em address} & client address \\
+\hline
+{\em phone\+\_\+number} & client phone number \\
+\hline
+{\em birth\+\_\+day} & client birth day \\
+\hline
+{\em birth\+\_\+month} & client birth month \\
+\hline
+{\em birth\+\_\+year} & client birth year \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 79 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_aa04f651bdfed4682914a8ff22d7e1ea1}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!print\+\_\+clients@{print\+\_\+clients}}
+\index{print\+\_\+clients@{print\+\_\+clients}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{print\+\_\+clients}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+clients (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_aa04f651bdfed4682914a8ff22d7e1ea1}
+print all clients from linked list 
+\begin{DoxyParams}{Parameters}
+{\em list} & linked list \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 130 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_adcb5ead2373304a4358510834a417703}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+booked\+\_\+trips\+\_\+bin@{read\+\_\+booked\+\_\+trips\+\_\+bin}}
+\index{read\+\_\+booked\+\_\+trips\+\_\+bin@{read\+\_\+booked\+\_\+trips\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+booked\+\_\+trips\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+booked\+\_\+trips\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T} $\ast$}]{client, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_adcb5ead2373304a4358510834a417703}
+
+
+Definition at line 574 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_af2b6e4113ea4dc336c4bc58466d71712}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+booked\+\_\+trips\+\_\+txt@{read\+\_\+booked\+\_\+trips\+\_\+txt}}
+\index{read\+\_\+booked\+\_\+trips\+\_\+txt@{read\+\_\+booked\+\_\+trips\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+booked\+\_\+trips\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+booked\+\_\+trips\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T} $\ast$}]{client, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_af2b6e4113ea4dc336c4bc58466d71712}
+
+
+Definition at line 345 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a09314dc7b72f30051efc5ed490e8b419}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+cities\+\_\+bin@{read\+\_\+cities\+\_\+bin}}
+\index{read\+\_\+cities\+\_\+bin@{read\+\_\+cities\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+cities\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+cities\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{country, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a09314dc7b72f30051efc5ed490e8b419}
+
+
+Definition at line 618 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_ae6f183b06027a217e0c30ac3c7bcfa7d}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+cities\+\_\+txt@{read\+\_\+cities\+\_\+txt}}
+\index{read\+\_\+cities\+\_\+txt@{read\+\_\+cities\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+cities\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+cities\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{country, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_ae6f183b06027a217e0c30ac3c7bcfa7d}
+
+
+Definition at line 375 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a74062ce4e1144fbcb67d30eda8d82194}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+clients\+\_\+bin@{read\+\_\+clients\+\_\+bin}}
+\index{read\+\_\+clients\+\_\+bin@{read\+\_\+clients\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+clients\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+clients\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a74062ce4e1144fbcb67d30eda8d82194}
+
+
+Definition at line 526 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a01220a6b6d0299ddb038b05dcd06bd23}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+clients\+\_\+txt@{read\+\_\+clients\+\_\+txt}}
+\index{read\+\_\+clients\+\_\+txt@{read\+\_\+clients\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+clients\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+clients\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a01220a6b6d0299ddb038b05dcd06bd23}
+
+
+Definition at line 306 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_af7a9707fbcbefde2ad6e0336117e2163}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+description\+\_\+bin@{read\+\_\+description\+\_\+bin}}
+\index{read\+\_\+description\+\_\+bin@{read\+\_\+description\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+description\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+description\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_af7a9707fbcbefde2ad6e0336117e2163}
+
+
+Definition at line 648 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a1a6188b631a975c3da4c38c2774ddd7a}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+description\+\_\+txt@{read\+\_\+description\+\_\+txt}}
+\index{read\+\_\+description\+\_\+txt@{read\+\_\+description\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+description\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+description\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a1a6188b631a975c3da4c38c2774ddd7a}
+
+
+Definition at line 403 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a61ebe392b6907e9c40fd509722885aaf}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+finished\+\_\+trips\+\_\+bin@{read\+\_\+finished\+\_\+trips\+\_\+bin}}
+\index{read\+\_\+finished\+\_\+trips\+\_\+bin@{read\+\_\+finished\+\_\+trips\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+finished\+\_\+trips\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+finished\+\_\+trips\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T} $\ast$}]{client, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a61ebe392b6907e9c40fd509722885aaf}
+
+
+Definition at line 596 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_ac102c6385d71abef3c96afa1e2272235}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+finished\+\_\+trips\+\_\+txt@{read\+\_\+finished\+\_\+trips\+\_\+txt}}
+\index{read\+\_\+finished\+\_\+trips\+\_\+txt@{read\+\_\+finished\+\_\+trips\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+finished\+\_\+trips\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+finished\+\_\+trips\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T} $\ast$}]{client, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_ac102c6385d71abef3c96afa1e2272235}
+
+
+Definition at line 361 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_ae88a40cc689282b660d7c94a7bc4559f}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+list\+\_\+bin@{read\+\_\+list\+\_\+bin}}
+\index{read\+\_\+list\+\_\+bin@{read\+\_\+list\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+list\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+list\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_ae88a40cc689282b660d7c94a7bc4559f}
+reads clients and their info ino linked list from .bin file 
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 258 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_ad197768c56a8aa9eed9549bda0f71e0e}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+list\+\_\+txt@{read\+\_\+list\+\_\+txt}}
+\index{read\+\_\+list\+\_\+txt@{read\+\_\+list\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+list\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+list\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_ad197768c56a8aa9eed9549bda0f71e0e}
+read clients into linked list from .txt file 
+\begin{DoxyParams}{Parameters}
+{\em list} & linked list \\
+\hline
+{\em filename} & filename \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 198 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a977c636efd1cec4b0363f1e8447b300c}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+poi\+\_\+bin@{read\+\_\+poi\+\_\+bin}}
+\index{read\+\_\+poi\+\_\+bin@{read\+\_\+poi\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+poi\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+poi\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a977c636efd1cec4b0363f1e8447b300c}
+
+
+Definition at line 658 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a24544ca303e6116b97e12a4ffcd64fe2}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!read\+\_\+poi\+\_\+txt@{read\+\_\+poi\+\_\+txt}}
+\index{read\+\_\+poi\+\_\+txt@{read\+\_\+poi\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{read\+\_\+poi\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void read\+\_\+poi\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a24544ca303e6116b97e12a4ffcd64fe2}
+
+
+Definition at line 411 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_aae0ce50ac7892a1685691740a2913351}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!remove\+\_\+client@{remove\+\_\+client}}
+\index{remove\+\_\+client@{remove\+\_\+client}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{remove\+\_\+client}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+\_\+client (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{char $\ast$}]{client\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_aae0ce50ac7892a1685691740a2913351}
+removes a client from the linked list 
+\begin{DoxyParams}{Parameters}
+{\em list} & linked list \\
+\hline
+{\em client} & client wanted \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 98 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a111142f4301dbc39c922dc3a6701ce14}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+booked\+\_\+trips\+\_\+bin@{save\+\_\+booked\+\_\+trips\+\_\+bin}}
+\index{save\+\_\+booked\+\_\+trips\+\_\+bin@{save\+\_\+booked\+\_\+trips\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+booked\+\_\+trips\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+booked\+\_\+trips\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T} $\ast$}]{client, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a111142f4301dbc39c922dc3a6701ce14}
+
+
+Definition at line 720 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_abf2fe15feac655828cd575f1565a7479}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+booked\+\_\+trips\+\_\+txt@{save\+\_\+booked\+\_\+trips\+\_\+txt}}
+\index{save\+\_\+booked\+\_\+trips\+\_\+txt@{save\+\_\+booked\+\_\+trips\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+booked\+\_\+trips\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+booked\+\_\+trips\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T} $\ast$}]{client, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_abf2fe15feac655828cd575f1565a7479}
+
+
+Definition at line 462 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a3ec6d1a3fdd00bc00ef625eb12baecef}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+cities\+\_\+bin@{save\+\_\+cities\+\_\+bin}}
+\index{save\+\_\+cities\+\_\+bin@{save\+\_\+cities\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+cities\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+cities\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{country, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a3ec6d1a3fdd00bc00ef625eb12baecef}
+
+
+Definition at line 754 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a0a972f97baffe0434de19e67ab9d07b7}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+cities\+\_\+txt@{save\+\_\+cities\+\_\+txt}}
+\index{save\+\_\+cities\+\_\+txt@{save\+\_\+cities\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+cities\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+cities\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{country, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a0a972f97baffe0434de19e67ab9d07b7}
+
+
+Definition at line 492 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_ac34b3b001366772de3d76c8adda341a2}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+client\+\_\+bin@{save\+\_\+client\+\_\+bin}}
+\index{save\+\_\+client\+\_\+bin@{save\+\_\+client\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+client\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+client\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_ac34b3b001366772de3d76c8adda341a2}
+
+
+Definition at line 675 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a177f7b3f8b3e68cce0ee866e3c6e9b3e}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+client\+\_\+txt@{save\+\_\+client\+\_\+txt}}
+\index{save\+\_\+client\+\_\+txt@{save\+\_\+client\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+client\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+client\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a177f7b3f8b3e68cce0ee866e3c6e9b3e}
+
+
+Definition at line 431 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_af8749b55229deb199730ca3f70c397ec}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+description\+\_\+bin@{save\+\_\+description\+\_\+bin}}
+\index{save\+\_\+description\+\_\+bin@{save\+\_\+description\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+description\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+description\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_af8749b55229deb199730ca3f70c397ec}
+
+
+Definition at line 780 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_af5b85db17eb56d5eaec4fa1767d6e6c2}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+description\+\_\+txt@{save\+\_\+description\+\_\+txt}}
+\index{save\+\_\+description\+\_\+txt@{save\+\_\+description\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+description\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+description\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_af5b85db17eb56d5eaec4fa1767d6e6c2}
+
+
+Definition at line 511 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a6851f1d5b836217b3bf6f24f2dd5d469}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+finished\+\_\+trips\+\_\+bin@{save\+\_\+finished\+\_\+trips\+\_\+bin}}
+\index{save\+\_\+finished\+\_\+trips\+\_\+bin@{save\+\_\+finished\+\_\+trips\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+finished\+\_\+trips\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+finished\+\_\+trips\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T} $\ast$}]{client, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a6851f1d5b836217b3bf6f24f2dd5d469}
+
+
+Definition at line 737 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_ab514fde1b867a0616105b8f8a9b75031}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+finished\+\_\+trips\+\_\+txt@{save\+\_\+finished\+\_\+trips\+\_\+txt}}
+\index{save\+\_\+finished\+\_\+trips\+\_\+txt@{save\+\_\+finished\+\_\+trips\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+finished\+\_\+trips\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+finished\+\_\+trips\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T} $\ast$}]{client, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_ab514fde1b867a0616105b8f8a9b75031}
+
+
+Definition at line 478 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_af79d83a895a313c246d685976999217a}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+list\+\_\+bin@{save\+\_\+list\+\_\+bin}}
+\index{save\+\_\+list\+\_\+bin@{save\+\_\+list\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+list\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+list\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_af79d83a895a313c246d685976999217a}
+save clients info into to -\/bin file 
+\begin{DoxyParams}{Parameters}
+{\em list} & linked list \\
+\hline
+{\em filename} & filename \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 267 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a3642cc9f6e1f00bce818effae28d56d7}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+list\+\_\+txt@{save\+\_\+list\+\_\+txt}}
+\index{save\+\_\+list\+\_\+txt@{save\+\_\+list\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+list\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+list\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a3642cc9f6e1f00bce818effae28d56d7}
+save linked list info to .txt file 
+\begin{DoxyParams}{Parameters}
+{\em list} & linked list \\
+\hline
+{\em filename} & filename \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 229 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a0eec4ca979fa3bc2b0d967b089bfa8c3}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+poi\+\_\+bin@{save\+\_\+poi\+\_\+bin}}
+\index{save\+\_\+poi\+\_\+bin@{save\+\_\+poi\+\_\+bin}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+poi\+\_\+bin}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+poi\+\_\+bin (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a0eec4ca979fa3bc2b0d967b089bfa8c3}
+
+
+Definition at line 786 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a3bbb85beff0f0de94edc6e08361206c1}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!save\+\_\+poi\+\_\+txt@{save\+\_\+poi\+\_\+txt}}
+\index{save\+\_\+poi\+\_\+txt@{save\+\_\+poi\+\_\+txt}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{save\+\_\+poi\+\_\+txt}]{\setlength{\rightskip}{0pt plus 5cm}void save\+\_\+poi\+\_\+txt (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a3bbb85beff0f0de94edc6e08361206c1}
+
+
+Definition at line 515 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a199e7a35ae6304b7ca50acc2729db9ce}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!search\+\_\+client@{search\+\_\+client}}
+\index{search\+\_\+client@{search\+\_\+client}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{search\+\_\+client}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+L\+I\+E\+N\+T}$\ast$ search\+\_\+client (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{const char $\ast$}]{client\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a199e7a35ae6304b7ca50acc2729db9ce}
+searches for a client from the linked list 
+\begin{DoxyParams}{Parameters}
+{\em list} & linked list \\
+\hline
+{\em client\+\_\+name} & clients name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return client wanted 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_af1a22805cf98d102715527ecafea27ed}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!sort\+\_\+clients@{sort\+\_\+clients}}
+\index{sort\+\_\+clients@{sort\+\_\+clients}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{sort\+\_\+clients}]{\setlength{\rightskip}{0pt plus 5cm}void sort\+\_\+clients (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+L\+L} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_af1a22805cf98d102715527ecafea27ed}
+sorts clients from linked list 
+\begin{DoxyParams}{Parameters}
+{\em list} & linked list \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 123 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a5b8a0849021d6045360296c6bd56dae4}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!sort\+\_\+clients\+\_\+id@{sort\+\_\+clients\+\_\+id}}
+\index{sort\+\_\+clients\+\_\+id@{sort\+\_\+clients\+\_\+id}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{sort\+\_\+clients\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}void sort\+\_\+clients\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$$\ast$}]{head}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a5b8a0849021d6045360296c6bd56dae4}
+
+
+Definition at line 800 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_aead9223560db93fa1da01412ceed79c6}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!sorted\+\_\+merge@{sorted\+\_\+merge}}
+\index{sorted\+\_\+merge@{sorted\+\_\+merge}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{sorted\+\_\+merge}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$ sorted\+\_\+merge (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$}]{a, }
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_aead9223560db93fa1da01412ceed79c6}
+
+
+Definition at line 901 of file client\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{client__linked__list_8c_a6a807e2d9d85d5dce5121393ad04884b}{}\index{client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}!split\+\_\+list\+\_\+in\+\_\+two@{split\+\_\+list\+\_\+in\+\_\+two}}
+\index{split\+\_\+list\+\_\+in\+\_\+two@{split\+\_\+list\+\_\+in\+\_\+two}!client\+\_\+linked\+\_\+list.\+c@{client\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{split\+\_\+list\+\_\+in\+\_\+two}]{\setlength{\rightskip}{0pt plus 5cm}void split\+\_\+list\+\_\+in\+\_\+two (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$}]{source, }
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$$\ast$}]{front\+Ref, }
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$$\ast$}]{back\+Ref}
+\end{DoxyParamCaption}
+)}\label{client__linked__list_8c_a6a807e2d9d85d5dce5121393ad04884b}
+
+
+Definition at line 871 of file client\+\_\+linked\+\_\+list.\+c.
+

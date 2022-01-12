@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['edit_5fcity',['edit_city',['../trips_8c.html#aa4a35235b849a206122909886871dfba',1,'edit_city(COUNTRY *country, char *current_city_name, char *new_city_name, float new_x, float new_y):&#160;trips.c'],['../trips_8h.html#aa4a35235b849a206122909886871dfba',1,'edit_city(COUNTRY *country, char *current_city_name, char *new_city_name, float new_x, float new_y):&#160;trips.c']]],
+  ['edit_5fdescription',['edit_description',['../cities_8c.html#a43172b197c412900a5e82f620165cf72',1,'edit_description(CITY *city, char *new_description):&#160;cities.c'],['../cities_8h.html#a43172b197c412900a5e82f620165cf72',1,'edit_description(CITY *city, char *new_description):&#160;cities.c']]],
+  ['edit_5ftrip',['edit_trip',['../client_8c.html#a3ddfd5914641bdc9063be204c87590ad',1,'edit_trip(CLIENT *client, char *current_country_name, char *new_country_name):&#160;client.c'],['../client_8h.html#a3ddfd5914641bdc9063be204c87590ad',1,'edit_trip(CLIENT *client, char *current_country_name, char *new_country_name):&#160;client.c']]],
+  ['euclidean_5fdist',['euclidean_dist',['../ag_8c.html#aea04e1f256f0202147a26fb660298be0',1,'euclidean_dist(GENE *first, GENE *second):&#160;ag.c'],['../ag_8h.html#aea04e1f256f0202147a26fb660298be0',1,'euclidean_dist(GENE *first, GENE *second):&#160;ag.c'],['../chromosome_8c.html#aea04e1f256f0202147a26fb660298be0',1,'euclidean_dist(GENE *first, GENE *second):&#160;chromosome.c']]]
+];

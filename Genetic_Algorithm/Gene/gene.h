@@ -18,4 +18,7 @@ typedef struct gene {
  */
 GENE *allocate_memory_gene(int size);
 
+void deallocate_memory_gene (GENE *gene);
+
+void swap_gene(GENE *a, GENE *b);
 #endif //TSP_GENE_H

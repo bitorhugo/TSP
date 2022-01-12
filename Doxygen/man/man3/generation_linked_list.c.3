@@ -1,0 +1,89 @@
+.TH "Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c" 3 "Mon Jan 10 2022" "TSP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Genetic_Algorithm/Generation_Linked_List/generation_linked_list.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'generation_linked_list\&.h'\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBdeallocate_memory_chromosome\fP (\fBPOPULATION\fP pop)"
+.br
+.ti -1c
+.RI "void \fBdeallocate_memory_gene\fP (\fBCHROMOSOME\fP *\fBchromosome\fP)"
+.br
+.ti -1c
+.RI "void \fBinsert_generation\fP (\fBGENERATION_LL\fP *list, bool at_head, \fBGENERATION\fP \fBgeneration\fP)"
+.br
+.ti -1c
+.RI "\fBGENERATION\fP * \fBsearch_generation\fP (\fBGENERATION_LL\fP *list, uint32_t id)"
+.br
+.ti -1c
+.RI "void \fBdeallocate_generation_linked_list\fP (\fBGENERATION_LL\fP *list)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void deallocate_generation_linked_list (\fBGENERATION_LL\fP * list)"
+frees generation list 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP address of linked list 
+.RE
+.PP
+
+.PP
+Definition at line 57 of file generation_linked_list\&.c\&.
+.SS "void deallocate_memory_chromosome (\fBPOPULATION\fP pop)"
+
+.PP
+Definition at line 79 of file generation_linked_list\&.c\&.
+.SS "void deallocate_memory_gene (\fBCHROMOSOME\fP * chromosome)"
+
+.PP
+Definition at line 87 of file generation_linked_list\&.c\&.
+.SS "void insert_generation (\fBGENERATION_LL\fP * list, bool at_head, \fBGENERATION\fP generation)"
+inserts a new generation into linked list 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP address of linked list 
+.br
+\fIat_head\fP choose if generation is inserted at head 
+.br
+\fIgeneration\fP generation to insert 
+.RE
+.PP
+
+.PP
+Definition at line 18 of file generation_linked_list\&.c\&.
+.SS "\fBGENERATION\fP* search_generation (\fBGENERATION_LL\fP * list, uint32_t id)"
+searches for a generation from linked list 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP address of linked list 
+.br
+\fIid\fP generation id 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+address of generation 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file generation_linked_list\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TSP from the source code\&.

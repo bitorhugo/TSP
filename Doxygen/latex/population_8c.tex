@@ -1,0 +1,62 @@
+\hypertarget{population_8c}{}\section{Genetic\+\_\+\+Algorithm/\+Population/population.c File Reference}
+\label{population_8c}\index{Genetic\+\_\+\+Algorithm/\+Population/population.\+c@{Genetic\+\_\+\+Algorithm/\+Population/population.\+c}}
+{\ttfamily \#include \char`\"{}population.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{population_8c_ad4b9a55c1f811e1b11dad7ef011c857b}{swap\+\_\+cromo} (\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$a, \hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$b)
+\item 
+void \hyperlink{population_8c_afa1a4aecf1c75cbd5496f4d5dbf0ba4b}{insert\+\_\+chromosomes} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population}, const \hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$booked\+\_\+trip)
+\item 
+void \hyperlink{population_8c_a8f0892cf56f573d9e247f3483c544683}{sort\+\_\+chromosomes\+\_\+by\+\_\+fitness} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{population_8c_afa1a4aecf1c75cbd5496f4d5dbf0ba4b}{}\index{population.\+c@{population.\+c}!insert\+\_\+chromosomes@{insert\+\_\+chromosomes}}
+\index{insert\+\_\+chromosomes@{insert\+\_\+chromosomes}!population.\+c@{population.\+c}}
+\subsubsection[{insert\+\_\+chromosomes}]{\setlength{\rightskip}{0pt plus 5cm}void insert\+\_\+chromosomes (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population, }
+\item[{const {\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{booked\+\_\+trip}
+\end{DoxyParamCaption}
+)}\label{population_8c_afa1a4aecf1c75cbd5496f4d5dbf0ba4b}
+inserts chromosomes into population 
+\begin{DoxyParams}{Parameters}
+{\em population} & address of population \\
+\hline
+{\em booked\+\_\+trip} & client booked trip \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file population.\+c.
+
+\hypertarget{population_8c_a8f0892cf56f573d9e247f3483c544683}{}\index{population.\+c@{population.\+c}!sort\+\_\+chromosomes\+\_\+by\+\_\+fitness@{sort\+\_\+chromosomes\+\_\+by\+\_\+fitness}}
+\index{sort\+\_\+chromosomes\+\_\+by\+\_\+fitness@{sort\+\_\+chromosomes\+\_\+by\+\_\+fitness}!population.\+c@{population.\+c}}
+\subsubsection[{sort\+\_\+chromosomes\+\_\+by\+\_\+fitness}]{\setlength{\rightskip}{0pt plus 5cm}void sort\+\_\+chromosomes\+\_\+by\+\_\+fitness (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population}
+\end{DoxyParamCaption}
+)}\label{population_8c_a8f0892cf56f573d9e247f3483c544683}
+sort chromosomes by their fitness value 
+\begin{DoxyParams}{Parameters}
+{\em population} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 39 of file population.\+c.
+
+\hypertarget{population_8c_ad4b9a55c1f811e1b11dad7ef011c857b}{}\index{population.\+c@{population.\+c}!swap\+\_\+cromo@{swap\+\_\+cromo}}
+\index{swap\+\_\+cromo@{swap\+\_\+cromo}!population.\+c@{population.\+c}}
+\subsubsection[{swap\+\_\+cromo}]{\setlength{\rightskip}{0pt plus 5cm}void swap\+\_\+cromo (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$}]{a, }
+\item[{{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{population_8c_ad4b9a55c1f811e1b11dad7ef011c857b}
+
+
+Definition at line 59 of file population.\+c.
+

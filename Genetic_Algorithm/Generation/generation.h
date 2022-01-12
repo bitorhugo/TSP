@@ -20,7 +20,7 @@ typedef struct generation {
  * @param size_population size of population
  * @return first population
  */
-POPULATION insert_first_population(const COUNTRY *booked_trip, int size_population);
+void insert_first_population(GENERATION *generation, const COUNTRY *booked_trip, int size_population);
 
 /**
  * inserts child population into generation
@@ -29,13 +29,13 @@ POPULATION insert_first_population(const COUNTRY *booked_trip, int size_populati
  * @param mutation_prob mutation probability
  * @return child population
  */
-POPULATION insert_child_population(GENERATION *generation, int num_elitism, float mutation_prob);
+void insert_child_population(GENERATION *generation, int num_elitism, float mutation_prob);
 
 /**
  * copies every value of a population
  * @param population population to copy
  * @return copied population
  */
-POPULATION deep_copy_population(POPULATION *population);
+POPULATION deep_copy_population(const POPULATION *population);
 
 #endif //TSP_GENERATION_H

@@ -1,0 +1,102 @@
+\hypertarget{generation__linked__list_8c}{}\section{Genetic\+\_\+\+Algorithm/\+Generation\+\_\+\+Linked\+\_\+\+List/generation\+\_\+linked\+\_\+list.c File Reference}
+\label{generation__linked__list_8c}\index{Genetic\+\_\+\+Algorithm/\+Generation\+\_\+\+Linked\+\_\+\+List/generation\+\_\+linked\+\_\+list.\+c@{Genetic\+\_\+\+Algorithm/\+Generation\+\_\+\+Linked\+\_\+\+List/generation\+\_\+linked\+\_\+list.\+c}}
+{\ttfamily \#include \char`\"{}generation\+\_\+linked\+\_\+list.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{generation__linked__list_8c_a0e427b03f71d9921a24ed9a88e862386}{deallocate\+\_\+memory\+\_\+chromosome} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} pop)
+\item 
+void \hyperlink{generation__linked__list_8c_a759fff4696ddeb03686abca5bd72f275}{deallocate\+\_\+memory\+\_\+gene} (\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$\hyperlink{structchromosome}{chromosome})
+\item 
+void \hyperlink{generation__linked__list_8c_a905f135a7294139bf64dc7977e9e9358}{insert\+\_\+generation} (\hyperlink{generation__linked__list_8h_a9042e6d7cb7d35d29e0ee814c60d997c}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N\+\_\+\+L\+L} $\ast$list, bool at\+\_\+head, \hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} \hyperlink{structgeneration}{generation})
+\item 
+\hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$ \hyperlink{generation__linked__list_8c_a9785b39da18d8e2d8e3718cd75495a0b}{search\+\_\+generation} (\hyperlink{generation__linked__list_8h_a9042e6d7cb7d35d29e0ee814c60d997c}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N\+\_\+\+L\+L} $\ast$list, uint32\+\_\+t id)
+\item 
+void \hyperlink{generation__linked__list_8c_a4e354069c0e05bbc6a7e00d4fd8cf48d}{deallocate\+\_\+generation\+\_\+linked\+\_\+list} (\hyperlink{generation__linked__list_8h_a9042e6d7cb7d35d29e0ee814c60d997c}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N\+\_\+\+L\+L} $\ast$list)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{generation__linked__list_8c_a4e354069c0e05bbc6a7e00d4fd8cf48d}{}\index{generation\+\_\+linked\+\_\+list.\+c@{generation\+\_\+linked\+\_\+list.\+c}!deallocate\+\_\+generation\+\_\+linked\+\_\+list@{deallocate\+\_\+generation\+\_\+linked\+\_\+list}}
+\index{deallocate\+\_\+generation\+\_\+linked\+\_\+list@{deallocate\+\_\+generation\+\_\+linked\+\_\+list}!generation\+\_\+linked\+\_\+list.\+c@{generation\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{deallocate\+\_\+generation\+\_\+linked\+\_\+list}]{\setlength{\rightskip}{0pt plus 5cm}void deallocate\+\_\+generation\+\_\+linked\+\_\+list (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N\+\_\+\+L\+L} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{generation__linked__list_8c_a4e354069c0e05bbc6a7e00d4fd8cf48d}
+frees generation list 
+\begin{DoxyParams}{Parameters}
+{\em list} & address of linked list \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 57 of file generation\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{generation__linked__list_8c_a0e427b03f71d9921a24ed9a88e862386}{}\index{generation\+\_\+linked\+\_\+list.\+c@{generation\+\_\+linked\+\_\+list.\+c}!deallocate\+\_\+memory\+\_\+chromosome@{deallocate\+\_\+memory\+\_\+chromosome}}
+\index{deallocate\+\_\+memory\+\_\+chromosome@{deallocate\+\_\+memory\+\_\+chromosome}!generation\+\_\+linked\+\_\+list.\+c@{generation\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{deallocate\+\_\+memory\+\_\+chromosome}]{\setlength{\rightskip}{0pt plus 5cm}void deallocate\+\_\+memory\+\_\+chromosome (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N}}]{pop}
+\end{DoxyParamCaption}
+)}\label{generation__linked__list_8c_a0e427b03f71d9921a24ed9a88e862386}
+
+
+Definition at line 79 of file generation\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{generation__linked__list_8c_a759fff4696ddeb03686abca5bd72f275}{}\index{generation\+\_\+linked\+\_\+list.\+c@{generation\+\_\+linked\+\_\+list.\+c}!deallocate\+\_\+memory\+\_\+gene@{deallocate\+\_\+memory\+\_\+gene}}
+\index{deallocate\+\_\+memory\+\_\+gene@{deallocate\+\_\+memory\+\_\+gene}!generation\+\_\+linked\+\_\+list.\+c@{generation\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{deallocate\+\_\+memory\+\_\+gene}]{\setlength{\rightskip}{0pt plus 5cm}void deallocate\+\_\+memory\+\_\+gene (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$}]{chromosome}
+\end{DoxyParamCaption}
+)}\label{generation__linked__list_8c_a759fff4696ddeb03686abca5bd72f275}
+
+
+Definition at line 87 of file generation\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{generation__linked__list_8c_a905f135a7294139bf64dc7977e9e9358}{}\index{generation\+\_\+linked\+\_\+list.\+c@{generation\+\_\+linked\+\_\+list.\+c}!insert\+\_\+generation@{insert\+\_\+generation}}
+\index{insert\+\_\+generation@{insert\+\_\+generation}!generation\+\_\+linked\+\_\+list.\+c@{generation\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{insert\+\_\+generation}]{\setlength{\rightskip}{0pt plus 5cm}void insert\+\_\+generation (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{bool}]{at\+\_\+head, }
+\item[{{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N}}]{generation}
+\end{DoxyParamCaption}
+)}\label{generation__linked__list_8c_a905f135a7294139bf64dc7977e9e9358}
+inserts a new generation into linked list 
+\begin{DoxyParams}{Parameters}
+{\em list} & address of linked list \\
+\hline
+{\em at\+\_\+head} & choose if generation is inserted at head \\
+\hline
+{\em generation} & generation to insert \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file generation\+\_\+linked\+\_\+list.\+c.
+
+\hypertarget{generation__linked__list_8c_a9785b39da18d8e2d8e3718cd75495a0b}{}\index{generation\+\_\+linked\+\_\+list.\+c@{generation\+\_\+linked\+\_\+list.\+c}!search\+\_\+generation@{search\+\_\+generation}}
+\index{search\+\_\+generation@{search\+\_\+generation}!generation\+\_\+linked\+\_\+list.\+c@{generation\+\_\+linked\+\_\+list.\+c}}
+\subsubsection[{search\+\_\+generation}]{\setlength{\rightskip}{0pt plus 5cm}{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N}$\ast$ search\+\_\+generation (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N\+\_\+\+L\+L} $\ast$}]{list, }
+\item[{uint32\+\_\+t}]{id}
+\end{DoxyParamCaption}
+)}\label{generation__linked__list_8c_a9785b39da18d8e2d8e3718cd75495a0b}
+searches for a generation from linked list 
+\begin{DoxyParams}{Parameters}
+{\em list} & address of linked list \\
+\hline
+{\em id} & generation id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+address of generation 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file generation\+\_\+linked\+\_\+list.\+c.
+

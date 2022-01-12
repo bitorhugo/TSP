@@ -1,0 +1,80 @@
+\hypertarget{population_8h}{}\section{Genetic\+\_\+\+Algorithm/\+Population/population.h File Reference}
+\label{population_8h}\index{Genetic\+\_\+\+Algorithm/\+Population/population.\+h@{Genetic\+\_\+\+Algorithm/\+Population/population.\+h}}
+{\ttfamily \#include \char`\"{}Chromosome/chromosome.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structpopulation}{population}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structpopulation}{population} \hyperlink{population_8h_a7db8d50e5cd1a249e81e7f8055cb38d2}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$ \hyperlink{population_8h_a3bacf13d9c379a3208b87b868bd7e05b}{allocate\+\_\+memory\+\_\+population} ()
+\item 
+void \hyperlink{population_8h_afa1a4aecf1c75cbd5496f4d5dbf0ba4b}{insert\+\_\+chromosomes} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population}, const \hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$booked\+\_\+trip)
+\item 
+void \hyperlink{population_8h_a8f0892cf56f573d9e247f3483c544683}{sort\+\_\+chromosomes\+\_\+by\+\_\+fitness} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population})
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{population_8h_a7db8d50e5cd1a249e81e7f8055cb38d2}{}\index{population.\+h@{population.\+h}!P\+O\+P\+U\+L\+A\+T\+I\+O\+N@{P\+O\+P\+U\+L\+A\+T\+I\+O\+N}}
+\index{P\+O\+P\+U\+L\+A\+T\+I\+O\+N@{P\+O\+P\+U\+L\+A\+T\+I\+O\+N}!population.\+h@{population.\+h}}
+\subsubsection[{P\+O\+P\+U\+L\+A\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf population}  {\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N}}\label{population_8h_a7db8d50e5cd1a249e81e7f8055cb38d2}
+
+
+\subsection{Function Documentation}
+\hypertarget{population_8h_a3bacf13d9c379a3208b87b868bd7e05b}{}\index{population.\+h@{population.\+h}!allocate\+\_\+memory\+\_\+population@{allocate\+\_\+memory\+\_\+population}}
+\index{allocate\+\_\+memory\+\_\+population@{allocate\+\_\+memory\+\_\+population}!population.\+h@{population.\+h}}
+\subsubsection[{allocate\+\_\+memory\+\_\+population}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N}$\ast$ allocate\+\_\+memory\+\_\+population (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{population_8h_a3bacf13d9c379a3208b87b868bd7e05b}
+allocates memory for population \begin{DoxyReturn}{Returns}
+address of population 
+\end{DoxyReturn}
+
+
+Definition at line 352 of file ag.\+c.
+
+\hypertarget{population_8h_afa1a4aecf1c75cbd5496f4d5dbf0ba4b}{}\index{population.\+h@{population.\+h}!insert\+\_\+chromosomes@{insert\+\_\+chromosomes}}
+\index{insert\+\_\+chromosomes@{insert\+\_\+chromosomes}!population.\+h@{population.\+h}}
+\subsubsection[{insert\+\_\+chromosomes}]{\setlength{\rightskip}{0pt plus 5cm}void insert\+\_\+chromosomes (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population, }
+\item[{const {\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{booked\+\_\+trip}
+\end{DoxyParamCaption}
+)}\label{population_8h_afa1a4aecf1c75cbd5496f4d5dbf0ba4b}
+inserts chromosomes into population 
+\begin{DoxyParams}{Parameters}
+{\em population} & address of population \\
+\hline
+{\em booked\+\_\+trip} & client booked trip \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file population.\+c.
+
+\hypertarget{population_8h_a8f0892cf56f573d9e247f3483c544683}{}\index{population.\+h@{population.\+h}!sort\+\_\+chromosomes\+\_\+by\+\_\+fitness@{sort\+\_\+chromosomes\+\_\+by\+\_\+fitness}}
+\index{sort\+\_\+chromosomes\+\_\+by\+\_\+fitness@{sort\+\_\+chromosomes\+\_\+by\+\_\+fitness}!population.\+h@{population.\+h}}
+\subsubsection[{sort\+\_\+chromosomes\+\_\+by\+\_\+fitness}]{\setlength{\rightskip}{0pt plus 5cm}void sort\+\_\+chromosomes\+\_\+by\+\_\+fitness (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population}
+\end{DoxyParamCaption}
+)}\label{population_8h_a8f0892cf56f573d9e247f3483c544683}
+sort chromosomes by their fitness value 
+\begin{DoxyParams}{Parameters}
+{\em population} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 39 of file population.\+c.
+

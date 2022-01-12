@@ -14,7 +14,7 @@ void calculate_cumulative_probability(POPULATION *population, float *cumulative_
 
 float sum_population_fitness(POPULATION *population);
 
-CHROMOSOME fitness_selection(POPULATION population, const float *cumulative_prob);
+void fitness_selection(CHROMOSOME *chromosome, POPULATION population, const float *cumulative_prob);
 
 float float_in_range(float min, float max);
 
@@ -22,18 +22,18 @@ void breed(POPULATION *population, int num_elitism);
 
 CHROMOSOME copy_chromosome(CHROMOSOME chromosome);
 
-CHROMOSOME cross_over(CHROMOSOME *parent_one, CHROMOSOME *parent_two);
+void cross_over(CHROMOSOME *parent_one, CHROMOSOME *parent_two);
 
 POPULATION mutation(POPULATION population, float mutation_prob);
 
 int int_in_range(int min, int max);
 
-void swap_gene(GENE *a, GENE *b);
+void trade_genes(CHROMOSOME *a, CHROMOSOME *b);
 
 /*
  * Public implementations
  */
-POPULATION insert_first_population(const COUNTRY *booked_trip, int size_population) {
+void insert_first_population(GENERATION *generation, const COUNTRY *booked_trip, int size_population) {
     // create population
     POPULATION new_population = {0};
 
@@ -46,18 +46,19 @@ POPULATION insert_first_population(const COUNTRY *booked_trip, int size_populati
     // sort chromosomes by fitness value
     sort_chromosomes_by_fitness(&new_population);
 
-    return new_population;
+    // insert population on generation
+    generation->parent_population = new_population;
 }
 
-POPULATION insert_child_population(GENERATION *generation, int num_elitism, float mutation_prob) {
-    // create population
+void insert_child_population(GENERATION *generation, int num_elitism, float mutation_prob) {
+    // create population by copying parent population
     POPULATION new_population = deep_copy_population(&generation->parent_population);
 
     // choose parent chromosomes for breeding
     parent_selection(&new_population, num_elitism);
 
     // breed population using cross-over method
-    breed(&new_population, num_elitism); // TODO: FIND NUM_GENES BUG
+    breed(&new_population, num_elitism);
 
     // mutate population
     new_population = mutation(new_population, mutation_prob);
@@ -65,10 +66,11 @@ POPULATION insert_child_population(GENERATION *generation, int num_elitism, floa
     // sort chromosomes by fitness value
     sort_chromosomes_by_fitness(&new_population);
 
-    return new_population;
+    // insert child population
+    generation->child_population = new_population;
 }
 
-POPULATION deep_copy_population(POPULATION *population) {
+POPULATION deep_copy_population(const POPULATION *population) {
     // create population
     POPULATION new_population = {0};
 
@@ -101,11 +103,43 @@ POPULATION deep_copy_population(POPULATION *population) {
             temp_gene_new->y = temp_gene_old->y;
         }
 
-        // calculate fitness value of chromosome
-        temp_chromo_new->fitness_value = calculate_fitness(temp_chromo_new);
+        // copy fitness value of chromosome
+        temp_chromo_new->fitness_value = temp_chromo_old->fitness_value;
     }
 
     return new_population;
+}
+
+void calculate_cumulative_probability(POPULATION *population, float *cumulative_prob_arr) {
+    /*
+     * Probability is calculated via the formula
+     * Pi = Ai / ∑Aj
+     * Pi = probability of each chromosome
+     * Ai = fitness of each chromosome
+     * ∑Aj = sum of all chromosomes fitness
+     */
+
+    // ∑Aj
+    float sum_chromosome_fitness = sum_population_fitness(population);
+
+    /*
+     * We can think about the sum_prob as a roulette
+     * Each section of the roulette represent the chance (percentage)
+     * each chromosomes has of being chosen
+     */
+    float roulette[population->num_chromosomes];
+
+    for (size_t i = 0; i < population->num_chromosomes; ++i) {
+        CHROMOSOME *temp_chromo = population->chromosomes + i;
+        // calculate prob of each chromosome
+        roulette[i] = temp_chromo->fitness_value / sum_chromosome_fitness;
+        // calculate cumulative probability of each chromosomes
+        if (i < 1) {
+            cumulative_prob_arr[i] = roulette[i];
+        } else {
+            cumulative_prob_arr[i] = roulette[i] + cumulative_prob_arr[i - 1];
+        }
+    }
 }
 
 /*
@@ -132,44 +166,14 @@ void parent_selection(POPULATION *population, int num_elitism) {
     POPULATION temp_population = deep_copy_population(population);
 
     // choose chromosomes
-    CHROMOSOME *temp_chromo;
     for (size_t i = num_elitism; i < population->num_chromosomes; ++i) {
-        temp_chromo = population->chromosomes + i;
-        *temp_chromo = fitness_selection(temp_population, cumulative_prob);
-    }
-
-}
-
-void calculate_cumulative_probability(POPULATION *population, float *cumulative_prob_arr) {
-    /*
-     * Probability is calculated via the formula
-     * Pi = Ai / ∑Aj
-     * Pi = probability of each chromosome
-     * Ai = fitness of each chromosome
-     * ∑Aj = sum of all chromosomes fitness
-     */
-
-    // ∑Aj
-    float sum_chromosome_fitness = sum_population_fitness(population);
-
-    /*
-     * We can think about the sum_prob as a roulette
-     * Each section of the roulette represent the chance (percentage)
-     * of being chosen
-     */
-    float roulette[population->num_chromosomes];
-
-    for (size_t i = 0; i < population->num_chromosomes; ++i) {
         CHROMOSOME *temp_chromo = population->chromosomes + i;
-        // calculate prob of each chromosome
-        roulette[i] = temp_chromo->fitness_value / sum_chromosome_fitness;
-        // calculate cumulative probability of each chromosomes
-        if (i < 1) {
-            cumulative_prob_arr[i] = roulette[i];
-        } else {
-            cumulative_prob_arr[i] = roulette[i] + cumulative_prob_arr[i - 1];
-        }
+        fitness_selection(temp_chromo, temp_population, cumulative_prob);
     }
+
+    // free allocated mem for temp_population
+    deallocate_memory_population(&temp_population);
+
 }
 
 float sum_population_fitness(POPULATION *population) {
@@ -181,19 +185,19 @@ float sum_population_fitness(POPULATION *population) {
     return sum;
 }
 
-CHROMOSOME fitness_selection(POPULATION population, const float *cumulative_prob) {
+void fitness_selection(CHROMOSOME *chromosome, const POPULATION population, const float *cumulative_prob) {
     // range acts like the spinning mechanism of roulette
     float range = float_in_range(0.0f, 1.0f);
 
-    // iterate over population to find chromosome selected
-    for (size_t i = 1; i < population.num_chromosomes; ++i) {
-        CHROMOSOME *temp_chromo = population.chromosomes + i;
-        if (range <= cumulative_prob[i] && range > cumulative_prob[i - 1]) {
-            return *temp_chromo;
+    for (size_t j = 1; j < population.num_chromosomes; ++j) {
+        CHROMOSOME *temp_chromo = population.chromosomes + j;
+        if (range <= cumulative_prob[j] && range > cumulative_prob[j - 1]) {
+            trade_genes(chromosome, temp_chromo);
+            return;
         }
     }
-
-    return *population.chromosomes; // return first chromosome if failed
+    // trade for first chromo
+    trade_genes(chromosome, population.chromosomes);
 }
 
 float float_in_range(float min, float max) {
@@ -226,10 +230,9 @@ void breed(POPULATION *population, int num_elitism) {
             // set parent_two address to saved_chromo address otherwise address of parent two == parent_one
             parent_two = &saved_chromo;
         } else {
-            parent_two = temp_chromo + 1;
+            parent_two = parent_one + 1;
         }
-
-        *temp_chromo = cross_over(parent_one, parent_two);
+        cross_over(parent_one, parent_two);
     }
 
 }
@@ -258,7 +261,7 @@ CHROMOSOME copy_chromosome(CHROMOSOME chromosome) {
     return new_chromosome;
 }
 
-CHROMOSOME cross_over(CHROMOSOME *parent_one, CHROMOSOME *parent_two) {
+void cross_over(CHROMOSOME *parent_one, CHROMOSOME *parent_two) {
     // Copy parent_one
     CHROMOSOME *child = parent_one;
 
@@ -296,7 +299,7 @@ CHROMOSOME cross_over(CHROMOSOME *parent_one, CHROMOSOME *parent_two) {
         }
         flag = 0;
     }
-    return *child;
+
 }
 
 POPULATION mutation(POPULATION population, float mutation_prob) {
@@ -334,8 +337,14 @@ int int_in_range(int min, int max) {
     return num;
 }
 
-void swap_gene(GENE *a, GENE *b) {
-    GENE temp = *a;
-    *a = *b;
-    *b = temp;
+void trade_genes(CHROMOSOME *a, CHROMOSOME *b) {
+
+    for (size_t i = 0; i < a->num_genes; ++i) {
+        GENE *iter_a = a->genes + i;
+        GENE *iter_b = b->genes + i;
+
+        // trade genes
+        *iter_a = *iter_b;
+    }
+
 }

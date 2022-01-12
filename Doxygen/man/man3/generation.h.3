@@ -1,0 +1,103 @@
+.TH "Genetic_Algorithm/Generation/generation.h" 3 "Mon Jan 10 2022" "TSP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Genetic_Algorithm/Generation/generation.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'Population/population\&.h'\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBgeneration\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBgeneration\fP \fBGENERATION\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPOPULATION\fP \fBinsert_first_population\fP (const \fBCOUNTRY\fP *booked_trip, int size_population)"
+.br
+.ti -1c
+.RI "\fBPOPULATION\fP \fBinsert_child_population\fP (\fBGENERATION\fP *\fBgeneration\fP, int num_elitism, float mutation_prob)"
+.br
+.ti -1c
+.RI "\fBPOPULATION\fP \fBdeep_copy_population\fP (\fBPOPULATION\fP *\fBpopulation\fP)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBgeneration\fP  \fBGENERATION\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBPOPULATION\fP deep_copy_population (\fBPOPULATION\fP * population)"
+copies every value of a population 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpopulation\fP population to copy 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+copied population 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file generation\&.c\&.
+.SS "\fBPOPULATION\fP insert_child_population (\fBGENERATION\fP * generation, int num_elitism, float mutation_prob)"
+inserts child population into generation 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIgeneration\fP address of generation 
+.br
+\fInum_elitism\fP number of elitism 
+.br
+\fImutation_prob\fP mutation probability 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+child population 
+.RE
+.PP
+
+.PP
+Definition at line 52 of file generation\&.c\&.
+.SS "\fBPOPULATION\fP insert_first_population (const \fBCOUNTRY\fP * booked_trip, int size_population)"
+inserts first population into first generation 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbooked_trip\fP client booked trip 
+.br
+\fIsize_population\fP size of population 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+first population 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file generation\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TSP from the source code\&.

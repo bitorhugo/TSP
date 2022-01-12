@@ -1,0 +1,174 @@
+\hypertarget{cities_8c}{}\section{Porto\+\_\+\+Pontos/\+Cities/cities.c File Reference}
+\label{cities_8c}\index{Porto\+\_\+\+Pontos/\+Cities/cities.\+c@{Porto\+\_\+\+Pontos/\+Cities/cities.\+c}}
+{\ttfamily \#include \char`\"{}cities.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{poi_8h_ac802fb90706f3390e612abad946c909c}{P\+O\+I} $\ast$ \hyperlink{cities_8c_ab40e9daec319af95163578549c709dc8}{allocate\+\_\+memory\+\_\+poi} ()
+\item 
+\hyperlink{poi_8h_ac802fb90706f3390e612abad946c909c}{P\+O\+I} $\ast$ \hyperlink{cities_8c_a0b7f87161eebae5d763beab036c91fcb}{reallocate\+\_\+memory\+\_\+poi} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, int size)
+\item 
+void \hyperlink{cities_8c_a750ed6166e2182c31dd0035add74321e}{insert\+\_\+poi} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, char $\ast$\hyperlink{structpoi}{poi})
+\item 
+void \hyperlink{cities_8c_af1a65eb3d3f3ed43ac38c99347ff696c}{remove\+\_\+poi} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, char $\ast$\hyperlink{structpoi}{poi})
+\item 
+\hyperlink{poi_8h_ac802fb90706f3390e612abad946c909c}{P\+O\+I} $\ast$ \hyperlink{cities_8c_aba44c1f1098cf7aa4693594f06bb3bc8}{search\+\_\+poi} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, char $\ast$\hyperlink{structpoi}{poi})
+\item 
+void \hyperlink{cities_8c_a0d58ef933d7411d3b464f8ef711b1b54}{insert\+\_\+description} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, char $\ast$description)
+\item 
+void \hyperlink{cities_8c_a43172b197c412900a5e82f620165cf72}{edit\+\_\+description} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, char $\ast$new\+\_\+description)
+\item 
+char $\ast$ \hyperlink{cities_8c_ad3afc972b47db857843fda73f06651a1}{allocate\+\_\+memory\+\_\+str} (uint64\+\_\+t size)
+\item 
+char $\ast$ \hyperlink{cities_8c_ad1028d5bd3af8d390d2ad5ead09a6b76}{reallocate\+\_\+memory\+\_\+str} (char $\ast$str, uint64\+\_\+t size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{cities_8c_ab40e9daec319af95163578549c709dc8}{}\index{cities.\+c@{cities.\+c}!allocate\+\_\+memory\+\_\+poi@{allocate\+\_\+memory\+\_\+poi}}
+\index{allocate\+\_\+memory\+\_\+poi@{allocate\+\_\+memory\+\_\+poi}!cities.\+c@{cities.\+c}}
+\subsubsection[{allocate\+\_\+memory\+\_\+poi}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+I} $\ast$ allocate\+\_\+memory\+\_\+poi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{cities_8c_ab40e9daec319af95163578549c709dc8}
+
+
+Definition at line 85 of file cities.\+c.
+
+\hypertarget{cities_8c_ad3afc972b47db857843fda73f06651a1}{}\index{cities.\+c@{cities.\+c}!allocate\+\_\+memory\+\_\+str@{allocate\+\_\+memory\+\_\+str}}
+\index{allocate\+\_\+memory\+\_\+str@{allocate\+\_\+memory\+\_\+str}!cities.\+c@{cities.\+c}}
+\subsubsection[{allocate\+\_\+memory\+\_\+str}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ allocate\+\_\+memory\+\_\+str (
+\begin{DoxyParamCaption}
+\item[{uint64\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{cities_8c_ad3afc972b47db857843fda73f06651a1}
+
+
+Definition at line 101 of file cities.\+c.
+
+\hypertarget{cities_8c_a43172b197c412900a5e82f620165cf72}{}\index{cities.\+c@{cities.\+c}!edit\+\_\+description@{edit\+\_\+description}}
+\index{edit\+\_\+description@{edit\+\_\+description}!cities.\+c@{cities.\+c}}
+\subsubsection[{edit\+\_\+description}]{\setlength{\rightskip}{0pt plus 5cm}void edit\+\_\+description (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{char $\ast$}]{new\+\_\+description}
+\end{DoxyParamCaption}
+)}\label{cities_8c_a43172b197c412900a5e82f620165cf72}
+edits a description of a city 
+\begin{DoxyParams}{Parameters}
+{\em city} & city \\
+\hline
+{\em new\+\_\+description} & new description \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 74 of file cities.\+c.
+
+\hypertarget{cities_8c_a0d58ef933d7411d3b464f8ef711b1b54}{}\index{cities.\+c@{cities.\+c}!insert\+\_\+description@{insert\+\_\+description}}
+\index{insert\+\_\+description@{insert\+\_\+description}!cities.\+c@{cities.\+c}}
+\subsubsection[{insert\+\_\+description}]{\setlength{\rightskip}{0pt plus 5cm}void insert\+\_\+description (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{char $\ast$}]{description}
+\end{DoxyParamCaption}
+)}\label{cities_8c_a0d58ef933d7411d3b464f8ef711b1b54}
+inserts a description of the city 
+\begin{DoxyParams}{Parameters}
+{\em city} & city \\
+\hline
+{\em description} & description \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 64 of file cities.\+c.
+
+\hypertarget{cities_8c_a750ed6166e2182c31dd0035add74321e}{}\index{cities.\+c@{cities.\+c}!insert\+\_\+poi@{insert\+\_\+poi}}
+\index{insert\+\_\+poi@{insert\+\_\+poi}!cities.\+c@{cities.\+c}}
+\subsubsection[{insert\+\_\+poi}]{\setlength{\rightskip}{0pt plus 5cm}void insert\+\_\+poi (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{char $\ast$}]{poi}
+\end{DoxyParamCaption}
+)}\label{cities_8c_a750ed6166e2182c31dd0035add74321e}
+inserts a poi into city 
+\begin{DoxyParams}{Parameters}
+{\em city} & city \\
+\hline
+{\em poi} & point of interest \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file cities.\+c.
+
+\hypertarget{cities_8c_a0b7f87161eebae5d763beab036c91fcb}{}\index{cities.\+c@{cities.\+c}!reallocate\+\_\+memory\+\_\+poi@{reallocate\+\_\+memory\+\_\+poi}}
+\index{reallocate\+\_\+memory\+\_\+poi@{reallocate\+\_\+memory\+\_\+poi}!cities.\+c@{cities.\+c}}
+\subsubsection[{reallocate\+\_\+memory\+\_\+poi}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+I} $\ast$ reallocate\+\_\+memory\+\_\+poi (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\label{cities_8c_a0b7f87161eebae5d763beab036c91fcb}
+
+
+Definition at line 93 of file cities.\+c.
+
+\hypertarget{cities_8c_ad1028d5bd3af8d390d2ad5ead09a6b76}{}\index{cities.\+c@{cities.\+c}!reallocate\+\_\+memory\+\_\+str@{reallocate\+\_\+memory\+\_\+str}}
+\index{reallocate\+\_\+memory\+\_\+str@{reallocate\+\_\+memory\+\_\+str}!cities.\+c@{cities.\+c}}
+\subsubsection[{reallocate\+\_\+memory\+\_\+str}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ reallocate\+\_\+memory\+\_\+str (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str, }
+\item[{uint64\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{cities_8c_ad1028d5bd3af8d390d2ad5ead09a6b76}
+
+
+Definition at line 109 of file cities.\+c.
+
+\hypertarget{cities_8c_af1a65eb3d3f3ed43ac38c99347ff696c}{}\index{cities.\+c@{cities.\+c}!remove\+\_\+poi@{remove\+\_\+poi}}
+\index{remove\+\_\+poi@{remove\+\_\+poi}!cities.\+c@{cities.\+c}}
+\subsubsection[{remove\+\_\+poi}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+\_\+poi (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{char $\ast$}]{poi}
+\end{DoxyParamCaption}
+)}\label{cities_8c_af1a65eb3d3f3ed43ac38c99347ff696c}
+removes poi from city 
+\begin{DoxyParams}{Parameters}
+{\em city} & city \\
+\hline
+{\em poi} & point of interest \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 30 of file cities.\+c.
+
+\hypertarget{cities_8c_aba44c1f1098cf7aa4693594f06bb3bc8}{}\index{cities.\+c@{cities.\+c}!search\+\_\+poi@{search\+\_\+poi}}
+\index{search\+\_\+poi@{search\+\_\+poi}!cities.\+c@{cities.\+c}}
+\subsubsection[{search\+\_\+poi}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+I}$\ast$ search\+\_\+poi (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{char $\ast$}]{poi}
+\end{DoxyParamCaption}
+)}\label{cities_8c_aba44c1f1098cf7aa4693594f06bb3bc8}
+searches for a poi from city 
+\begin{DoxyParams}{Parameters}
+{\em city} & city \\
+\hline
+{\em poi} & point of interest \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+address of poi 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file cities.\+c.
+

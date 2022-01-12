@@ -1,0 +1,97 @@
+.TH "Genetic_Algorithm/Chromosome/chromosome.c" 3 "Mon Jan 10 2022" "TSP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Genetic_Algorithm/Chromosome/chromosome.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chromosome\&.h'\fP
+.br
+\fC#include <math\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "float \fBeuclidean_dist\fP (\fBGENE\fP *first, \fBGENE\fP *second)"
+.br
+.ti -1c
+.RI "\fBCHROMOSOME\fP * \fBallocate_memory_chromosome\fP (int size)"
+.br
+.ti -1c
+.RI "void \fBinsert_gene\fP (\fBCHROMOSOME\fP *\fBchromosome\fP, const \fBCOUNTRY\fP *booked_trip)"
+.br
+.ti -1c
+.RI "void \fBshuffle_genes\fP (\fBCHROMOSOME\fP *\fBchromosome\fP)"
+.br
+.ti -1c
+.RI "float \fBcalculate_fitness\fP (\fBCHROMOSOME\fP *\fBchromosome\fP)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBCHROMOSOME\fP* allocate_memory_chromosome (int size)"
+allocates memory for a chromosome array 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsize\fP size of chromosome array 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+address of chromosome array 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file chromosome\&.c\&.
+.SS "float calculate_fitness (\fBCHROMOSOME\fP * chromosome)"
+calculates the fitness value of a chromosome 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchromosome\fP address of chromosome 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+fitness value 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file chromosome\&.c\&.
+.SS "float euclidean_dist (\fBGENE\fP * first, \fBGENE\fP * second)"
+
+.PP
+Definition at line 72 of file chromosome\&.c\&.
+.SS "void insert_gene (\fBCHROMOSOME\fP * chromosome, const \fBCOUNTRY\fP * booked_trip)"
+inserts a gene into chromosome 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchromosome\fP address of chromosome 
+.br
+\fIbooked_trip\fP client booked trip 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file chromosome\&.c\&.
+.SS "void shuffle_genes (\fBCHROMOSOME\fP * chromosome)"
+shuffles genes from a chromosome 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchromosome\fP address of chromosome 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file chromosome\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TSP from the source code\&.

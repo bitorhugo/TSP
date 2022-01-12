@@ -1,0 +1,214 @@
+.TH "Porto_Pontos/Client/client.c" 3 "Mon Jan 10 2022" "TSP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Porto_Pontos/Client/client.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'client\&.h'\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBset_country_name\fP (\fBCOUNTRY\fP *\fBcountry\fP, char *country_name)"
+.br
+.ti -1c
+.RI "\fBCOUNTRY\fP * \fBsearch_finished_trip\fP (\fBCLIENT\fP *\fBclient\fP, char *country_name)"
+.br
+.ti -1c
+.RI "\fBCOUNTRY\fP * \fBsearch_booked_trip\fP (\fBCLIENT\fP *\fBclient\fP, char *country_name)"
+.br
+.ti -1c
+.RI "\fBCOUNTRY\fP * \fBallocate_memory_trips\fP ()"
+.br
+.ti -1c
+.RI "\fBCOUNTRY\fP * \fBreallocate_memory_trip\fP (\fBCLIENT\fP *\fBclient\fP, bool is_finished)"
+.br
+.ti -1c
+.RI "void \fBprint_finished_trips\fP (\fBCLIENT\fP *\fBclient\fP)"
+.br
+.ti -1c
+.RI "void \fBprint_booked_trips\fP (\fBCLIENT\fP *\fBclient\fP)"
+.br
+.ti -1c
+.RI "void \fBbook_trip\fP (\fBCLIENT\fP *\fBclient\fP, char *country_name)"
+.br
+.ti -1c
+.RI "void \fBfinish_trip_requisite\fP (\fBCLIENT\fP *\fBclient\fP, char *country_name)"
+.br
+.ti -1c
+.RI "void \fBfinish_trip\fP (\fBCLIENT\fP *\fBclient\fP, \fBCOUNTRY\fP *booked_trip)"
+.br
+.ti -1c
+.RI "void \fBremove_trip\fP (\fBCLIENT\fP *\fBclient\fP, char *country_name)"
+.br
+.ti -1c
+.RI "void \fBedit_trip\fP (\fBCLIENT\fP *\fBclient\fP, char *current_country_name, char *new_country_name)"
+.br
+.ti -1c
+.RI "\fBCOUNTRY\fP * \fBsearch_trip\fP (\fBCLIENT\fP *\fBclient\fP, char *country_name, bool is_finished)"
+.br
+.ti -1c
+.RI "void \fBprint_trips\fP (\fBCLIENT\fP *\fBclient\fP, bool is_finished)"
+.br
+.ti -1c
+.RI "void \fBprint_finished_trip_specific\fP (\fBCLIENT\fP *\fBclient\fP, char *country_name, char *city_name, char *\fBpoi\fP)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBCOUNTRY\fP * allocate_memory_trips ()"
+
+.PP
+Definition at line 195 of file client\&.c\&.
+.SS "void book_trip (\fBCLIENT\fP * client, char * country_name)"
+books a trip for a client 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIclient\fP client 
+.br
+\fIcountry_name\fP country name to insert 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file client\&.c\&.
+.SS "void edit_trip (\fBCLIENT\fP * client, char * current_country_name, char * new_country_name)"
+edits a booked trip from a client 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIclient\fP client 
+.br
+\fIcurrent_country_name\fP current countries name 
+.br
+\fInew_country_name\fP new countries name 
+.RE
+.PP
+
+.PP
+Definition at line 91 of file client\&.c\&.
+.SS "void finish_trip (\fBCLIENT\fP * client, \fBCOUNTRY\fP * booked_trip)"
+finishes a trip for a client from his booked trips 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIclient\fP client 
+.br
+\fIbooked_trip\fP client booked trips 
+.RE
+.PP
+
+.PP
+Definition at line 58 of file client\&.c\&.
+.SS "void finish_trip_requisite (\fBCLIENT\fP * client, char * country_name)"
+inserts a finished trip into a client 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIclient\fP client 
+.br
+\fIcountry_name\fP country_name 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file client\&.c\&.
+.SS "void print_booked_trips (\fBCLIENT\fP * client)"
+
+.PP
+Definition at line 145 of file client\&.c\&.
+.SS "void print_finished_trip_specific (\fBCLIENT\fP * client, char * country_name, char * city_name, char * poi)"
+prints finished trips with specific content 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIclient\fP client 
+.br
+\fIcountry_name\fP country name 
+.br
+\fIcity_name\fP city name 
+.br
+\fIpoi\fP point of interest name 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file client\&.c\&.
+.SS "void print_finished_trips (\fBCLIENT\fP * client)"
+
+.PP
+Definition at line 156 of file client\&.c\&.
+.SS "void print_trips (\fBCLIENT\fP * client, bool is_finished)"
+prints trips from a client 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIclient\fP client 
+.br
+\fIis_finished\fP 0: print booked trips || 1: print finished trips 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file client\&.c\&.
+.SS "\fBCOUNTRY\fP * reallocate_memory_trip (\fBCLIENT\fP * client, bool is_finished)"
+
+.PP
+Definition at line 202 of file client\&.c\&.
+.SS "void remove_trip (\fBCLIENT\fP * client, char * country_name)"
+removes a booked trip from a client 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIclient\fP client client 
+.br
+\fIcountry_name\fP country name to remove 
+.RE
+.PP
+
+.PP
+Definition at line 77 of file client\&.c\&.
+.SS "\fBCOUNTRY\fP * search_booked_trip (\fBCLIENT\fP * client, char * country_name)"
+
+.PP
+Definition at line 181 of file client\&.c\&.
+.SS "\fBCOUNTRY\fP * search_finished_trip (\fBCLIENT\fP * client, char * country_name)"
+
+.PP
+Definition at line 167 of file client\&.c\&.
+.SS "\fBCOUNTRY\fP* search_trip (\fBCLIENT\fP * client, char * country_name, bool is_finished)"
+searches for a trip from a client 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIclient\fP client 
+.br
+\fIcountry_name\fP country name 
+.br
+\fIis_finished\fP 0: booked trips array | 1: finished trip array 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+trip 
+.RE
+.PP
+
+.PP
+Definition at line 102 of file client\&.c\&.
+.SS "void set_country_name (\fBCOUNTRY\fP * country, char * country_name)"
+
+.PP
+Definition at line 141 of file client\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TSP from the source code\&.

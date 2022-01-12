@@ -1,0 +1,156 @@
+\hypertarget{trips_8c}{}\section{Porto\+\_\+\+Pontos/\+Trips/trips.c File Reference}
+\label{trips_8c}\index{Porto\+\_\+\+Pontos/\+Trips/trips.\+c@{Porto\+\_\+\+Pontos/\+Trips/trips.\+c}}
+{\ttfamily \#include \char`\"{}trips.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$ \hyperlink{trips_8c_ab29e339e9da87b6da1d0487d02de1d76}{allocate\+\_\+memory\+\_\+city} ()
+\item 
+\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$ \hyperlink{trips_8c_a44eb1b424e1ce0b980437ae0e34ffe33}{reallocate\+\_\+memory\+\_\+city} (\hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$\hyperlink{structcountry}{country})
+\item 
+void \hyperlink{trips_8c_ac31e108a4e5b6739a4a7a24f93a65f17}{set\+\_\+city\+\_\+name} (\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$\hyperlink{structcity}{city}, char $\ast$city\+\_\+name, bool is\+\_\+alloc)
+\item 
+void \hyperlink{trips_8c_a3a545ec0a88a02d5b7a017d3cfffbe59}{insert\+\_\+city} (\hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$\hyperlink{structcountry}{country}, char $\ast$city\+\_\+name, float coordinate\+\_\+x, float coordinate\+\_\+y)
+\item 
+void \hyperlink{trips_8c_a5670b2f6295ab713ee235a4641a52818}{remove\+\_\+city} (\hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$\hyperlink{structcountry}{country}, char $\ast$city\+\_\+name)
+\item 
+void \hyperlink{trips_8c_aa4a35235b849a206122909886871dfba}{edit\+\_\+city} (\hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$\hyperlink{structcountry}{country}, char $\ast$current\+\_\+city\+\_\+name, char $\ast$new\+\_\+city\+\_\+name, float new\+\_\+x, float new\+\_\+y)
+\item 
+\hyperlink{cities_8h_aab2cece41c4817245db92da9a5aeeec8}{C\+I\+T\+Y} $\ast$ \hyperlink{trips_8c_a2baeda9021d4a74d7196b9196172f625}{search\+\_\+city} (\hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$\hyperlink{structcountry}{country}, char $\ast$city\+\_\+name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{trips_8c_ab29e339e9da87b6da1d0487d02de1d76}{}\index{trips.\+c@{trips.\+c}!allocate\+\_\+memory\+\_\+city@{allocate\+\_\+memory\+\_\+city}}
+\index{allocate\+\_\+memory\+\_\+city@{allocate\+\_\+memory\+\_\+city}!trips.\+c@{trips.\+c}}
+\subsubsection[{allocate\+\_\+memory\+\_\+city}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+I\+T\+Y} $\ast$ allocate\+\_\+memory\+\_\+city (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{trips_8c_ab29e339e9da87b6da1d0487d02de1d76}
+
+
+Definition at line 77 of file trips.\+c.
+
+\hypertarget{trips_8c_aa4a35235b849a206122909886871dfba}{}\index{trips.\+c@{trips.\+c}!edit\+\_\+city@{edit\+\_\+city}}
+\index{edit\+\_\+city@{edit\+\_\+city}!trips.\+c@{trips.\+c}}
+\subsubsection[{edit\+\_\+city}]{\setlength{\rightskip}{0pt plus 5cm}void edit\+\_\+city (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{country, }
+\item[{char $\ast$}]{current\+\_\+city\+\_\+name, }
+\item[{char $\ast$}]{new\+\_\+city\+\_\+name, }
+\item[{float}]{new\+\_\+x, }
+\item[{float}]{new\+\_\+y}
+\end{DoxyParamCaption}
+)}\label{trips_8c_aa4a35235b849a206122909886871dfba}
+edits a city name and coordinates from country 
+\begin{DoxyParams}{Parameters}
+{\em country} & country \\
+\hline
+{\em current\+\_\+city\+\_\+name} & current city name \\
+\hline
+{\em new\+\_\+city\+\_\+name} & new city name \\
+\hline
+{\em new\+\_\+x} & new coordinate x \\
+\hline
+{\em new\+\_\+y} & new coordinate y \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file trips.\+c.
+
+\hypertarget{trips_8c_a3a545ec0a88a02d5b7a017d3cfffbe59}{}\index{trips.\+c@{trips.\+c}!insert\+\_\+city@{insert\+\_\+city}}
+\index{insert\+\_\+city@{insert\+\_\+city}!trips.\+c@{trips.\+c}}
+\subsubsection[{insert\+\_\+city}]{\setlength{\rightskip}{0pt plus 5cm}void insert\+\_\+city (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{country, }
+\item[{char $\ast$}]{city\+\_\+name, }
+\item[{float}]{coordinate\+\_\+x, }
+\item[{float}]{coordinate\+\_\+y}
+\end{DoxyParamCaption}
+)}\label{trips_8c_a3a545ec0a88a02d5b7a017d3cfffbe59}
+inserts a city into country 
+\begin{DoxyParams}{Parameters}
+{\em country} & country \\
+\hline
+{\em city\+\_\+name} & city name to insert \\
+\hline
+{\em coordinate\+\_\+x} & coordinate x \\
+\hline
+{\em coordinate\+\_\+y} & coordinate y \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 16 of file trips.\+c.
+
+\hypertarget{trips_8c_a44eb1b424e1ce0b980437ae0e34ffe33}{}\index{trips.\+c@{trips.\+c}!reallocate\+\_\+memory\+\_\+city@{reallocate\+\_\+memory\+\_\+city}}
+\index{reallocate\+\_\+memory\+\_\+city@{reallocate\+\_\+memory\+\_\+city}!trips.\+c@{trips.\+c}}
+\subsubsection[{reallocate\+\_\+memory\+\_\+city}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+I\+T\+Y} $\ast$ reallocate\+\_\+memory\+\_\+city (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{country}
+\end{DoxyParamCaption}
+)}\label{trips_8c_a44eb1b424e1ce0b980437ae0e34ffe33}
+
+
+Definition at line 82 of file trips.\+c.
+
+\hypertarget{trips_8c_a5670b2f6295ab713ee235a4641a52818}{}\index{trips.\+c@{trips.\+c}!remove\+\_\+city@{remove\+\_\+city}}
+\index{remove\+\_\+city@{remove\+\_\+city}!trips.\+c@{trips.\+c}}
+\subsubsection[{remove\+\_\+city}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+\_\+city (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{country, }
+\item[{char $\ast$}]{city\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{trips_8c_a5670b2f6295ab713ee235a4641a52818}
+removes a city from country 
+\begin{DoxyParams}{Parameters}
+{\em country} & country \\
+\hline
+{\em city\+\_\+name} & city name to remove \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file trips.\+c.
+
+\hypertarget{trips_8c_a2baeda9021d4a74d7196b9196172f625}{}\index{trips.\+c@{trips.\+c}!search\+\_\+city@{search\+\_\+city}}
+\index{search\+\_\+city@{search\+\_\+city}!trips.\+c@{trips.\+c}}
+\subsubsection[{search\+\_\+city}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+I\+T\+Y}$\ast$ search\+\_\+city (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{country, }
+\item[{char $\ast$}]{city\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{trips_8c_a2baeda9021d4a74d7196b9196172f625}
+searches for a city from country 
+\begin{DoxyParams}{Parameters}
+{\em country} & country \\
+\hline
+{\em city\+\_\+name} & city name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+address of city 
+\end{DoxyReturn}
+
+
+Definition at line 63 of file trips.\+c.
+
+\hypertarget{trips_8c_ac31e108a4e5b6739a4a7a24f93a65f17}{}\index{trips.\+c@{trips.\+c}!set\+\_\+city\+\_\+name@{set\+\_\+city\+\_\+name}}
+\index{set\+\_\+city\+\_\+name@{set\+\_\+city\+\_\+name}!trips.\+c@{trips.\+c}}
+\subsubsection[{set\+\_\+city\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}void set\+\_\+city\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+I\+T\+Y} $\ast$}]{city, }
+\item[{char $\ast$}]{city\+\_\+name, }
+\item[{bool}]{is\+\_\+alloc}
+\end{DoxyParamCaption}
+)}\label{trips_8c_ac31e108a4e5b6739a4a7a24f93a65f17}
+
+
+Definition at line 90 of file trips.\+c.
+

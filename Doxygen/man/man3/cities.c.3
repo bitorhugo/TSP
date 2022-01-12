@@ -1,0 +1,139 @@
+.TH "Porto_Pontos/Cities/cities.c" 3 "Mon Jan 10 2022" "TSP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Porto_Pontos/Cities/cities.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'cities\&.h'\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPOI\fP * \fBallocate_memory_poi\fP ()"
+.br
+.ti -1c
+.RI "\fBPOI\fP * \fBreallocate_memory_poi\fP (\fBCITY\fP *\fBcity\fP, int size)"
+.br
+.ti -1c
+.RI "void \fBinsert_poi\fP (\fBCITY\fP *\fBcity\fP, char *\fBpoi\fP)"
+.br
+.ti -1c
+.RI "void \fBremove_poi\fP (\fBCITY\fP *\fBcity\fP, char *\fBpoi\fP)"
+.br
+.ti -1c
+.RI "\fBPOI\fP * \fBsearch_poi\fP (\fBCITY\fP *\fBcity\fP, char *\fBpoi\fP)"
+.br
+.ti -1c
+.RI "void \fBinsert_description\fP (\fBCITY\fP *\fBcity\fP, char *description)"
+.br
+.ti -1c
+.RI "void \fBedit_description\fP (\fBCITY\fP *\fBcity\fP, char *new_description)"
+.br
+.ti -1c
+.RI "char * \fBallocate_memory_str\fP (uint64_t size)"
+.br
+.ti -1c
+.RI "char * \fBreallocate_memory_str\fP (char *str, uint64_t size)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBPOI\fP * allocate_memory_poi ()"
+
+.PP
+Definition at line 85 of file cities\&.c\&.
+.SS "char* allocate_memory_str (uint64_t size)"
+
+.PP
+Definition at line 101 of file cities\&.c\&.
+.SS "void edit_description (\fBCITY\fP * city, char * new_description)"
+edits a description of a city 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcity\fP city 
+.br
+\fInew_description\fP new description 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file cities\&.c\&.
+.SS "void insert_description (\fBCITY\fP * city, char * description)"
+inserts a description of the city 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcity\fP city 
+.br
+\fIdescription\fP description 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file cities\&.c\&.
+.SS "void insert_poi (\fBCITY\fP * city, char * poi)"
+inserts a poi into city 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcity\fP city 
+.br
+\fIpoi\fP point of interest 
+.RE
+.PP
+
+.PP
+Definition at line 15 of file cities\&.c\&.
+.SS "\fBPOI\fP * reallocate_memory_poi (\fBCITY\fP * city, int size)"
+
+.PP
+Definition at line 93 of file cities\&.c\&.
+.SS "char* reallocate_memory_str (char * str, uint64_t size)"
+
+.PP
+Definition at line 109 of file cities\&.c\&.
+.SS "void remove_poi (\fBCITY\fP * city, char * poi)"
+removes poi from city 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcity\fP city 
+.br
+\fIpoi\fP point of interest 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file cities\&.c\&.
+.SS "\fBPOI\fP* search_poi (\fBCITY\fP * city, char * poi)"
+searches for a poi from city 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcity\fP city 
+.br
+\fIpoi\fP point of interest 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+address of poi 
+.RE
+.PP
+
+.PP
+Definition at line 49 of file cities\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TSP from the source code\&.

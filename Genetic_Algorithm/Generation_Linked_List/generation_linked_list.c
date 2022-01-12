@@ -6,13 +6,6 @@
 #include <stdio.h>
 
 /*
- * Private prototypes
- */
-void deallocate_memory_chromosome(POPULATION pop);
-
-void deallocate_memory_gene(CHROMOSOME *chromosome);
-
-/*
  * Public implementations
  */
 void insert_generation(GENERATION_LL *list, bool at_head, GENERATION generation) {
@@ -62,28 +55,13 @@ void deallocate_generation_linked_list(GENERATION_LL *list) {
         list->head = temp_node->next_node;
 
         // free parent population
-        deallocate_memory_chromosome(temp_node->generation.parent_population);
+        deallocate_memory_population(&temp_node->generation.parent_population);
         // free child population
-        deallocate_memory_chromosome(temp_node->generation.child_population);
+        deallocate_memory_population(&temp_node->generation.child_population);
         // free best population
-        deallocate_memory_chromosome(temp_node->best_population);
+        //deallocate_memory_population(&list->head->best_population);
 
         // free generation node
         deallocate_memory_generation_node(temp_node);
     }
-}
-
-/*
- * private implementations
- */
-void deallocate_memory_chromosome(POPULATION pop) {
-    for (int i = pop.num_chromosomes - 1; i >= 0; --i) {
-        CHROMOSOME *temp_chromo = pop.chromosomes + i;
-        deallocate_memory_gene(temp_chromo);
-    }
-    free(pop.chromosomes);
-}
-
-void deallocate_memory_gene(CHROMOSOME *chromosome) {
-    free(chromosome->genes);
 }

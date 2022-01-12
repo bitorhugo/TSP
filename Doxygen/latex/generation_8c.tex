@@ -1,0 +1,234 @@
+\hypertarget{generation_8c}{}\section{Genetic\+\_\+\+Algorithm/\+Generation/generation.c File Reference}
+\label{generation_8c}\index{Genetic\+\_\+\+Algorithm/\+Generation/generation.\+c@{Genetic\+\_\+\+Algorithm/\+Generation/generation.\+c}}
+{\ttfamily \#include \char`\"{}generation.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{generation_8c_a6e729324b8dff39a1aaeee2db73fd29f}{parent\+\_\+selection} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population}, int num\+\_\+elitism)
+\item 
+void \hyperlink{generation_8c_ae3901e672111db6f4387c3346147a61e}{calculate\+\_\+cumulative\+\_\+probability} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population}, float $\ast$cumulative\+\_\+prob\+\_\+arr)
+\item 
+float \hyperlink{generation_8c_ab21430674daaed74337ad7a4232f7d1d}{sum\+\_\+population\+\_\+fitness} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population})
+\item 
+\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} \hyperlink{generation_8c_aa1db7a2e8ca3ce3ce15707e8edac1fd7}{fitness\+\_\+selection} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} \hyperlink{structpopulation}{population}, const float $\ast$cumulative\+\_\+prob)
+\item 
+float \hyperlink{generation_8c_a5515da37940fc3d80b5498b7a84cf65d}{float\+\_\+in\+\_\+range} (float min, float max)
+\item 
+void \hyperlink{generation_8c_a9fa54b50b8b627c49377acf371e5d26a}{breed} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population}, int num\+\_\+elitism)
+\item 
+\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} \hyperlink{generation_8c_aa8d2e2efeaaa5e0669d919a2d35e219e}{copy\+\_\+chromosome} (\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} \hyperlink{structchromosome}{chromosome})
+\item 
+\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} \hyperlink{generation_8c_a61b6ae55a50b662a66a38725aef126cf}{cross\+\_\+over} (\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$parent\+\_\+one, \hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$parent\+\_\+two)
+\item 
+\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} \hyperlink{generation_8c_a7cc41062a747f128d8b2cda51977864a}{mutation} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} \hyperlink{structpopulation}{population}, float mutation\+\_\+prob)
+\item 
+int \hyperlink{generation_8c_a980e276e412105c125a3948e773e9f45}{int\+\_\+in\+\_\+range} (int min, int max)
+\item 
+void \hyperlink{generation_8c_a97892c1d32abe9f92d1cf69c75b4f0f5}{swap\+\_\+gene} (\hyperlink{ag_8h_a02a50e28dff2a9bbc394e7fe1ab3e065}{G\+E\+N\+E} $\ast$a, \hyperlink{ag_8h_a02a50e28dff2a9bbc394e7fe1ab3e065}{G\+E\+N\+E} $\ast$b)
+\item 
+\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} \hyperlink{generation_8c_a99d95d656aab10bf409313aca73c212a}{insert\+\_\+first\+\_\+population} (const \hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$booked\+\_\+trip, int size\+\_\+population)
+\item 
+\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} \hyperlink{generation_8c_a39377bab5a7c3d4044283f6090f97968}{insert\+\_\+child\+\_\+population} (\hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$\hyperlink{structgeneration}{generation}, int num\+\_\+elitism, float mutation\+\_\+prob)
+\item 
+\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} \hyperlink{generation_8c_ad5fae9df6bdb1aa61bf2f40105aba84c}{deep\+\_\+copy\+\_\+population} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{generation_8c_a9fa54b50b8b627c49377acf371e5d26a}{}\index{generation.\+c@{generation.\+c}!breed@{breed}}
+\index{breed@{breed}!generation.\+c@{generation.\+c}}
+\subsubsection[{breed}]{\setlength{\rightskip}{0pt plus 5cm}void breed (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population, }
+\item[{int}]{num\+\_\+elitism}
+\end{DoxyParamCaption}
+)}\label{generation_8c_a9fa54b50b8b627c49377acf371e5d26a}
+
+
+Definition at line 204 of file generation.\+c.
+
+\hypertarget{generation_8c_ae3901e672111db6f4387c3346147a61e}{}\index{generation.\+c@{generation.\+c}!calculate\+\_\+cumulative\+\_\+probability@{calculate\+\_\+cumulative\+\_\+probability}}
+\index{calculate\+\_\+cumulative\+\_\+probability@{calculate\+\_\+cumulative\+\_\+probability}!generation.\+c@{generation.\+c}}
+\subsubsection[{calculate\+\_\+cumulative\+\_\+probability}]{\setlength{\rightskip}{0pt plus 5cm}void calculate\+\_\+cumulative\+\_\+probability (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population, }
+\item[{float $\ast$}]{cumulative\+\_\+prob\+\_\+arr}
+\end{DoxyParamCaption}
+)}\label{generation_8c_ae3901e672111db6f4387c3346147a61e}
+
+
+Definition at line 143 of file generation.\+c.
+
+\hypertarget{generation_8c_aa8d2e2efeaaa5e0669d919a2d35e219e}{}\index{generation.\+c@{generation.\+c}!copy\+\_\+chromosome@{copy\+\_\+chromosome}}
+\index{copy\+\_\+chromosome@{copy\+\_\+chromosome}!generation.\+c@{generation.\+c}}
+\subsubsection[{copy\+\_\+chromosome}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} copy\+\_\+chromosome (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E}}]{chromosome}
+\end{DoxyParamCaption}
+)}\label{generation_8c_aa8d2e2efeaaa5e0669d919a2d35e219e}
+
+
+Definition at line 237 of file generation.\+c.
+
+\hypertarget{generation_8c_a61b6ae55a50b662a66a38725aef126cf}{}\index{generation.\+c@{generation.\+c}!cross\+\_\+over@{cross\+\_\+over}}
+\index{cross\+\_\+over@{cross\+\_\+over}!generation.\+c@{generation.\+c}}
+\subsubsection[{cross\+\_\+over}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} cross\+\_\+over (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$}]{parent\+\_\+one, }
+\item[{{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$}]{parent\+\_\+two}
+\end{DoxyParamCaption}
+)}\label{generation_8c_a61b6ae55a50b662a66a38725aef126cf}
+
+
+Definition at line 261 of file generation.\+c.
+
+\hypertarget{generation_8c_ad5fae9df6bdb1aa61bf2f40105aba84c}{}\index{generation.\+c@{generation.\+c}!deep\+\_\+copy\+\_\+population@{deep\+\_\+copy\+\_\+population}}
+\index{deep\+\_\+copy\+\_\+population@{deep\+\_\+copy\+\_\+population}!generation.\+c@{generation.\+c}}
+\subsubsection[{deep\+\_\+copy\+\_\+population}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} deep\+\_\+copy\+\_\+population (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population}
+\end{DoxyParamCaption}
+)}\label{generation_8c_ad5fae9df6bdb1aa61bf2f40105aba84c}
+copies every value of a population 
+\begin{DoxyParams}{Parameters}
+{\em population} & population to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+copied population 
+\end{DoxyReturn}
+
+
+Definition at line 71 of file generation.\+c.
+
+\hypertarget{generation_8c_aa1db7a2e8ca3ce3ce15707e8edac1fd7}{}\index{generation.\+c@{generation.\+c}!fitness\+\_\+selection@{fitness\+\_\+selection}}
+\index{fitness\+\_\+selection@{fitness\+\_\+selection}!generation.\+c@{generation.\+c}}
+\subsubsection[{fitness\+\_\+selection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} fitness\+\_\+selection (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N}}]{population, }
+\item[{const float $\ast$}]{cumulative\+\_\+prob}
+\end{DoxyParamCaption}
+)}\label{generation_8c_aa1db7a2e8ca3ce3ce15707e8edac1fd7}
+
+
+Definition at line 184 of file generation.\+c.
+
+\hypertarget{generation_8c_a5515da37940fc3d80b5498b7a84cf65d}{}\index{generation.\+c@{generation.\+c}!float\+\_\+in\+\_\+range@{float\+\_\+in\+\_\+range}}
+\index{float\+\_\+in\+\_\+range@{float\+\_\+in\+\_\+range}!generation.\+c@{generation.\+c}}
+\subsubsection[{float\+\_\+in\+\_\+range}]{\setlength{\rightskip}{0pt plus 5cm}float float\+\_\+in\+\_\+range (
+\begin{DoxyParamCaption}
+\item[{float}]{min, }
+\item[{float}]{max}
+\end{DoxyParamCaption}
+)}\label{generation_8c_a5515da37940fc3d80b5498b7a84cf65d}
+
+
+Definition at line 199 of file generation.\+c.
+
+\hypertarget{generation_8c_a39377bab5a7c3d4044283f6090f97968}{}\index{generation.\+c@{generation.\+c}!insert\+\_\+child\+\_\+population@{insert\+\_\+child\+\_\+population}}
+\index{insert\+\_\+child\+\_\+population@{insert\+\_\+child\+\_\+population}!generation.\+c@{generation.\+c}}
+\subsubsection[{insert\+\_\+child\+\_\+population}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} insert\+\_\+child\+\_\+population (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$}]{generation, }
+\item[{int}]{num\+\_\+elitism, }
+\item[{float}]{mutation\+\_\+prob}
+\end{DoxyParamCaption}
+)}\label{generation_8c_a39377bab5a7c3d4044283f6090f97968}
+inserts child population into generation 
+\begin{DoxyParams}{Parameters}
+{\em generation} & address of generation \\
+\hline
+{\em num\+\_\+elitism} & number of elitism \\
+\hline
+{\em mutation\+\_\+prob} & mutation probability \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+child population 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file generation.\+c.
+
+\hypertarget{generation_8c_a99d95d656aab10bf409313aca73c212a}{}\index{generation.\+c@{generation.\+c}!insert\+\_\+first\+\_\+population@{insert\+\_\+first\+\_\+population}}
+\index{insert\+\_\+first\+\_\+population@{insert\+\_\+first\+\_\+population}!generation.\+c@{generation.\+c}}
+\subsubsection[{insert\+\_\+first\+\_\+population}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} insert\+\_\+first\+\_\+population (
+\begin{DoxyParamCaption}
+\item[{const {\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{booked\+\_\+trip, }
+\item[{int}]{size\+\_\+population}
+\end{DoxyParamCaption}
+)}\label{generation_8c_a99d95d656aab10bf409313aca73c212a}
+inserts first population into first generation 
+\begin{DoxyParams}{Parameters}
+{\em booked\+\_\+trip} & client booked trip \\
+\hline
+{\em size\+\_\+population} & size of population \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+first population 
+\end{DoxyReturn}
+
+
+Definition at line 36 of file generation.\+c.
+
+\hypertarget{generation_8c_a980e276e412105c125a3948e773e9f45}{}\index{generation.\+c@{generation.\+c}!int\+\_\+in\+\_\+range@{int\+\_\+in\+\_\+range}}
+\index{int\+\_\+in\+\_\+range@{int\+\_\+in\+\_\+range}!generation.\+c@{generation.\+c}}
+\subsubsection[{int\+\_\+in\+\_\+range}]{\setlength{\rightskip}{0pt plus 5cm}int int\+\_\+in\+\_\+range (
+\begin{DoxyParamCaption}
+\item[{int}]{min, }
+\item[{int}]{max}
+\end{DoxyParamCaption}
+)}\label{generation_8c_a980e276e412105c125a3948e773e9f45}
+
+
+Definition at line 332 of file generation.\+c.
+
+\hypertarget{generation_8c_a7cc41062a747f128d8b2cda51977864a}{}\index{generation.\+c@{generation.\+c}!mutation@{mutation}}
+\index{mutation@{mutation}!generation.\+c@{generation.\+c}}
+\subsubsection[{mutation}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} mutation (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N}}]{population, }
+\item[{float}]{mutation\+\_\+prob}
+\end{DoxyParamCaption}
+)}\label{generation_8c_a7cc41062a747f128d8b2cda51977864a}
+
+
+Definition at line 302 of file generation.\+c.
+
+\hypertarget{generation_8c_a6e729324b8dff39a1aaeee2db73fd29f}{}\index{generation.\+c@{generation.\+c}!parent\+\_\+selection@{parent\+\_\+selection}}
+\index{parent\+\_\+selection@{parent\+\_\+selection}!generation.\+c@{generation.\+c}}
+\subsubsection[{parent\+\_\+selection}]{\setlength{\rightskip}{0pt plus 5cm}void parent\+\_\+selection (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population, }
+\item[{int}]{num\+\_\+elitism}
+\end{DoxyParamCaption}
+)}\label{generation_8c_a6e729324b8dff39a1aaeee2db73fd29f}
+
+
+Definition at line 114 of file generation.\+c.
+
+\hypertarget{generation_8c_ab21430674daaed74337ad7a4232f7d1d}{}\index{generation.\+c@{generation.\+c}!sum\+\_\+population\+\_\+fitness@{sum\+\_\+population\+\_\+fitness}}
+\index{sum\+\_\+population\+\_\+fitness@{sum\+\_\+population\+\_\+fitness}!generation.\+c@{generation.\+c}}
+\subsubsection[{sum\+\_\+population\+\_\+fitness}]{\setlength{\rightskip}{0pt plus 5cm}float sum\+\_\+population\+\_\+fitness (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population}
+\end{DoxyParamCaption}
+)}\label{generation_8c_ab21430674daaed74337ad7a4232f7d1d}
+
+
+Definition at line 175 of file generation.\+c.
+
+\hypertarget{generation_8c_a97892c1d32abe9f92d1cf69c75b4f0f5}{}\index{generation.\+c@{generation.\+c}!swap\+\_\+gene@{swap\+\_\+gene}}
+\index{swap\+\_\+gene@{swap\+\_\+gene}!generation.\+c@{generation.\+c}}
+\subsubsection[{swap\+\_\+gene}]{\setlength{\rightskip}{0pt plus 5cm}void swap\+\_\+gene (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E} $\ast$}]{a, }
+\item[{{\bf G\+E\+N\+E} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{generation_8c_a97892c1d32abe9f92d1cf69c75b4f0f5}
+
+
+Definition at line 337 of file generation.\+c.
+

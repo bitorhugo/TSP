@@ -1,0 +1,98 @@
+\hypertarget{client__node_8h}{}\section{Porto\+\_\+\+Pontos/\+Client\+\_\+\+Node/client\+\_\+node.h File Reference}
+\label{client__node_8h}\index{Porto\+\_\+\+Pontos/\+Client\+\_\+\+Node/client\+\_\+node.\+h@{Porto\+\_\+\+Pontos/\+Client\+\_\+\+Node/client\+\_\+node.\+h}}
+{\ttfamily \#include \char`\"{}Client/client.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structclient__node}{client\+\_\+node}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structclient__node}{client\+\_\+node} \hyperlink{client__node_8h_aa942063b3975bfdbcdda012fbc612a9b}{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{client__node_8h_aa942063b3975bfdbcdda012fbc612a9b}{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$ \hyperlink{client__node_8h_a20f9dc0269ed7210f8157d7a151e6eb7}{allocate\+\_\+memory\+\_\+node\+\_\+client} ()
+\item 
+void \hyperlink{client__node_8h_a9d65e615ec8c76856eac2e7b674abd36}{deallocate\+\_\+memory\+\_\+node\+\_\+client} (\hyperlink{client__node_8h_aa942063b3975bfdbcdda012fbc612a9b}{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$node)
+\item 
+\hyperlink{client_8h_a5b9629cfae95f0660c94fb7bde7a6a15}{C\+L\+I\+E\+N\+T} \hyperlink{client__node_8h_a7f92c56e643edd6823ee23b53ea866c3}{create\+\_\+client} (char $\ast$name, uint32\+\_\+t V\+A\+T, char $\ast$address, uint32\+\_\+t phone\+\_\+number, int birth\+\_\+day, int birth\+\_\+month, int birth\+\_\+year)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{client__node_8h_aa942063b3975bfdbcdda012fbc612a9b}{}\index{client\+\_\+node.\+h@{client\+\_\+node.\+h}!C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E@{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E}}
+\index{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E@{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E}!client\+\_\+node.\+h@{client\+\_\+node.\+h}}
+\subsubsection[{C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf client\+\_\+node} {\bf C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E}}\label{client__node_8h_aa942063b3975bfdbcdda012fbc612a9b}
+
+
+\subsection{Function Documentation}
+\hypertarget{client__node_8h_a20f9dc0269ed7210f8157d7a151e6eb7}{}\index{client\+\_\+node.\+h@{client\+\_\+node.\+h}!allocate\+\_\+memory\+\_\+node\+\_\+client@{allocate\+\_\+memory\+\_\+node\+\_\+client}}
+\index{allocate\+\_\+memory\+\_\+node\+\_\+client@{allocate\+\_\+memory\+\_\+node\+\_\+client}!client\+\_\+node.\+h@{client\+\_\+node.\+h}}
+\subsubsection[{allocate\+\_\+memory\+\_\+node\+\_\+client}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E}$\ast$ allocate\+\_\+memory\+\_\+node\+\_\+client (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{client__node_8h_a20f9dc0269ed7210f8157d7a151e6eb7}
+allocates memory for a client node \begin{DoxyReturn}{Returns}
+\hyperlink{structclient__node}{client\+\_\+node} address 
+\end{DoxyReturn}
+
+
+Definition at line 12 of file client\+\_\+node.\+c.
+
+\hypertarget{client__node_8h_a7f92c56e643edd6823ee23b53ea866c3}{}\index{client\+\_\+node.\+h@{client\+\_\+node.\+h}!create\+\_\+client@{create\+\_\+client}}
+\index{create\+\_\+client@{create\+\_\+client}!client\+\_\+node.\+h@{client\+\_\+node.\+h}}
+\subsubsection[{create\+\_\+client}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+L\+I\+E\+N\+T} create\+\_\+client (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{name, }
+\item[{uint32\+\_\+t}]{V\+A\+T, }
+\item[{char $\ast$}]{address, }
+\item[{uint32\+\_\+t}]{phone\+\_\+number, }
+\item[{int}]{birth\+\_\+day, }
+\item[{int}]{birth\+\_\+month, }
+\item[{int}]{birth\+\_\+year}
+\end{DoxyParamCaption}
+)}\label{client__node_8h_a7f92c56e643edd6823ee23b53ea866c3}
+creates a client 
+\begin{DoxyParams}{Parameters}
+{\em name} & name \\
+\hline
+{\em V\+A\+T} & V\+A\+T \\
+\hline
+{\em address} & address \\
+\hline
+{\em phone\+\_\+number} & phone number \\
+\hline
+{\em birth\+\_\+day} & birth day \\
+\hline
+{\em birth\+\_\+month} & birth month \\
+\hline
+{\em birth\+\_\+year} & birth year \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+copy of client 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file client\+\_\+node.\+c.
+
+\hypertarget{client__node_8h_a9d65e615ec8c76856eac2e7b674abd36}{}\index{client\+\_\+node.\+h@{client\+\_\+node.\+h}!deallocate\+\_\+memory\+\_\+node\+\_\+client@{deallocate\+\_\+memory\+\_\+node\+\_\+client}}
+\index{deallocate\+\_\+memory\+\_\+node\+\_\+client@{deallocate\+\_\+memory\+\_\+node\+\_\+client}!client\+\_\+node.\+h@{client\+\_\+node.\+h}}
+\subsubsection[{deallocate\+\_\+memory\+\_\+node\+\_\+client}]{\setlength{\rightskip}{0pt plus 5cm}void deallocate\+\_\+memory\+\_\+node\+\_\+client (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+L\+I\+E\+N\+T\+\_\+\+N\+O\+D\+E} $\ast$}]{node}
+\end{DoxyParamCaption}
+)}\label{client__node_8h_a9d65e615ec8c76856eac2e7b674abd36}
+frees client node 
+\begin{DoxyParams}{Parameters}
+{\em node} & client node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 17 of file client\+\_\+node.\+c.
+

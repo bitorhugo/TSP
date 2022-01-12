@@ -1,0 +1,67 @@
+.TH "Genetic_Algorithm/Generation_Node/generation_node.c" 3 "Mon Jan 10 2022" "TSP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Genetic_Algorithm/Generation_Node/generation_node.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'generation_node\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinsert_best_population\fP (\fBGENERATION_NODE\fP *node)"
+.br
+.ti -1c
+.RI "\fBGENERATION_NODE\fP * \fBallocate_memory_generation_node\fP (\fBGENERATION\fP \fBgeneration\fP)"
+.br
+.ti -1c
+.RI "void \fBdeallocate_memory_generation_node\fP (\fBGENERATION_NODE\fP *node)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBGENERATION_NODE\fP* allocate_memory_generation_node (\fBGENERATION\fP generation)"
+allocates memory for a generation node 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIgeneration\fP generation to insert 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+address of generation node 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file generation_node\&.c\&.
+.SS "void deallocate_memory_generation_node (\fBGENERATION_NODE\fP * node)"
+frees generation node 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInode\fP address of generation node 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file generation_node\&.c\&.
+.SS "void insert_best_population (\fBGENERATION_NODE\fP * node)"
+save population with best two chromosomes into generation node 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInode\fP generation node 
+.RE
+.PP
+
+.PP
+Definition at line 33 of file generation_node\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TSP from the source code\&.

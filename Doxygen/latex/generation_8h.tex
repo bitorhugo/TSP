@@ -1,0 +1,98 @@
+\hypertarget{generation_8h}{}\section{Genetic\+\_\+\+Algorithm/\+Generation/generation.h File Reference}
+\label{generation_8h}\index{Genetic\+\_\+\+Algorithm/\+Generation/generation.\+h@{Genetic\+\_\+\+Algorithm/\+Generation/generation.\+h}}
+{\ttfamily \#include \char`\"{}Population/population.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structgeneration}{generation}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structgeneration}{generation} \hyperlink{generation_8h_a5bd738bcb87368c7b410a88069114a93}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} \hyperlink{generation_8h_a99d95d656aab10bf409313aca73c212a}{insert\+\_\+first\+\_\+population} (const \hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$booked\+\_\+trip, int size\+\_\+population)
+\item 
+\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} \hyperlink{generation_8h_a39377bab5a7c3d4044283f6090f97968}{insert\+\_\+child\+\_\+population} (\hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$\hyperlink{structgeneration}{generation}, int num\+\_\+elitism, float mutation\+\_\+prob)
+\item 
+\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} \hyperlink{generation_8h_ad5fae9df6bdb1aa61bf2f40105aba84c}{deep\+\_\+copy\+\_\+population} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population})
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{generation_8h_a5bd738bcb87368c7b410a88069114a93}{}\index{generation.\+h@{generation.\+h}!G\+E\+N\+E\+R\+A\+T\+I\+O\+N@{G\+E\+N\+E\+R\+A\+T\+I\+O\+N}}
+\index{G\+E\+N\+E\+R\+A\+T\+I\+O\+N@{G\+E\+N\+E\+R\+A\+T\+I\+O\+N}!generation.\+h@{generation.\+h}}
+\subsubsection[{G\+E\+N\+E\+R\+A\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf generation}  {\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N}}\label{generation_8h_a5bd738bcb87368c7b410a88069114a93}
+
+
+\subsection{Function Documentation}
+\hypertarget{generation_8h_ad5fae9df6bdb1aa61bf2f40105aba84c}{}\index{generation.\+h@{generation.\+h}!deep\+\_\+copy\+\_\+population@{deep\+\_\+copy\+\_\+population}}
+\index{deep\+\_\+copy\+\_\+population@{deep\+\_\+copy\+\_\+population}!generation.\+h@{generation.\+h}}
+\subsubsection[{deep\+\_\+copy\+\_\+population}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} deep\+\_\+copy\+\_\+population (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population}
+\end{DoxyParamCaption}
+)}\label{generation_8h_ad5fae9df6bdb1aa61bf2f40105aba84c}
+copies every value of a population 
+\begin{DoxyParams}{Parameters}
+{\em population} & population to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+copied population 
+\end{DoxyReturn}
+
+
+Definition at line 71 of file generation.\+c.
+
+\hypertarget{generation_8h_a39377bab5a7c3d4044283f6090f97968}{}\index{generation.\+h@{generation.\+h}!insert\+\_\+child\+\_\+population@{insert\+\_\+child\+\_\+population}}
+\index{insert\+\_\+child\+\_\+population@{insert\+\_\+child\+\_\+population}!generation.\+h@{generation.\+h}}
+\subsubsection[{insert\+\_\+child\+\_\+population}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} insert\+\_\+child\+\_\+population (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$}]{generation, }
+\item[{int}]{num\+\_\+elitism, }
+\item[{float}]{mutation\+\_\+prob}
+\end{DoxyParamCaption}
+)}\label{generation_8h_a39377bab5a7c3d4044283f6090f97968}
+inserts child population into generation 
+\begin{DoxyParams}{Parameters}
+{\em generation} & address of generation \\
+\hline
+{\em num\+\_\+elitism} & number of elitism \\
+\hline
+{\em mutation\+\_\+prob} & mutation probability \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+child population 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file generation.\+c.
+
+\hypertarget{generation_8h_a99d95d656aab10bf409313aca73c212a}{}\index{generation.\+h@{generation.\+h}!insert\+\_\+first\+\_\+population@{insert\+\_\+first\+\_\+population}}
+\index{insert\+\_\+first\+\_\+population@{insert\+\_\+first\+\_\+population}!generation.\+h@{generation.\+h}}
+\subsubsection[{insert\+\_\+first\+\_\+population}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} insert\+\_\+first\+\_\+population (
+\begin{DoxyParamCaption}
+\item[{const {\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{booked\+\_\+trip, }
+\item[{int}]{size\+\_\+population}
+\end{DoxyParamCaption}
+)}\label{generation_8h_a99d95d656aab10bf409313aca73c212a}
+inserts first population into first generation 
+\begin{DoxyParams}{Parameters}
+{\em booked\+\_\+trip} & client booked trip \\
+\hline
+{\em size\+\_\+population} & size of population \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+first population 
+\end{DoxyReturn}
+
+
+Definition at line 36 of file generation.\+c.
+

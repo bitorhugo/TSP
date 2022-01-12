@@ -1,0 +1,398 @@
+\hypertarget{ag_8c}{}\section{A\+G/ag.c File Reference}
+\label{ag_8c}\index{A\+G/ag.\+c@{A\+G/ag.\+c}}
+{\ttfamily \#include \char`\"{}ag.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ag_8c_a0b9a602723155024744b5889c47549f1}{intialize\+\_\+genetic\+\_\+algorithm} (\hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$\hyperlink{structcountry}{country}, int num\+\_\+iterations, int size\+\_\+population, int num\+\_\+elitism, float mutation\+\_\+probability)
+\item 
+\hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$ \hyperlink{ag_8c_a886e472d5bc6b50a358e91892f5fe469}{insert\+\_\+generation} (\hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$$\ast$head, bool at\+\_\+head)
+\item 
+\hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$ \hyperlink{ag_8c_a3c9f2cd1bd3f006a0a7d64b9a5f33124}{search\+\_\+generation} (\hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$$\ast$head, uint32\+\_\+t generation\+\_\+id)
+\item 
+\hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$ \hyperlink{ag_8c_a63d1cfc35acb88a5f53c17d1d1c9e723}{search\+\_\+generation\+\_\+via\+\_\+fitness} (\hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$$\ast$head, int fitness\+\_\+value)
+\item 
+\hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$ \hyperlink{ag_8c_a70097d85b18432a6e26e645666ff3adb}{allocate\+\_\+memory\+\_\+generation} ()
+\item 
+int \hyperlink{ag_8c_a23d5209b0be2879390347ec85395ca8a}{is\+\_\+generation\+\_\+list\+\_\+empty} (\hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$$\ast$head)
+\item 
+void \hyperlink{ag_8c_a1b8c0d27fff5fb914f29a4fd7404c6db}{free\+\_\+generation\+\_\+list} (\hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$$\ast$head)
+\item 
+\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$ \hyperlink{ag_8c_a761b132973d275740c68e67c1d5552af}{create\+\_\+initial\+\_\+population} (\hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$country\+\_\+to\+\_\+visit, int size\+\_\+of\+\_\+population)
+\item 
+\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$ \hyperlink{ag_8c_a9cabce7483ab36e1e246e9082134f547}{create\+\_\+next\+\_\+population} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} \hyperlink{structpopulation}{population}, int elitism\+\_\+amount, float mutation\+\_\+prob)
+\item 
+void \hyperlink{ag_8c_a38053c0ae799b027b1c4312a09f576a0}{insert\+\_\+cromossomas} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population}, \hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$\hyperlink{structcountry}{country})
+\item 
+void \hyperlink{ag_8c_ac313836ba6277fcc2731241fd8735835}{insert\+\_\+fittest\+\_\+chromosomes} (\hyperlink{ag_8h_a652078089189c6f5a5563fd282e8efb4}{G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$\hyperlink{structgeneration}{generation})
+\item 
+void \hyperlink{ag_8c_af9fd32fa9ce17565c096c56985eead7e}{insert\+\_\+gene} (\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$cromo, \hyperlink{trips_8h_a6862c9fc54bae3dce9c2fb4b8b646706}{C\+O\+U\+N\+T\+R\+Y} $\ast$arr\+\_\+of\+\_\+countries)
+\item 
+void \hyperlink{ag_8c_a7dd45f7465f78a72a595385763c62f96}{sort\+\_\+cromo\+\_\+by\+\_\+fitness} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population})
+\item 
+float \hyperlink{ag_8c_af038e7b6b2273a8d9bbd03e7ec2cdf5a}{fitness} (\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$cromo)
+\item 
+float \hyperlink{ag_8c_ab21430674daaed74337ad7a4232f7d1d}{sum\+\_\+population\+\_\+fitness} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population})
+\item 
+void \hyperlink{ag_8c_a2fe9bc02dfaa82ffe2762d6c9bed7e33}{breed\+\_\+population} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population}, int elitism\+\_\+amount)
+\item 
+\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$ \hyperlink{ag_8c_a61b6ae55a50b662a66a38725aef126cf}{cross\+\_\+over} (\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$parent\+\_\+one, \hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$parent\+\_\+two)
+\item 
+void \hyperlink{ag_8c_a4de29e817ab241a96a5e6977175034f8}{parent\+\_\+selection} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population}, int elitism\+\_\+amount)
+\item 
+\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$ \hyperlink{ag_8c_ad564ae591e3e8dea95f7eb162f968a12}{fitness\+\_\+proportional\+\_\+selection} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population}, const float $\ast$cumulative\+\_\+prob)
+\item 
+void \hyperlink{ag_8c_a2517814251be9d6b8afa63dee5cdac00}{mutation} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population}, float mutation\+\_\+prob)
+\item 
+\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$ \hyperlink{ag_8c_a3bacf13d9c379a3208b87b868bd7e05b}{allocate\+\_\+memory\+\_\+population} ()
+\item 
+\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$ \hyperlink{ag_8c_a59fe5dcbe20415d0e1a3d15496949f17}{allocate\+\_\+memory\+\_\+cromossomas} (int size)
+\item 
+\hyperlink{ag_8h_a02a50e28dff2a9bbc394e7fe1ab3e065}{G\+E\+N\+E} $\ast$ \hyperlink{ag_8c_aab5b25b14d50c393a44b839feb10cd79}{allocate\+\_\+memory\+\_\+genes} (int size)
+\item 
+void \hyperlink{ag_8c_af417de237f958984cb44f09a276e67fb}{shuffle\+\_\+genes} (\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$chromo, int size)
+\item 
+float \hyperlink{ag_8c_aea04e1f256f0202147a26fb660298be0}{euclidean\+\_\+dist} (\hyperlink{ag_8h_a02a50e28dff2a9bbc394e7fe1ab3e065}{G\+E\+N\+E} $\ast$first, \hyperlink{ag_8h_a02a50e28dff2a9bbc394e7fe1ab3e065}{G\+E\+N\+E} $\ast$second)
+\item 
+void \hyperlink{ag_8c_ad4b9a55c1f811e1b11dad7ef011c857b}{swap\+\_\+cromo} (\hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$a, \hyperlink{ag_8h_aa412b0901c525d0ec02d820314c89bca}{C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$b)
+\item 
+void \hyperlink{ag_8c_a97892c1d32abe9f92d1cf69c75b4f0f5}{swap\+\_\+gene} (\hyperlink{ag_8h_a02a50e28dff2a9bbc394e7fe1ab3e065}{G\+E\+N\+E} $\ast$a, \hyperlink{ag_8h_a02a50e28dff2a9bbc394e7fe1ab3e065}{G\+E\+N\+E} $\ast$b)
+\item 
+void \hyperlink{ag_8c_a62758b385f44ff352d7bd6b183c49af5}{calculate\+\_\+cumulative\+\_\+prob} (\hyperlink{ag_8h_a8050698e0bc2d8fb8b06ca11bcd284f3}{P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$\hyperlink{structpopulation}{population}, float $\ast$cumulative\+\_\+prob)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{ag_8c_a59fe5dcbe20415d0e1a3d15496949f17}{}\index{ag.\+c@{ag.\+c}!allocate\+\_\+memory\+\_\+cromossomas@{allocate\+\_\+memory\+\_\+cromossomas}}
+\index{allocate\+\_\+memory\+\_\+cromossomas@{allocate\+\_\+memory\+\_\+cromossomas}!ag.\+c@{ag.\+c}}
+\subsubsection[{allocate\+\_\+memory\+\_\+cromossomas}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E}$\ast$ allocate\+\_\+memory\+\_\+cromossomas (
+\begin{DoxyParamCaption}
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a59fe5dcbe20415d0e1a3d15496949f17}
+
+
+Definition at line 358 of file ag.\+c.
+
+\hypertarget{ag_8c_a70097d85b18432a6e26e645666ff3adb}{}\index{ag.\+c@{ag.\+c}!allocate\+\_\+memory\+\_\+generation@{allocate\+\_\+memory\+\_\+generation}}
+\index{allocate\+\_\+memory\+\_\+generation@{allocate\+\_\+memory\+\_\+generation}!ag.\+c@{ag.\+c}}
+\subsubsection[{allocate\+\_\+memory\+\_\+generation}]{\setlength{\rightskip}{0pt plus 5cm}{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N}$\ast$ allocate\+\_\+memory\+\_\+generation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a70097d85b18432a6e26e645666ff3adb}
+
+
+Definition at line 112 of file ag.\+c.
+
+\hypertarget{ag_8c_aab5b25b14d50c393a44b839feb10cd79}{}\index{ag.\+c@{ag.\+c}!allocate\+\_\+memory\+\_\+genes@{allocate\+\_\+memory\+\_\+genes}}
+\index{allocate\+\_\+memory\+\_\+genes@{allocate\+\_\+memory\+\_\+genes}!ag.\+c@{ag.\+c}}
+\subsubsection[{allocate\+\_\+memory\+\_\+genes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf G\+E\+N\+E}$\ast$ allocate\+\_\+memory\+\_\+genes (
+\begin{DoxyParamCaption}
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\label{ag_8c_aab5b25b14d50c393a44b839feb10cd79}
+
+
+Definition at line 364 of file ag.\+c.
+
+\hypertarget{ag_8c_a3bacf13d9c379a3208b87b868bd7e05b}{}\index{ag.\+c@{ag.\+c}!allocate\+\_\+memory\+\_\+population@{allocate\+\_\+memory\+\_\+population}}
+\index{allocate\+\_\+memory\+\_\+population@{allocate\+\_\+memory\+\_\+population}!ag.\+c@{ag.\+c}}
+\subsubsection[{allocate\+\_\+memory\+\_\+population}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N}$\ast$ allocate\+\_\+memory\+\_\+population (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a3bacf13d9c379a3208b87b868bd7e05b}
+allocates memory for population \begin{DoxyReturn}{Returns}
+address of population 
+\end{DoxyReturn}
+
+
+Definition at line 352 of file ag.\+c.
+
+\hypertarget{ag_8c_a2fe9bc02dfaa82ffe2762d6c9bed7e33}{}\index{ag.\+c@{ag.\+c}!breed\+\_\+population@{breed\+\_\+population}}
+\index{breed\+\_\+population@{breed\+\_\+population}!ag.\+c@{ag.\+c}}
+\subsubsection[{breed\+\_\+population}]{\setlength{\rightskip}{0pt plus 5cm}void breed\+\_\+population (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population, }
+\item[{int}]{elitism\+\_\+amount}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a2fe9bc02dfaa82ffe2762d6c9bed7e33}
+
+
+Definition at line 245 of file ag.\+c.
+
+\hypertarget{ag_8c_a62758b385f44ff352d7bd6b183c49af5}{}\index{ag.\+c@{ag.\+c}!calculate\+\_\+cumulative\+\_\+prob@{calculate\+\_\+cumulative\+\_\+prob}}
+\index{calculate\+\_\+cumulative\+\_\+prob@{calculate\+\_\+cumulative\+\_\+prob}!ag.\+c@{ag.\+c}}
+\subsubsection[{calculate\+\_\+cumulative\+\_\+prob}]{\setlength{\rightskip}{0pt plus 5cm}void calculate\+\_\+cumulative\+\_\+prob (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population, }
+\item[{float $\ast$}]{cumulative\+\_\+prob}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a62758b385f44ff352d7bd6b183c49af5}
+
+
+Definition at line 400 of file ag.\+c.
+
+\hypertarget{ag_8c_a761b132973d275740c68e67c1d5552af}{}\index{ag.\+c@{ag.\+c}!create\+\_\+initial\+\_\+population@{create\+\_\+initial\+\_\+population}}
+\index{create\+\_\+initial\+\_\+population@{create\+\_\+initial\+\_\+population}!ag.\+c@{ag.\+c}}
+\subsubsection[{create\+\_\+initial\+\_\+population}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N}$\ast$ create\+\_\+initial\+\_\+population (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{country\+\_\+to\+\_\+visit, }
+\item[{int}]{size\+\_\+of\+\_\+population}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a761b132973d275740c68e67c1d5552af}
+
+
+Definition at line 133 of file ag.\+c.
+
+\hypertarget{ag_8c_a9cabce7483ab36e1e246e9082134f547}{}\index{ag.\+c@{ag.\+c}!create\+\_\+next\+\_\+population@{create\+\_\+next\+\_\+population}}
+\index{create\+\_\+next\+\_\+population@{create\+\_\+next\+\_\+population}!ag.\+c@{ag.\+c}}
+\subsubsection[{create\+\_\+next\+\_\+population}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N}$\ast$ create\+\_\+next\+\_\+population (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N}}]{population, }
+\item[{int}]{elitism\+\_\+amount, }
+\item[{float}]{mutation\+\_\+prob}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a9cabce7483ab36e1e246e9082134f547}
+
+
+Definition at line 142 of file ag.\+c.
+
+\hypertarget{ag_8c_a61b6ae55a50b662a66a38725aef126cf}{}\index{ag.\+c@{ag.\+c}!cross\+\_\+over@{cross\+\_\+over}}
+\index{cross\+\_\+over@{cross\+\_\+over}!ag.\+c@{ag.\+c}}
+\subsubsection[{cross\+\_\+over}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} cross\+\_\+over (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$}]{parent\+\_\+one, }
+\item[{{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$}]{parent\+\_\+two}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a61b6ae55a50b662a66a38725aef126cf}
+
+
+Definition at line 266 of file ag.\+c.
+
+\hypertarget{ag_8c_aea04e1f256f0202147a26fb660298be0}{}\index{ag.\+c@{ag.\+c}!euclidean\+\_\+dist@{euclidean\+\_\+dist}}
+\index{euclidean\+\_\+dist@{euclidean\+\_\+dist}!ag.\+c@{ag.\+c}}
+\subsubsection[{euclidean\+\_\+dist}]{\setlength{\rightskip}{0pt plus 5cm}float euclidean\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E} $\ast$}]{first, }
+\item[{{\bf G\+E\+N\+E} $\ast$}]{second}
+\end{DoxyParamCaption}
+)}\label{ag_8c_aea04e1f256f0202147a26fb660298be0}
+
+
+Definition at line 384 of file ag.\+c.
+
+\hypertarget{ag_8c_af038e7b6b2273a8d9bbd03e7ec2cdf5a}{}\index{ag.\+c@{ag.\+c}!fitness@{fitness}}
+\index{fitness@{fitness}!ag.\+c@{ag.\+c}}
+\subsubsection[{fitness}]{\setlength{\rightskip}{0pt plus 5cm}float fitness (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$}]{cromo}
+\end{DoxyParamCaption}
+)}\label{ag_8c_af038e7b6b2273a8d9bbd03e7ec2cdf5a}
+
+
+Definition at line 219 of file ag.\+c.
+
+\hypertarget{ag_8c_ad564ae591e3e8dea95f7eb162f968a12}{}\index{ag.\+c@{ag.\+c}!fitness\+\_\+proportional\+\_\+selection@{fitness\+\_\+proportional\+\_\+selection}}
+\index{fitness\+\_\+proportional\+\_\+selection@{fitness\+\_\+proportional\+\_\+selection}!ag.\+c@{ag.\+c}}
+\subsubsection[{fitness\+\_\+proportional\+\_\+selection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E}$\ast$ fitness\+\_\+proportional\+\_\+selection (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population, }
+\item[{const float $\ast$}]{cumulative\+\_\+prob}
+\end{DoxyParamCaption}
+)}\label{ag_8c_ad564ae591e3e8dea95f7eb162f968a12}
+
+
+Definition at line 311 of file ag.\+c.
+
+\hypertarget{ag_8c_a1b8c0d27fff5fb914f29a4fd7404c6db}{}\index{ag.\+c@{ag.\+c}!free\+\_\+generation\+\_\+list@{free\+\_\+generation\+\_\+list}}
+\index{free\+\_\+generation\+\_\+list@{free\+\_\+generation\+\_\+list}!ag.\+c@{ag.\+c}}
+\subsubsection[{free\+\_\+generation\+\_\+list}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+generation\+\_\+list (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$$\ast$}]{head}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a1b8c0d27fff5fb914f29a4fd7404c6db}
+
+
+Definition at line 121 of file ag.\+c.
+
+\hypertarget{ag_8c_a38053c0ae799b027b1c4312a09f576a0}{}\index{ag.\+c@{ag.\+c}!insert\+\_\+cromossomas@{insert\+\_\+cromossomas}}
+\index{insert\+\_\+cromossomas@{insert\+\_\+cromossomas}!ag.\+c@{ag.\+c}}
+\subsubsection[{insert\+\_\+cromossomas}]{\setlength{\rightskip}{0pt plus 5cm}void insert\+\_\+cromossomas (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population, }
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{country}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a38053c0ae799b027b1c4312a09f576a0}
+
+
+Definition at line 161 of file ag.\+c.
+
+\hypertarget{ag_8c_ac313836ba6277fcc2731241fd8735835}{}\index{ag.\+c@{ag.\+c}!insert\+\_\+fittest\+\_\+chromosomes@{insert\+\_\+fittest\+\_\+chromosomes}}
+\index{insert\+\_\+fittest\+\_\+chromosomes@{insert\+\_\+fittest\+\_\+chromosomes}!ag.\+c@{ag.\+c}}
+\subsubsection[{insert\+\_\+fittest\+\_\+chromosomes}]{\setlength{\rightskip}{0pt plus 5cm}void insert\+\_\+fittest\+\_\+chromosomes (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$}]{generation}
+\end{DoxyParamCaption}
+)}\label{ag_8c_ac313836ba6277fcc2731241fd8735835}
+
+
+Definition at line 175 of file ag.\+c.
+
+\hypertarget{ag_8c_af9fd32fa9ce17565c096c56985eead7e}{}\index{ag.\+c@{ag.\+c}!insert\+\_\+gene@{insert\+\_\+gene}}
+\index{insert\+\_\+gene@{insert\+\_\+gene}!ag.\+c@{ag.\+c}}
+\subsubsection[{insert\+\_\+gene}]{\setlength{\rightskip}{0pt plus 5cm}void insert\+\_\+gene (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$}]{cromo, }
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{arr\+\_\+of\+\_\+countries}
+\end{DoxyParamCaption}
+)}\label{ag_8c_af9fd32fa9ce17565c096c56985eead7e}
+
+
+Definition at line 187 of file ag.\+c.
+
+\hypertarget{ag_8c_a886e472d5bc6b50a358e91892f5fe469}{}\index{ag.\+c@{ag.\+c}!insert\+\_\+generation@{insert\+\_\+generation}}
+\index{insert\+\_\+generation@{insert\+\_\+generation}!ag.\+c@{ag.\+c}}
+\subsubsection[{insert\+\_\+generation}]{\setlength{\rightskip}{0pt plus 5cm}{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N}$\ast$ insert\+\_\+generation (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$$\ast$}]{head, }
+\item[{bool}]{at\+\_\+head}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a886e472d5bc6b50a358e91892f5fe469}
+
+
+Definition at line 52 of file ag.\+c.
+
+\hypertarget{ag_8c_a0b9a602723155024744b5889c47549f1}{}\index{ag.\+c@{ag.\+c}!intialize\+\_\+genetic\+\_\+algorithm@{intialize\+\_\+genetic\+\_\+algorithm}}
+\index{intialize\+\_\+genetic\+\_\+algorithm@{intialize\+\_\+genetic\+\_\+algorithm}!ag.\+c@{ag.\+c}}
+\subsubsection[{intialize\+\_\+genetic\+\_\+algorithm}]{\setlength{\rightskip}{0pt plus 5cm}void intialize\+\_\+genetic\+\_\+algorithm (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+O\+U\+N\+T\+R\+Y} $\ast$}]{country, }
+\item[{int}]{num\+\_\+iterations, }
+\item[{int}]{size\+\_\+population, }
+\item[{int}]{num\+\_\+elitism, }
+\item[{float}]{mutation\+\_\+probability}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a0b9a602723155024744b5889c47549f1}
+
+
+Definition at line 9 of file ag.\+c.
+
+\hypertarget{ag_8c_a23d5209b0be2879390347ec85395ca8a}{}\index{ag.\+c@{ag.\+c}!is\+\_\+generation\+\_\+list\+\_\+empty@{is\+\_\+generation\+\_\+list\+\_\+empty}}
+\index{is\+\_\+generation\+\_\+list\+\_\+empty@{is\+\_\+generation\+\_\+list\+\_\+empty}!ag.\+c@{ag.\+c}}
+\subsubsection[{is\+\_\+generation\+\_\+list\+\_\+empty}]{\setlength{\rightskip}{0pt plus 5cm}int is\+\_\+generation\+\_\+list\+\_\+empty (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$$\ast$}]{head}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a23d5209b0be2879390347ec85395ca8a}
+
+
+Definition at line 117 of file ag.\+c.
+
+\hypertarget{ag_8c_a2517814251be9d6b8afa63dee5cdac00}{}\index{ag.\+c@{ag.\+c}!mutation@{mutation}}
+\index{mutation@{mutation}!ag.\+c@{ag.\+c}}
+\subsubsection[{mutation}]{\setlength{\rightskip}{0pt plus 5cm}void mutation (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population, }
+\item[{float}]{mutation\+\_\+prob}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a2517814251be9d6b8afa63dee5cdac00}
+
+
+Definition at line 326 of file ag.\+c.
+
+\hypertarget{ag_8c_a4de29e817ab241a96a5e6977175034f8}{}\index{ag.\+c@{ag.\+c}!parent\+\_\+selection@{parent\+\_\+selection}}
+\index{parent\+\_\+selection@{parent\+\_\+selection}!ag.\+c@{ag.\+c}}
+\subsubsection[{parent\+\_\+selection}]{\setlength{\rightskip}{0pt plus 5cm}void parent\+\_\+selection (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population, }
+\item[{int}]{elitism\+\_\+amount}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a4de29e817ab241a96a5e6977175034f8}
+
+
+Definition at line 297 of file ag.\+c.
+
+\hypertarget{ag_8c_a3c9f2cd1bd3f006a0a7d64b9a5f33124}{}\index{ag.\+c@{ag.\+c}!search\+\_\+generation@{search\+\_\+generation}}
+\index{search\+\_\+generation@{search\+\_\+generation}!ag.\+c@{ag.\+c}}
+\subsubsection[{search\+\_\+generation}]{\setlength{\rightskip}{0pt plus 5cm}{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N}$\ast$ search\+\_\+generation (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$$\ast$}]{head, }
+\item[{uint32\+\_\+t}]{generation\+\_\+id}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a3c9f2cd1bd3f006a0a7d64b9a5f33124}
+
+
+Definition at line 76 of file ag.\+c.
+
+\hypertarget{ag_8c_a63d1cfc35acb88a5f53c17d1d1c9e723}{}\index{ag.\+c@{ag.\+c}!search\+\_\+generation\+\_\+via\+\_\+fitness@{search\+\_\+generation\+\_\+via\+\_\+fitness}}
+\index{search\+\_\+generation\+\_\+via\+\_\+fitness@{search\+\_\+generation\+\_\+via\+\_\+fitness}!ag.\+c@{ag.\+c}}
+\subsubsection[{search\+\_\+generation\+\_\+via\+\_\+fitness}]{\setlength{\rightskip}{0pt plus 5cm}{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N}$\ast$ search\+\_\+generation\+\_\+via\+\_\+fitness (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E\+R\+A\+T\+I\+O\+N} $\ast$$\ast$}]{head, }
+\item[{int}]{fitness\+\_\+value}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a63d1cfc35acb88a5f53c17d1d1c9e723}
+
+
+Definition at line 96 of file ag.\+c.
+
+\hypertarget{ag_8c_af417de237f958984cb44f09a276e67fb}{}\index{ag.\+c@{ag.\+c}!shuffle\+\_\+genes@{shuffle\+\_\+genes}}
+\index{shuffle\+\_\+genes@{shuffle\+\_\+genes}!ag.\+c@{ag.\+c}}
+\subsubsection[{shuffle\+\_\+genes}]{\setlength{\rightskip}{0pt plus 5cm}void shuffle\+\_\+genes (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$}]{chromo, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\label{ag_8c_af417de237f958984cb44f09a276e67fb}
+
+
+Definition at line 372 of file ag.\+c.
+
+\hypertarget{ag_8c_a7dd45f7465f78a72a595385763c62f96}{}\index{ag.\+c@{ag.\+c}!sort\+\_\+cromo\+\_\+by\+\_\+fitness@{sort\+\_\+cromo\+\_\+by\+\_\+fitness}}
+\index{sort\+\_\+cromo\+\_\+by\+\_\+fitness@{sort\+\_\+cromo\+\_\+by\+\_\+fitness}!ag.\+c@{ag.\+c}}
+\subsubsection[{sort\+\_\+cromo\+\_\+by\+\_\+fitness}]{\setlength{\rightskip}{0pt plus 5cm}void sort\+\_\+cromo\+\_\+by\+\_\+fitness (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a7dd45f7465f78a72a595385763c62f96}
+
+
+Definition at line 202 of file ag.\+c.
+
+\hypertarget{ag_8c_ab21430674daaed74337ad7a4232f7d1d}{}\index{ag.\+c@{ag.\+c}!sum\+\_\+population\+\_\+fitness@{sum\+\_\+population\+\_\+fitness}}
+\index{sum\+\_\+population\+\_\+fitness@{sum\+\_\+population\+\_\+fitness}!ag.\+c@{ag.\+c}}
+\subsubsection[{sum\+\_\+population\+\_\+fitness}]{\setlength{\rightskip}{0pt plus 5cm}float sum\+\_\+population\+\_\+fitness (
+\begin{DoxyParamCaption}
+\item[{{\bf P\+O\+P\+U\+L\+A\+T\+I\+O\+N} $\ast$}]{population}
+\end{DoxyParamCaption}
+)}\label{ag_8c_ab21430674daaed74337ad7a4232f7d1d}
+
+
+Definition at line 233 of file ag.\+c.
+
+\hypertarget{ag_8c_ad4b9a55c1f811e1b11dad7ef011c857b}{}\index{ag.\+c@{ag.\+c}!swap\+\_\+cromo@{swap\+\_\+cromo}}
+\index{swap\+\_\+cromo@{swap\+\_\+cromo}!ag.\+c@{ag.\+c}}
+\subsubsection[{swap\+\_\+cromo}]{\setlength{\rightskip}{0pt plus 5cm}void swap\+\_\+cromo (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$}]{a, }
+\item[{{\bf C\+H\+R\+O\+M\+O\+S\+O\+M\+E} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{ag_8c_ad4b9a55c1f811e1b11dad7ef011c857b}
+
+
+Definition at line 388 of file ag.\+c.
+
+\hypertarget{ag_8c_a97892c1d32abe9f92d1cf69c75b4f0f5}{}\index{ag.\+c@{ag.\+c}!swap\+\_\+gene@{swap\+\_\+gene}}
+\index{swap\+\_\+gene@{swap\+\_\+gene}!ag.\+c@{ag.\+c}}
+\subsubsection[{swap\+\_\+gene}]{\setlength{\rightskip}{0pt plus 5cm}void swap\+\_\+gene (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+E\+N\+E} $\ast$}]{a, }
+\item[{{\bf G\+E\+N\+E} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{ag_8c_a97892c1d32abe9f92d1cf69c75b4f0f5}
+
+
+Definition at line 394 of file ag.\+c.
+

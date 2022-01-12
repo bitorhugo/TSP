@@ -4,6 +4,7 @@
 
 #include "chromosome.h"
 #include <math.h>
+#include <time.h>
 
 /*
  * Private prototype
@@ -16,6 +17,12 @@ float euclidean_dist(GENE *first, GENE *second);
 CHROMOSOME *allocate_memory_chromosome(int size) {
     CHROMOSOME *new_chromo = calloc(size, sizeof(CHROMOSOME));
     return new_chromo;
+}
+
+void deallocate_memory_chromosome(CHROMOSOME *chromosome) {
+    // free genes array in chromosome
+    deallocate_memory_gene(chromosome->genes);
+
 }
 
 void insert_gene(CHROMOSOME *chromosome, const COUNTRY *booked_trip) {
@@ -39,12 +46,10 @@ void insert_gene(CHROMOSOME *chromosome, const COUNTRY *booked_trip) {
 void shuffle_genes(CHROMOSOME *chromosome) {
 
     if (chromosome->num_genes > 1) { // has to have more than one gene for swap to occur
-        for (size_t i = 0; i < chromosome->num_genes - 1; ++i) {
-            size_t j = i + rand() / (RAND_MAX / (chromosome->num_genes - i) + 1);
-            // swap
-            GENE t = *(chromosome->genes + j);
-            *(chromosome->genes + j) = *(chromosome->genes + i);
-            *(chromosome->genes + i) = t;
+        srand(time(NULL));
+        for (size_t i = chromosome->num_genes - 1; i > 0; --i) {
+            int j = rand () % (i + 1);
+            swap_gene(chromosome->genes + i, chromosome->genes + j);
         }
     }
 

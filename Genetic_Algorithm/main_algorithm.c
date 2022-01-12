@@ -29,19 +29,19 @@ void initialize_algorithm (const COUNTRY *booked_trip, int num_iterations, int s
     GENERATION generation = {0};
 
     // insert first population
-    generation.parent_population = insert_first_population(booked_trip, size_population);
+    insert_first_population(&generation, booked_trip, size_population);
 
     // insert child population
-    generation.child_population = insert_child_population(&generation, num_elitism, prob_mutation);
+    insert_child_population(&generation, num_elitism, prob_mutation);
     insert_generation(&list, false, generation);
 
     for (size_t i = 1; i <= num_iterations; ++i) {
 
         // next generation parent will be the same as last generation child
-        generation.parent_population = generation.child_population;
+        generation.parent_population = deep_copy_population(&generation.child_population);
 
         // insert child population
-        generation.child_population = insert_child_population(&generation, num_elitism, prob_mutation);
+        insert_child_population(&generation, num_elitism, prob_mutation);
 
         // set generation id value
         generation.id = i;
@@ -53,6 +53,8 @@ void initialize_algorithm (const COUNTRY *booked_trip, int num_iterations, int s
     // prints best route found
     print_last_generation_route(&list);
 
+    // free list
+    deallocate_generation_linked_list(&list);
 }
 
 /*

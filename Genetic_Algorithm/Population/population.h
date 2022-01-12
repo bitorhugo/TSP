@@ -17,6 +17,7 @@ typedef struct population {
  */
 POPULATION *allocate_memory_population();
 
+void deallocate_memory_population (POPULATION *population);
 /**
  * inserts chromosomes into population
  * @param population address of population

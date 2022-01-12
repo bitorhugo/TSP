@@ -1,0 +1,458 @@
+.TH "Porto_Pontos/Client_Linked_List/client_linked_list.c" 3 "Mon Jan 10 2022" "TSP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Porto_Pontos/Client_Linked_List/client_linked_list.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'client_linked_list\&.h'\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsort_clients_id\fP (\fBCLIENT_NODE\fP **head)"
+.br
+.ti -1c
+.RI "void \fBsplit_list_in_two\fP (\fBCLIENT_NODE\fP *source, \fBCLIENT_NODE\fP **frontRef, \fBCLIENT_NODE\fP **backRef)"
+.br
+.ti -1c
+.RI "\fBCLIENT_NODE\fP * \fBsorted_merge\fP (\fBCLIENT_NODE\fP *a, \fBCLIENT_NODE\fP *b)"
+.br
+.ti -1c
+.RI "void \fBread_clients_txt\fP (\fBCLIENT_LL\fP *list, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBread_booked_trips_txt\fP (\fBCLIENT\fP *\fBclient\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBread_finished_trips_txt\fP (\fBCLIENT\fP *\fBclient\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBread_cities_txt\fP (\fBCOUNTRY\fP *\fBcountry\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBread_description_txt\fP (\fBCITY\fP *\fBcity\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBread_poi_txt\fP (\fBCITY\fP *\fBcity\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBsave_client_txt\fP (\fBCLIENT_LL\fP *list, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBsave_booked_trips_txt\fP (\fBCLIENT\fP *\fBclient\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBsave_finished_trips_txt\fP (\fBCLIENT\fP *\fBclient\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBsave_cities_txt\fP (\fBCOUNTRY\fP *\fBcountry\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBsave_description_txt\fP (\fBCITY\fP *\fBcity\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBsave_poi_txt\fP (\fBCITY\fP *\fBcity\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBread_clients_bin\fP (\fBCLIENT_LL\fP *list, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBread_booked_trips_bin\fP (\fBCLIENT\fP *\fBclient\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBread_finished_trips_bin\fP (\fBCLIENT\fP *\fBclient\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBread_cities_bin\fP (\fBCOUNTRY\fP *\fBcountry\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBread_description_bin\fP (\fBCITY\fP *\fBcity\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBread_poi_bin\fP (\fBCITY\fP *\fBcity\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBsave_client_bin\fP (\fBCLIENT_LL\fP *list, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBsave_booked_trips_bin\fP (\fBCLIENT\fP *\fBclient\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBsave_finished_trips_bin\fP (\fBCLIENT\fP *\fBclient\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBsave_cities_bin\fP (\fBCOUNTRY\fP *\fBcountry\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBsave_description_bin\fP (\fBCITY\fP *\fBcity\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBsave_poi_bin\fP (\fBCITY\fP *\fBcity\fP, FILE *fp)"
+.br
+.ti -1c
+.RI "void \fBdeallocate_booked_trips\fP (\fBCLIENT\fP *\fBclient\fP)"
+.br
+.ti -1c
+.RI "void \fBdeallocate_finished_trips\fP (\fBCLIENT\fP *\fBclient\fP)"
+.br
+.ti -1c
+.RI "void \fBdeallocate_cities\fP (\fBCOUNTRY\fP *\fBcountry\fP)"
+.br
+.ti -1c
+.RI "void \fBdeallocate_poi\fP (\fBCITY\fP *\fBcity\fP)"
+.br
+.ti -1c
+.RI "void \fBdeallocate_str\fP (char *str)"
+.br
+.ti -1c
+.RI "void \fBinsert_client\fP (\fBCLIENT_LL\fP *list, bool at_head, char *name, uint32_t VAT, char *address, uint32_t phone_number, int birth_day, int birth_month, int birth_year)"
+.br
+.ti -1c
+.RI "void \fBinsert_client_sorted\fP (\fBCLIENT_LL\fP *list, char *name, uint32_t VAT, char *address, uint32_t phone_number, int birth_day, int birth_month, int birth_year)"
+.br
+.ti -1c
+.RI "\fBCLIENT\fP * \fBsearch_client\fP (\fBCLIENT_LL\fP *list, const char *client_name)"
+.br
+.ti -1c
+.RI "void \fBremove_client\fP (\fBCLIENT_LL\fP *list, char *client_name)"
+.br
+.ti -1c
+.RI "void \fBsort_clients\fP (\fBCLIENT_LL\fP *list)"
+.br
+.ti -1c
+.RI "void \fBprint_clients\fP (\fBCLIENT_LL\fP *list)"
+.br
+.ti -1c
+.RI "void \fBclient_report_txt\fP (\fBCLIENT_LL\fP *list, char *filename)"
+.br
+.ti -1c
+.RI "void \fBread_list_txt\fP (\fBCLIENT_LL\fP *list, char *filename)"
+.br
+.ti -1c
+.RI "void \fBsave_list_txt\fP (\fBCLIENT_LL\fP *list, char *filename)"
+.br
+.ti -1c
+.RI "void \fBread_list_bin\fP (\fBCLIENT_LL\fP *list, char *filename)"
+.br
+.ti -1c
+.RI "void \fBsave_list_bin\fP (\fBCLIENT_LL\fP *list, char *filename)"
+.br
+.ti -1c
+.RI "void \fBdeallocate_client_linked_list\fP (\fBCLIENT_LL\fP *list)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void client_report_txt (\fBCLIENT_LL\fP * list, char * filename)"
+saves clients info to \&.txt file 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP linked list 
+.br
+\fIfilename\fP file name 
+.RE
+.PP
+
+.PP
+Definition at line 142 of file client_linked_list\&.c\&.
+.SS "void deallocate_booked_trips (\fBCLIENT\fP * client)"
+
+.PP
+Definition at line 820 of file client_linked_list\&.c\&.
+.SS "void deallocate_cities (\fBCOUNTRY\fP * country)"
+
+.PP
+Definition at line 843 of file client_linked_list\&.c\&.
+.SS "void deallocate_client_linked_list (\fBCLIENT_LL\fP * list)"
+
+.PP
+Definition at line 277 of file client_linked_list\&.c\&.
+.SS "void deallocate_finished_trips (\fBCLIENT\fP * client)"
+
+.PP
+Definition at line 833 of file client_linked_list\&.c\&.
+.SS "void deallocate_poi (\fBCITY\fP * city)"
+
+.PP
+Definition at line 860 of file client_linked_list\&.c\&.
+.SS "void deallocate_str (char * str)"
+
+.PP
+Definition at line 867 of file client_linked_list\&.c\&.
+.SS "void insert_client (\fBCLIENT_LL\fP * list, bool at_head, char * name, uint32_t VAT, char * address, uint32_t phone_number, int birth_day, int birth_month, int birth_year)"
+insert client into linked list 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP linked list 
+.br
+\fIat_head\fP choose if client is inserted at head 
+.br
+\fIname\fP client name 
+.br
+\fIVAT\fP client VAT 
+.br
+\fIaddress\fP client address 
+.br
+\fIphone_number\fP client phone number 
+.br
+\fIbirth_day\fP client birth day 
+.br
+\fIbirth_month\fP client birth month 
+.br
+\fIbirth_year\fP client birth year 
+.RE
+.PP
+
+.PP
+Definition at line 54 of file client_linked_list\&.c\&.
+.SS "void insert_client_sorted (\fBCLIENT_LL\fP * list, char * name, uint32_t VAT, char * address, uint32_t phone_number, int birth_day, int birth_month, int birth_year)"
+insert a client into linked list sorted 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP linked list 
+.br
+\fIname\fP client name 
+.br
+\fIVAT\fP client VAT 
+.br
+\fIaddress\fP client address 
+.br
+\fIphone_number\fP client phone number 
+.br
+\fIbirth_day\fP client birth day 
+.br
+\fIbirth_month\fP client birth month 
+.br
+\fIbirth_year\fP client birth year 
+.RE
+.PP
+
+.PP
+Definition at line 79 of file client_linked_list\&.c\&.
+.SS "void print_clients (\fBCLIENT_LL\fP * list)"
+print all clients from linked list 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP linked list 
+.RE
+.PP
+
+.PP
+Definition at line 130 of file client_linked_list\&.c\&.
+.SS "void read_booked_trips_bin (\fBCLIENT\fP * client, FILE * fp)"
+
+.PP
+Definition at line 574 of file client_linked_list\&.c\&.
+.SS "void read_booked_trips_txt (\fBCLIENT\fP * client, FILE * fp)"
+
+.PP
+Definition at line 345 of file client_linked_list\&.c\&.
+.SS "void read_cities_bin (\fBCOUNTRY\fP * country, FILE * fp)"
+
+.PP
+Definition at line 618 of file client_linked_list\&.c\&.
+.SS "void read_cities_txt (\fBCOUNTRY\fP * country, FILE * fp)"
+
+.PP
+Definition at line 375 of file client_linked_list\&.c\&.
+.SS "void read_clients_bin (\fBCLIENT_LL\fP * list, FILE * fp)"
+
+.PP
+Definition at line 526 of file client_linked_list\&.c\&.
+.SS "void read_clients_txt (\fBCLIENT_LL\fP * list, FILE * fp)"
+
+.PP
+Definition at line 306 of file client_linked_list\&.c\&.
+.SS "void read_description_bin (\fBCITY\fP * city, FILE * fp)"
+
+.PP
+Definition at line 648 of file client_linked_list\&.c\&.
+.SS "void read_description_txt (\fBCITY\fP * city, FILE * fp)"
+
+.PP
+Definition at line 403 of file client_linked_list\&.c\&.
+.SS "void read_finished_trips_bin (\fBCLIENT\fP * client, FILE * fp)"
+
+.PP
+Definition at line 596 of file client_linked_list\&.c\&.
+.SS "void read_finished_trips_txt (\fBCLIENT\fP * client, FILE * fp)"
+
+.PP
+Definition at line 361 of file client_linked_list\&.c\&.
+.SS "void read_list_bin (\fBCLIENT_LL\fP * list, char * filename)"
+reads clients and their info ino linked list from \&.bin file 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP 
+.br
+\fIfilename\fP 
+.RE
+.PP
+
+.PP
+Definition at line 258 of file client_linked_list\&.c\&.
+.SS "void read_list_txt (\fBCLIENT_LL\fP * list, char * filename)"
+read clients into linked list from \&.txt file 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP linked list 
+.br
+\fIfilename\fP filename 
+.RE
+.PP
+
+.PP
+Definition at line 198 of file client_linked_list\&.c\&.
+.SS "void read_poi_bin (\fBCITY\fP * city, FILE * fp)"
+
+.PP
+Definition at line 658 of file client_linked_list\&.c\&.
+.SS "void read_poi_txt (\fBCITY\fP * city, FILE * fp)"
+
+.PP
+Definition at line 411 of file client_linked_list\&.c\&.
+.SS "void remove_client (\fBCLIENT_LL\fP * list, char * client_name)"
+removes a client from the linked list 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP linked list 
+.br
+\fIclient\fP client wanted 
+.RE
+.PP
+
+.PP
+Definition at line 98 of file client_linked_list\&.c\&.
+.SS "void save_booked_trips_bin (\fBCLIENT\fP * client, FILE * fp)"
+
+.PP
+Definition at line 720 of file client_linked_list\&.c\&.
+.SS "void save_booked_trips_txt (\fBCLIENT\fP * client, FILE * fp)"
+
+.PP
+Definition at line 462 of file client_linked_list\&.c\&.
+.SS "void save_cities_bin (\fBCOUNTRY\fP * country, FILE * fp)"
+
+.PP
+Definition at line 754 of file client_linked_list\&.c\&.
+.SS "void save_cities_txt (\fBCOUNTRY\fP * country, FILE * fp)"
+
+.PP
+Definition at line 492 of file client_linked_list\&.c\&.
+.SS "void save_client_bin (\fBCLIENT_LL\fP * list, FILE * fp)"
+
+.PP
+Definition at line 675 of file client_linked_list\&.c\&.
+.SS "void save_client_txt (\fBCLIENT_LL\fP * list, FILE * fp)"
+
+.PP
+Definition at line 431 of file client_linked_list\&.c\&.
+.SS "void save_description_bin (\fBCITY\fP * city, FILE * fp)"
+
+.PP
+Definition at line 780 of file client_linked_list\&.c\&.
+.SS "void save_description_txt (\fBCITY\fP * city, FILE * fp)"
+
+.PP
+Definition at line 511 of file client_linked_list\&.c\&.
+.SS "void save_finished_trips_bin (\fBCLIENT\fP * client, FILE * fp)"
+
+.PP
+Definition at line 737 of file client_linked_list\&.c\&.
+.SS "void save_finished_trips_txt (\fBCLIENT\fP * client, FILE * fp)"
+
+.PP
+Definition at line 478 of file client_linked_list\&.c\&.
+.SS "void save_list_bin (\fBCLIENT_LL\fP * list, char * filename)"
+save clients info into to -bin file 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP linked list 
+.br
+\fIfilename\fP filename 
+.RE
+.PP
+
+.PP
+Definition at line 267 of file client_linked_list\&.c\&.
+.SS "void save_list_txt (\fBCLIENT_LL\fP * list, char * filename)"
+save linked list info to \&.txt file 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP linked list 
+.br
+\fIfilename\fP filename 
+.RE
+.PP
+
+.PP
+Definition at line 229 of file client_linked_list\&.c\&.
+.SS "void save_poi_bin (\fBCITY\fP * city, FILE * fp)"
+
+.PP
+Definition at line 786 of file client_linked_list\&.c\&.
+.SS "void save_poi_txt (\fBCITY\fP * city, FILE * fp)"
+
+.PP
+Definition at line 515 of file client_linked_list\&.c\&.
+.SS "\fBCLIENT\fP* search_client (\fBCLIENT_LL\fP * list, const char * client_name)"
+searches for a client from the linked list 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP linked list 
+.br
+\fIclient_name\fP clients name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+return client wanted 
+.RE
+.PP
+
+.PP
+Definition at line 86 of file client_linked_list\&.c\&.
+.SS "void sort_clients (\fBCLIENT_LL\fP * list)"
+sorts clients from linked list 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP linked list 
+.RE
+.PP
+
+.PP
+Definition at line 123 of file client_linked_list\&.c\&.
+.SS "void sort_clients_id (\fBCLIENT_NODE\fP ** head)"
+
+.PP
+Definition at line 800 of file client_linked_list\&.c\&.
+.SS "\fBCLIENT_NODE\fP * sorted_merge (\fBCLIENT_NODE\fP * a, \fBCLIENT_NODE\fP * b)"
+
+.PP
+Definition at line 901 of file client_linked_list\&.c\&.
+.SS "void split_list_in_two (\fBCLIENT_NODE\fP * source, \fBCLIENT_NODE\fP ** frontRef, \fBCLIENT_NODE\fP ** backRef)"
+
+.PP
+Definition at line 871 of file client_linked_list\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TSP from the source code\&.
