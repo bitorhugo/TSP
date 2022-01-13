@@ -14,12 +14,14 @@ void swap_cromo(CHROMOSOME *a, CHROMOSOME *b);
  */
 
 void deallocate_memory_population (POPULATION *population) {
-    for (int i = population->num_chromosomes - 1; i >= 0; --i) {
-        CHROMOSOME *temp_chromo = population->chromosomes + i;
-        deallocate_memory_chromosome(temp_chromo);
+    if (population->num_chromosomes > 1) {
+        for (int i = population->num_chromosomes - 1; i >= 0; --i) {
+            CHROMOSOME *temp_chromo = population->chromosomes + i;
+            deallocate_memory_chromosome(temp_chromo);
+        }
+        // frees chromosomes array
+        free(population->chromosomes);
     }
-    // frees chromosomes array
-    free(population->chromosomes);
 }
 
 void sort_chromosomes_by_fitness(POPULATION *population) {

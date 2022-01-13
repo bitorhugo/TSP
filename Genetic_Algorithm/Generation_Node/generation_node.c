@@ -39,8 +39,19 @@ void insert_best_population(GENERATION_NODE *node) {
     // set chromosomes
     for (size_t i = 0; i < node->best_population.num_chromosomes; ++i) {
         CHROMOSOME *temp_chromo_old = node->generation.parent_population.chromosomes + i;
-        CHROMOSOME *tem_chromo_new = node->best_population.chromosomes + i;
-        *tem_chromo_new = *temp_chromo_old;
+        CHROMOSOME *temp_chromo_new = node->best_population.chromosomes + i;
+
+        temp_chromo_new->genes = allocate_memory_gene(temp_chromo_old->num_genes);
+
+        for (size_t j = 0; j < temp_chromo_old->num_genes; ++j) {
+            GENE *temp_gene_old = temp_chromo_old->genes + j;
+            GENE *temp_gene_new = temp_chromo_new->genes + j;
+
+            temp_gene_new->id = temp_gene_old->id;
+            temp_gene_new->x = temp_gene_old->x;
+            temp_gene_new->y = temp_gene_old->y;
+
+        }
     }
 }
 

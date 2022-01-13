@@ -21,8 +21,9 @@ CHROMOSOME *allocate_memory_chromosome(int size) {
 
 void deallocate_memory_chromosome(CHROMOSOME *chromosome) {
     // free genes array in chromosome
-    deallocate_memory_gene(chromosome->genes);
-
+    if (chromosome->num_genes > 1) {
+        deallocate_memory_gene(chromosome->genes);
+    }
 }
 
 void insert_gene(CHROMOSOME *chromosome, const COUNTRY *booked_trip) {

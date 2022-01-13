@@ -59,7 +59,7 @@ void deallocate_generation_linked_list(GENERATION_LL *list) {
         // free child population
         deallocate_memory_population(&temp_node->generation.child_population);
         // free best population
-        //deallocate_memory_population(&list->head->best_population);
+        deallocate_memory_population(&temp_node->best_population);
 
         // free generation node
         deallocate_memory_generation_node(temp_node);
